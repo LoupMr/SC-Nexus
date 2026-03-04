@@ -44,9 +44,9 @@ export default function Home() {
   const [opsCount, setOpsCount] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("/api/members")
-      .then((r) => (r.ok ? r.json() : []))
-      .then((data) => { if (Array.isArray(data)) setMemberCount(data.length); })
+    fetch("/api/members/count")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => { if (data?.count != null) setMemberCount(data.count); })
       .catch(() => {});
     fetch("/api/operations")
       .then((r) => (r.ok ? r.json() : []))

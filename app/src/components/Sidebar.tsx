@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Shield, Crosshair, BookOpen, ChevronLeft, ChevronRight, LogOut, KeyRound, Copy, RefreshCw, User, Users } from "lucide-react";
+import { Shield, Crosshair, BookOpen, ChevronLeft, ChevronRight, LogOut, KeyRound, Copy, RefreshCw, User, Users, Link2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import clsx from "clsx";
@@ -11,6 +11,7 @@ const navItems = [
   { href: "/armory", label: "Armory", icon: Crosshair, description: "Item Database", adminOnly: false },
   { href: "/ledger", label: "Ledger", icon: BookOpen, description: "Inventory Tracker", adminOnly: false },
   { href: "/conquest-ops", label: "Operation Guide", icon: Shield, description: "Tactical Guide", adminOnly: false },
+  { href: "/links", label: "Useful Links", icon: Link2, description: "Star Citizen Resources", adminOnly: false },
   { href: "/members", label: "Members", icon: Users, description: "Manage Org Members", adminOnly: true },
 ];
 

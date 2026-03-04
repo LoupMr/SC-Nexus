@@ -77,6 +77,14 @@ function initSchema(db: Database.Database) {
       description TEXT NOT NULL,
       map_url TEXT
     );
+
+    CREATE TABLE IF NOT EXISTS links (
+      id TEXT PRIMARY KEY,
+      title TEXT NOT NULL,
+      description TEXT NOT NULL,
+      url TEXT NOT NULL,
+      sort_order INTEGER NOT NULL DEFAULT 0
+    );
   `);
 
   const adminExists = db.prepare("SELECT id FROM users WHERE username = ?").get("admin");
@@ -96,6 +104,23 @@ function initSchema(db: Database.Database) {
   const opsExist = db.prepare("SELECT id FROM operations LIMIT 1").get();
   if (!opsExist) {
     seedContestedZone(db);
+  }
+
+  const linksExist = db.prepare("SELECT id FROM links LIMIT 1").get();
+  if (!linksExist) {
+    seedLinks(db);
+  }
+}
+
+function seedLinks(db: Database.Database) {
+  const defaults = [
+    { id: "link-uif", title: "Star Citizen Database", description: "Universal Item Finder", url: "https://finder.cstone.space/", order: 0 },
+    { id: "link-resource", title: "Star Citizen Resource Hub", description: "Star Citizen Links", url: "https://start.me/p/bpLle8/star-citizen-links", order: 1 },
+    { id: "link-wikelo", title: "Wikelo Guide Sheet", description: "ChrisGBG's Star Citizen Reference Sheets", url: "https://docs.google.com/spreadsheets/d/1ji0q_pp6iW35RG1YyFEsv-lsmZOaCStJXGdIEdLLwhM/edit?gid=481073732#gid=481073732", order: 2 },
+  ];
+  const insert = db.prepare("INSERT INTO links (id, title, description, url, sort_order) VALUES (?, ?, ?, ?, ?)");
+  for (const l of defaults) {
+    insert.run(l.id, l.title, l.description, l.url, l.order);
   }
 }
 
@@ -413,5 +438,38 @@ export function updateOperation(opId: string, title: string, description: string
 
 export function deleteOperation(opId: string): boolean {
   const result = getDb().prepare("DELETE FROM operations WHERE id = ?").run(opId);
+  return result.changes > 0;
+}
+
+// --- Links ---
+
+export interface Link {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  sortOrder: number;
+}
+
+export function getAllLinks(): Link[] {
+  const rows = getDb().prepare("SELECT id, title, description, url, sort_order as sortOrder FROM links ORDER BY sort_order, id").all() as Link[];
+  return rows;
+}
+
+export function createLink(title: string, description: string, url: string): Link {
+  const id = `link-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+  const maxOrder = getDb().prepare("SELECT COALESCE(MAX(sort_order), -1) + 1 as next FROM links").get() as { next: number };
+  getDb().prepare("INSERT INTO links (id, title, description, url, sort_order) VALUES (?, ?, ?, ?, ?)").run(id, title, description, url, maxOrder.next);
+  return getAllLinks().find((l) => l.id === id)!;
+}
+
+export function updateLink(id: string, title: string, description: string, url: string): Link | null {
+  const result = getDb().prepare("UPDATE links SET title = ?, description = ?, url = ? WHERE id = ?").run(title, description, url, id);
+  if (result.changes === 0) return null;
+  return getAllLinks().find((l) => l.id === id) || null;
+}
+
+export function deleteLink(id: string): boolean {
+  const result = getDb().prepare("DELETE FROM links WHERE id = ?").run(id);
   return result.changes > 0;
 }

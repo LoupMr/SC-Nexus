@@ -1,0 +1,99 @@
+[
+  {
+    "id": "entry-1",
+    "itemName": "'WAR' Cannon",
+    "subcategory": "Weapons",
+    "owner": "Commander_Starlight",
+    "status": "Available",
+    "quantity": 5,
+    "location": "Orison Appt",
+    "history": [
+      {
+        "action": "added",
+        "user": "Commander_Starlight",
+        "timestamp": "2950-03-15T10:30:00Z",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "entry-2",
+    "itemName": "5CA 'Akura'",
+    "subcategory": "Shields",
+    "owner": "Ghost_Runner",
+    "status": "Low Stock",
+    "quantity": 1,
+    "location": "Lorville Hangar",
+    "history": [
+      {
+        "action": "added",
+        "user": "Ghost_Runner",
+        "timestamp": "2950-03-10T08:00:00Z",
+        "quantity": 3
+      },
+      {
+        "action": "taken",
+        "user": "Viper_Six",
+        "timestamp": "2950-03-12T14:20:00Z",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "entry-3",
+    "itemName": "Colossus Bomb",
+    "subcategory": "Bombs",
+    "owner": "Titan_Lead",
+    "status": "Available",
+    "quantity": 10,
+    "location": "GrimHex Storage",
+    "history": [
+      {
+        "action": "added",
+        "user": "Titan_Lead",
+        "timestamp": "2950-03-14T16:45:00Z",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "id": "entry-4",
+    "itemName": "Agni",
+    "subcategory": "QuantumDrives",
+    "owner": "Navigator_Prime",
+    "status": "Depleted",
+    "quantity": 0,
+    "location": "Port Olisar",
+    "history": [
+      {
+        "action": "added",
+        "user": "Navigator_Prime",
+        "timestamp": "2950-03-08T12:00:00Z",
+        "quantity": 2
+      },
+      {
+        "action": "taken",
+        "user": "Hawk_Eye",
+        "timestamp": "2950-03-11T09:15:00Z",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": "entry-5",
+    "itemName": "'Arrow' I Missile",
+    "subcategory": "Missiles",
+    "owner": "Commander_Starlight",
+    "status": "Available",
+    "quantity": 50,
+    "location": "Everus Harbor",
+    "history": [
+      {
+        "action": "added",
+        "user": "Commander_Starlight",
+        "timestamp": "2950-03-13T11:30:00Z",
+        "quantity": 50
+      }
+    ]
+  }
+]

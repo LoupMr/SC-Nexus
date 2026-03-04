@@ -1,0 +1,226 @@
+[
+    {
+      "Name": "Anvil F7A Hornet Mk I Nose Turret",
+      "Size": 3,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 2,
+      "Volume": 84000
+    },
+    {
+      "Name": "Anvil F7C-M Mk II Ball Turret",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 3,
+      "PortSize": 3,
+      "Volume": 84000
+    },
+    {
+      "Name": "Anvil Hornet F7C Nose Turret",
+      "Size": 3,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 1,
+      "Volume": 84000
+    },
+    {
+      "Name": "Anvil Hornet Mk II S2 Nose Turret",
+      "Size": 3,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 2,
+      "Volume": 84000
+    },
+    {
+      "Name": "Anvil Hornet Mk II S3 Nose Turret",
+      "Size": 3,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 3,
+      "Volume": 84000
+    },
+    {
+      "Name": "Anvil Lightning F8 Turret",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 3,
+      "Volume": 84000
+    },
+    {
+      "Name": "C4-160f S5 Hornet Ball Turret",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 2,
+      "Volume": 1
+    },
+    {
+      "Name": "C4-163f S5 Hornet Mk I Ball Turret",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 3,
+      "Volume": 1
+    },
+    {
+      "Name": "C5-173f S5 Hornet Mk II Ball Turret",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 3,
+      "Volume": 84000
+    },
+    {
+      "Name": "Drake Buccaneer Spinal Mount",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 2,
+      "Volume": 84000
+    },
+    {
+      "Name": "Reliant Cernan Camera Package",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 0,
+      "PortSize": null,
+      "Volume": 84000
+    },
+    {
+      "Name": "Reliant Gilroy Gimbal",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 3,
+      "Volume": 84000
+    },
+    {
+      "Name": "Reliant Samos Sensor Suite",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 0,
+      "PortSize": null,
+      "Volume": 84000
+    },
+    {
+      "Name": "Reliant Toshima Turret (2XS4)",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 2,
+      "Volume": 84000
+    },
+    {
+      "Name": "Reliant Toshima Turret (Tractor)",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 2,
+      "Volume": 84000
+    },
+    {
+      "Name": "Reliant Utility Mount Cap",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 0,
+      "PortSize": null,
+      "Volume": 84000
+    },
+    {
+      "Name": "RSI Lesath Missile Turret",
+      "Size": 3,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 5,
+      "Volume": 1
+    },
+    {
+      "Name": "Specialty Hornet S5 VariPuck Mount",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 4,
+      "Volume": 84000
+    },
+    {
+      "Name": "TMSB-5 Ball Turret",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 2,
+      "PortSize": 4,
+      "Volume": 84000
+    },
+    {
+      "Name": "TMSB-5 Gimbal Mount",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 3,
+      "Volume": 756000
+    },
+    {
+      "Name": "VariPuck S1 Gimbal Mount",
+      "Size": 1,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 1,
+      "Volume": 1
+    },
+    {
+      "Name": "VariPuck S2 Gimbal Mount",
+      "Size": 2,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 2,
+      "Volume": 252000
+    },
+    {
+      "Name": "VariPuck S3 Gimbal Mount",
+      "Size": 3,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 3,
+      "Volume": 756000
+    },
+    {
+      "Name": "VariPuck S4 Gimbal Mount",
+      "Size": 4,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 4,
+      "Volume": 2100000
+    },
+    {
+      "Name": "VariPuck S5 Gimbal Mount",
+      "Size": 5,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 5,
+      "Volume": 4200000
+    },
+    {
+      "Name": "VariPuck S6 Gimbal Mount",
+      "Size": 6,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 6,
+      "Volume": 7560000
+    },
+    {
+      "Name": "VariPuck S7 Gimbal Mount",
+      "Size": 6,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 7,
+      "Volume": 7560000
+    },
+    {
+      "Name": "VariPuck S8 Gimbal Mount",
+      "Size": 8,
+      "Grade": "A",
+      "PortCount": 1,
+      "PortSize": 8,
+      "Volume": 7560000
+    }
+  ]

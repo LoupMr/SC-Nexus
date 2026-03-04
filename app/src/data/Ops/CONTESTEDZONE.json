@@ -1,0 +1,106 @@
+[
+    {
+      "Order": 1,
+      "Station": "PYAM-SUPVISR-3-4",
+      "Target": "PYAM Supervisor Keycard",
+      "Requirements": "1x Fuse",
+      "Description": "Located behind a fuse door, look for the Green cross",
+      "Map": null
+    },
+    {
+      "Order": 2,
+      "Station": "PYAM-SUPVISR-3-5",
+      "Target": "PYAM Supervisor Keycard",
+      "Requirements": "1x Fuse",
+      "Description": "Located behind a fuse door, look for the Green cross",
+      "Map": null
+    },
+    {
+      "Order": 3,
+      "Station": "Checkmate",
+      "Target": "Board 1",
+      "Requirements": "1x Fuse + 1x Red Door",
+      "Description": "Located behind a fuse door and a red door.",
+      "Map": "https://imgur.com/a/0X1vUdk"
+    },
+    {
+      "Order": 4,
+      "Station": "Checkmate",
+      "Target": "Boards 2 & 3",
+      "Requirements": "Option A: 1x Fuse -> 1x Red -> 1x Blue\nOption B: 2x Fuse -> 2x Blue",
+      "Description": "Located in the hangar. Accessible via two entrances: one with a Fuse/Red/Blue combo, the other with two Fuses and two Blue doors.",
+      "Map": "https://imgur.com/a/0X1vUdk"
+    },
+    {
+      "Order": 5,
+      "Station": "Orbituary",
+      "Target": "Board 4",
+      "Requirements": "1x Fuse -> 1x Red -> 1x Fuse",
+      "Description": "Located behind a fuse door, a red door, and a second fuse door.",
+      "Map": "https://imgur.com/a/unXKnMx"
+    },
+    {
+      "Order": 6,
+      "Station": "Orbituary",
+      "Target": "Board 7",
+      "Requirements": "1x Fuse -> 1x Red -> 1x Fuse -> 2x Blue",
+      "Description": "Located in the hangar, behind a sequence of a fuse door, red door, another fuse door, and then two blue doors.",
+      "Map": "https://imgur.com/a/unXKnMx"
+    },
+    {
+      "Order": 7,
+      "Station": "Ruin",
+      "Target": "Ghost Arena",
+      "Requirements": "(Nexus/Main Entrance)",
+      "Description": "A nexus and main entrance that leads to The Crypt, Wasteland, Last Resort, and The Vault.",
+      "Map": "https://imgur.com/a/NuO6MSt"
+    },
+    {
+      "Order": 8,
+      "Station": "Ruin",
+      "Target": "The Crypt",
+      "Requirements": "Exploration",
+      "Description": "Provides access to The Crypt Keycard. This keycard is required to gain access to Board 5 within The Vault.",
+      "Map": "https://imgur.com/a/NuO6MSt"
+    },
+    {
+      "Order": 9,
+      "Station": "Ruin",
+      "Target": "Wasteland",
+      "Requirements": "Exploration",
+      "Description": "Provides access to the Wasteland Keycard.",
+      "Map": "https://imgur.com/a/NuO6MSt"
+    },
+    {
+      "Order": 10,
+      "Station": "Ruin",
+      "Target": "Last Resort",
+      "Requirements": "Exploration",
+      "Description": "Provides access to the Last Resort Keycard.",
+      "Map": "https://imgur.com/a/NuO6MSt"
+    },
+    {
+      "Order": 11,
+      "Station": "Ruin",
+      "Target": "The Vault",
+      "Requirements": "20-Min Timer",
+      "Description": "Door opens every 20 mins and closes after 1 min. Contains Boards 5 and 6.",
+      "Map": "https://imgur.com/a/NuO6MSt"
+    },
+    {
+      "Order": 12,
+      "Station": "Ruin",
+      "Target": "Board 6",
+      "Requirements": "Timer Access",
+      "Description": "Located in the vault above the entry floor in the second room after the main Vault door.",
+      "Map": "https://imgur.com/a/NuO6MSt"
+    },
+    {
+      "Order": 13,
+      "Station": "Ruin",
+      "Target": "Board 5",
+      "Requirements": "1x Crypt Keycard",
+      "Description": "Located in the vault behind yet another door in the second room. Card found in The Crypt.",
+      "Map": "https://imgur.com/a/NuO6MSt"
+    }
+  ]

@@ -1,0 +1,46 @@
+[
+    {
+      "Name": "Excelsior",
+      "Size": 2,
+      "Grade": "C",
+      "Class": "Civilian",
+      "Durability": 350,
+      "QuantumFuelDraw": 0,
+      "AlignmentRate": 0,
+      "TuningRate": 0,
+      "Volume": 775760
+    },
+    {
+      "Name": "Exfiltrate",
+      "Size": 4,
+      "Grade": "A",
+      "Class": null,
+      "Durability": 41000,
+      "QuantumFuelDraw": 0,
+      "AlignmentRate": 0,
+      "TuningRate": 0,
+      "Volume": 1
+    },
+    {
+      "Name": "Exodus",
+      "Size": 3,
+      "Grade": "C",
+      "Class": "Civilian",
+      "Durability": 960,
+      "QuantumFuelDraw": 0,
+      "AlignmentRate": 0,
+      "TuningRate": 0,
+      "Volume": 6066000
+    },
+    {
+      "Name": "Explorer",
+      "Size": 1,
+      "Grade": "A",
+      "Class": "Civilian",
+      "Durability": 130,
+      "QuantumFuelDraw": 0,
+      "AlignmentRate": 0,
+      "TuningRate": 0,
+      "Volume": 91290
+    }
+  ]

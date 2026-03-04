@@ -11,6 +11,12 @@ interface SearchFilterProps {
   onCategoryChange: (value: string) => void;
   selectedSubcategory: string;
   onSubcategoryChange: (value: string) => void;
+  selectedSize: string;
+  onSizeChange: (value: string) => void;
+  selectedGrade: string;
+  onGradeChange: (value: string) => void;
+  availableSizes: number[];
+  availableGrades: string[];
   totalCount: number;
   filteredCount: number;
 }
@@ -22,6 +28,12 @@ export default function SearchFilter({
   onCategoryChange,
   selectedSubcategory,
   onSubcategoryChange,
+  selectedSize,
+  onSizeChange,
+  selectedGrade,
+  onGradeChange,
+  availableSizes,
+  availableGrades,
   totalCount,
   filteredCount,
 }: SearchFilterProps) {
@@ -107,6 +119,71 @@ export default function SearchFilter({
               {sub.label}
             </button>
           ))}
+        </div>
+      )}
+
+      {(selectedCategory === "Vehicle_Weaponry" || selectedCategory === "Vehicle_Components") && (
+        <div className="flex flex-wrap items-center gap-3 pt-1 border-t border-space-700/40">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] text-space-500 font-medium">Size</span>
+            <div className="flex flex-wrap gap-1">
+              <button
+                onClick={() => onSizeChange("all")}
+                className={clsx(
+                  "px-2 py-0.5 rounded text-[11px] font-medium border transition-all",
+                  selectedSize === "all"
+                    ? "bg-danger/10 border-danger/30 text-danger"
+                    : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
+                )}
+              >
+                All
+              </button>
+              {[...availableSizes].sort((a, b) => a - b).map((s) => (
+                <button
+                  key={s}
+                  onClick={() => onSizeChange(String(s))}
+                  className={clsx(
+                    "px-2 py-0.5 rounded text-[11px] font-medium border transition-all min-w-[1.5rem]",
+                    selectedSize === String(s)
+                      ? "bg-danger/10 border-danger/30 text-danger"
+                      : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
+                  )}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] text-space-500 font-medium">Grade</span>
+            <div className="flex flex-wrap gap-1">
+              <button
+                onClick={() => onGradeChange("all")}
+                className={clsx(
+                  "px-2 py-0.5 rounded text-[11px] font-medium border transition-all",
+                  selectedGrade === "all"
+                    ? "bg-danger/10 border-danger/30 text-danger"
+                    : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
+                )}
+              >
+                All
+              </button>
+              {[...availableGrades].sort().map((g) => (
+                <button
+                  key={g}
+                  onClick={() => onGradeChange(g)}
+                  className={clsx(
+                    "px-2 py-0.5 rounded text-[11px] font-medium border transition-all min-w-[1.5rem]",
+                    selectedGrade === g
+                      ? "bg-danger/10 border-danger/30 text-danger"
+                      : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
+                  )}
+                >
+                  {g}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>

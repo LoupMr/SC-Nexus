@@ -12,6 +12,34 @@ export default function ArmoryPage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [subcategory, setSubcategory] = useState("all");
+  const [size, setSize] = useState("all");
+  const [grade, setGrade] = useState("all");
+
+  const itemsMatchingCategory = useMemo(() => {
+    return allItems.filter((item) => {
+      const matchesCategory = category === "all" || item.category === category;
+      const matchesSubcategory = subcategory === "all" || item.subcategory === subcategory;
+      return matchesCategory && matchesSubcategory;
+    });
+  }, [allItems, category, subcategory]);
+
+  const availableSizes = useMemo(() => {
+    const sizes = new Set<number>();
+    for (const item of itemsMatchingCategory) {
+      const s = item.Size;
+      if (typeof s === "number" && !Number.isNaN(s)) sizes.add(s);
+    }
+    return Array.from(sizes);
+  }, [itemsMatchingCategory]);
+
+  const availableGrades = useMemo(() => {
+    const grades = new Set<string>();
+    for (const item of itemsMatchingCategory) {
+      const g = item.Grade;
+      if (typeof g === "string" && g) grades.add(g);
+    }
+    return Array.from(grades);
+  }, [itemsMatchingCategory]);
 
   const filtered = useMemo(() => {
     return allItems.filter((item) => {
@@ -21,9 +49,21 @@ export default function ArmoryPage() {
         category === "all" || item.category === category;
       const matchesSubcategory =
         subcategory === "all" || item.subcategory === subcategory;
-      return matchesSearch && matchesCategory && matchesSubcategory;
+      const matchesSize =
+        size === "all" ||
+        (typeof item.Size === "number" && String(item.Size) === size);
+      const matchesGrade =
+        grade === "all" ||
+        (typeof item.Grade === "string" && item.Grade === grade);
+      return (
+        matchesSearch &&
+        matchesCategory &&
+        matchesSubcategory &&
+        matchesSize &&
+        matchesGrade
+      );
     });
-  }, [allItems, search, category, subcategory]);
+  }, [allItems, search, category, subcategory, size, grade]);
 
   return (
     <>
@@ -37,9 +77,22 @@ export default function ArmoryPage() {
         search={search}
         onSearchChange={setSearch}
         selectedCategory={category}
-        onCategoryChange={setCategory}
+        onCategoryChange={(c) => {
+          setCategory(c);
+          setSubcategory("all");
+          if (c !== "Vehicle_Weaponry" && c !== "Vehicle_Components") {
+            setSize("all");
+            setGrade("all");
+          }
+        }}
         selectedSubcategory={subcategory}
         onSubcategoryChange={setSubcategory}
+        selectedSize={size}
+        onSizeChange={setSize}
+        selectedGrade={grade}
+        onGradeChange={setGrade}
+        availableSizes={availableSizes}
+        availableGrades={availableGrades}
         totalCount={allItems.length}
         filteredCount={filtered.length}
       />

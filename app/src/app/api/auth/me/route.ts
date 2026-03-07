@@ -4,5 +4,10 @@ import { getSessionUser } from "@/lib/session";
 export async function GET() {
   const user = await getSessionUser();
   if (!user) return NextResponse.json(null);
-  return NextResponse.json({ username: user.username, role: user.role });
+  return NextResponse.json({
+    username: user.username,
+    role: user.role,
+    roles: user.roles ?? [user.role || "viewer"],
+    avatarUrl: user.avatarUrl ?? null,
+  });
 }

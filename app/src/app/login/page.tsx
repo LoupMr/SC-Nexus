@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, LogIn, UserPlus, KeyRound, Eye, EyeOff, AlertCircle } from "lucide-react";
+import Link from "next/link";
+import { Shield, LogIn, UserPlus, KeyRound, Eye, EyeOff, AlertCircle, ArrowLeft } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
@@ -29,7 +30,7 @@ export default function LoginPage() {
         ? await login(username, password)
         : await signup(username, password, passkey);
       if (err) { setError(err); return; }
-      router.push("/");
+      router.push("/dashboard");
     } finally {
       setSubmitting(false);
     }
@@ -139,8 +140,11 @@ export default function LoginPage() {
           </form>
         </div>
 
-        <p className="text-center text-[10px] text-space-600 mt-6 uppercase tracking-widest">
-          SC-Nexus v1.0 — Authorized Personnel Only
+        <Link href="/" className="flex items-center justify-center gap-2 mt-6 text-xs text-space-500 hover:text-space-300 transition-colors">
+          <ArrowLeft className="w-3.5 h-3.5" /> Back to doctrine
+        </Link>
+        <p className="text-center text-[10px] text-space-600 mt-3 uppercase tracking-widest">
+          SC-Nexus v1.0 — © LoupMr. Proprietary. All rights reserved.
         </p>
       </div>
     </div>

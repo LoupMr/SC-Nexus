@@ -90,7 +90,10 @@ export default function OperationGuidePage() {
     setLoading(false);
   }, []);
 
-  useEffect(() => { fetchOps(true); }, [fetchOps]);
+  useEffect(() => {
+    const id = setTimeout(() => void fetchOps(false), 0);
+    return () => clearTimeout(id);
+  }, [fetchOps]);
 
   const toggleStep = (opId: string, stepOrder: number) => {
     const key = `${opId}-${stepOrder}`;

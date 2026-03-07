@@ -2,18 +2,23 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 
-export type UserRole = "viewer" | "admin" | "logistics" | "ops";
+export type UserRole = "viewer" | "admin" | "logistics" | "ops" | "raffle" | "guide";
 
 export interface AppUser {
   username: string;
   role: UserRole;
+  roles: string[];
+  avatarUrl?: string | null;
 }
 
 interface AuthContextType {
   user: AppUser | null;
+  refreshUser: () => Promise<void>;
   isAdmin: boolean;
   canEditLedger: boolean;
   canEditOps: boolean;
+  canManageRaffle: boolean;
+  canManageGuide: boolean;
   loading: boolean;
   passkey: string;
   login: (username: string, password: string) => Promise<string | null>;
@@ -30,11 +35,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [passkey, setPasskey] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const refreshUser = useCallback(async () => {
+    const r = await fetch("/api/auth/me");
+    const data = await r.json();
+    if (data?.username) {
+      setUser({
+        username: data.username,
+        role: data.role,
+        roles: data.roles ?? [data.role ?? "viewer"],
+        avatarUrl: data.avatarUrl ?? null,
+      });
+    }
+  }, []);
+
   useEffect(() => {
     fetch("/api/auth/me")
       .then((r) => r.json())
       .then((data) => {
-        if (data?.username) setUser({ username: data.username, role: data.role });
+        if (data?.username) {
+          setUser({
+            username: data.username,
+            role: data.role,
+            roles: data.roles ?? [data.role ?? "viewer"],
+            avatarUrl: data.avatarUrl ?? null,
+          });
+        }
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -48,7 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const data = await res.json();
     if (!res.ok) return data.error || "Login failed";
-    setUser({ username: data.username, role: data.role });
+    setUser({ username: data.username, role: data.role, roles: data.roles ?? [data.role ?? "viewer"], avatarUrl: data.avatarUrl ?? null });
     return null;
   }, []);
 
@@ -60,7 +85,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const data = await res.json();
     if (!res.ok) return data.error || "Signup failed";
-    setUser({ username: data.username, role: data.role });
+    setUser({ username: data.username, role: data.role, roles: data.roles ?? [data.role ?? "viewer"], avatarUrl: data.avatarUrl ?? null });
     return null;
   }, []);
 
@@ -90,7 +115,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, isAdmin: user?.role === "admin", canEditLedger: user?.role === "admin" || user?.role === "logistics", canEditOps: user?.role === "admin" || user?.role === "ops", loading, passkey, login, signup, logout, fetchPasskey, regeneratePasskey }}
+      value={{ user, refreshUser, isAdmin: (user?.roles?.includes("admin")) ?? false, canEditLedger: (user?.roles?.includes("admin") || user?.roles?.includes("logistics")) ?? false, canEditOps: (user?.roles?.includes("admin") || user?.roles?.includes("ops")) ?? false, canManageRaffle: (user?.roles?.includes("admin") || user?.roles?.includes("raffle")) ?? false, canManageGuide: (user?.roles?.includes("admin") || user?.roles?.includes("guide")) ?? false, loading, passkey, login, signup, logout, fetchPasskey, regeneratePasskey }}
     >
       {children}
     </AuthContext.Provider>

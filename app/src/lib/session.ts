@@ -12,19 +12,31 @@ export async function getSessionUser() {
 
 export async function requireAdmin() {
   const user = await getSessionUser();
-  if (!user || user.role !== "admin") return null;
+  if (!user || !user.roles?.includes("admin")) return null;
   return user;
 }
 
 export async function requireLedgerAccess() {
   const user = await getSessionUser();
-  if (!user || (user.role !== "admin" && user.role !== "logistics")) return null;
+  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("logistics"))) return null;
   return user;
 }
 
 export async function requireOpsAccess() {
   const user = await getSessionUser();
-  if (!user || (user.role !== "admin" && user.role !== "ops")) return null;
+  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("ops"))) return null;
+  return user;
+}
+
+export async function requireRaffleAccess() {
+  const user = await getSessionUser();
+  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("raffle"))) return null;
+  return user;
+}
+
+export async function requireGuideAccess() {
+  const user = await getSessionUser();
+  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("guide"))) return null;
   return user;
 }
 

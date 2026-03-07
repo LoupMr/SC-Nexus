@@ -2,15 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Shield, Crosshair, BookOpen, ChevronLeft, ChevronRight, LogOut, KeyRound, Copy, RefreshCw, User, Users, Link2 } from "lucide-react";
+import { Shield, Crosshair, BookOpen, BookMarked, ChevronLeft, ChevronRight, LogOut, KeyRound, Copy, RefreshCw, User, Users, Link2, Medal, UserCheck, Menu, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
+import { useTheme } from "@/context/ThemeContext";
 import clsx from "clsx";
 
 const navItems = [
   { href: "/armory", label: "Armory", icon: Crosshair, description: "Item Database", adminOnly: false },
+  { href: "/guide", label: "Guides", icon: BookMarked, description: "Org guides & tutorials", adminOnly: false },
   { href: "/ledger", label: "Ledger", icon: BookOpen, description: "Inventory Tracker", adminOnly: false },
   { href: "/conquest-ops", label: "Operation Guide", icon: Shield, description: "Tactical Guide", adminOnly: false },
+  { href: "/merits", label: "Merits & Rewards", icon: Medal, description: "Service Record & Requisition", adminOnly: false },
+  { href: "/roster", label: "Roster", icon: UserCheck, description: "Org Members & Ranks", adminOnly: false },
   { href: "/links", label: "Useful Links", icon: Link2, description: "Star Citizen Resources", adminOnly: false },
   { href: "/members", label: "Members", icon: Users, description: "Manage Org Members", adminOnly: true },
 ];
@@ -18,7 +23,9 @@ const navItems = [
 export default function Sidebar() {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const { user, isAdmin, passkey, logout, fetchPasskey, regeneratePasskey } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const [showPasskey, setShowPasskey] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -33,15 +40,36 @@ export default function Sidebar() {
   };
 
   return (
+    <>
+      {/* Mobile menu button */}
+      <button
+        onClick={() => setMobileOpen(!mobileOpen)}
+        className="lg:hidden fixed top-4 left-4 z-50 w-10 h-10 rounded-lg bg-space-900/80 border border-glass-border flex items-center justify-center text-space-300 hover:text-holo transition-colors"
+        aria-label="Toggle menu"
+      >
+        <Menu className="w-5 h-5" />
+      </button>
+
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/60 z-40"
+          onClick={() => setMobileOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
     <aside
       className={clsx(
         "fixed left-0 top-0 h-screen z-40 flex flex-col transition-all duration-300",
         "bg-space-900/80 backdrop-blur-xl border-r border-glass-border",
-        collapsed ? "w-[72px]" : "w-64"
+        collapsed ? "w-[72px]" : "w-64",
+        "max-lg:translate-x-0",
+        !mobileOpen && "max-lg:-translate-x-full"
       )}
     >
       <div className="flex items-center gap-3 px-4 h-16 border-b border-glass-border">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/dashboard" className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-lg bg-holo/10 border border-holo/30 flex items-center justify-center flex-shrink-0">
             <Shield className="w-5 h-5 text-holo" />
           </div>
@@ -61,6 +89,7 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setMobileOpen(false)}
               className={clsx(
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group relative",
                 isActive
@@ -117,24 +146,32 @@ export default function Sidebar() {
           </div>
         )}
 
-        <div
+        <Link
+          href="/profile"
           className={clsx(
-            "flex items-center gap-3 px-3 py-2.5 rounded-lg border",
-            ({ admin: "bg-industrial/10 border-industrial/30", logistics: "bg-success/10 border-success/30", ops: "bg-purple-500/10 border-purple-500/30" } as Record<string, string>)[user?.role || ""] || "bg-space-800/50 border-space-700/50"
+            "flex items-center gap-3 px-3 py-2.5 rounded-lg border transition-colors",
+            (user?.roles?.includes("admin") && "bg-industrial/10 border-industrial/30 hover:bg-industrial/15") ||
+            (user?.roles?.includes("logistics") && "bg-success/10 border-success/30 hover:bg-success/15") ||
+            (user?.roles?.includes("ops") && "bg-purple-500/10 border-purple-500/30 hover:bg-purple-500/15") ||
+            "bg-space-800/50 border-space-700/50 hover:bg-space-800"
           )}
         >
-          <User className={clsx("w-5 h-5 flex-shrink-0", ({ admin: "text-industrial", logistics: "text-success", ops: "text-purple-400" } as Record<string, string>)[user?.role || ""] || "text-space-400")} />
+          {user?.avatarUrl ? (
+            <Image src={user.avatarUrl} alt="" width={36} height={36} className="w-9 h-9 rounded-full object-cover flex-shrink-0 border border-glass-border" unoptimized />
+          ) : (
+            <User className={clsx("w-5 h-5 flex-shrink-0", (user?.roles?.includes("admin") && "text-industrial") || (user?.roles?.includes("logistics") && "text-success") || (user?.roles?.includes("ops") && "text-purple-400") || "text-space-400")} />
+          )}
           {!collapsed && (
             <div className="flex-1 min-w-0">
-              <span className={clsx("block text-xs font-medium leading-tight truncate", ({ admin: "text-industrial", logistics: "text-success", ops: "text-purple-400" } as Record<string, string>)[user?.role || ""] || "text-space-300")}>
+              <span className={clsx("block text-xs font-medium leading-tight truncate", (user?.roles?.includes("admin") && "text-industrial") || (user?.roles?.includes("logistics") && "text-success") || (user?.roles?.includes("ops") && "text-purple-400") || "text-space-300")}>
                 {user?.username}
               </span>
               <span className="block text-[10px] opacity-60 text-space-500">
-                {({ admin: "Admin", logistics: "Logistics", ops: "Ops", viewer: "Viewer" } as Record<string, string>)[user?.role || "viewer"]}
+                {(user?.roles ?? [user?.role ?? "viewer"]).map((r) => ({ admin: "Admin", logistics: "Logistics", ops: "Ops", raffle: "Raffle", guide: "Guide", viewer: "Viewer" }[r] || r)).join(", ")}
               </span>
             </div>
           )}
-        </div>
+        </Link>
 
         <button
           onClick={logout}
@@ -145,12 +182,29 @@ export default function Sidebar() {
         </button>
 
         <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="flex items-center justify-center w-full py-2 text-space-500 hover:text-space-300 transition-colors"
+          onClick={toggleTheme}
+          className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-space-500 hover:text-space-300 transition-colors"
+          title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {theme === "dark" ? <Sun className="w-4 h-4 flex-shrink-0" /> : <Moon className="w-4 h-4 flex-shrink-0" />}
+          {!collapsed && <span className="text-xs">{theme === "dark" ? "Light" : "Dark"}</span>}
+        </button>
+
+        <button
+          onClick={() => { setCollapsed(!collapsed); setMobileOpen(false); }}
+          className="hidden lg:flex items-center justify-center w-full py-2 text-space-500 hover:text-space-300 transition-colors"
         >
           {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
         </button>
+
+        <button
+          onClick={() => setMobileOpen(false)}
+          className="lg:hidden flex items-center justify-center w-full py-2 text-space-500 hover:text-space-300"
+        >
+          Close
+        </button>
       </div>
     </aside>
+    </>
   );
 }

@@ -1,17 +1,4 @@
-import coolers from "@/data/Vehicle_Components/COOLERS.json";
-import flightblades from "@/data/Vehicle_Components/FLIGHTBLADES.json";
-import jumpdrives from "@/data/Vehicle_Components/JUMPDRIVES.json";
-import lifesupport from "@/data/Vehicle_Components/LIFESUPPORTGENERATORS.json";
-import powerplants from "@/data/Vehicle_Components/POWERPLANTS.json";
-import quantumdrives from "@/data/Vehicle_Components/QUANTUMDRIVES.json";
-import shields from "@/data/Vehicle_Components/SHIELDS.json";
-import bombs from "@/data/Vehicle_Weaponry/BOMBS.json";
-import bomblaunchers from "@/data/Vehicle_Weaponry/BOMBLAUNCHERS.json";
-import missiles from "@/data/Vehicle_Weaponry/MISSILES.json";
-import missileracks from "@/data/Vehicle_Weaponry/MISSILERACKS.json";
-import turrets from "@/data/Vehicle_Weaponry/TURRETS.json";
-import weapons from "@/data/Vehicle_Weaponry/WEAPONS.json";
-import miscellaneous from "@/data/Other/MISCELLANOUS.json";
+import { categories, subcategories, dataEntries } from "./database-data.generated";
 
 export interface DatabaseItem {
   Name: string;
@@ -29,47 +16,12 @@ function tagItems(items: Record<string, unknown>[], category: string, subcategor
   }));
 }
 
-export const categories = [
-  { id: "all", label: "All Items" },
-  { id: "Vehicle_Weaponry", label: "Ship Weapons" },
-  { id: "Vehicle_Components", label: "Ship Components" },
-  { id: "Other", label: "Miscellaneous" },
-] as const;
-
-export const subcategories = [
-  { id: "Weapons", label: "Weapons", category: "Vehicle_Weaponry" },
-  { id: "Missiles", label: "Missiles", category: "Vehicle_Weaponry" },
-  { id: "MissileRacks", label: "Missile Racks", category: "Vehicle_Weaponry" },
-  { id: "Turrets", label: "Turrets", category: "Vehicle_Weaponry" },
-  { id: "Bombs", label: "Bombs", category: "Vehicle_Weaponry" },
-  { id: "BombLaunchers", label: "Bomb Launchers", category: "Vehicle_Weaponry" },
-  { id: "Shields", label: "Shields", category: "Vehicle_Components" },
-  { id: "PowerPlants", label: "Power Plants", category: "Vehicle_Components" },
-  { id: "Coolers", label: "Coolers", category: "Vehicle_Components" },
-  { id: "QuantumDrives", label: "Quantum Drives", category: "Vehicle_Components" },
-  { id: "JumpDrives", label: "Jump Drives", category: "Vehicle_Components" },
-  { id: "FlightBlades", label: "Flight Blades", category: "Vehicle_Components" },
-  { id: "LifeSupport", label: "Life Support", category: "Vehicle_Components" },
-  { id: "Miscellaneous", label: "Miscellaneous", category: "Other" },
-] as const;
+export { categories, subcategories };
 
 export function getAllItems(): DatabaseItem[] {
-  return [
-    ...tagItems(weapons as Record<string, unknown>[], "Vehicle_Weaponry", "Weapons"),
-    ...tagItems(missiles as Record<string, unknown>[], "Vehicle_Weaponry", "Missiles"),
-    ...tagItems(missileracks as Record<string, unknown>[], "Vehicle_Weaponry", "MissileRacks"),
-    ...tagItems(turrets as Record<string, unknown>[], "Vehicle_Weaponry", "Turrets"),
-    ...tagItems(bombs as Record<string, unknown>[], "Vehicle_Weaponry", "Bombs"),
-    ...tagItems(bomblaunchers as Record<string, unknown>[], "Vehicle_Weaponry", "BombLaunchers"),
-    ...tagItems(shields as Record<string, unknown>[], "Vehicle_Components", "Shields"),
-    ...tagItems(powerplants as Record<string, unknown>[], "Vehicle_Components", "PowerPlants"),
-    ...tagItems(coolers as Record<string, unknown>[], "Vehicle_Components", "Coolers"),
-    ...tagItems(quantumdrives as Record<string, unknown>[], "Vehicle_Components", "QuantumDrives"),
-    ...tagItems(jumpdrives as Record<string, unknown>[], "Vehicle_Components", "JumpDrives"),
-    ...tagItems(flightblades as Record<string, unknown>[], "Vehicle_Components", "FlightBlades"),
-    ...tagItems(lifesupport as Record<string, unknown>[], "Vehicle_Components", "LifeSupport"),
-    ...tagItems(miscellaneous as Record<string, unknown>[], "Other", "Miscellaneous"),
-  ];
+  return dataEntries.flatMap(({ category, subcategory, items }) =>
+    tagItems(items as unknown as Record<string, unknown>[], category, subcategory)
+  );
 }
 
 const STAT_DISPLAY: Record<string, string> = {
@@ -107,6 +59,8 @@ const STAT_DISPLAY: Record<string, string> = {
   TuningRate: "Tune Rate",
   LifeSupportGeneration: "Life Support",
   Volume: "Volume",
+  DurationMultiplier: "Duration",
+  ErrorChance: "Error Chance",
 };
 
 const SKIP_KEYS = new Set(["Name", "category", "subcategory"]);

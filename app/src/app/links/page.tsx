@@ -33,7 +33,8 @@ export default function LinksPage() {
   }, []);
 
   useEffect(() => {
-    fetchLinks();
+    const id = setTimeout(() => void fetchLinks(), 0);
+    return () => clearTimeout(id);
   }, [fetchLinks]);
 
   const openCreateModal = () => {

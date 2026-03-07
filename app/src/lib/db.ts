@@ -1,6 +1,8 @@
 import Database from "better-sqlite3";
+import fs from "fs";
 import path from "path";
 import crypto from "crypto";
+import bcrypt from "bcryptjs";
 
 const DB_PATH = process.env.DATABASE_PATH || path.join(process.cwd(), "data", "sc-nexus.db");
 
@@ -10,7 +12,6 @@ function getDb(): Database.Database {
   if (_db) return _db;
 
   const dir = path.dirname(DB_PATH);
-  const fs = require("fs");
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
   _db = new Database(DB_PATH);
@@ -85,15 +86,123 @@ function initSchema(db: Database.Database) {
       url TEXT NOT NULL,
       sort_order INTEGER NOT NULL DEFAULT 0
     );
+
+    CREATE TABLE IF NOT EXISTS hangar_categories (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      description TEXT NOT NULL DEFAULT '',
+      sort_order INTEGER NOT NULL DEFAULT 0
+    );
+
+    CREATE TABLE IF NOT EXISTS hangar_assets (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      description TEXT NOT NULL DEFAULT '',
+      ship_class TEXT NOT NULL DEFAULT '',
+      requirement_tag TEXT NOT NULL DEFAULT '',
+      sort_order INTEGER NOT NULL DEFAULT 0
+    );
+
+    CREATE TABLE IF NOT EXISTS member_merits (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT NOT NULL,
+      tag TEXT NOT NULL,
+      operation_id TEXT NOT NULL,
+      operation_name TEXT NOT NULL,
+      awarded_by TEXT NOT NULL,
+      awarded_at TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS hangar_requests (
+      id TEXT PRIMARY KEY,
+      username TEXT NOT NULL,
+      asset_id TEXT NOT NULL REFERENCES hangar_assets(id) ON DELETE CASCADE,
+      merit_id INTEGER REFERENCES member_merits(id) ON DELETE SET NULL,
+      status TEXT NOT NULL DEFAULT 'pending',
+      note TEXT NOT NULL DEFAULT '',
+      requested_at TEXT DEFAULT (datetime('now')),
+      resolved_at TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS raffles (
+      id TEXT PRIMARY KEY,
+      merit_tag TEXT NOT NULL,
+      asset_id TEXT REFERENCES hangar_assets(id) ON DELETE CASCADE,
+      status TEXT NOT NULL DEFAULT 'open',
+      winner_username TEXT,
+      created_at TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS raffle_prizes (
+      id TEXT PRIMARY KEY,
+      raffle_id TEXT NOT NULL REFERENCES raffles(id) ON DELETE CASCADE,
+      asset_id TEXT NOT NULL REFERENCES hangar_assets(id) ON DELETE CASCADE,
+      winner_username TEXT,
+      sort_order INTEGER NOT NULL DEFAULT 0
+    );
+
+    CREATE TABLE IF NOT EXISTS audit_log (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      action TEXT NOT NULL,
+      actor TEXT NOT NULL,
+      target_type TEXT,
+      target_id TEXT,
+      details TEXT,
+      created_at TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS guides (
+      id TEXT PRIMARY KEY,
+      title TEXT NOT NULL,
+      content TEXT NOT NULL,
+      excerpt TEXT,
+      author_username TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'pending',
+      approved_by TEXT,
+      approved_at TEXT,
+      created_at TEXT DEFAULT (datetime('now')),
+      updated_at TEXT DEFAULT (datetime('now'))
+    );
   `);
+
+  try { db.exec("ALTER TABLE operations ADD COLUMN merit_tag TEXT NOT NULL DEFAULT ''"); } catch {}
+  try { db.exec("ALTER TABLE users ADD COLUMN rank TEXT NOT NULL DEFAULT 'operator'"); } catch {}
+  try { db.exec("ALTER TABLE users ADD COLUMN avatar_url TEXT"); } catch {}
+  try { db.exec("ALTER TABLE hangar_requests ADD COLUMN merit_id INTEGER"); } catch {}
+  try { db.exec("ALTER TABLE hangar_assets ADD COLUMN category_id TEXT"); } catch {}
+  try { db.exec("ALTER TABLE hangar_assets ADD COLUMN requirement_count INTEGER NOT NULL DEFAULT 2"); } catch {}
+  try {
+    db.exec("ALTER TABLE ledger ADD COLUMN shared_with_org INTEGER NOT NULL DEFAULT 0");
+    db.exec("UPDATE ledger SET shared_with_org = 1 WHERE shared_with_org = 0"); // backfill: legacy entries visible in org
+  } catch {}
+  try {
+    db.exec("CREATE TABLE IF NOT EXISTS hangar_selections (id TEXT PRIMARY KEY, username TEXT NOT NULL, asset_id TEXT NOT NULL REFERENCES hangar_assets(id) ON DELETE CASCADE, selected_at TEXT DEFAULT (datetime('now')))");
+  } catch {}
+  try {
+    db.exec("CREATE TABLE IF NOT EXISTS raffle_prizes (id TEXT PRIMARY KEY, raffle_id TEXT NOT NULL REFERENCES raffles(id) ON DELETE CASCADE, asset_id TEXT NOT NULL REFERENCES hangar_assets(id) ON DELETE CASCADE, winner_username TEXT, sort_order INTEGER NOT NULL DEFAULT 0)");
+    const hasPrizes = db.prepare("SELECT 1 FROM raffle_prizes LIMIT 1").get();
+    if (!hasPrizes) {
+      const legacy = db.prepare("SELECT id, asset_id, winner_username FROM raffles WHERE asset_id IS NOT NULL AND asset_id != ''").all() as { id: string; asset_id: string; winner_username: string | null }[];
+      const insert = db.prepare("INSERT INTO raffle_prizes (id, raffle_id, asset_id, winner_username, sort_order) VALUES (?, ?, ?, ?, 0)");
+      for (const r of legacy) {
+        try { insert.run(`prize-${r.id}-0`, r.id, r.asset_id, r.winner_username); } catch {}
+      }
+    }
+  } catch {}
+  try {
+    db.exec("CREATE TABLE IF NOT EXISTS hangar_categories (id TEXT PRIMARY KEY, name TEXT NOT NULL, description TEXT NOT NULL DEFAULT '', sort_order INTEGER NOT NULL DEFAULT 0)");
+    const catExists = db.prepare("SELECT id FROM hangar_categories LIMIT 1").get();
+    if (!catExists) {
+      db.prepare("INSERT INTO hangar_categories (id, name, description, sort_order) VALUES (?, ?, ?, ?)").run("cat-executive", "Executive Hangar", "Assets earned through ops participation", 0);
+      db.prepare("UPDATE hangar_assets SET category_id = ? WHERE category_id IS NULL").run("cat-executive");
+    }
+  } catch {}
 
   const adminExists = db.prepare("SELECT id FROM users WHERE username = ?").get("admin");
   if (!adminExists) {
-    db.prepare("INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)").run(
-      "admin",
-      simpleHash("Barcelona2412"),
-      "admin"
-    );
+    const adminPassword = process.env.ADMIN_INITIAL_PASSWORD || "ChangeMe123!";
+    const hash = bcrypt.hashSync(adminPassword, 10);
+    db.prepare("INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)").run("admin", hash, "admin");
   }
 
   const passkeyExists = db.prepare("SELECT value FROM config WHERE key = ?").get("passkey");
@@ -156,9 +265,17 @@ function seedContestedZone(db: Database.Database) {
   }
 }
 
-// --- Hashing (same algorithm as before for compatibility) ---
+// --- Password hashing ---
 
-export function simpleHash(str: string): string {
+const BCRYPT_ROUNDS = 10;
+
+/** Check if a stored hash is legacy (simpleHash format). Legacy hashes don't start with $2. */
+function isLegacyHash(hash: string): boolean {
+  return !hash.startsWith("$2");
+}
+
+/** Legacy hash for migration only. Do not use for new passwords. */
+function simpleHash(str: string): string {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     const char = str.charCodeAt(i);
@@ -166,6 +283,26 @@ export function simpleHash(str: string): string {
     hash |= 0;
   }
   return Math.abs(hash).toString(36) + str.length.toString(36);
+}
+
+export async function hashPassword(password: string): Promise<string> {
+  return bcrypt.hash(password, BCRYPT_ROUNDS);
+}
+
+export async function verifyPassword(password: string, storedHash: string, userId?: number): Promise<boolean> {
+  if (isLegacyHash(storedHash)) {
+    const match = storedHash === simpleHash(password);
+    if (match && userId) {
+      const newHash = await hashPassword(password);
+      getDb().prepare("UPDATE users SET password_hash = ? WHERE id = ?").run(newHash, userId);
+    }
+    return match;
+  }
+  return bcrypt.compare(password, storedHash);
+}
+
+export function updatePasswordHash(userId: number, newHash: string) {
+  getDb().prepare("UPDATE users SET password_hash = ? WHERE id = ?").run(newHash, userId);
 }
 
 function generatePasskey(): string {
@@ -184,6 +321,7 @@ interface DbUser {
   username: string;
   password_hash: string;
   role: string;
+  avatar_url?: string | null;
 }
 
 export function findUserByUsername(username: string): DbUser | undefined {
@@ -195,12 +333,52 @@ export function createUser(username: string, passwordHash: string, role: string 
   return findUserByUsername(username)!;
 }
 
-export function getAllUsers(): { username: string; role: string }[] {
-  return getDb().prepare("SELECT username, role FROM users ORDER BY id").all() as { username: string; role: string }[];
+export function getAllUsers(): { username: string; role: string; roles: string[]; rank: string; avatarUrl: string | null }[] {
+  const rows = getDb().prepare("SELECT username, role, COALESCE(rank, 'operator') as rank, avatar_url FROM users ORDER BY id").all() as { username: string; role: string; rank: string; avatar_url: string | null }[];
+  return rows.map((r) => {
+    const roles = (r.role || "viewer").split(",").map((s) => s.trim()).filter(Boolean);
+    return { username: r.username, role: r.role, rank: r.rank, avatarUrl: r.avatar_url ?? null, roles: roles.length ? roles : ["viewer"] };
+  });
+}
+
+export function getRoster(): { username: string; rank: string; avatarUrl: string | null }[] {
+  const rows = getDb().prepare("SELECT username, COALESCE(rank, 'operator') as rank, avatar_url FROM users ORDER BY id").all() as { username: string; rank: string; avatar_url: string | null }[];
+  return rows.filter((r) => r.rank !== "none").map((r) => ({ username: r.username, rank: r.rank, avatarUrl: r.avatar_url ?? null }));
 }
 
 export function updateUserRole(username: string, role: string) {
   getDb().prepare("UPDATE users SET role = ? WHERE LOWER(username) = LOWER(?)").run(role, username);
+}
+
+export function updateUserRoles(username: string, roles: string[]) {
+  const value = roles.length ? roles.join(",") : "viewer";
+  getDb().prepare("UPDATE users SET role = ? WHERE LOWER(username) = LOWER(?)").run(value, username);
+}
+
+export function updateUserRank(username: string, rank: string) {
+  getDb().prepare("UPDATE users SET rank = ? WHERE LOWER(username) = LOWER(?)").run(rank, username);
+}
+
+export function getAvatarUrl(username: string): string | null {
+  const row = getDb().prepare("SELECT avatar_url FROM users WHERE LOWER(username) = LOWER(?)").get(username) as { avatar_url: string | null } | undefined;
+  return row?.avatar_url ?? null;
+}
+
+export function getAvatarUrls(usernames: string[]): Record<string, string | null> {
+  const unique = [...new Set(usernames.map((u) => u.toLowerCase()).filter(Boolean))];
+  const result: Record<string, string | null> = {};
+  for (const u of usernames) result[u] = null;
+  if (unique.length === 0) return result;
+  const rows = getDb().prepare("SELECT username, avatar_url FROM users WHERE LOWER(username) IN (" + unique.map(() => "?").join(",") + ")").all(...unique) as { username: string; avatar_url: string | null }[];
+  const byLower = new Map<string, string | null>();
+  for (const r of rows) byLower.set(r.username.toLowerCase(), r.avatar_url ?? null);
+  for (const u of usernames) result[u] = byLower.get(u.toLowerCase()) ?? null;
+  return result;
+}
+
+export function updateUserAvatar(username: string, avatarUrl: string | null): boolean {
+  const result = getDb().prepare("UPDATE users SET avatar_url = ? WHERE LOWER(username) = LOWER(?)").run(avatarUrl ?? null, username);
+  return result.changes > 0;
 }
 
 export function deleteUser(username: string) {
@@ -219,12 +397,15 @@ export function createSession(userId: number): string {
   return token;
 }
 
-export function getUserBySession(token: string): { id: number; username: string; role: string } | undefined {
-  return getDb().prepare(`
-    SELECT u.id, u.username, u.role FROM sessions s
+export function getUserBySession(token: string): { id: number; username: string; role: string; roles: string[]; avatarUrl: string | null } | undefined {
+  const row = getDb().prepare(`
+    SELECT u.id, u.username, u.role, u.avatar_url FROM sessions s
     JOIN users u ON s.user_id = u.id
     WHERE s.token = ?
-  `).get(token) as { id: number; username: string; role: string } | undefined;
+  `).get(token) as { id: number; username: string; role: string; avatar_url: string | null } | undefined;
+  if (!row) return undefined;
+  const roles = (row.role || "viewer").split(",").map((s) => s.trim()).filter(Boolean);
+  return { ...row, avatarUrl: row.avatar_url ?? null, roles: roles.length ? roles : ["viewer"] };
 }
 
 export function deleteSession(token: string) {
@@ -244,6 +425,21 @@ export function regeneratePasskeyDb(): string {
   return key;
 }
 
+// --- Audit Log ---
+
+export function logAudit(action: string, actor: string, targetType?: string, targetId?: string, details?: string) {
+  getDb().prepare(
+    "INSERT INTO audit_log (action, actor, target_type, target_id, details) VALUES (?, ?, ?, ?, ?)"
+  ).run(action, actor, targetType ?? null, targetId ?? null, details ?? null);
+}
+
+export function getAuditLog(limit = 100): { id: number; action: string; actor: string; targetType: string | null; targetId: string | null; details: string | null; createdAt: string }[] {
+  const rows = getDb().prepare(
+    "SELECT id, action, actor, target_type as targetType, target_id as targetId, details, created_at as createdAt FROM audit_log ORDER BY id DESC LIMIT ?"
+  ).all(limit) as { id: number; action: string; actor: string; targetType: string | null; targetId: string | null; details: string | null; createdAt: string }[];
+  return rows;
+}
+
 // --- Ledger ---
 
 interface DbLedgerRow {
@@ -254,15 +450,7 @@ interface DbLedgerRow {
   status: string;
   quantity: number;
   location: string;
-}
-
-interface DbHistoryRow {
-  id: number;
-  ledger_id: string;
-  action: string;
-  username: string;
-  quantity: number;
-  timestamp: string;
+  shared_with_org?: number;
 }
 
 export interface LedgerEntryWithHistory {
@@ -273,6 +461,7 @@ export interface LedgerEntryWithHistory {
   status: string;
   quantity: number;
   location: string;
+  sharedWithOrg: boolean;
   history: { action: string; user: string; timestamp: string; quantity: number }[];
 }
 
@@ -282,52 +471,74 @@ function deriveStatus(qty: number): string {
   return "Available";
 }
 
+function mapLedgerRow(db: Database.Database, row: DbLedgerRow): LedgerEntryWithHistory {
+  const history = db.prepare(
+    "SELECT action, username, quantity, timestamp FROM ledger_history WHERE ledger_id = ? ORDER BY id"
+  ).all(row.id) as { action: string; username: string; quantity: number; timestamp: string }[];
+  return {
+    id: row.id,
+    itemName: row.item_name,
+    subcategory: row.subcategory,
+    owner: row.owner,
+    status: row.status,
+    quantity: row.quantity,
+    location: row.location,
+    sharedWithOrg: !!(row.shared_with_org ?? 0),
+    history: history.map((h) => ({ action: h.action, user: h.username, timestamp: h.timestamp, quantity: h.quantity })),
+  };
+}
+
 export function getAllLedgerEntries(): LedgerEntryWithHistory[] {
   const db = getDb();
   const rows = db.prepare("SELECT * FROM ledger ORDER BY rowid").all() as DbLedgerRow[];
-  return rows.map((row) => {
-    const history = db.prepare(
-      "SELECT action, username, quantity, timestamp FROM ledger_history WHERE ledger_id = ? ORDER BY id"
-    ).all(row.id) as { action: string; username: string; quantity: number; timestamp: string }[];
-    return {
-      id: row.id,
-      itemName: row.item_name,
-      subcategory: row.subcategory,
-      owner: row.owner,
-      status: row.status,
-      quantity: row.quantity,
-      location: row.location,
-      history: history.map((h) => ({ action: h.action, user: h.username, timestamp: h.timestamp, quantity: h.quantity })),
-    };
-  });
+  return rows.map((row) => mapLedgerRow(db, row));
 }
 
-export function addLedgerEntry(itemName: string, subcategory: string, owner: string, quantity: number, location: string): LedgerEntryWithHistory {
+export function getLedgerEntriesForView(view: "org" | "mine", username: string): LedgerEntryWithHistory[] {
   const db = getDb();
+  let rows: DbLedgerRow[];
+  if (view === "org") {
+    rows = db.prepare("SELECT * FROM ledger WHERE shared_with_org = 1 ORDER BY rowid").all() as DbLedgerRow[];
+  } else {
+    rows = db.prepare("SELECT * FROM ledger WHERE owner = ? ORDER BY rowid").all(username) as DbLedgerRow[];
+  }
+  return rows.map((row) => mapLedgerRow(db, row));
+}
+
+export function getLedgerEntryById(id: string): LedgerEntryWithHistory | null {
+  const db = getDb();
+  const row = db.prepare("SELECT * FROM ledger WHERE id = ?").get(id) as DbLedgerRow | undefined;
+  if (!row) return null;
+  return mapLedgerRow(db, row);
+}
+
+export function addLedgerEntry(itemName: string, subcategory: string, owner: string, quantity: number, location: string, sharedWithOrg = false): LedgerEntryWithHistory {
+  const db = getDb();
+  const shared = sharedWithOrg ? 1 : 0;
 
   const existing = db.prepare(
-    "SELECT * FROM ledger WHERE LOWER(item_name) = LOWER(?) AND LOWER(location) = LOWER(?)"
-  ).get(itemName, location) as DbLedgerRow | undefined;
+    "SELECT * FROM ledger WHERE LOWER(item_name) = LOWER(?) AND LOWER(location) = LOWER(?) AND owner = ?"
+  ).get(itemName, location, owner) as DbLedgerRow | undefined;
 
   if (existing) {
     const newQty = existing.quantity + quantity;
     const newStatus = deriveStatus(newQty);
-    db.prepare("UPDATE ledger SET quantity = ?, status = ? WHERE id = ?").run(newQty, newStatus, existing.id);
+    db.prepare("UPDATE ledger SET quantity = ?, status = ?, shared_with_org = ? WHERE id = ?").run(newQty, newStatus, shared, existing.id);
     db.prepare("INSERT INTO ledger_history (ledger_id, action, username, quantity) VALUES (?, ?, ?, ?)").run(
       existing.id, "added", owner, quantity
     );
-    return getAllLedgerEntries().find((e) => e.id === existing.id)!;
+    return getLedgerEntryById(existing.id)!;
   }
 
   const id = `entry-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
   const status = deriveStatus(quantity);
-  db.prepare("INSERT INTO ledger (id, item_name, subcategory, owner, status, quantity, location) VALUES (?, ?, ?, ?, ?, ?, ?)").run(
-    id, itemName, subcategory, owner, status, quantity, location
+  db.prepare("INSERT INTO ledger (id, item_name, subcategory, owner, status, quantity, location, shared_with_org) VALUES (?, ?, ?, ?, ?, ?, ?, ?)").run(
+    id, itemName, subcategory, owner, status, quantity, location, shared
   );
   db.prepare("INSERT INTO ledger_history (ledger_id, action, username, quantity) VALUES (?, ?, ?, ?)").run(
     id, "added", owner, quantity
   );
-  return getAllLedgerEntries().find((e) => e.id === id)!;
+  return getLedgerEntryById(id)!;
 }
 
 export function takeLedgerItem(entryId: string, username: string, quantity: number): LedgerEntryWithHistory | null {
@@ -348,6 +559,14 @@ export function deleteLedgerEntry(entryId: string): boolean {
   return result.changes > 0;
 }
 
+export function setLedgerEntryShared(entryId: string, sharedWithOrg: boolean): LedgerEntryWithHistory | null {
+  const db = getDb();
+  const row = db.prepare("SELECT * FROM ledger WHERE id = ?").get(entryId) as DbLedgerRow | undefined;
+  if (!row) return null;
+  db.prepare("UPDATE ledger SET shared_with_org = ? WHERE id = ?").run(sharedWithOrg ? 1 : 0, entryId);
+  return getLedgerEntryById(entryId);
+}
+
 // --- Operations ---
 
 interface DbOpRow {
@@ -356,6 +575,7 @@ interface DbOpRow {
   description: string;
   status: string;
   priority: string;
+  merit_tag: string;
 }
 
 interface DbStepRow {
@@ -385,6 +605,7 @@ export interface OperationWithSteps {
   description: string;
   status: string;
   priority: string;
+  meritTag: string;
   steps: OperationStep[];
 }
 
@@ -399,6 +620,7 @@ export function getAllOperations(): OperationWithSteps[] {
       description: op.description,
       status: op.status,
       priority: op.priority,
+      meritTag: op.merit_tag || "",
       steps: steps.map((s) => ({
         id: s.id,
         order: s.step_order,
@@ -412,10 +634,10 @@ export function getAllOperations(): OperationWithSteps[] {
   });
 }
 
-export function createOperation(title: string, description: string, status: string, priority: string, steps: Omit<OperationStep, "id">[]): OperationWithSteps {
+export function createOperation(title: string, description: string, status: string, priority: string, meritTag: string, steps: Omit<OperationStep, "id">[]): OperationWithSteps {
   const db = getDb();
   const id = `op-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
-  db.prepare("INSERT INTO operations (id, title, description, status, priority) VALUES (?, ?, ?, ?, ?)").run(id, title, description, status, priority);
+  db.prepare("INSERT INTO operations (id, title, description, status, priority, merit_tag) VALUES (?, ?, ?, ?, ?, ?)").run(id, title, description, status, priority, meritTag);
   const insert = db.prepare("INSERT INTO operation_steps (operation_id, step_order, station, target, requirements, description, map_url) VALUES (?, ?, ?, ?, ?, ?, ?)");
   for (const s of steps) {
     insert.run(id, s.order, s.station, s.target, s.requirements, s.description, s.mapUrl);
@@ -423,11 +645,11 @@ export function createOperation(title: string, description: string, status: stri
   return getAllOperations().find((o) => o.id === id)!;
 }
 
-export function updateOperation(opId: string, title: string, description: string, status: string, priority: string, steps: Omit<OperationStep, "id">[]): OperationWithSteps | null {
+export function updateOperation(opId: string, title: string, description: string, status: string, priority: string, meritTag: string, steps: Omit<OperationStep, "id">[]): OperationWithSteps | null {
   const db = getDb();
   const existing = db.prepare("SELECT id FROM operations WHERE id = ?").get(opId);
   if (!existing) return null;
-  db.prepare("UPDATE operations SET title = ?, description = ?, status = ?, priority = ? WHERE id = ?").run(title, description, status, priority, opId);
+  db.prepare("UPDATE operations SET title = ?, description = ?, status = ?, priority = ?, merit_tag = ? WHERE id = ?").run(title, description, status, priority, meritTag, opId);
   db.prepare("DELETE FROM operation_steps WHERE operation_id = ?").run(opId);
   const insert = db.prepare("INSERT INTO operation_steps (operation_id, step_order, station, target, requirements, description, map_url) VALUES (?, ?, ?, ?, ?, ?, ?)");
   for (const s of steps) {
@@ -438,6 +660,11 @@ export function updateOperation(opId: string, title: string, description: string
 
 export function deleteOperation(opId: string): boolean {
   const result = getDb().prepare("DELETE FROM operations WHERE id = ?").run(opId);
+  return result.changes > 0;
+}
+
+export function updateOperationMeritTag(opId: string, meritTag: string): boolean {
+  const result = getDb().prepare("UPDATE operations SET merit_tag = ? WHERE id = ?").run(meritTag, opId);
   return result.changes > 0;
 }
 
@@ -471,5 +698,467 @@ export function updateLink(id: string, title: string, description: string, url: 
 
 export function deleteLink(id: string): boolean {
   const result = getDb().prepare("DELETE FROM links WHERE id = ?").run(id);
+  return result.changes > 0;
+}
+
+// --- Guides ---
+
+export interface Guide {
+  id: string;
+  title: string;
+  content: string;
+  excerpt: string | null;
+  authorUsername: string;
+  status: "draft" | "pending" | "approved";
+  approvedBy: string | null;
+  approvedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+function mapGuideRow(r: { id: string; title: string; content: string; excerpt: string | null; author_username: string; status: string; approved_by: string | null; approved_at: string | null; created_at: string; updated_at: string }): Guide {
+  return {
+    id: r.id,
+    title: r.title,
+    content: r.content,
+    excerpt: r.excerpt,
+    authorUsername: r.author_username,
+    status: r.status as Guide["status"],
+    approvedBy: r.approved_by,
+    approvedAt: r.approved_at,
+    createdAt: r.created_at,
+    updatedAt: r.updated_at,
+  };
+}
+
+export function getApprovedGuides(): Guide[] {
+  const rows = getDb().prepare("SELECT * FROM guides WHERE status = 'approved' ORDER BY approved_at DESC, created_at DESC").all() as { id: string; title: string; content: string; excerpt: string | null; author_username: string; status: string; approved_by: string | null; approved_at: string | null; created_at: string; updated_at: string }[];
+  return rows.map(mapGuideRow);
+}
+
+export function getAllGuides(): Guide[] {
+  const rows = getDb().prepare("SELECT * FROM guides ORDER BY created_at DESC").all() as { id: string; title: string; content: string; excerpt: string | null; author_username: string; status: string; approved_by: string | null; approved_at: string | null; created_at: string; updated_at: string }[];
+  return rows.map(mapGuideRow);
+}
+
+export function getGuideById(id: string): Guide | null {
+  const row = getDb().prepare("SELECT * FROM guides WHERE id = ?").get(id) as { id: string; title: string; content: string; excerpt: string | null; author_username: string; status: string; approved_by: string | null; approved_at: string | null; created_at: string; updated_at: string } | undefined;
+  return row ? mapGuideRow(row) : null;
+}
+
+export function createGuide(title: string, content: string, excerpt: string | null, authorUsername: string): Guide {
+  const id = `guide-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  getDb().prepare("INSERT INTO guides (id, title, content, excerpt, author_username, status) VALUES (?, ?, ?, ?, ?, 'pending')").run(id, title, content, excerpt, authorUsername);
+  return getGuideById(id)!;
+}
+
+export function updateGuide(id: string, title: string, content: string, excerpt: string | null): Guide | null {
+  const result = getDb().prepare("UPDATE guides SET title = ?, content = ?, excerpt = ?, updated_at = datetime('now') WHERE id = ?").run(title, content, excerpt, id);
+  if (result.changes === 0) return null;
+  return getGuideById(id);
+}
+
+export function approveGuide(id: string, approvedBy: string): Guide | null {
+  const result = getDb().prepare("UPDATE guides SET status = 'approved', approved_by = ?, approved_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(approvedBy, id);
+  if (result.changes === 0) return null;
+  return getGuideById(id);
+}
+
+export function rejectGuide(id: string): Guide | null {
+  const result = getDb().prepare("UPDATE guides SET status = 'pending', approved_by = NULL, approved_at = NULL, updated_at = datetime('now') WHERE id = ?").run(id);
+  if (result.changes === 0) return null;
+  return getGuideById(id);
+}
+
+export function deleteGuide(id: string): boolean {
+  const result = getDb().prepare("DELETE FROM guides WHERE id = ?").run(id);
+  return result.changes > 0;
+}
+
+// --- Hangar Categories ---
+
+export interface HangarCategory {
+  id: string;
+  name: string;
+  description: string;
+  sortOrder: number;
+}
+
+export function getAllHangarCategories(): HangarCategory[] {
+  const rows = getDb().prepare("SELECT id, name, description, sort_order FROM hangar_categories ORDER BY sort_order, id").all() as {
+    id: string; name: string; description: string; sort_order: number;
+  }[];
+  return rows.map((r) => ({ id: r.id, name: r.name, description: r.description, sortOrder: r.sort_order }));
+}
+
+export function addHangarCategory(name: string, description: string): HangarCategory {
+  const db = getDb();
+  const id = `cat-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+  const maxOrder = db.prepare("SELECT COALESCE(MAX(sort_order), -1) + 1 as next FROM hangar_categories").get() as { next: number };
+  db.prepare("INSERT INTO hangar_categories (id, name, description, sort_order) VALUES (?, ?, ?, ?)").run(id, name, description, maxOrder.next);
+  return getAllHangarCategories().find((c) => c.id === id)!;
+}
+
+export function updateHangarCategory(id: string, name: string, description: string): HangarCategory | null {
+  const db = getDb();
+  const existing = db.prepare("SELECT id FROM hangar_categories WHERE id = ?").get(id);
+  if (!existing) return null;
+  db.prepare("UPDATE hangar_categories SET name = ?, description = ? WHERE id = ?").run(name, description, id);
+  return getAllHangarCategories().find((c) => c.id === id) || null;
+}
+
+export function deleteHangarCategory(id: string): boolean {
+  const db = getDb();
+  const hasAssets = db.prepare("SELECT id FROM hangar_assets WHERE category_id = ? LIMIT 1").get(id);
+  if (hasAssets) return false;
+  const result = db.prepare("DELETE FROM hangar_categories WHERE id = ?").run(id);
+  return result.changes > 0;
+}
+
+// --- Hangar Assets ---
+
+export interface HangarAsset {
+  id: string;
+  name: string;
+  description: string;
+  shipClass: string;
+  requirementTag: string;
+  requirementCount: number;
+  sortOrder: number;
+  categoryId: string;
+}
+
+export function getAllHangarAssets(): HangarAsset[] {
+  const rows = getDb().prepare("SELECT id, name, description, ship_class, requirement_tag, COALESCE(requirement_count, 2) as requirement_count, sort_order, COALESCE(category_id, 'cat-executive') as category_id FROM hangar_assets ORDER BY sort_order, id").all() as {
+    id: string; name: string; description: string; ship_class: string; requirement_tag: string; requirement_count: number; sort_order: number; category_id: string;
+  }[];
+  return rows.map((r) => ({ id: r.id, name: r.name, description: r.description, shipClass: r.ship_class, requirementTag: r.requirement_tag, requirementCount: r.requirement_count, sortOrder: r.sort_order, categoryId: r.category_id }));
+}
+
+export function addHangarAsset(name: string, description: string, shipClass: string, requirementTag: string, categoryId: string, requirementCount: number = 2): HangarAsset {
+  const db = getDb();
+  const id = `hangar-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+  const maxOrder = db.prepare("SELECT COALESCE(MAX(sort_order), -1) + 1 as next FROM hangar_assets").get() as { next: number };
+  db.prepare("INSERT INTO hangar_assets (id, name, description, ship_class, requirement_tag, requirement_count, sort_order, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)").run(id, name, description, shipClass, requirementTag, requirementCount, maxOrder.next, categoryId || "cat-executive");
+  return getAllHangarAssets().find((a) => a.id === id)!;
+}
+
+export function deleteHangarAsset(id: string): boolean {
+  const result = getDb().prepare("DELETE FROM hangar_assets WHERE id = ?").run(id);
+  return result.changes > 0;
+}
+
+export function updateHangarAsset(id: string, name: string, description: string, shipClass: string, requirementTag: string, categoryId?: string, requirementCount?: number): HangarAsset | null {
+  const db = getDb();
+  const existing = db.prepare("SELECT id, category_id, requirement_count FROM hangar_assets WHERE id = ?").get(id) as { category_id: string; requirement_count: number } | undefined;
+  if (!existing) return null;
+  const cat = categoryId ?? existing.category_id ?? "cat-executive";
+  const rc = requirementCount ?? existing.requirement_count ?? 2;
+  db.prepare("UPDATE hangar_assets SET name = ?, description = ?, ship_class = ?, requirement_tag = ?, category_id = ?, requirement_count = ? WHERE id = ?").run(name, description, shipClass, requirementTag, cat, rc, id);
+  return getAllHangarAssets().find((a) => a.id === id) || null;
+}
+
+// --- Member Merits ---
+
+export interface MemberMerit {
+  id: number;
+  username: string;
+  tag: string;
+  operationId: string;
+  operationName: string;
+  awardedBy: string;
+  awardedAt: string;
+}
+
+export function getMemberMerits(username: string): MemberMerit[] {
+  return (getDb().prepare("SELECT * FROM member_merits WHERE LOWER(username) = LOWER(?) ORDER BY awarded_at DESC").all(username) as {
+    id: number; username: string; tag: string; operation_id: string; operation_name: string; awarded_by: string; awarded_at: string;
+  }[]).map((r) => ({ id: r.id, username: r.username, tag: r.tag, operationId: r.operation_id, operationName: r.operation_name, awardedBy: r.awarded_by, awardedAt: r.awarded_at }));
+}
+
+export function getAllMerits(): MemberMerit[] {
+  return (getDb().prepare("SELECT * FROM member_merits ORDER BY awarded_at DESC").all() as {
+    id: number; username: string; tag: string; operation_id: string; operation_name: string; awarded_by: string; awarded_at: string;
+  }[]).map((r) => ({ id: r.id, username: r.username, tag: r.tag, operationId: r.operation_id, operationName: r.operation_name, awardedBy: r.awarded_by, awardedAt: r.awarded_at }));
+}
+
+export function awardMerits(usernames: string[], tag: string, operationId: string, operationName: string, awardedBy: string): void {
+  const db = getDb();
+  const insert = db.prepare("INSERT INTO member_merits (username, tag, operation_id, operation_name, awarded_by) VALUES (?, ?, ?, ?, ?)");
+  for (const username of usernames) {
+    insert.run(username, tag, operationId, operationName, awardedBy);
+  }
+}
+
+export function revokeMerit(id: number): boolean {
+  const result = getDb().prepare("DELETE FROM member_merits WHERE id = ?").run(id);
+  return result.changes > 0;
+}
+
+// --- Hangar Selections (replaces request flow: click to select, one per category) ---
+
+export interface HangarSelection {
+  id: string;
+  username: string;
+  assetId: string;
+  assetName: string;
+  categoryId: string;
+  selectedAt: string;
+}
+
+export function getUserHangarSelections(username: string): HangarSelection[] {
+  const db = getDb();
+  const rows = db.prepare("SELECT s.id, s.username, s.asset_id, s.selected_at FROM hangar_selections s JOIN hangar_assets a ON s.asset_id = a.id WHERE LOWER(s.username) = LOWER(?)").all(username) as {
+    id: string; username: string; asset_id: string; selected_at: string;
+  }[];
+  return rows.map((r) => {
+    const asset = db.prepare("SELECT name, category_id FROM hangar_assets WHERE id = ?").get(r.asset_id) as { name: string; category_id: string } | undefined;
+    return {
+      id: r.id,
+      username: r.username,
+      assetId: r.asset_id,
+      assetName: asset?.name || "Unknown",
+      categoryId: asset?.category_id || "cat-executive",
+      selectedAt: r.selected_at,
+    };
+  });
+}
+
+export function getSelectionsForAsset(assetId: string): string[] {
+  const rows = getDb().prepare("SELECT username FROM hangar_selections WHERE asset_id = ?").all(assetId) as { username: string }[];
+  return rows.map((r) => r.username);
+}
+
+export type CreateSelectionResult = { ok: true; selection: HangarSelection } | { ok: false; error: string };
+
+function refundMeritsForSelection(username: string, assetId: string, count: number): void {
+  if (count <= 0) return;
+  const asset = getDb().prepare("SELECT requirement_tag FROM hangar_assets WHERE id = ?").get(assetId) as { requirement_tag: string } | undefined;
+  if (!asset?.requirement_tag) return;
+  awardMerits(Array(count).fill(username), asset.requirement_tag, "reward_refund", "Reward refund", "system");
+}
+
+export function createHangarSelection(username: string, assetId: string): CreateSelectionResult {
+  const db = getDb();
+  const asset = db.prepare("SELECT * FROM hangar_assets WHERE id = ?").get(assetId) as { id: string; requirement_tag: string; requirement_count: number; category_id: string } | undefined;
+  if (!asset) return { ok: false, error: "Asset not found" };
+  const reqTag = asset.requirement_tag || "";
+  const reqCount = asset.requirement_count ?? 2;
+  if (!reqTag) return { ok: false, error: "Asset has no requirement tag" };
+  const meritCount = db.prepare("SELECT COUNT(*) as c FROM member_merits WHERE LOWER(username) = LOWER(?) AND tag = ?").get(username, reqTag) as { c: number };
+  if (meritCount.c < reqCount) return { ok: false, error: `You need at least ${reqCount} ${reqTag.replace(/_/g, " ")} merits. You have ${meritCount.c}.` };
+  const categoryId = asset.category_id || "cat-executive";
+  const existingInCategory = db.prepare(`
+    SELECT s.id, s.asset_id FROM hangar_selections s
+    JOIN hangar_assets a ON s.asset_id = a.id
+    WHERE LOWER(s.username) = LOWER(?) AND (a.category_id = ? OR a.category_id IS NULL AND ? = 'cat-executive')
+  `).all(username, categoryId, categoryId) as { id: string; asset_id: string }[];
+  for (const ex of existingInCategory) {
+    const oldAsset = db.prepare("SELECT requirement_count FROM hangar_assets WHERE id = ?").get(ex.asset_id) as { requirement_count: number } | undefined;
+    refundMeritsForSelection(username, ex.asset_id, oldAsset?.requirement_count ?? 2);
+    db.prepare("DELETE FROM hangar_selections WHERE id = ?").run(ex.id);
+  }
+  const idsToConsume = db.prepare("SELECT id FROM member_merits WHERE LOWER(username) = LOWER(?) AND tag = ? ORDER BY id LIMIT ?").all(username, reqTag, reqCount) as { id: number }[];
+  for (const { id } of idsToConsume) {
+    db.prepare("DELETE FROM member_merits WHERE id = ?").run(id);
+  }
+  const id = `sel-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+  db.prepare("INSERT INTO hangar_selections (id, username, asset_id) VALUES (?, ?, ?)").run(id, username, assetId);
+  const row = db.prepare("SELECT * FROM hangar_selections WHERE id = ?").get(id) as { id: string; username: string; asset_id: string; selected_at: string };
+  const a = db.prepare("SELECT name, category_id FROM hangar_assets WHERE id = ?").get(assetId) as { name: string; category_id: string } | undefined;
+  return {
+    ok: true,
+    selection: {
+      id: row.id,
+      username: row.username,
+      assetId: row.asset_id,
+      assetName: a?.name || "Unknown",
+      categoryId: a?.category_id || "cat-executive",
+      selectedAt: row.selected_at,
+    },
+  };
+}
+
+export function deleteHangarSelectionByUser(assetId: string, username: string): boolean {
+  const db = getDb();
+  const asset = db.prepare("SELECT requirement_count FROM hangar_assets WHERE id = ?").get(assetId) as { requirement_count: number } | undefined;
+  const result = db.prepare("DELETE FROM hangar_selections WHERE asset_id = ? AND LOWER(username) = LOWER(?)").run(assetId, username);
+  if (result.changes > 0 && asset) {
+    refundMeritsForSelection(username, assetId, asset.requirement_count ?? 2);
+  }
+  return result.changes > 0;
+}
+
+export function deleteSelectionsForAsset(assetId: string): void {
+  getDb().prepare("DELETE FROM hangar_selections WHERE asset_id = ?").run(assetId);
+}
+
+// --- Hangar Requests (kept for admin view of legacy data, no longer used for new flow) ---
+
+export interface HangarRequest {
+  id: string;
+  username: string;
+  assetId: string;
+  assetName: string;
+  status: string;
+  note: string;
+  requestedAt: string;
+  resolvedAt: string | null;
+  userTags: string[];
+}
+
+function buildHangarRequest(r: { id: string; username: string; asset_id: string; status: string; note: string; requested_at: string; resolved_at: string | null }, db: Database.Database): HangarRequest {
+  const asset = db.prepare("SELECT name FROM hangar_assets WHERE id = ?").get(r.asset_id) as { name: string } | undefined;
+  const merits = db.prepare("SELECT DISTINCT tag FROM member_merits WHERE LOWER(username) = LOWER(?)").all(r.username) as { tag: string }[];
+  return {
+    id: r.id,
+    username: r.username,
+    assetId: r.asset_id,
+    assetName: asset?.name || "Unknown",
+    status: r.status,
+    note: r.note,
+    requestedAt: r.requested_at,
+    resolvedAt: r.resolved_at,
+    userTags: merits.map((m) => m.tag),
+  };
+}
+
+export function getAllHangarRequests(): HangarRequest[] {
+  const db = getDb();
+  const rows = db.prepare("SELECT * FROM hangar_requests ORDER BY requested_at DESC").all() as {
+    id: string; username: string; asset_id: string; status: string; note: string; requested_at: string; resolved_at: string | null;
+  }[];
+  return rows.map((r) => buildHangarRequest(r, db));
+}
+
+export function getUserHangarRequests(username: string): HangarRequest[] {
+  const db = getDb();
+  const rows = db.prepare("SELECT * FROM hangar_requests WHERE LOWER(username) = LOWER(?) ORDER BY requested_at DESC").all(username) as {
+    id: string; username: string; asset_id: string; status: string; note: string; requested_at: string; resolved_at: string | null;
+  }[];
+  return rows.map((r) => buildHangarRequest(r, db));
+}
+
+export function deleteHangarRequest(id: string): boolean {
+  const result = getDb().prepare("DELETE FROM hangar_requests WHERE id = ?").run(id);
+  return result.changes > 0;
+}
+
+// --- Raffles ---
+
+export interface RafflePrize {
+  assetId: string;
+  assetName: string;
+  winnerUsername: string | null;
+  participantUsernames: string[];
+}
+
+export interface Raffle {
+  id: string;
+  meritTag: string;
+  status: string;
+  createdAt: string;
+  prizes: RafflePrize[];
+}
+
+export function createRaffle(meritTag: string, assetIds: string[]): Raffle {
+  const db = getDb();
+  if (!assetIds.length) throw new Error("At least one prize required");
+  const id = `raffle-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+  try {
+    db.prepare("INSERT INTO raffles (id, merit_tag, asset_id, status) VALUES (?, ?, ?, 'open')").run(id, meritTag, assetIds[0]);
+  } catch {
+    db.prepare("INSERT INTO raffles (id, merit_tag, status) VALUES (?, ?, 'open')").run(id, meritTag);
+  }
+  const insertPrize = db.prepare("INSERT INTO raffle_prizes (id, raffle_id, asset_id, sort_order) VALUES (?, ?, ?, ?)");
+  assetIds.forEach((aid, i) => {
+    insertPrize.run(`prize-${id}-${i}`, id, aid, i);
+  });
+  const row = db.prepare("SELECT created_at FROM raffles WHERE id = ?").get(id) as { created_at: string };
+  return buildRaffle(db, id, row?.created_at || new Date().toISOString());
+}
+
+function buildRaffle(db: Database.Database, id: string, createdAt: string): Raffle {
+  const r = db.prepare("SELECT merit_tag, status FROM raffles WHERE id = ?").get(id) as { merit_tag: string; status: string } | undefined;
+  if (!r) throw new Error("Raffle not found");
+  const prizeRows = db.prepare("SELECT asset_id, winner_username FROM raffle_prizes WHERE raffle_id = ? ORDER BY sort_order").all(id) as { asset_id: string; winner_username: string | null }[];
+  const legacy = db.prepare("SELECT asset_id, winner_username FROM raffles WHERE id = ?").get(id) as { asset_id?: string; winner_username?: string } | undefined;
+  const prizes: RafflePrize[] = prizeRows.length > 0
+    ? prizeRows.map((p) => {
+        const asset = db.prepare("SELECT name FROM hangar_assets WHERE id = ?").get(p.asset_id) as { name: string } | undefined;
+        return {
+          assetId: p.asset_id,
+          assetName: asset?.name || "Unknown",
+          winnerUsername: p.winner_username,
+          participantUsernames: getSelectionsForAsset(p.asset_id),
+        };
+      })
+    : legacy?.asset_id
+      ? [{
+          assetId: legacy.asset_id,
+          assetName: (db.prepare("SELECT name FROM hangar_assets WHERE id = ?").get(legacy.asset_id) as { name: string } | undefined)?.name || "Unknown",
+          winnerUsername: legacy.winner_username || null,
+          participantUsernames: getSelectionsForAsset(legacy.asset_id),
+        }]
+      : [];
+  return { id, meritTag: r.merit_tag, status: r.status, createdAt, prizes };
+}
+
+export type RaffleWithParticipants = Raffle;
+
+export function getAllRaffles(): Raffle[] {
+  const db = getDb();
+  const rows = db.prepare("SELECT id, created_at FROM raffles ORDER BY created_at DESC").all() as { id: string; created_at: string }[];
+  return rows.map((row) => buildRaffle(db, row.id, row.created_at));
+}
+
+export function getAllRafflesWithParticipants(): RaffleWithParticipants[] {
+  return getAllRaffles();
+}
+
+export function drawRaffleWinner(id: string): { winners: { assetId: string; assetName: string; username: string }[] } | null {
+  const db = getDb();
+  const raffle = db.prepare("SELECT * FROM raffles WHERE id = ?").get(id) as { status: string } | undefined;
+  if (!raffle || raffle.status !== "open") return null;
+  const prizeRows = db.prepare("SELECT id, asset_id FROM raffle_prizes WHERE raffle_id = ? ORDER BY sort_order").all(id) as { id: string; asset_id: string }[];
+  const legacy = db.prepare("SELECT asset_id FROM raffles WHERE id = ?").get(id) as { asset_id?: string } | undefined;
+  const assetsToDraw = prizeRows.length > 0 ? prizeRows : (legacy?.asset_id ? [{ id: "legacy", asset_id: legacy.asset_id }] : []);
+  const winners: { assetId: string; assetName: string; username: string }[] = [];
+  const updatePrize = db.prepare("UPDATE raffle_prizes SET winner_username = ? WHERE id = ?");
+  for (const p of assetsToDraw) {
+    const participants = getSelectionsForAsset(p.asset_id);
+    if (participants.length === 0) continue;
+    const winner = participants[Math.floor(Math.random() * participants.length)];
+    deleteSelectionsForAsset(p.asset_id);
+    if (p.id !== "legacy") updatePrize.run(winner, p.id);
+    const asset = db.prepare("SELECT name FROM hangar_assets WHERE id = ?").get(p.asset_id) as { name: string } | undefined;
+    winners.push({ assetId: p.asset_id, assetName: asset?.name || "Unknown", username: winner });
+  }
+  if (winners.length === 0) return null;
+  if (legacy?.asset_id && prizeRows.length === 0) {
+    db.prepare("UPDATE raffles SET status = 'closed', winner_username = ? WHERE id = ?").run(winners[0].username, id);
+  } else {
+    db.prepare("UPDATE raffles SET status = 'closed' WHERE id = ?").run(id);
+  }
+  return { winners };
+}
+
+export function updateRaffle(id: string, meritTag?: string, assetIds?: string[]): Raffle | null {
+  const db = getDb();
+  const existing = db.prepare("SELECT * FROM raffles WHERE id = ?").get(id) as { merit_tag: string } | undefined;
+  if (!existing) return null;
+  const mt = meritTag ?? existing.merit_tag;
+  db.prepare("UPDATE raffles SET merit_tag = ? WHERE id = ?").run(mt, id);
+  if (assetIds && assetIds.length > 0) {
+    db.prepare("DELETE FROM raffle_prizes WHERE raffle_id = ?").run(id);
+    const insert = db.prepare("INSERT INTO raffle_prizes (id, raffle_id, asset_id, sort_order) VALUES (?, ?, ?, ?)");
+    assetIds.forEach((aid, i) => insert.run(`prize-${id}-${i}`, id, aid, i));
+  }
+  const row = db.prepare("SELECT created_at FROM raffles WHERE id = ?").get(id) as { created_at: string };
+  return buildRaffle(db, id, row?.created_at || "");
+}
+
+export function deleteRaffle(id: string): boolean {
+  const result = getDb().prepare("DELETE FROM raffles WHERE id = ?").run(id);
   return result.changes > 0;
 }

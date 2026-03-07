@@ -1,88 +1,64 @@
-# 🚀 SC-Nexus: Org Logistics & Ops Portal
+# SC-Nexus
 
-A high-performance, modern web application designed for **Star Citizen Organizations** to manage shared inventory, track mission-critical assets, and coordinate Conquest Zone operations.
+**A logistics and operations portal for Star Citizen organizations.**
 
-## 🛠 Tech Stack
-
-* **Framework:** Next.js 14+ (App Router)
-* **Styling:** Tailwind CSS (Dark Mode / Sci-Fi Aesthetic)
-* **Components:** Shadcn/UI + Lucide React Icons
-* **Data Handling:** Local JSON Files (`/data/database.json` & `/data/ledger.json`)
-* **State Management:** React Context (for Role-Based Access)
-* **Deployement:** Docker 
+SC-Nexus helps orgs manage shared inventory, coordinate operations, track member contributions, and publish guides—all in one place. Built for groups like Black Horizon Group who need structure, visibility, and control over their in-game assets and ops.
 
 ---
 
-## 📂 Project Structure & Data Schema
+## What It Does
 
-### 1. Item Database (`Database`)
+| Feature | Description |
+|---------|-------------|
+| **Armory** | Master item database. Search and filter by category, size, grade (weapons, components, FPS gear, etc.). |
+| **Ledger** | Inventory tracker. Members add items (who owns what, where it’s stored). Org ledger shows shared stock; personal ledger shows your own. Take items, toggle sharing, track history. |
+| **Guides** | Org guides and tutorials. Rich text editor, approval flow. Public guides viewable without login. |
+| **Conquest Ops** | Tactical operation guides. Objectives, checklists, step tracking. |
+| **Merits & Rewards** | Service record and requisition. Earn merit tags from ops, spend them on raffle prizes. |
+| **Roster** | Org members and ranks. |
+| **Links** | Curated Star Citizen resources. |
+| **Members** | Admin-only member management and role assignment. |
 
-Stores the "Master List" of every item in the game your Org tracks. CONTAINT JSON FILE FOR EACH CATEGORYES AND TYPE.
+---
 
+## Tech Stack
 
-### 2. Ledger (`ledger.json`)
+- **Framework:** Next.js 16 (App Router)
+- **Database:** SQLite (better-sqlite3)
+- **Auth:** Session cookies, bcrypt, role-based access (admin, logistics, ops, raffle, guide, viewer)
+- **Styling:** Tailwind CSS v4, dark/light theme, sci-fi aesthetic
+- **Editor:** Tiptap (guides), Lucide icons
 
-Tracks the actual physical stock owned by the Org.
+---
 
-```json
-[
-  {
-    "id": "entry-1",
-    "itemId": "uuid-1",
-    "owner": "Commander_Starlight",
-    "status": "Available",
-    "quantity": 5,
-    "location": "Orison Appt"
-  }
-]
-add who took that item as well with data stempt so we know if some one took a item and we can track it as well.
+## Getting Started
 
+```bash
+cd app
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). The home page and guides are public; other pages require login.
+
+---
+
+## Project Structure
+
+```
+app/
+├── src/
+│   ├── app/          # Routes (armory, ledger, guide, conquest-ops, merits, roster, links, members)
+│   ├── components/  # UI components
+│   ├── context/     # Auth, theme
+│   ├── lib/         # DB, session, database data
+│   └── data/        # JSON source data (items, locations, etc.)
+├── scripts/         # generate-database.mjs (builds SQLite from JSON)
+└── data/            # SQLite DB output
 ```
 
 ---
 
-## 🎨 Design System (The "Aegis/Anvil" Look)
+## License
 
-* **Background:** `#020617` (Deep Space Blue/Black)
-* **Primary Accent:** `#38bdf8` (Hologram Blue)
-* **Secondary Accent:** `#f59e0b` (Industrial Orange)
-* **Cards:** Semi-transparent "Glassmorphism" with thin 1px borders and subtle outer glows on hover.
-
----
-
-## 🕹 Core Features to Implement
-
-### 1. The Armory (Database View)
-
-* **Layout:** Responsive grid of horizontal cards.
-* **Card Anatomy:** * **Left:** Square thumbnail with object-contain.
-* **Right:** Item Title, Category Badge, and a 2-column grid of "Stats."
-
-
-* **Search/Filter:** Real-time filtering by category (Ship Weapons, FPS Gear, Consumables).
-
-### 2. Conquest Ops (The Tactical Guide)
-
-* **Objective Cards:** High-level mission cards (e.g., "Siege of Orison Prep").
-* **Checklist Mode:** Lists specific items from the database needed for the op.
-* **Drop Guide:** Mapping out which loot drops at which bunkers/zones.
-
-### 3. The Ledger (Inventory Tracker)
-
-* **Status Indicators:** Color-coded pips (Green = Stocked, Red = Low Stock).
-* **Role-Based Access (RBAC):**
-* **Viewer (Default):** Can see everything, but "Add Item" and "Edit" buttons are hidden.
-* **Logistics Officer (Admin):** Can click an "Update Stock" button to open a modal form and modify the JSON data.
-
-
-
----
-
-## 🛠 Development Roadmap (3-Day Sprint)
-
-* **Day 1: Foundation.** Setup Next.js, Tailwind, and the JSON data structures. Build the Navigation Sidebar.
-* **Day 2: Data Display.** Build the Item Card component and the Search/Filter logic for the Database and Ledger.
-* **Day 3: Logic & UI.** Implement the Role Toggle (mock auth) and the "Ops Guide" layouts. Finalize the "Star Citizen" HUD styling.
-
----
-
+© 2026 LoupMr. All Rights Reserved. Proprietary. Use, copying, or distribution without permission is prohibited. See [LICENSE](LICENSE) for details.

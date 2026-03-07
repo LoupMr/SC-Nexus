@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { categories, subcategories } from "@/lib/database";
 import clsx from "clsx";
@@ -37,6 +38,7 @@ export default function SearchFilter({
   totalCount,
   filteredCount,
 }: SearchFilterProps) {
+  const [filterVisible, setFilterVisible] = useState(false);
   const relevantSubs =
     selectedCategory === "all"
       ? subcategories
@@ -64,14 +66,29 @@ export default function SearchFilter({
           )}
         </div>
 
-        <div className="flex items-center gap-2 text-xs text-space-500">
+        <button
+          type="button"
+          onClick={() => setFilterVisible(!filterVisible)}
+          className={clsx(
+            "flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-medium border transition-all flex-shrink-0",
+            filterVisible
+              ? "bg-holo/10 border-holo/30 text-holo"
+              : "bg-space-900/40 border-space-700/30 text-space-500 hover:text-space-300"
+          )}
+        >
           <SlidersHorizontal className="w-4 h-4" />
+          Filter
+        </button>
+
+        <div className="flex items-center gap-2 text-xs text-space-500 flex-shrink-0">
           <span className="font-mono tabular-nums">
             {filteredCount} / {totalCount}
           </span>
         </div>
       </div>
 
+      {filterVisible && (
+      <>
       <div className="flex flex-wrap gap-2">
         {categories.map((cat) => (
           <button
@@ -185,6 +202,8 @@ export default function SearchFilter({
             </div>
           </div>
         </div>
+      )}
+      </>
       )}
     </div>
   );

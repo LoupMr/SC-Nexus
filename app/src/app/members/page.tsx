@@ -1,21 +1,37 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
-import { Users, Trash2, X, AlertCircle, Loader2 } from "lucide-react";
+import { Users, Trash2, X, AlertCircle, Loader2, ScrollText } from "lucide-react";
 import { useAuth, UserRole } from "@/context/AuthContext";
 import PageHeader from "@/components/PageHeader";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 
+const RANK_OPTIONS = [
+  { value: "none", label: "No role (hidden from roster)" },
+  { value: "supreme_commander", label: "Supreme Commander" },
+  { value: "executive_commander", label: "Executive Commander" },
+  { value: "captain", label: "Captain" },
+  { value: "non_commissioned_officer", label: "Non-Commissioned Officer" },
+  { value: "operator", label: "Operator" },
+  { value: "black_horizon_group_ally", label: "Black Horizon Group Ally" },
+];
+
 interface MemberDisplay {
   username: string;
+  avatarUrl?: string | null;
   role: UserRole;
+  roles: string[];
+  rank: string;
 }
 
-const roleBadge: Record<UserRole, { label: string; color: string }> = {
+const roleBadge: Record<string, { label: string; color: string }> = {
   admin: { label: "Admin", color: "text-industrial bg-industrial/10 border-industrial/30" },
   logistics: { label: "Logistics", color: "text-success bg-success/10 border-success/30" },
   ops: { label: "Ops", color: "text-purple-400 bg-purple-500/10 border-purple-500/30" },
+  raffle: { label: "Raffle", color: "text-amber-400 bg-amber-500/10 border-amber-500/30" },
+  guide: { label: "Guide", color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30" },
   viewer: { label: "Viewer", color: "text-holo bg-holo/10 border-holo/30" },
 };
 
@@ -23,6 +39,7 @@ export default function MembersPage() {
   const { user, isAdmin } = useAuth();
   const router = useRouter();
   const [members, setMembers] = useState<MemberDisplay[]>([]);
+  const [auditLog, setAuditLog] = useState<{ id: number; action: string; actor: string; targetType: string | null; targetId: string | null; details: string | null; createdAt: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
 
@@ -32,16 +49,43 @@ export default function MembersPage() {
     setLoading(false);
   }, []);
 
+  const fetchAudit = useCallback(async () => {
+    const res = await fetch("/api/audit?limit=50");
+    if (res.ok) setAuditLog(await res.json());
+  }, []);
+
   useEffect(() => {
     if (!isAdmin) { router.replace("/"); return; }
-    fetchMembers();
-  }, [isAdmin, router, fetchMembers]);
+    const id = setTimeout(() => {
+      void fetchMembers();
+      void fetchAudit();
+    }, 0);
+    return () => clearTimeout(id);
+  }, [isAdmin, router, fetchMembers, fetchAudit]);
 
-  const handleRoleChange = async (username: string, role: UserRole) => {
+  const handleRolesChange = async (username: string, roles: string[]) => {
     await fetch(`/api/members/${encodeURIComponent(username)}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ role }),
+      body: JSON.stringify({ roles }),
+    });
+    await fetchMembers();
+  };
+
+  const toggleMemberRole = (username: string, role: string) => {
+    const member = members.find((m) => m.username === username);
+    if (!member) return;
+    const roles = member.roles ?? [member.role ?? "viewer"];
+    const next = roles.includes(role) ? roles.filter((r) => r !== role) : [...roles, role];
+    if (next.length === 0) return; // must have at least one
+    handleRolesChange(username, next);
+  };
+
+  const handleRankChange = async (username: string, rank: string) => {
+    await fetch(`/api/members/${encodeURIComponent(username)}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rank }),
     });
     await fetchMembers();
   };
@@ -75,31 +119,36 @@ export default function MembersPage() {
       />
 
       <div className="glass-card rounded-xl overflow-hidden">
-        <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-3 border-b border-glass-border text-[11px] text-space-500 uppercase tracking-wider font-medium">
+        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-5 py-3 border-b border-glass-border text-[11px] text-space-500 uppercase tracking-wider font-medium">
           <span>Member</span>
+          <span>Rank</span>
           <span>Role</span>
           <span>Actions</span>
         </div>
 
         <div className="divide-y divide-glass-border">
           {members.map((member) => {
-            const badge = roleBadge[member.role];
+            const roles = member.roles ?? [member.role ?? "viewer"];
             const isSelf = user?.username === member.username;
 
             return (
               <div
                 key={member.username}
-                className="grid grid-cols-[1fr_auto_auto] gap-4 items-center px-5 py-3 hover:bg-space-800/20 transition-colors"
+                className="grid grid-cols-[1fr_auto_auto_auto] gap-4 items-center px-5 py-3 hover:bg-space-800/20 transition-colors"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className={clsx(
-                    "w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border flex-shrink-0",
-                    member.role === "admin"
-                      ? "bg-industrial/10 border-industrial/30 text-industrial"
-                      : "bg-space-800/50 border-space-700/30 text-space-400"
-                  )}>
-                    {member.username.charAt(0).toUpperCase()}
-                  </div>
+                  {member.avatarUrl ? (
+                    <Image src={member.avatarUrl} alt="" width={32} height={32} className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-glass-border" unoptimized />
+                  ) : (
+                    <div className={clsx(
+                      "w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border flex-shrink-0",
+                      roles.includes("admin")
+                        ? "bg-industrial/10 border-industrial/30 text-industrial"
+                        : "bg-space-800/50 border-space-700/30 text-space-400"
+                    )}>
+                      {member.username.charAt(0).toUpperCase()}
+                    </div>
+                  )}
                   <div className="min-w-0">
                     <span className="text-sm text-space-200 font-medium block truncate">
                       {member.username}
@@ -109,20 +158,38 @@ export default function MembersPage() {
                 </div>
 
                 <select
-                  value={member.role}
-                  onChange={(e) => handleRoleChange(member.username, e.target.value as UserRole)}
-                  disabled={isSelf}
-                  className={clsx(
-                    "text-[11px] px-3 py-1.5 rounded-lg border font-medium appearance-none cursor-pointer transition-all",
-                    badge.color,
-                    isSelf && "opacity-50 cursor-not-allowed"
-                  )}
+                  value={member.rank || "operator"}
+                  title={member.rank === "none" ? "Hidden from roster" : undefined}
+                  onChange={(e) => handleRankChange(member.username, e.target.value)}
+                  className="text-[11px] px-3 py-1.5 rounded-lg border font-medium appearance-none cursor-pointer transition-all bg-space-900/40 border-space-700/30 text-space-300"
                 >
-                  <option value="viewer">Viewer</option>
-                  <option value="logistics">Logistics</option>
-                  <option value="ops">Ops</option>
-                  <option value="admin">Admin</option>
+                  {RANK_OPTIONS.map((r) => (
+                    <option key={r.value} value={r.value}>{r.label}</option>
+                  ))}
                 </select>
+
+                <div className="flex flex-wrap gap-1">
+                  {(["viewer", "logistics", "ops", "raffle", "guide", "admin"] as const).map((r) => {
+                    const badge = roleBadge[r];
+                    const active = roles.includes(r);
+                    return (
+                      <button
+                        key={r}
+                        type="button"
+                        onClick={() => toggleMemberRole(member.username, r)}
+                        disabled={isSelf}
+                        title={active ? `Remove ${badge.label}` : `Add ${badge.label}`}
+                        className={clsx(
+                          "text-[10px] px-2 py-0.5 rounded border font-medium transition-all",
+                          active ? badge.color : "border-space-700/50 text-space-500 bg-space-900/40",
+                          isSelf && "opacity-50 cursor-not-allowed"
+                        )}
+                      >
+                        {badge.label}
+                      </button>
+                    );
+                  })}
+                </div>
 
                 <button
                   onClick={() => setDeleteTarget(member.username)}
@@ -149,7 +216,31 @@ export default function MembersPage() {
 
       <div className="mt-4 flex items-start gap-2 text-[11px] text-space-500">
         <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-        <span>You cannot change your own role or remove yourself. Admins can add/take/delete stock in the Ledger. Viewers have read-only access.</span>
+        <span>You can change your own rank. You cannot change your own roles or remove yourself. Admins and Guide role can approve guides for publication. Viewers have read-only access.</span>
+      </div>
+
+      {/* Audit Log */}
+      <div className="mt-10">
+        <h2 className="text-sm font-semibold text-space-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+          <ScrollText className="w-4 h-4" /> Audit Log
+        </h2>
+        <div className="glass-card rounded-xl overflow-hidden max-h-80 overflow-y-auto">
+          {auditLog.length === 0 ? (
+            <div className="p-6 text-center text-space-500 text-sm">No audit entries yet.</div>
+          ) : (
+            <div className="divide-y divide-glass-border">
+              {auditLog.map((e) => (
+                <div key={e.id} className="px-4 py-2 text-xs flex flex-wrap items-center gap-2">
+                  <span className="text-space-500 font-mono">{new Date(e.createdAt).toLocaleString()}</span>
+                  <span className="font-medium text-space-300">{e.actor}</span>
+                  <span className="text-holo">{e.action}</span>
+                  {e.targetType && <span className="text-space-500">{e.targetType}: {e.targetId}</span>}
+                  {e.details && <span className="text-space-600 truncate max-w-[200px]" title={e.details}>{e.details}</span>}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
       {deleteTarget && (

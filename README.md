@@ -54,7 +54,7 @@ app/
 │   ├── lib/         # DB, session, database data
 │   └── data/        # JSON source data (items, locations, etc.)
 ├── scripts/         # generate-database.mjs (builds SQLite from JSON)
-└── data/            # SQLite DB output
+└── data/            # SQLite DB outputs
 ```
 
 ---

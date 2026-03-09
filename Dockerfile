@@ -1,8 +1,10 @@
 # Build from repo root so Database/ is available for generate-database.mjs
-FROM node:20-alpine AS base
+# Use Debian slim (not Alpine) - better-sqlite3 native module has better compatibility
+FROM node:20-slim AS base
 
 FROM base AS deps
-RUN apk add --no-cache libc6-compat python3 make g++
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY app/package.json app/package-lock.json ./
 RUN npm ci
@@ -22,8 +24,8 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV DATABASE_PATH=/app/data/sc-nexus.db
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN groupadd --system --gid 1001 nodejs \
+    && useradd --system --uid 1001 --gid nodejs nextjs
 RUN mkdir -p /app/data && chown nextjs:nodejs /app/data
 
 COPY --from=builder /app/public ./public

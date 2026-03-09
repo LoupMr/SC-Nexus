@@ -14,11 +14,18 @@ export async function GET(req: NextRequest) {
   const entries = getLedgerEntriesForView(view, user.username);
 
   if (format === "csv") {
+    const escapeCsv = (val: string | number | boolean): string => {
+      const s = String(val);
+      if (s.includes(",") || s.includes('"') || s.includes("\n")) {
+        return `"${s.replace(/"/g, '""')}"`;
+      }
+      return s;
+    };
     const headers = ["id", "itemName", "subcategory", "owner", "status", "quantity", "location", "sharedWithOrg"];
     const rows = entries.map((e) =>
-      [e.id, e.itemName, e.subcategory, e.owner, e.status, e.quantity, e.location, e.sharedWithOrg].join(",")
+      [e.id, e.itemName, e.subcategory, e.owner, e.status, e.quantity, e.location, e.sharedWithOrg].map(escapeCsv).join(",")
     );
-    const csv = [headers.join(","), ...rows].join("\n");
+    const csv = [headers.map(escapeCsv).join(","), ...rows].join("\n");
     return new NextResponse(csv, {
       headers: {
         "Content-Type": "text/csv",

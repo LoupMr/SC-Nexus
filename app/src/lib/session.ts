@@ -10,34 +10,32 @@ export async function getSessionUser() {
   return getUserBySession(token) || null;
 }
 
-export async function requireAdmin() {
+/** Generic role check: returns user if they have any of the given roles, null otherwise. */
+export async function requireRole(allowedRoles: string[]) {
   const user = await getSessionUser();
-  if (!user || !user.roles?.includes("admin")) return null;
-  return user;
+  if (!user) return null;
+  const hasRole = allowedRoles.some((r) => user.roles?.includes(r));
+  return hasRole ? user : null;
+}
+
+export async function requireAdmin() {
+  return requireRole(["admin"]);
 }
 
 export async function requireLedgerAccess() {
-  const user = await getSessionUser();
-  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("logistics"))) return null;
-  return user;
+  return requireRole(["admin", "logistics"]);
 }
 
 export async function requireOpsAccess() {
-  const user = await getSessionUser();
-  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("ops"))) return null;
-  return user;
+  return requireRole(["admin", "ops"]);
 }
 
 export async function requireRaffleAccess() {
-  const user = await getSessionUser();
-  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("raffle"))) return null;
-  return user;
+  return requireRole(["admin", "raffle"]);
 }
 
 export async function requireGuideAccess() {
-  const user = await getSessionUser();
-  if (!user || (!user.roles?.includes("admin") && !user.roles?.includes("guide"))) return null;
-  return user;
+  return requireRole(["admin", "guide"]);
 }
 
 export { COOKIE_NAME };

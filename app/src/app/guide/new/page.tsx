@@ -6,8 +6,7 @@ import Link from "next/link";
 import { BookOpen, ArrowLeft, Loader2 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import RichTextEditor from "@/components/RichTextEditor";
-
-const inputClass = "w-full px-3 py-2.5 bg-space-900/60 border border-glass-border rounded-xl text-sm text-space-200 placeholder:text-space-600 focus:outline-none focus:border-holo/40 transition-all";
+import { inputClass } from "@/lib/styles";
 
 export default function NewGuidePage() {
   const { user } = useAuth();

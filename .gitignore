@@ -1,0 +1,3 @@
+# Local deployment secrets
+.env
+.env.local

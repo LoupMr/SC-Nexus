@@ -1,22 +1,28 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { getAllLinks, createLink } from "@/lib/db";
 import { getSessionUser, requireAdmin } from "@/lib/session";
+import { linkCreateSchema } from "@/lib/validations";
+import { api400, api401, api403, safeParseJson } from "@/lib/api-utils";
 
 export async function GET() {
   const user = await getSessionUser();
-  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  return NextResponse.json(getAllLinks());
+  if (!user) return api401();
+  return Response.json(getAllLinks());
 }
 
 export async function POST(req: NextRequest) {
   const admin = await requireAdmin();
-  if (!admin) return NextResponse.json({ error: "Admin required" }, { status: 403 });
+  if (!admin) return api403("Admin required");
 
-  const { title, description, url } = await req.json();
-  if (!title || !url) {
-    return NextResponse.json({ error: "Title and URL required" }, { status: 400 });
+  const json = await safeParseJson(req);
+  if ("error" in json) return json.error;
+  const parsed = linkCreateSchema.safeParse(json.data);
+  if (!parsed.success) {
+    const msg = parsed.error.issues[0]?.message || "Invalid input";
+    return api400(msg);
   }
+  const { title, description, url } = parsed.data;
 
-  const link = createLink(title, description || "", url);
-  return NextResponse.json(link, { status: 201 });
+  const link = createLink(title, description, url);
+  return Response.json(link, { status: 201 });
 }

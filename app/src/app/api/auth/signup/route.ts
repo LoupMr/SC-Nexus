@@ -2,10 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { findUserByUsername, createUser, hashPassword, createSession, getPasskey } from "@/lib/db";
 import { COOKIE_NAME } from "@/lib/session";
 import { signupSchema } from "@/lib/validations";
-import { api400, api403, api409 } from "@/lib/api-utils";
+import { api400, api403, api409, safeParseJson } from "@/lib/api-utils";
 
 export async function POST(req: NextRequest) {
-  const parsed = signupSchema.safeParse(await req.json());
+  const json = await safeParseJson(req);
+  if ("error" in json) return json.error;
+  const parsed = signupSchema.safeParse(json.data);
   if (!parsed.success) {
     const msg = parsed.error.issues[0]?.message || "Invalid input";
     return api400(msg);

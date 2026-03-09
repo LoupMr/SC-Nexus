@@ -1,23 +1,29 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { getUserHangarSelections, createHangarSelection } from "@/lib/db";
 import { getSessionUser } from "@/lib/session";
+import { hangarSelectionSchema } from "@/lib/validations";
+import { api400, api401, safeParseJson } from "@/lib/api-utils";
 
 export async function GET() {
   const user = await getSessionUser();
-  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  return NextResponse.json(getUserHangarSelections(user.username));
+  if (!user) return api401();
+  return Response.json(getUserHangarSelections(user.username));
 }
 
 export async function POST(req: NextRequest) {
   const user = await getSessionUser();
-  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!user) return api401();
 
-  const { assetId } = await req.json();
-  if (!assetId) return NextResponse.json({ error: "assetId required" }, { status: 400 });
+  const json = await safeParseJson(req);
+  if ("error" in json) return json.error;
+  const parsed = hangarSelectionSchema.safeParse(json.data);
+  if (!parsed.success) {
+    const msg = parsed.error.issues[0]?.message || "Invalid input";
+    return api400(msg);
+  }
+  const { assetId } = parsed.data;
 
   const result = createHangarSelection(user.username, assetId);
-  if (!result.ok) {
-    return NextResponse.json({ error: result.error }, { status: 400 });
-  }
-  return NextResponse.json(result.selection, { status: 201 });
+  if (!result.ok) return api400(result.error);
+  return Response.json(result.selection, { status: 201 });
 }

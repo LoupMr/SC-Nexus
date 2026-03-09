@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link2, Plus, Pencil, Trash2, Loader2, X, ExternalLink } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import PageHeader from "@/components/PageHeader";
+import { inputClass } from "@/lib/styles";
 
 interface LinkItem {
   id: string;
@@ -14,8 +15,6 @@ interface LinkItem {
 }
 
 type ModalMode = null | "create" | "edit" | "delete";
-
-const inputClass = "w-full px-3 py-2 bg-space-900/60 border border-glass-border rounded-lg text-sm text-space-200 focus:outline-none focus:border-holo/40 transition-all";
 
 export default function LinksPage() {
   const { isAdmin } = useAuth();

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import PageHeader from "@/components/PageHeader";
+import { inputClass } from "@/lib/styles";
 
 // --- Types ---
 
@@ -94,8 +95,6 @@ function tagStyle(tag: string) {
   for (let i = 0; i < tag.length; i++) h = ((h << 5) - h) + tag.charCodeAt(i);
   return TAG_PALETTE[Math.abs(h) % TAG_PALETTE.length];
 }
-
-const inputClass = "w-full px-3 py-2 bg-space-900/60 border border-glass-border rounded-lg text-sm text-space-200 focus:outline-none focus:border-holo/40 transition-all";
 
 // --- Component ---
 

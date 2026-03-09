@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { BookOpen, Plus, Minus, Trash2, MapPin, User, Package, History, X, ChevronDown, ChevronUp, Loader2, Info, UserCircle, Globe, Lock, Search, Filter, Download, LayoutList, LayoutGrid, Square } from "lucide-react";
+import { BookOpen, Plus, Minus, Trash2, MapPin, User, Package, History, X, ChevronDown, ChevronUp, Loader2, Info, UserCircle, Globe, Lock, Search, Filter, Download, LayoutList, LayoutGrid, Square, ClipboardList, Check, XCircle } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import PageHeader from "@/components/PageHeader";
 import Combobox, { ComboboxOption } from "@/components/Combobox";
 import { getAllItems, getItemStats, subcategories, categories, DatabaseItem, getSubcategoryLabel } from "@/lib/database";
 import locationsData from "@/data/Locations/LOCATIONS.json";
 import clsx from "clsx";
+import { inputClass } from "@/lib/styles";
 
 interface HistoryEntry {
   action: string;
@@ -36,7 +37,21 @@ const statusColors: Record<string, { dot: string; badge: string }> = {
   Depleted: { dot: "bg-danger", badge: "text-danger bg-danger/10 border-danger/30" },
 };
 
-type ModalMode = null | "add" | "take" | "delete" | "info";
+type ModalMode = null | "add" | "take" | "delete" | "info" | "requests";
+
+interface LedgerRequest {
+  id: string;
+  type: "add_to_org" | "take_from_org";
+  requesterUsername: string;
+  status: string;
+  resolvedBy: string | null;
+  resolvedAt: string | null;
+  rejectReason: string | null;
+  description: string | null;
+  createdAt: string;
+  updatedAt: string;
+  items: { ledgerEntryId: string | null; itemName: string | null; quantity: number; location: string | null; ownerConfirmedAt: string | null }[];
+}
 
 const allDbItems = getAllItems();
 
@@ -78,6 +93,10 @@ export default function LedgerPage() {
   const [busy, setBusy] = useState(false);
   const [infoItem, setInfoItem] = useState<DatabaseItem | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [requestsOpen, setRequestsOpen] = useState(false);
+  const [requests, setRequests] = useState<LedgerRequest[]>([]);
+  const [pendingApproval, setPendingApproval] = useState<LedgerRequest[]>([]);
+  const [myHandoffs, setMyHandoffs] = useState<LedgerRequest[]>([]);
   const [layoutMode, setLayoutMode] = useState<LayoutMode>(() => {
     if (typeof window === "undefined") return "list";
     const saved = localStorage.getItem("ledger-layout") as LayoutMode | null;
@@ -96,13 +115,42 @@ export default function LedgerPage() {
     sharedWithOrg: false,
   });
 
-  const [takeForm, setTakeForm] = useState({ quantity: 1 });
+  const [takeForm, setTakeForm] = useState({ quantity: 1, description: "" });
+
+  const [fetchError, setFetchError] = useState<string | null>(null);
+
+  const fetchRequests = useCallback(async () => {
+    try {
+      const [mineRes, approvalRes, handoffRes] = await Promise.all([
+        fetch("/api/ledger/requests?filter=mine"),
+        canEditLedger ? fetch("/api/ledger/requests?filter=pending_approval") : Promise.resolve(null),
+        fetch("/api/ledger/requests?filter=my_handoffs"),
+      ]);
+      if (mineRes.ok) setRequests(await mineRes.json());
+      else setFetchError("Failed to load requests");
+      if (approvalRes?.ok) setPendingApproval(await approvalRes.json());
+      if (handoffRes.ok) setMyHandoffs(await handoffRes.json());
+    } catch {
+      setFetchError("Failed to load requests");
+    }
+  }, [canEditLedger]);
 
   const fetchEntries = useCallback(async () => {
-    const res = await fetch(`/api/ledger?view=${view}`);
-    if (res.ok) setEntries(await res.json());
+    setFetchError(null);
+    try {
+      const res = await fetch(`/api/ledger?view=${view}`);
+      if (res.ok) {
+        setEntries(await res.json());
+      } else {
+        const err = await res.json().catch(() => ({}));
+        setFetchError((err as { error?: string }).error || "Failed to load ledger");
+      }
+    } catch {
+      setFetchError("Failed to load ledger");
+    }
     setLoading(false);
-  }, [view]);
+    void fetchRequests();
+  }, [view, fetchRequests]);
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -111,6 +159,12 @@ export default function LedgerPage() {
     }, 0);
     return () => clearTimeout(id);
   }, [fetchEntries]);
+
+  useEffect(() => {
+    if (!requestsOpen) return;
+    const id = setTimeout(() => void fetchRequests(), 0);
+    return () => clearTimeout(id);
+  }, [requestsOpen, fetchRequests]);
 
   const filtered = useMemo(() => {
     return entries.filter((entry) => {
@@ -134,20 +188,18 @@ export default function LedgerPage() {
   const handleAddEntry = async () => {
     if (!addForm.itemName || !addForm.subcategory || !addForm.location) return;
     setBusy(true);
-    await fetch("/api/ledger", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        itemName: addForm.itemName,
-        subcategory: addForm.subcategory,
-        quantity: addForm.quantity,
-        location: addForm.location,
-        sharedWithOrg: addForm.sharedWithOrg,
-      }),
-    });
-    setModalMode(null);
-    setAddForm({ itemName: "", subcategory: "", quantity: 1, location: "", sharedWithOrg: false });
-    await fetchEntries();
+    const shared = addForm.sharedWithOrg;
+    const useRequest = shared && !canEditLedger;
+    const url = useRequest ? "/api/ledger/requests" : "/api/ledger";
+    const body = useRequest
+      ? JSON.stringify({ type: "add_to_org", items: [{ itemName: addForm.itemName, subcategory: addForm.subcategory, quantity: addForm.quantity, location: addForm.location }] })
+      : JSON.stringify({ itemName: addForm.itemName, subcategory: addForm.subcategory, quantity: addForm.quantity, location: addForm.location, sharedWithOrg: shared });
+    const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body });
+    if (res.ok) {
+      setModalMode(null);
+      setAddForm({ itemName: "", subcategory: "", quantity: 1, location: "", sharedWithOrg: false });
+      await fetchEntries();
+    }
     setBusy(false);
   };
 
@@ -162,9 +214,9 @@ export default function LedgerPage() {
     setBusy(false);
   };
 
-  const openTakeModal = (entryId: string) => {
+  const openRequestTakeModal = (entryId: string) => {
     setTargetEntryId(entryId);
-    setTakeForm({ quantity: 1 });
+    setTakeForm({ quantity: 1, description: "" });
     setModalMode("take");
   };
 
@@ -179,27 +231,41 @@ export default function LedgerPage() {
     setModalMode("info");
   };
 
-  const handleTakeItem = async () => {
+  const handleRequestTake = async () => {
     if (!targetEntryId) return;
+    const qty = Math.max(1, takeForm.quantity);
+    const entry = entries.find((e) => e.id === targetEntryId);
+    if (!entry || entry.quantity < qty) return;
     setBusy(true);
-    await fetch(`/api/ledger/${targetEntryId}/take`, {
+    const res = await fetch("/api/ledger/requests", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ quantity: Math.max(1, takeForm.quantity) }),
+      body: JSON.stringify({
+        type: "take_from_org",
+        items: [{ ledgerEntryId: targetEntryId, quantity: qty }],
+        description: (takeForm.description || "").trim() || undefined,
+      }),
     });
-    setModalMode(null);
-    setTargetEntryId(null);
-    await fetchEntries();
+    if (res.ok) {
+      setModalMode(null);
+      setTargetEntryId(null);
+      await fetchEntries();
+    }
     setBusy(false);
   };
 
   const handleDeleteEntry = async () => {
     if (!targetEntryId) return;
     setBusy(true);
-    await fetch(`/api/ledger/${targetEntryId}`, { method: "DELETE" });
-    setModalMode(null);
-    setTargetEntryId(null);
-    await fetchEntries();
+    const res = await fetch(`/api/ledger/${targetEntryId}`, { method: "DELETE" });
+    if (res.ok) {
+      setModalMode(null);
+      setTargetEntryId(null);
+      await fetchEntries();
+    } else {
+      const err = await res.json().catch(() => ({}));
+      setFetchError((err as { error?: string }).error || "Failed to delete entry");
+    }
     setBusy(false);
   };
 
@@ -213,10 +279,12 @@ export default function LedgerPage() {
 
   const targetEntry = targetEntryId ? entries.find((e) => e.id === targetEntryId) : null;
   const hasDbMatch = (name: string) => allDbItems.some((i) => i.Name.toLowerCase() === name.toLowerCase());
-  const canTakeFrom = (entry: LedgerEntry) =>
-    entry.owner === user?.username || (entry.sharedWithOrg && canEditLedger);
-  const canDeleteEntry = (entry: LedgerEntry) => isAdmin || entry.owner === user?.username;
-  const canToggleShared = (entry: LedgerEntry) => entry.owner === user?.username;
+  const canRequestTake = (entry: LedgerEntry) =>
+    entry.sharedWithOrg && entry.quantity > 0;
+  const canDeleteEntry = (entry: LedgerEntry) =>
+    isAdmin || (entry.owner === user?.username && !entry.sharedWithOrg);
+  const canToggleShared = (entry: LedgerEntry) =>
+    entry.owner === user?.username && !entry.sharedWithOrg;
 
   const stats = useMemo(() => ({
     total: filtered.length,
@@ -224,7 +292,6 @@ export default function LedgerPage() {
     lowStock: filtered.filter((e) => e.status === "Low Stock" || e.status === "Depleted").length,
   }), [filtered]);
 
-  const inputClass = "w-full px-3 py-2.5 bg-space-900/60 border border-glass-border rounded-xl text-sm text-space-200 placeholder:text-space-600 focus:outline-none focus:border-holo/40 focus:ring-2 focus:ring-holo/20 transition-all";
 
   if (loading) {
     return (
@@ -245,6 +312,15 @@ export default function LedgerPage() {
         subtitle={view === "org" ? "Shared org inventory — see what members have made available" : "Your personal stash — only you see this"}
       />
 
+      {fetchError && (
+        <div className="mb-4 px-4 py-3 rounded-lg bg-danger/10 border border-danger/30 text-danger text-sm flex items-center justify-between">
+          <span>{fetchError}</span>
+          <button onClick={() => setFetchError(null)} aria-label="Dismiss error" className="hover:opacity-80">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
       {/* Stats summary */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         <div className="rounded-xl bg-space-900/50 border border-glass-border px-4 py-3">
@@ -259,12 +335,23 @@ export default function LedgerPage() {
           <div className="text-2xl font-bold text-industrial">{stats.lowStock}</div>
           <div className="text-xs text-space-500">Need restock</div>
         </div>
-        <div className="rounded-xl bg-space-900/50 border border-glass-border px-4 py-3 flex items-center justify-center">
+        <div className="rounded-xl bg-space-900/50 border border-glass-border px-4 py-3 flex items-center justify-center gap-2">
           <button
             onClick={() => setModalMode("add")}
             className="flex items-center gap-2 px-4 py-2 bg-holo/15 border border-holo/40 text-holo rounded-lg text-sm font-medium hover:bg-holo/25 transition-all"
           >
             <Plus className="w-4 h-4" /> Add item
+          </button>
+          <button
+            onClick={() => setRequestsOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-space-800/50 border border-glass-border text-space-300 rounded-lg text-sm font-medium hover:text-holo hover:border-holo/30 transition-all"
+          >
+            <ClipboardList className="w-4 h-4" /> Requests
+            {(pendingApproval.length > 0 || myHandoffs.length > 0) && (
+              <span className="w-5 h-5 rounded-full bg-industrial text-space-900 text-xs font-bold flex items-center justify-center">
+                {pendingApproval.length + myHandoffs.length}
+              </span>
+            )}
           </button>
         </div>
       </div>
@@ -338,6 +425,7 @@ export default function LedgerPage() {
                   layoutMode === "list" ? "bg-holo/20 text-holo" : "text-space-400 hover:text-space-200"
                 )}
                 title="List view"
+                aria-label="Switch to list view"
               >
                 <LayoutList className="w-4 h-4" />
               </button>
@@ -348,6 +436,7 @@ export default function LedgerPage() {
                   layoutMode === "grid" ? "bg-holo/20 text-holo" : "text-space-400 hover:text-space-200"
                 )}
                 title="Grid view"
+                aria-label="Switch to grid view"
               >
                 <LayoutGrid className="w-4 h-4" />
               </button>
@@ -505,12 +594,12 @@ export default function LedgerPage() {
                       {entry.sharedWithOrg ? "Shared" : "Private"}
                     </button>
                   )}
-                  {canTakeFrom(entry) && entry.quantity > 0 && (
+                  {canRequestTake(entry) && (
                     <button
-                      onClick={() => openTakeModal(entry.id)}
+                      onClick={() => openRequestTakeModal(entry.id)}
                       className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium bg-industrial/10 border border-industrial/30 text-industrial hover:bg-industrial/20 transition-all"
                     >
-                      <Minus className="w-3.5 h-3.5" /> Take
+                      <Minus className="w-3.5 h-3.5" /> Request to take
                     </button>
                   )}
                   {canDeleteEntry(entry) && (
@@ -518,6 +607,7 @@ export default function LedgerPage() {
                       onClick={() => openDeleteModal(entry.id)}
                       title="Remove entry"
                       className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium bg-space-800/50 border border-glass-border text-space-400 hover:bg-danger/10 hover:text-danger hover:border-danger/30 transition-all"
+                      aria-label="Remove entry"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -609,13 +699,13 @@ export default function LedgerPage() {
                       {entry.sharedWithOrg ? <Globe className="w-3 h-3" /> : <Lock className="w-3 h-3" />}
                     </button>
                   )}
-                  {canTakeFrom(entry) && entry.quantity > 0 && (
-                    <button onClick={() => openTakeModal(entry.id)} title="Take" className="p-1.5 rounded text-space-400 hover:text-industrial hover:bg-industrial/10 transition-colors">
+                  {canRequestTake(entry) && (
+                    <button onClick={() => openRequestTakeModal(entry.id)} title="Request to take" className="p-1.5 rounded text-space-400 hover:text-industrial hover:bg-industrial/10 transition-colors">
                       <Minus className="w-3 h-3" />
                     </button>
                   )}
                   {canDeleteEntry(entry) && (
-                    <button onClick={() => openDeleteModal(entry.id)} title="Remove" className="p-1.5 rounded text-space-400 hover:text-danger hover:bg-danger/10 transition-colors">
+                    <button onClick={() => openDeleteModal(entry.id)} title="Remove" aria-label="Remove entry" className="p-1.5 rounded text-space-400 hover:text-danger hover:bg-danger/10 transition-colors">
                       <Trash2 className="w-3 h-3" />
                     </button>
                   )}
@@ -727,7 +817,7 @@ export default function LedgerPage() {
                   type="number"
                   min={1}
                   value={addForm.quantity}
-                  onChange={(e) => setAddForm((p) => ({ ...p, quantity: parseInt(e.target.value) || 1 }))}
+                  onChange={(e) => { const n = parseInt(e.target.value, 10); setAddForm((p) => ({ ...p, quantity: Number.isNaN(n) ? 1 : Math.max(1, n) })); }}
                   className={inputClass}
                 />
               </div>
@@ -739,8 +829,11 @@ export default function LedgerPage() {
                   onChange={(e) => setAddForm((p) => ({ ...p, sharedWithOrg: e.target.checked }))}
                   className="w-4 h-4 rounded border-glass-border bg-space-900 text-holo focus:ring-holo/40"
                 />
-                <span className="text-sm text-space-300">Share with org — show in the shared Org Ledger so others can see and take</span>
+                <span className="text-sm text-space-300">Share with org — show in the shared Org Ledger so others can see and request</span>
               </label>
+              {addForm.sharedWithOrg && !canEditLedger && (
+                <p className="text-xs text-industrial">This will create a request. Logistics must approve before it appears in the org ledger.</p>
+              )}
             </div>
 
             <button
@@ -748,19 +841,19 @@ export default function LedgerPage() {
               disabled={!addForm.itemName || !addForm.subcategory || !addForm.location || busy}
               className="w-full mt-6 py-3 bg-holo/20 border border-holo/40 text-holo rounded-xl text-sm font-medium hover:bg-holo/30 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              {busy ? "Adding..." : "Add to ledger"}
+              {busy ? (addForm.sharedWithOrg && !canEditLedger ? "Submitting request..." : "Adding...") : (addForm.sharedWithOrg && !canEditLedger ? "Submit request" : "Add to ledger")}
             </button>
           </div>
         </div>
       )}
 
-      {/* Take Item Modal */}
+      {/* Request to Take Modal */}
       {modalMode === "take" && targetEntry && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-sm border border-industrial/20 shadow-xl">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
-                <Minus className="w-5 h-5 text-industrial" /> Take item
+                <Minus className="w-5 h-5 text-industrial" /> Request to take
               </h2>
               <button onClick={() => setModalMode(null)} className="p-2 rounded-lg text-space-500 hover:text-space-200 hover:bg-space-800/50 transition-colors">
                 <X className="w-5 h-5" />
@@ -770,31 +863,42 @@ export default function LedgerPage() {
             <div className="rounded-xl p-4 mb-5 bg-space-900/40 border border-glass-border">
               <p className="text-base font-medium text-space-200">{targetEntry.itemName}</p>
               <p className="text-sm text-space-500 mt-1">
-                <strong className="text-space-300">{targetEntry.quantity}</strong> available at {targetEntry.location}
+                <strong className="text-space-300">{targetEntry.quantity}</strong> available · Owner: {targetEntry.owner}
               </p>
             </div>
 
             <div>
-              <label className="text-sm font-medium text-space-300 mb-1.5 block">How many are you taking?</label>
+              <label className="text-sm font-medium text-space-300 mb-1.5 block">Quantity to request</label>
               <input
                 type="number"
                 min={1}
                 max={targetEntry.quantity}
                 value={takeForm.quantity}
-                onChange={(e) => setTakeForm({ quantity: Math.min(parseInt(e.target.value) || 1, targetEntry.quantity) })}
+                onChange={(e) => { const n = parseInt(e.target.value, 10); setTakeForm((p) => ({ ...p, quantity: Math.min(Number.isNaN(n) ? 1 : Math.max(1, n), targetEntry.quantity) })); }}
                 className={inputClass}
               />
               <p className="text-xs text-space-500 mt-1.5">
-                Logged as taken by <strong className="text-space-400">{user?.username}</strong>
+                Logistics will approve. Then {targetEntry.owner} will hand off and confirm.
               </p>
             </div>
 
+            <div className="mt-4">
+              <label className="text-sm font-medium text-space-300 mb-1.5 block">Reason / what you&apos;ll use it for (optional)</label>
+              <textarea
+                value={takeForm.description}
+                onChange={(e) => setTakeForm((p) => ({ ...p, description: e.target.value }))}
+                placeholder="e.g. Orison bunker run, JT2 op..."
+                rows={3}
+                className={inputClass + " resize-none"}
+              />
+            </div>
+
             <button
-              onClick={handleTakeItem}
+              onClick={handleRequestTake}
               disabled={busy}
               className="w-full mt-6 py-3 bg-industrial/20 border border-industrial/40 text-industrial rounded-xl text-sm font-medium hover:bg-industrial/30 transition-all disabled:opacity-50"
             >
-              {busy ? "Processing..." : "Confirm"}
+              {busy ? "Submitting..." : "Submit request"}
             </button>
           </div>
         </div>
@@ -838,6 +942,144 @@ export default function LedgerPage() {
               >
                 {busy ? "Removing..." : "Remove"}
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Requests Modal */}
+      {requestsOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="glass-card rounded-2xl p-6 w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col border border-glass-border shadow-xl">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
+                <ClipboardList className="w-5 h-5 text-holo" /> Ledger requests
+              </h2>
+              <button onClick={() => setRequestsOpen(false)} className="p-2 rounded-lg text-space-500 hover:text-space-200 hover:bg-space-800/50 transition-colors">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="flex gap-2 mb-4 flex-wrap">
+              {canEditLedger && pendingApproval.length > 0 && (
+                <span className="px-2 py-1 rounded-lg bg-industrial/20 text-industrial text-xs font-medium">
+                  {pendingApproval.length} pending approval
+                </span>
+              )}
+              {myHandoffs.length > 0 && (
+                <span className="px-2 py-1 rounded-lg bg-holo/20 text-holo text-xs font-medium">
+                  {myHandoffs.length} handoffs pending
+                </span>
+              )}
+            </div>
+
+            <div className="space-y-4 overflow-y-auto flex-1 min-h-0">
+              {canEditLedger && pendingApproval.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-medium text-space-400 mb-2">Pending approval</h3>
+                  {pendingApproval.map((req) => (
+                    <div key={req.id} className="rounded-xl bg-space-900/50 border border-glass-border p-4 mb-3">
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <p className="text-space-200 font-medium">{req.requesterUsername} — {req.type === "add_to_org" ? "Add to org" : "Take from org"}</p>
+                          <p className="text-xs text-space-500 mt-1">
+                            {req.items.map((i) => i.ledgerEntryId ? `${i.quantity}x from entry` : `${i.quantity}x ${i.itemName} at ${i.location}`).join(", ")}
+                          </p>
+                          {req.description && (
+                            <p className="text-xs text-space-400 mt-2 italic">&quot;{req.description}&quot;</p>
+                          )}
+                        </div>
+                        <div className="flex gap-2 flex-shrink-0">
+                          <button
+                            onClick={async () => {
+                              await fetch(`/api/ledger/requests/${req.id}/approve`, { method: "POST" });
+                              await fetchRequests();
+                              await fetchEntries();
+                            }}
+                            disabled={busy}
+                            className="p-2 rounded-lg bg-success/20 text-success hover:bg-success/30 transition-colors"
+                          >
+                            <Check className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={async () => {
+                              await fetch(`/api/ledger/requests/${req.id}/reject`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) });
+                              await fetchRequests();
+                            }}
+                            disabled={busy}
+                            className="p-2 rounded-lg bg-danger/20 text-danger hover:bg-danger/30 transition-colors"
+                          >
+                            <XCircle className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {myHandoffs.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-medium text-space-400 mb-2">Your handoffs</h3>
+                  {myHandoffs.map((req) => (
+                    <div key={req.id} className="rounded-xl bg-space-900/50 border border-glass-border p-4 mb-3">
+                      <p className="text-space-200 font-medium">{req.requesterUsername} requested</p>
+                      <p className="text-xs text-space-500 mt-1">
+                        {req.items.filter((i) => i.ledgerEntryId).map((i) => `${i.quantity}x`).join(", ")} — hand off in-game, then confirm
+                      </p>
+                      {req.description && (
+                        <p className="text-xs text-space-400 mt-2 italic">Reason: &quot;{req.description}&quot;</p>
+                      )}
+                      <div className="flex gap-2 mt-3">
+                        <button
+                          onClick={async () => {
+                            setBusy(true);
+                            await fetch(`/api/ledger/requests/${req.id}/confirm`, { method: "POST" });
+                            await fetchRequests();
+                            await fetchEntries();
+                            setBusy(false);
+                          }}
+                          disabled={busy}
+                          className="px-3 py-1.5 rounded-lg bg-success/20 text-success text-sm font-medium hover:bg-success/30"
+                        >
+                          Confirm handoff
+                        </button>
+                        <button
+                          onClick={async () => {
+                            setBusy(true);
+                            await fetch(`/api/ledger/requests/${req.id}/decline`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) });
+                            await fetchRequests();
+                            setBusy(false);
+                          }}
+                          disabled={busy}
+                          className="px-3 py-1.5 rounded-lg bg-danger/20 text-danger text-sm font-medium hover:bg-danger/30"
+                        >
+                          Decline
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div>
+                <h3 className="text-sm font-medium text-space-400 mb-2">My requests</h3>
+                {requests.length === 0 ? (
+                  <p className="text-sm text-space-500">No requests yet.</p>
+                ) : (
+                  requests.map((req) => (
+                    <div key={req.id} className="rounded-xl bg-space-900/50 border border-glass-border p-4 mb-3">
+                      <p className="text-space-200 font-medium">{req.type === "add_to_org" ? "Add to org" : "Take from org"} — {req.status}</p>
+                      <p className="text-xs text-space-500 mt-1">
+                        {req.items.map((i) => i.ledgerEntryId ? `${i.quantity}x` : `${i.quantity}x ${i.itemName}`).join(", ")}
+                      </p>
+                      {req.description && (
+                        <p className="text-xs text-space-400 mt-2 italic">&quot;{req.description}&quot;</p>
+                      )}
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>

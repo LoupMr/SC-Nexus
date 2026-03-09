@@ -190,6 +190,50 @@ function initSchema(db: Database.Database) {
     }
   } catch {}
   try {
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS ledger_requests (
+        id TEXT PRIMARY KEY,
+        type TEXT NOT NULL CHECK (type IN ('add_to_org', 'take_from_org')),
+        requester_username TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected', 'pending_handoff', 'completed', 'declined')),
+        resolved_by TEXT,
+        resolved_at TEXT,
+        reject_reason TEXT,
+        created_at TEXT DEFAULT (datetime('now')),
+        updated_at TEXT DEFAULT (datetime('now'))
+      )
+    `);
+  } catch {}
+  try { db.exec("ALTER TABLE ledger_requests ADD COLUMN description TEXT"); } catch {}
+  try {
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS ledger_request_items (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        request_id TEXT NOT NULL REFERENCES ledger_requests(id) ON DELETE CASCADE,
+        ledger_entry_id TEXT REFERENCES ledger(id) ON DELETE SET NULL,
+        item_name TEXT,
+        subcategory TEXT,
+        quantity INTEGER NOT NULL,
+        location TEXT,
+        owner_confirmed_at TEXT,
+        owner_confirmed_by TEXT
+      )
+    `);
+  } catch {}
+  try {
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS notifications (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        type TEXT NOT NULL,
+        request_id TEXT,
+        message TEXT NOT NULL,
+        read_at TEXT,
+        created_at TEXT DEFAULT (datetime('now'))
+      )
+    `);
+  } catch {}
+  try {
     db.exec("CREATE TABLE IF NOT EXISTS hangar_categories (id TEXT PRIMARY KEY, name TEXT NOT NULL, description TEXT NOT NULL DEFAULT '', sort_order INTEGER NOT NULL DEFAULT 0)");
     const catExists = db.prepare("SELECT id FROM hangar_categories LIMIT 1").get();
     if (!catExists) {
@@ -471,10 +515,12 @@ function deriveStatus(qty: number): string {
   return "Available";
 }
 
-function mapLedgerRow(db: Database.Database, row: DbLedgerRow): LedgerEntryWithHistory {
-  const history = db.prepare(
-    "SELECT action, username, quantity, timestamp FROM ledger_history WHERE ledger_id = ? ORDER BY id"
-  ).all(row.id) as { action: string; username: string; quantity: number; timestamp: string }[];
+type HistoryRow = { ledger_id: string; action: string; username: string; quantity: number; timestamp: string };
+
+function mapLedgerRowWithHistory(row: DbLedgerRow, history: HistoryRow[]): LedgerEntryWithHistory {
+  const entryHistory = history
+    .filter((h) => h.ledger_id === row.id)
+    .map((h) => ({ action: h.action, user: h.username, timestamp: h.timestamp, quantity: h.quantity }));
   return {
     id: row.id,
     itemName: row.item_name,
@@ -484,14 +530,27 @@ function mapLedgerRow(db: Database.Database, row: DbLedgerRow): LedgerEntryWithH
     quantity: row.quantity,
     location: row.location,
     sharedWithOrg: !!(row.shared_with_org ?? 0),
-    history: history.map((h) => ({ action: h.action, user: h.username, timestamp: h.timestamp, quantity: h.quantity })),
+    history: entryHistory,
   };
+}
+
+function mapLedgerRow(db: Database.Database, row: DbLedgerRow): LedgerEntryWithHistory {
+  const history = db.prepare(
+    "SELECT ledger_id, action, username, quantity, timestamp FROM ledger_history WHERE ledger_id = ? ORDER BY id"
+  ).all(row.id) as HistoryRow[];
+  return mapLedgerRowWithHistory(row, history);
 }
 
 export function getAllLedgerEntries(): LedgerEntryWithHistory[] {
   const db = getDb();
   const rows = db.prepare("SELECT * FROM ledger ORDER BY rowid").all() as DbLedgerRow[];
-  return rows.map((row) => mapLedgerRow(db, row));
+  if (rows.length === 0) return [];
+  const ids = rows.map((r) => r.id);
+  const placeholders = ids.map(() => "?").join(",");
+  const allHistory = db.prepare(
+    `SELECT ledger_id, action, username, quantity, timestamp FROM ledger_history WHERE ledger_id IN (${placeholders}) ORDER BY ledger_id, id`
+  ).all(...ids) as HistoryRow[];
+  return rows.map((row) => mapLedgerRowWithHistory(row, allHistory));
 }
 
 export function getLedgerEntriesForView(view: "org" | "mine", username: string): LedgerEntryWithHistory[] {
@@ -502,7 +561,13 @@ export function getLedgerEntriesForView(view: "org" | "mine", username: string):
   } else {
     rows = db.prepare("SELECT * FROM ledger WHERE owner = ? ORDER BY rowid").all(username) as DbLedgerRow[];
   }
-  return rows.map((row) => mapLedgerRow(db, row));
+  if (rows.length === 0) return [];
+  const ids = rows.map((r) => r.id);
+  const placeholders = ids.map(() => "?").join(",");
+  const allHistory = db.prepare(
+    `SELECT ledger_id, action, username, quantity, timestamp FROM ledger_history WHERE ledger_id IN (${placeholders}) ORDER BY ledger_id, id`
+  ).all(...ids) as HistoryRow[];
+  return rows.map((row) => mapLedgerRowWithHistory(row, allHistory));
 }
 
 export function getLedgerEntryById(id: string): LedgerEntryWithHistory | null {
@@ -551,7 +616,7 @@ export function takeLedgerItem(entryId: string, username: string, quantity: numb
   db.prepare("INSERT INTO ledger_history (ledger_id, action, username, quantity) VALUES (?, ?, ?, ?)").run(
     entryId, "taken", username, quantity
   );
-  return getAllLedgerEntries().find((e) => e.id === entryId) || null;
+  return getLedgerEntryById(entryId);
 }
 
 export function deleteLedgerEntry(entryId: string): boolean {
@@ -565,6 +630,255 @@ export function setLedgerEntryShared(entryId: string, sharedWithOrg: boolean): L
   if (!row) return null;
   db.prepare("UPDATE ledger SET shared_with_org = ? WHERE id = ?").run(sharedWithOrg ? 1 : 0, entryId);
   return getLedgerEntryById(entryId);
+}
+
+// --- Ledger Requests ---
+
+export type LedgerRequestType = "add_to_org" | "take_from_org";
+export type LedgerRequestStatus = "pending" | "approved" | "rejected" | "pending_handoff" | "completed" | "declined";
+
+export interface LedgerRequestItem {
+  id: number;
+  requestId: string;
+  ledgerEntryId: string | null;
+  itemName: string | null;
+  subcategory: string | null;
+  quantity: number;
+  location: string | null;
+  ownerConfirmedAt: string | null;
+  ownerConfirmedBy: string | null;
+}
+
+export interface LedgerRequest {
+  id: string;
+  type: LedgerRequestType;
+  requesterUsername: string;
+  status: LedgerRequestStatus;
+  resolvedBy: string | null;
+  resolvedAt: string | null;
+  rejectReason: string | null;
+  description: string | null;
+  createdAt: string;
+  updatedAt: string;
+  items: LedgerRequestItem[];
+}
+
+type RequestDbRow = { id: string; type: string; requester_username: string; status: string; resolved_by: string | null; resolved_at: string | null; reject_reason: string | null; description?: string | null; created_at: string; updated_at: string };
+type ItemDbRow = { id: number; request_id: string; ledger_entry_id: string | null; item_name: string | null; subcategory: string | null; quantity: number; location: string | null; owner_confirmed_at: string | null; owner_confirmed_by: string | null };
+
+function mapRequestRowWithItems(row: RequestDbRow, itemsByRequest: Map<string, ItemDbRow[]>): LedgerRequest {
+  const items = (itemsByRequest.get(row.id) ?? []).map((i) => ({
+    id: i.id,
+    requestId: i.request_id,
+    ledgerEntryId: i.ledger_entry_id,
+    itemName: i.item_name,
+    subcategory: i.subcategory,
+    quantity: i.quantity,
+    location: i.location,
+    ownerConfirmedAt: i.owner_confirmed_at,
+    ownerConfirmedBy: i.owner_confirmed_by,
+  }));
+  return {
+    id: row.id,
+    type: row.type as LedgerRequestType,
+    requesterUsername: row.requester_username,
+    status: row.status as LedgerRequestStatus,
+    resolvedBy: row.resolved_by,
+    resolvedAt: row.resolved_at,
+    rejectReason: row.reject_reason,
+    description: row.description ?? null,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+    items,
+  };
+}
+
+function mapRequestRow(db: Database.Database, row: RequestDbRow): LedgerRequest {
+  const items = db.prepare(
+    "SELECT id, request_id, ledger_entry_id, item_name, subcategory, quantity, location, owner_confirmed_at, owner_confirmed_by FROM ledger_request_items WHERE request_id = ? ORDER BY id"
+  ).all(row.id) as ItemDbRow[];
+  return mapRequestRowWithItems(row, new Map([[row.id, items]]));
+}
+
+export function createLedgerRequest(
+  type: LedgerRequestType,
+  requesterUsername: string,
+  items: { ledgerEntryId?: string; itemName?: string; subcategory?: string; quantity: number; location?: string }[],
+  description?: string | null
+): LedgerRequest {
+  const db = getDb();
+  const id = `req-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  db.prepare(
+    "INSERT INTO ledger_requests (id, type, requester_username, status, description) VALUES (?, ?, ?, 'pending', ?)"
+  ).run(id, type, requesterUsername, description ?? null);
+
+  const insertItem = db.prepare(
+    "INSERT INTO ledger_request_items (request_id, ledger_entry_id, item_name, subcategory, quantity, location) VALUES (?, ?, ?, ?, ?, ?)"
+  );
+  for (const it of items) {
+    insertItem.run(id, it.ledgerEntryId ?? null, it.itemName ?? null, it.subcategory ?? null, it.quantity, it.location ?? null);
+  }
+
+  const row = db.prepare("SELECT * FROM ledger_requests WHERE id = ?").get(id) as { id: string; type: string; requester_username: string; status: string; resolved_by: string | null; resolved_at: string | null; reject_reason: string | null; description: string | null; created_at: string; updated_at: string };
+  return mapRequestRow(db, row);
+}
+
+function batchFetchRequestItems(db: Database.Database, requestIds: string[]): Map<string, ItemDbRow[]> {
+  const map = new Map<string, ItemDbRow[]>();
+  if (requestIds.length === 0) return map;
+  const placeholders = requestIds.map(() => "?").join(",");
+  const items = db.prepare(
+    `SELECT id, request_id, ledger_entry_id, item_name, subcategory, quantity, location, owner_confirmed_at, owner_confirmed_by FROM ledger_request_items WHERE request_id IN (${placeholders}) ORDER BY request_id, id`
+  ).all(...requestIds) as ItemDbRow[];
+  for (const i of items) {
+    const list = map.get(i.request_id) ?? [];
+    list.push(i);
+    map.set(i.request_id, list);
+  }
+  return map;
+}
+
+export function getLedgerRequestsForUser(username: string): LedgerRequest[] {
+  const db = getDb();
+  const rows = db.prepare(
+    "SELECT * FROM ledger_requests WHERE requester_username = ? ORDER BY created_at DESC"
+  ).all(username) as RequestDbRow[];
+  const itemsByRequest = batchFetchRequestItems(db, rows.map((r) => r.id));
+  return rows.map((r) => mapRequestRowWithItems(r, itemsByRequest));
+}
+
+export function getLedgerRequestsForLogistics(): LedgerRequest[] {
+  const db = getDb();
+  const rows = db.prepare(
+    "SELECT * FROM ledger_requests WHERE status = 'pending' AND type IN ('add_to_org', 'take_from_org') ORDER BY created_at ASC"
+  ).all() as RequestDbRow[];
+  const itemsByRequest = batchFetchRequestItems(db, rows.map((r) => r.id));
+  return rows.map((r) => mapRequestRowWithItems(r, itemsByRequest));
+}
+
+export function getLedgerRequestsForOwner(ownerUsername: string): LedgerRequest[] {
+  const db = getDb();
+  const rows = db.prepare(`
+    SELECT DISTINCT r.* FROM ledger_requests r
+    JOIN ledger_request_items i ON i.request_id = r.id
+    JOIN ledger l ON l.id = i.ledger_entry_id AND l.owner = ?
+    WHERE r.status = 'pending_handoff' AND i.owner_confirmed_at IS NULL
+    ORDER BY r.created_at ASC
+  `).all(ownerUsername) as RequestDbRow[];
+  const itemsByRequest = batchFetchRequestItems(db, rows.map((r) => r.id));
+  return rows.map((r) => mapRequestRowWithItems(r, itemsByRequest));
+}
+
+export function getLedgerRequestById(id: string): LedgerRequest | null {
+  const db = getDb();
+  const row = db.prepare("SELECT * FROM ledger_requests WHERE id = ?").get(id) as { id: string; type: string; requester_username: string; status: string; resolved_by: string | null; resolved_at: string | null; reject_reason: string | null; description?: string | null; created_at: string; updated_at: string } | undefined;
+  if (!row) return null;
+  return mapRequestRow(db, row);
+}
+
+export function approveLedgerRequest(id: string, resolvedBy: string): LedgerRequest | null {
+  const db = getDb();
+  const req = getLedgerRequestById(id);
+  if (!req || req.status !== "pending") return null;
+
+  const now = new Date().toISOString();
+  if (req.type === "add_to_org") {
+    for (const it of req.items) {
+      if (it.itemName && it.subcategory && it.location) {
+        addLedgerEntry(it.itemName, it.subcategory, req.requesterUsername, it.quantity, it.location, true);
+      }
+    }
+    db.prepare("UPDATE ledger_requests SET status = 'approved', resolved_by = ?, resolved_at = ?, updated_at = ? WHERE id = ?").run(resolvedBy, now, now, id);
+    createNotification(req.requesterUsername, "add_request_approved", id, "Your request to add to org ledger was approved.");
+  } else {
+    db.prepare("UPDATE ledger_requests SET status = 'pending_handoff', resolved_by = ?, resolved_at = ?, updated_at = ? WHERE id = ?").run(resolvedBy, now, now, id);
+    const ownerItems: Record<string, { itemName: string; qty: number }[]> = {};
+    for (const it of req.items) {
+      if (it.ledgerEntryId) {
+        const entry = getLedgerEntryById(it.ledgerEntryId);
+        if (entry) {
+          if (!ownerItems[entry.owner]) ownerItems[entry.owner] = [];
+          ownerItems[entry.owner].push({ itemName: entry.itemName, qty: it.quantity });
+        }
+      }
+    }
+    for (const [owner, items] of Object.entries(ownerItems)) {
+      const summary = items.map((i) => `${i.qty}x ${i.itemName}`).join(", ");
+      createNotification(owner, "take_request_approved", id, `${req.requesterUsername} wants to take ${summary}. Hand off and confirm.`);
+    }
+  }
+  return getLedgerRequestById(id);
+}
+
+export function rejectLedgerRequest(id: string, resolvedBy: string, reason?: string): LedgerRequest | null {
+  const db = getDb();
+  const req = getLedgerRequestById(id);
+  if (!req || req.status !== "pending") return null;
+
+  const now = new Date().toISOString();
+  db.prepare("UPDATE ledger_requests SET status = 'rejected', resolved_by = ?, resolved_at = ?, reject_reason = ?, updated_at = ? WHERE id = ?").run(resolvedBy, now, reason ?? null, now, id);
+  createNotification(req.requesterUsername, "request_rejected", id, `Your request was rejected.${reason ? ` Reason: ${reason}` : ""}`);
+  return getLedgerRequestById(id);
+}
+
+export function confirmLedgerRequestHandoff(id: string, ownerUsername: string): LedgerRequest | null {
+  const db = getDb();
+  const req = getLedgerRequestById(id);
+  if (!req || req.type !== "take_from_org" || req.status !== "pending_handoff") return null;
+
+  const items = req.items.filter((i) => i.ledgerEntryId);
+  const entryIds = [...new Set(items.map((i) => i.ledgerEntryId!))];
+  for (const eid of entryIds) {
+    const entry = getLedgerEntryById(eid);
+    if (!entry || entry.owner !== ownerUsername) continue;
+    const forThisEntry = items.filter((i) => i.ledgerEntryId === eid);
+    const totalQty = forThisEntry.reduce((s, i) => s + i.quantity, 0);
+    takeLedgerItem(eid, req.requesterUsername, totalQty);
+  }
+
+  const now = new Date().toISOString();
+  db.prepare("UPDATE ledger_request_items SET owner_confirmed_at = ?, owner_confirmed_by = ? WHERE request_id = ? AND ledger_entry_id IN (SELECT id FROM ledger WHERE owner = ?)").run(now, ownerUsername, id, ownerUsername);
+
+  const allConfirmed = db.prepare("SELECT COUNT(*) as c FROM ledger_request_items WHERE request_id = ? AND ledger_entry_id IS NOT NULL AND owner_confirmed_at IS NULL").get(id) as { c: number };
+  if (allConfirmed.c === 0) {
+    db.prepare("UPDATE ledger_requests SET status = 'completed', updated_at = ? WHERE id = ?").run(now, id);
+    createNotification(req.requesterUsername, "take_request_completed", id, "Your take request has been fulfilled.");
+  }
+
+  return getLedgerRequestById(id);
+}
+
+export function declineLedgerRequestHandoff(id: string, ownerUsername: string, reason?: string): LedgerRequest | null {
+  const db = getDb();
+  const req = getLedgerRequestById(id);
+  if (!req || req.type !== "take_from_org" || req.status !== "pending_handoff") return null;
+
+  const now = new Date().toISOString();
+  db.prepare("UPDATE ledger_requests SET status = 'declined', resolved_by = ?, reject_reason = ?, updated_at = ? WHERE id = ?").run(ownerUsername, reason ?? null, now, id);
+  createNotification(req.requesterUsername, "take_request_declined", id, `The owner declined.${reason ? ` Reason: ${reason}` : ""}`);
+  return getLedgerRequestById(id);
+}
+
+export function createNotification(username: string, type: string, requestId: string | null, message: string): void {
+  getDb().prepare("INSERT INTO notifications (username, type, request_id, message) VALUES (?, ?, ?, ?)").run(username, type, requestId, message);
+}
+
+export function getNotifications(username: string, unreadOnly = false): { id: number; type: string; requestId: string | null; message: string; readAt: string | null; createdAt: string }[] {
+  const db = getDb();
+  const sql = unreadOnly
+    ? "SELECT id, type, request_id, message, read_at, created_at FROM notifications WHERE username = ? AND read_at IS NULL ORDER BY created_at DESC"
+    : "SELECT id, type, request_id, message, read_at, created_at FROM notifications WHERE username = ? ORDER BY created_at DESC LIMIT 50";
+  const rows = db.prepare(sql).all(username) as { id: number; type: string; request_id: string | null; message: string; read_at: string | null; created_at: string }[];
+  return rows.map((r) => ({ id: r.id, type: r.type, requestId: r.request_id, message: r.message, readAt: r.read_at, createdAt: r.created_at }));
+}
+
+export function markNotificationRead(id: number): void {
+  getDb().prepare("UPDATE notifications SET read_at = datetime('now') WHERE id = ?").run(id);
+}
+
+export function getUnreadNotificationCount(username: string): number {
+  const row = getDb().prepare("SELECT COUNT(*) as c FROM notifications WHERE username = ? AND read_at IS NULL").get(username) as { c: number };
+  return row.c;
 }
 
 // --- Operations ---

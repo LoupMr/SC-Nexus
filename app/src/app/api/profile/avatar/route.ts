@@ -1,38 +1,38 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { getSessionUser } from "@/lib/session";
 import { updateUserAvatar } from "@/lib/db";
+import { avatarSchema } from "@/lib/validations";
+import { api400, api401, api500, safeParseJson } from "@/lib/api-utils";
 
 const MAX_SIZE = 150 * 1024; // 150KB for base64
 
 export async function POST(req: NextRequest) {
   const user = await getSessionUser();
-  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!user) return api401();
 
-  const body = await req.json();
-  const { avatar } = body as { avatar?: string };
-
-  if (!avatar || typeof avatar !== "string") {
-    return NextResponse.json({ error: "Avatar data required" }, { status: 400 });
+  const json = await safeParseJson(req);
+  if ("error" in json) return json.error;
+  const parsed = avatarSchema.safeParse(json.data);
+  if (!parsed.success) {
+    const msg = parsed.error.issues[0]?.message || "Invalid input";
+    return api400(msg);
   }
-
-  if (!avatar.startsWith("data:image/")) {
-    return NextResponse.json({ error: "Invalid image format" }, { status: 400 });
-  }
+  const { avatar } = parsed.data;
 
   if (avatar.length > MAX_SIZE) {
-    return NextResponse.json({ error: "Image too large (max 150KB)" }, { status: 400 });
+    return api400("Image too large (max 150KB)");
   }
 
   const updated = updateUserAvatar(user.username, avatar);
-  if (!updated) return NextResponse.json({ error: "Failed to update" }, { status: 500 });
+  if (!updated) return api500("Failed to update");
 
-  return NextResponse.json({ avatarUrl: avatar });
+  return Response.json({ avatarUrl: avatar });
 }
 
 export async function DELETE() {
   const user = await getSessionUser();
-  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!user) return api401();
 
   updateUserAvatar(user.username, null);
-  return NextResponse.json({ avatarUrl: null });
+  return Response.json({ avatarUrl: null });
 }

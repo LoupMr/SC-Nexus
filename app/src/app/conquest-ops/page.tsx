@@ -9,6 +9,7 @@ import {
 import { useAuth } from "@/context/AuthContext";
 import PageHeader from "@/components/PageHeader";
 import clsx from "clsx";
+import { inputClass } from "@/lib/styles";
 
 interface OpStep {
   id?: number;
@@ -56,8 +57,6 @@ function getStationColor(station: string): string {
 type ModalMode = null | "create" | "edit" | "delete";
 
 const emptyStep = (): OpStep => ({ order: 1, station: "", target: "", requirements: "", description: "", mapUrl: null });
-
-const inputClass = "w-full px-3 py-2 bg-space-900/60 border border-glass-border rounded-lg text-sm text-space-200 focus:outline-none focus:border-holo/40 transition-all";
 const selectClass = `${inputClass} appearance-none`;
 
 export default function OperationGuidePage() {

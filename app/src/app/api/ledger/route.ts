@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getLedgerEntriesForView, addLedgerEntry, getAvatarUrls } from "@/lib/db";
 import { getSessionUser, requireLedgerAccess } from "@/lib/session";
 import { ledgerAddSchema } from "@/lib/validations";
-import { api400, api401 } from "@/lib/api-utils";
+import { api400, api401, safeParseJson } from "@/lib/api-utils";
 
 export async function GET(req: NextRequest) {
   const user = await getSessionUser();
@@ -15,19 +15,26 @@ export async function GET(req: NextRequest) {
   const entries = getLedgerEntriesForView(view, user.username);
   const avatars = getAvatarUrls(entries.map((e) => e.owner));
   const withAvatars = entries.map((e) => ({ ...e, ownerAvatarUrl: avatars[e.owner] ?? null }));
-  return NextResponse.json(withAvatars);
+  return Response.json(withAvatars);
 }
 
 export async function POST(req: NextRequest) {
-  const user = await requireLedgerAccess();
-  if (!user) return api401("Ledger access required (admin or logistics)");
+  const user = await getSessionUser();
+  if (!user) return api401();
 
-  const parsed = ledgerAddSchema.safeParse(await req.json());
+  const json = await safeParseJson(req);
+  if ("error" in json) return json.error;
+  const parsed = ledgerAddSchema.safeParse(json.data);
   if (!parsed.success) {
     const msg = parsed.error.issues[0]?.message || "Invalid input";
     return api400(msg);
   }
   const { itemName, subcategory, quantity, location, sharedWithOrg } = parsed.data;
+
+  if (sharedWithOrg) {
+    const logistics = await requireLedgerAccess();
+    if (!logistics) return api401("Use the request flow to add to org ledger (logistics approval required)");
+  }
 
   const entry = addLedgerEntry(
     itemName,

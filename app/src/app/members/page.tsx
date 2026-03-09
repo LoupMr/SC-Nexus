@@ -172,17 +172,28 @@ export default function MembersPage() {
                   {(["viewer", "logistics", "ops", "raffle", "guide", "admin"] as const).map((r) => {
                     const badge = roleBadge[r];
                     const active = roles.includes(r);
+                    const isPermanentAdmin = member.username.toLowerCase() === "admin";
+                    const adminRoleLocked = r === "admin" && (isSelf || isPermanentAdmin);
+                    const disabled = adminRoleLocked;
                     return (
                       <button
                         key={r}
                         type="button"
-                        onClick={() => toggleMemberRole(member.username, r)}
-                        disabled={isSelf}
-                        title={active ? `Remove ${badge.label}` : `Add ${badge.label}`}
+                        onClick={() => !disabled && toggleMemberRole(member.username, r)}
+                        disabled={disabled}
+                        title={
+                          r === "admin" && isSelf
+                            ? "You cannot change your own admin role"
+                            : r === "admin" && isPermanentAdmin
+                              ? "Admin account role is permanent"
+                              : active
+                                ? `Remove ${badge.label}`
+                                : `Add ${badge.label}`
+                        }
                         className={clsx(
                           "text-[10px] px-2 py-0.5 rounded border font-medium transition-all",
                           active ? badge.color : "border-space-700/50 text-space-500 bg-space-900/40",
-                          isSelf && "opacity-50 cursor-not-allowed"
+                          adminRoleLocked && "opacity-50 cursor-not-allowed"
                         )}
                       >
                         {badge.label}
@@ -216,7 +227,7 @@ export default function MembersPage() {
 
       <div className="mt-4 flex items-start gap-2 text-[11px] text-space-500">
         <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-        <span>You can change your own rank. You cannot change your own roles or remove yourself. Admins and Guide role can approve guides for publication. Viewers have read-only access.</span>
+        <span>You can change your own rank and non-admin roles. You cannot remove yourself. Only admins can add or remove the admin role. The admin account&apos;s admin role is permanent. Admins and Guide role can approve guides for publication. Viewers have read-only access.</span>
       </div>
 
       {/* Audit Log */}

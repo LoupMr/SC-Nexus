@@ -7,7 +7,7 @@ SC-Nexus is a **separate GitHub repo**. It is deployed via `docker-compose.unifi
 ## Architecture
 
 ```
-[GitHub] push to master (SC-Nexus changes)
+[GitHub] push to main (SC-Nexus changes)
     → GitHub Actions builds Docker image
     → Pushes to GHCR (ghcr.io/<owner>/sc-nexus)
     → Watchtower (in unified compose) polls every 5 min
@@ -21,7 +21,7 @@ SC-Nexus is a **separate GitHub repo**. It is deployed via `docker-compose.unifi
 
 | File | Purpose |
 |------|---------|
-| `SC-Nexus/.github/workflows/deploy.yml` | Build & push SC-Nexus to GHCR on push to master |
+| `SC-Nexus/.github/workflows/deploy.yml` | Build & push SC-Nexus to GHCR on push to main |
 | `TOCONTINUE/docker-compose.unified.yml` | All apps + Watchtower + cloudflared (local only) |
 | `SC-Nexus/Dockerfile` | Multi-stage build (context: repo root, needs `Database/`) |
 | `TOCONTINUE/.env` | `GHCR_IMAGE`, `TUNNEL_TOKEN`, etc. (copy from `.env.example`) |
@@ -65,7 +65,7 @@ docker compose -f docker-compose.unified.yml up -d
 
 ## First-Time Flow
 
-1. Push the workflow + Dockerfile to the **SC-Nexus** repo's `master` branch.
+1. Push the workflow + Dockerfile to the **SC-Nexus** repo's `main` branch.
 2. Wait for the workflow to finish (GitHub → Actions).
 3. Set `GHCR_IMAGE=ghcr.io/<your-username>/sc-nexus:latest` in root `.env`.
 4. Run `docker compose -f docker-compose.unified.yml up -d --build` (or `pull` then `up`).

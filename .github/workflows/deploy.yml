@@ -1,10 +1,10 @@
-# Build and push SC-Nexus to GHCR on push to master.
+# Build and push SC-Nexus to GHCR on push to main.
 # Image used by docker-compose.unified.yml (in TOCONTINUE) + Watchtower.
 name: Build and Push SC-Nexus
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 env:
   REGISTRY: ghcr.io
@@ -41,7 +41,7 @@ jobs:
           images: ${{ steps.vars.outputs.image }}
           tags: |
             type=sha,prefix=
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6

@@ -1,96 +1,24 @@
-# SC-Nexus — Introduction & Overview
+# SC-Nexus — Introduction
 
-> **Star Citizen Organization management portal** for shared inventory, assets, and Conquest Zone operations.
-
----
-
-## What is SC-Nexus?
-
-SC-Nexus is the organizational portal for **Black Horizon Group** — a Star Citizen org. It provides a central hub for logistics, operations, member management, and shared resources. Think of it as your org's command center: track inventory, run ops, award merits, and keep everyone aligned.
+> **Discord (max 1998 chars)** — Copy the block below to post.
 
 ---
 
-## Features
+```
+**SC-NEXUS** — Org portal for Black Horizon Group (Star Citizen). Track inventory, run ops, award merits, manage members. Your org's command center.
 
-### 📖 **Guides**
-- **Org guides & tutorials** — Written by members for new recruits and veterans alike.
-- **Public access** — Guides can be viewed without logging in.
-- **Rich text** — Supports formatted content, links, and images.
-- **Approval workflow** — Draft guides can be submitted for approval by guide admins.
+**Guides** — Org tutorials & how-tos. Viewable without login. Rich text, approval workflow.
+**Ledger** — Track inventory (who, what, where). Org vs personal stash. Non-logistics request add/take; logistics approves. Full audit trail. Export CSV/JSON.
+**Conquest Ops** — Tactical guides, mission steps, map links. Priority & status tags. Merit tags for participation.
+**Merits & Rewards** — Service record, hangar access (merit-based), raffles. Admins award merits and run draws.
+**Roster** — Members, ranks (Supreme Commander, Captain, etc.), roles.
+**Links** — Curated SC resources (admin-managed).
+**Armory** — Item database (weapons, components). Search & filter for Ledger & loadouts.
+**Profile** — Avatar, view your roles.
+**Members** (Admin) — Assign roles & ranks, passkey, audit log.
 
-### 📦 **The Ledger**
-- **Inventory tracker** — Track who has what, where, and how much.
-- **Org vs. personal** — Share items with the org or keep a private stash.
-- **Request flow** — Non-logistics members can request to add or take items; logistics approves.
-- **Audit trail** — Full history of adds, takes, and handoffs.
-- **Export** — Download ledger data as JSON or CSV.
+**Roles:** Admin (full) • Logistics (approve ledger) • Ops (operations) • Raffle • Guide • Viewer (read-only)
+**Start:** Get passkey from admin → Sign up → Login → Dashboard
 
-### 🛡️ **Operation Guide (Conquest Ops)**
-- **Tactical guides** — Step-by-step mission objectives and station walkthroughs.
-- **Map links** — Direct links to maps, imgur albums, and resources.
-- **Priority & status** — Operations tagged by priority (low/medium/high/critical) and status (active/completed/archived).
-- **Merit tags** — Link ops to merit tags for participation tracking.
-
-### 🎖️ **Merits & Rewards**
-- **Service record** — View your earned merits and operation participation.
-- **Hangar access** — Select rewards from the org hangar based on merit requirements.
-- **Raffles** — Participate in merit-based raffles for prizes.
-- **Admin tools** — Award merits, manage hangar assets, and run raffles (role-dependent).
-
-### 👥 **Roster**
-- **Org members** — See who's in the organization.
-- **Ranks** — View member ranks (e.g. Supreme Commander, Captain, Operator).
-- **Roles** — Understand who has admin, logistics, ops, or other permissions.
-
-### 🔗 **Useful Links**
-- **Curated links** — Star Citizen resources, tools, and references.
-- **Admin-managed** — Links are added and edited by admins.
-
-### 🗄️ **The Armory**
-- **Item database** — Browse ship weapons, components, and miscellaneous gear.
-- **Search & filter** — Find items by name, category, size, grade, etc.
-- **Reference** — Use it when adding items to the Ledger or planning loadouts.
-
-### 👤 **Profile**
-- **Avatar** — Set a profile picture.
-- **Roles** — See your assigned roles and permissions.
-
-### 🔑 **Members (Admin only)**
-- **Manage users** — Assign roles (admin, logistics, ops, raffle, guide, viewer) and ranks.
-- **Passkey** — Admins can view and regenerate the org signup passkey.
-- **Audit** — Track user actions and changes.
-
----
-
-## Roles & Permissions
-
-| Role      | Description |
-|-----------|-------------|
-| **Admin** | Full access: manage members, links, hangar, raffles, guides, operations, ledger. |
-| **Logistics** | Approve ledger requests, add directly to org ledger. |
-| **Ops** | Create and edit operations. |
-| **Raffle** | Manage raffles and draw winners. |
-| **Guide** | Create, edit, and approve guides. |
-| **Viewer** | Read-only access to most features. |
-
----
-
-## Getting Started
-
-1. **Sign up** — Use the org passkey (from an admin) to create an account.
-2. **Log in** — Enter your username and password.
-3. **Explore** — Start with the Dashboard to see an overview of all sections.
-4. **Check the Ledger** — See what's available and request items if needed.
-5. **Read the guides** — Get up to speed on org procedures and tactics.
-
----
-
-## Tech Notes
-
-- **Responsive** — Works on desktop and mobile.
-- **Dark / Light** — Theme toggle in the sidebar.
-- **Session-based** — Stays logged in for 30 days (configurable).
-
----
-
-*SC-Nexus v1.0 — Black Horizon Group. Precision. Intelligence. Dominance.*
+Responsive. Dark/light theme. SC-Nexus v1.0 — Precision. Intelligence. Dominance.
+```

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { BookOpen, ArrowLeft, Loader2 } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import RichTextEditor from "@/components/RichTextEditor";
 import { inputClass } from "@/lib/styles";
 
@@ -22,10 +22,8 @@ export default function NewGuidePage() {
   }, [user, router]);
 
   const hasContent = (html: string) => {
-    if (typeof document === "undefined") return !!html.trim();
-    const div = document.createElement("div");
-    div.innerHTML = html;
-    return (div.textContent || "").trim().length > 0;
+    const stripped = html.replace(/<[^>]+>/g, "").trim();
+    return stripped.length > 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

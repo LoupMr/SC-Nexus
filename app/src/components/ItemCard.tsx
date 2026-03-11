@@ -22,7 +22,7 @@ const subcategoryIcons: Record<string, React.ComponentType<{ className?: string 
 };
 
 const categoryColors: Record<string, string> = {
-  Vehicle_Weaponry: "text-danger bg-danger/10 border-danger/30",
+  Vehicle_Weaponry: "text-alert bg-alert/10 border-alert/30",
   Vehicle_Components: "text-holo bg-holo/10 border-holo/30",
   Other: "text-industrial bg-industrial/10 border-industrial/30",
 };
@@ -36,21 +36,33 @@ function formatValue(value: unknown): string {
   return String(value ?? "—");
 }
 
-export default function ItemCard({ item }: { item: DatabaseItem }) {
+interface ItemCardProps {
+  item: DatabaseItem;
+  onClick?: () => void;
+}
+
+export default function ItemCard({ item, onClick }: ItemCardProps) {
   const stats = getItemStats(item);
   const Icon = subcategoryIcons[item.subcategory] || Box;
   const colorClass = categoryColors[item.category] || categoryColors.Other;
 
   return (
-    <div className="glass-card rounded-xl overflow-hidden flex group">
+    <button
+      type="button"
+      onClick={onClick}
+      className={clsx(
+        "glass-card chamfer-md overflow-hidden flex group w-full text-left",
+        onClick && "cursor-pointer hover:border-holo/30 hover:shadow-[0_0_12px_rgba(92,225,230,0.15)] transition-all"
+      )}
+    >
       <div className="w-20 sm:w-24 flex-shrink-0 flex items-center justify-center bg-space-800/40 border-r border-glass-border">
-        <Icon className={clsx("w-8 h-8 transition-transform group-hover:scale-110", colorClass.split(" ")[0])} />
+        <Icon className={clsx("w-8 h-8 transition-transform group-hover:scale-110 drop-shadow-[0_0_6px_currentColor]", colorClass.split(" ")[0])} />
       </div>
 
       <div className="flex-1 p-3 sm:p-4 min-w-0">
         <div className="flex items-start justify-between gap-2 mb-2">
-          <h3 className="text-sm font-semibold text-space-200 truncate">{item.Name}</h3>
-          <span className={clsx("text-[10px] px-2 py-0.5 rounded-full border font-medium whitespace-nowrap", colorClass)}>
+          <h3 className="text-sm font-semibold text-space-200 truncate mobiglas-label">{item.Name}</h3>
+          <span className={clsx("text-[10px] px-2 py-0.5 chamfer-sm border font-medium whitespace-nowrap mobiglas-label", colorClass)}>
             {getSubcategoryLabel(item.subcategory)}
           </span>
         </div>
@@ -66,10 +78,10 @@ export default function ItemCard({ item }: { item: DatabaseItem }) {
 
         {stats.length > 6 && (
           <div className="mt-1 text-[10px] text-space-600">
-            +{stats.length - 6} more stats
+            +{stats.length - 6} more stats — click for details
           </div>
         )}
       </div>
-    </div>
+    </button>
   );
 }

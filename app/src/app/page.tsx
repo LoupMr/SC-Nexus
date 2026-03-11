@@ -5,28 +5,28 @@ import { LogIn } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
+    <div className="home-content min-h-[calc(100vh-9rem)] flex flex-col items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full">
         {/* Header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-holo/5 border border-holo/20 text-holo text-xs mb-4">
-            <div className="w-1.5 h-1.5 rounded-full bg-holo animate-pulse-glow" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 chamfer-sm bg-holo/5 border border-holo/20 text-holo text-xs mb-4 mobiglas-label shadow-[0_0_8px_rgba(92,225,230,0.2)]">
+            <div className="w-1.5 h-1.5 bg-holo animate-pulse-glow" />
             BLACK HORIZON GROUP
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-space-200 tracking-tight mb-2">
+          <h1 className="hero-title text-3xl sm:text-4xl font-bold mobiglas-heading tracking-[0.08em] uppercase mb-2 glow-text">
             Organizational Doctrine
           </h1>
-          <p className="text-holo font-medium text-lg">Precision. Intelligence. Dominance.</p>
+          <p className="hero-subtitle font-semibold text-lg glow-text mobiglas-label">Precision. Intelligence. Dominance.</p>
         </div>
 
         {/* Condensed doctrine */}
-        <div className="glass-card rounded-xl p-6 sm:p-8 space-y-6 text-sm text-space-300 leading-relaxed">
+        <div className="glass-card chamfer-lg p-6 sm:p-8 space-y-6 text-sm text-space-300 leading-relaxed">
           <p>
             Black Horizon Group exists to establish structured battlefield control through discipline, coordination, and strategic execution. We are not chaos — we are calculated force.
           </p>
 
           <div>
-            <h2 className="text-space-200 font-semibold mb-2 uppercase tracking-wider text-xs">Core Principles</h2>
+            <h2 className="text-space-200 font-semibold mb-2 mobiglas-label text-xs">Core Principles</h2>
             <ul className="space-y-1.5 text-space-400">
               <li><span className="text-holo">•</span> Discipline before aggression — engagement is intentional, never emotional</li>
               <li><span className="text-holo">•</span> Intelligence wins wars — recon and tactical intel are force multipliers</li>
@@ -53,13 +53,13 @@ export default function Home() {
         <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center">
           <Link
             href="/guide"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-space-800/60 border border-glass-border text-space-200 font-medium hover:bg-space-800 hover:border-holo/30 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 chamfer-md bg-space-800/60 border border-glass-border text-space-200 font-medium hover:bg-space-800 hover:border-holo/30 hover:shadow-[0_0_8px_rgba(92,225,230,0.2)] transition-all mobiglas-label"
           >
             View Guides
           </Link>
           <Link
             href="/login"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-holo/20 border border-holo/40 text-holo font-medium hover:bg-holo/30 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 chamfer-md bg-holo/20 border border-holo/40 text-holo font-medium hover:bg-holo/30 hover:shadow-[0_0_12px_rgba(92,225,230,0.4)] transition-all mobiglas-label"
           >
             <LogIn className="w-4 h-4" />
             Enter Portal
@@ -67,7 +67,7 @@ export default function Home() {
         </div>
 
         <div className="hud-line mt-12" />
-        <p className="text-center text-[10px] text-space-600 mt-4 uppercase tracking-widest">
+        <p className="hero-footer text-center text-[10px] mt-4 mobiglas-label tracking-[0.2em]">
           SC-Nexus v1.0 — © LoupMr. Proprietary. All rights reserved.
         </p>
       </div>

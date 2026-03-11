@@ -67,7 +67,7 @@ const features = [
 const accentMap: Record<string, { bg: string; border: string; text: string; glow: string }> = {
   holo: { bg: "bg-holo/10", border: "border-holo/30", text: "text-holo", glow: "shadow-holo/20" },
   industrial: { bg: "bg-industrial/10", border: "border-industrial/30", text: "text-industrial", glow: "shadow-industrial/20" },
-  danger: { bg: "bg-danger/10", border: "border-danger/30", text: "text-danger", glow: "shadow-danger/20" },
+  danger: { bg: "bg-alert/10", border: "border-alert/30", text: "text-alert", glow: "shadow-alert/20" },
 };
 
 export default function DashboardPage() {
@@ -95,14 +95,14 @@ export default function DashboardPage() {
   return (
     <div className="max-w-5xl mx-auto">
       <div className="text-center mb-12 mt-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-holo/5 border border-holo/20 text-holo text-xs mb-4">
-          <div className="w-1.5 h-1.5 rounded-full bg-holo animate-pulse-glow" />
+        <div className="inline-flex items-center gap-2 px-3 py-1 chamfer-sm bg-holo/5 border border-holo/20 text-holo text-xs mb-4 mobiglas-label shadow-[0_0_8px_rgba(92,225,230,0.2)]">
+          <div className="w-1.5 h-1.5 bg-holo animate-pulse-glow" />
           SYSTEM ONLINE
         </div>
-        <h1 className="text-4xl sm:text-5xl font-bold text-space-200 tracking-tight mb-3">
+        <h1 className="text-4xl sm:text-5xl font-bold text-space-200 mobiglas-heading tracking-[0.08em] mb-3">
           SC-<span className="text-holo glow-text">NEXUS</span>
         </h1>
-        <p className="text-space-500 max-w-md mx-auto mb-1">
+        <p className="text-space-500 max-w-md mx-auto mb-1 mobiglas-label">
           <span className="text-space-400 font-medium">Black Horizon Group</span>
         </p>
         <p className="text-space-500 max-w-md mx-auto">
@@ -112,10 +112,10 @@ export default function DashboardPage() {
 
       <div className="grid grid-cols-3 gap-4 mb-10">
         {stats.map((stat) => (
-          <div key={stat.label} className="glass-card rounded-xl p-4 text-center">
-            <stat.icon className="w-5 h-5 text-holo mx-auto mb-2" />
-            <div className="text-2xl font-bold text-space-200 font-mono">{stat.value}</div>
-            <div className="text-[11px] text-space-500 uppercase tracking-wider">{stat.label}</div>
+          <div key={stat.label} className="glass-card chamfer-md p-4 text-center">
+            <stat.icon className="w-5 h-5 text-holo mx-auto mb-2 drop-shadow-[0_0_6px_rgba(92,225,230,0.4)]" />
+            <div className="text-2xl font-bold text-space-200 font-mono tabular-nums">{stat.value}</div>
+            <div className="text-[11px] text-space-500 mobiglas-label">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -127,16 +127,16 @@ export default function DashboardPage() {
             <Link
               key={feature.href}
               href={feature.href}
-              className="glass-card rounded-xl p-5 group relative overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="glass-card chamfer-md p-5 group relative overflow-hidden hover:shadow-[0_0_16px_rgba(92,225,230,0.2)] transition-all duration-300"
             >
               <div className={`absolute top-0 left-0 w-full h-[2px] ${colors.bg} opacity-60`} />
-              <div className={`w-10 h-10 rounded-lg ${colors.bg} border ${colors.border} flex items-center justify-center mb-3`}>
-                <feature.icon className={`w-5 h-5 ${colors.text}`} />
+              <div className={`w-10 h-10 chamfer-sm ${colors.bg} border ${colors.border} flex items-center justify-center mb-3 shadow-[0_0_8px_rgba(92,225,230,0.2)]`}>
+                <feature.icon className={`w-5 h-5 ${colors.text} drop-shadow-[0_0_4px_currentColor]`} />
               </div>
-              <h3 className="text-lg font-semibold text-space-200 mb-1">{feature.title}</h3>
+              <h3 className="text-lg font-semibold text-space-200 mb-1 mobiglas-heading">{feature.title}</h3>
               <p className="text-xs text-space-500 mb-4 leading-relaxed">{feature.description}</p>
-              <div className={`flex items-center gap-1 text-xs font-medium ${colors.text} group-hover:gap-2 transition-all`}>
-                Enter <ArrowRight className="w-3 h-3" />
+              <div className={`flex items-center gap-1 text-xs font-medium ${colors.text} group-hover:gap-2 transition-all mobiglas-label`}>
+                ENTER <ArrowRight className="w-3 h-3" />
               </div>
             </Link>
           );
@@ -144,7 +144,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="hud-line mt-12" />
-      <p className="text-center text-[10px] text-space-600 mt-4 uppercase tracking-widest">
+      <p className="text-center text-[10px] text-space-600 mt-4 mobiglas-label tracking-[0.2em]">
         SC-Nexus v1.0 — © LoupMr. Proprietary. All rights reserved.
       </p>
     </div>

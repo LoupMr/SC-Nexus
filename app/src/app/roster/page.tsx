@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { Users, Loader2 } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import PageHeader from "@/components/PageHeader";
 import { useRouter } from "next/navigation";
 
@@ -98,7 +98,7 @@ export default function RosterPage() {
               >
                 <div className="flex items-center gap-3 min-w-0">
                   {entry.avatarUrl ? (
-                    <Image src={entry.avatarUrl} alt="" width={32} height={32} className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-holo/30" unoptimized />
+                    <Image src={entry.avatarUrl} alt="Member avatar" width={32} height={32} className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-holo/30" unoptimized />
                   ) : (
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border flex-shrink-0 bg-holo/10 border-holo/30 text-holo">
                       {entry.username.charAt(0).toUpperCase()}

@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Link2, Plus, Pencil, Trash2, Loader2, X, ExternalLink } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import PageHeader from "@/components/PageHeader";
+import Portal from "@/components/Portal";
 import { inputClass } from "@/lib/styles";
 
 interface LinkItem {
@@ -189,7 +190,8 @@ export default function LinksPage() {
 
       {/* Create/Edit Modal */}
       {(modalMode === "create" || modalMode === "edit") && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={closeModal}>
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={closeModal}>
           <div
             className="glass-card rounded-xl p-6 w-full max-w-md border border-glass-border"
             onClick={(e) => e.stopPropagation()}
@@ -249,11 +251,13 @@ export default function LinksPage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
 
       {/* Delete Confirmation Modal */}
       {modalMode === "delete" && editingLink && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={closeModal}>
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={closeModal}>
           <div
             className="glass-card rounded-xl p-6 w-full max-w-md border border-glass-border"
             onClick={(e) => e.stopPropagation()}
@@ -277,6 +281,7 @@ export default function LinksPage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
     </>
   );

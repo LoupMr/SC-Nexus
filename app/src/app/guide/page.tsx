@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { BookOpen, Plus, Loader2, Clock, User } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 

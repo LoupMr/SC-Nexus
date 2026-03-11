@@ -1,136 +1,340 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-space-black: #020617;
-  --color-space-900: #0f172a;
-  --color-space-800: #1e293b;
-  --color-space-700: #334155;
-  --color-space-600: #475569;
-  --color-space-500: #64748b;
-  --color-space-400: #94a3b8;
-  --color-space-300: #cbd5e1;
-  --color-space-200: #e2e8f0;
-  --color-holo: #38bdf8;
-  --color-holo-dim: #0ea5e9;
-  --color-holo-bright: #7dd3fc;
+  /* Mobiglas color palette */
+  --color-holo: #5CE1E6;
+  --color-holo-dim: #00E5FF;
+  --color-holo-bright: #7DFFFF;
+  --color-alert: #FF4B6A;
+  --color-success: #4DFF88;
   --color-industrial: #f59e0b;
   --color-industrial-dim: #d97706;
   --color-industrial-bright: #fbbf24;
-  --color-danger: #ef4444;
-  --color-success: #22c55e;
-  --color-glass: rgba(15, 23, 42, 0.6);
-  --color-glass-border: rgba(56, 189, 248, 0.15);
-  --font-sans: var(--font-geist-sans);
+  --color-danger: #FF4B6A;
+  /* Brighter dark blues - more transparent feel */
+  --color-space-black: #0a1628;
+  --color-space-900: #0f1f3a;
+  --color-space-800: #1a2d4d;
+  --color-space-700: #243b5c;
+  --color-space-600: #94a3b8;
+  --color-space-500: #b8c5d6;
+  --color-space-400: #cbd5e1;
+  --color-space-300: #e2e8f0;
+  --color-space-200: #f1f5f9;
+  /* Translucent panel backgrounds - lighter opacity for transparency */
+  --color-glass: rgba(15, 31, 58, 0.15);
+  --color-glass-border: rgba(92, 225, 230, 0.2);
+  --font-sans: var(--font-rajdhani);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-orbitron);
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+html.no-scroll {
+  overflow: hidden;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-space-700) transparent;
+  scrollbar-color: var(--color-space-600) transparent;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: var(--color-space-black);
   color: var(--color-space-300);
   font-family: var(--font-sans);
   min-height: 100vh;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
 }
 
+/* Dark overlay when custom background is set - ensures readability */
+body.has-custom-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 22, 40, 0.82) 0%, rgba(10, 22, 40, 0.72) 50%, rgba(10, 22, 40, 0.82) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Chamfered corners - 45° angled cuts (clip-path polygon) */
+.chamfer-sm {
+  clip-path: polygon(
+    8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px),
+    calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px
+  );
+}
+
+.chamfer-md {
+  clip-path: polygon(
+    12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px),
+    calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px), 0% 12px
+  );
+}
+
+.chamfer-lg {
+  clip-path: polygon(
+    16px 0%, calc(100% - 16px) 0%, 100% 16px, 100% calc(100% - 16px),
+    calc(100% - 16px) 100%, 16px 100%, 0% calc(100% - 16px), 0% 16px
+  );
+}
+
+/* Mobiglas glass card - holographic glass with emissive glow */
 .glass-card {
-  background: var(--color-glass);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-glass-border);
+  background: rgba(15, 31, 58, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(92, 225, 230, 0.2);
+  box-shadow: 0 0 8px rgba(92, 225, 230, 0.12), inset 0 0 20px rgba(92, 225, 230, 0.02);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.08), inset 0 0 20px rgba(56, 189, 248, 0.03);
+  border-color: rgba(92, 225, 230, 0.4);
+  box-shadow: 0 0 12px rgba(92, 225, 230, 0.2), 0 0 24px rgba(92, 225, 230, 0.08), inset 0 0 24px rgba(92, 225, 230, 0.03);
 }
 
+/* Emissive glow text */
 .glow-text {
-  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.2);
+  text-shadow: 0 0 8px rgba(92, 225, 230, 0.6), 0 0 16px rgba(92, 225, 230, 0.3);
 }
 
+/* Content above scan lines (home, guides, etc.) */
+.home-content,
+.public-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero titles: bright in dark mode, dark in light mode */
+.hero-title {
+  color: #ffffff !important;
+  text-shadow: 0 0 12px rgba(92, 225, 230, 0.4), 0 0 24px rgba(92, 225, 230, 0.2);
+}
+.hero-subtitle {
+  color: var(--color-holo-bright) !important;
+}
+.hero-footer {
+  color: #94a3b8 !important;
+}
+html.light .hero-title {
+  color: #0f1628 !important;
+  text-shadow: 0 0 8px rgba(92, 225, 230, 0.25);
+}
+html.light .hero-subtitle {
+  color: var(--color-holo) !important;
+}
+html.light .hero-footer {
+  color: #64748b !important;
+}
+
+.glow-text-alert {
+  text-shadow: 0 0 8px rgba(255, 75, 106, 0.6), 0 0 16px rgba(255, 75, 106, 0.3);
+}
+
+.glow-text-success {
+  text-shadow: 0 0 8px rgba(77, 255, 136, 0.6), 0 0 16px rgba(77, 255, 136, 0.3);
+}
+
+/* Mobiglas main canvas - holographic projection area, more transparent */
+.mobiglas-canvas {
+  position: relative;
+  min-height: calc(100vh - 8rem);
+  background: linear-gradient(180deg, rgba(15, 31, 58, 0.08) 0%, transparent 25%, transparent 75%, rgba(15, 31, 58, 0.06) 100%);
+}
+.mobiglas-canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(92, 225, 230, 0.1);
+  box-shadow: inset 0 0 60px rgba(92, 225, 230, 0.02), 0 0 24px rgba(92, 225, 230, 0.05);
+}
+
+/* HUD gradient line */
 .hud-line {
   background: linear-gradient(90deg, transparent, var(--color-holo), transparent);
   height: 1px;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
+/* Pulsing glow for alerts */
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 6px rgba(92, 225, 230, 0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(92, 225, 230, 0.7)); }
+}
+
+@keyframes pulse-glow-alert {
+  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 6px rgba(255, 75, 106, 0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(255, 75, 106, 0.7)); }
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Light theme - white background, dark text for readability */
-html.light {
-  --color-space-black: #ffffff;
-  --color-space-900: #f8fafc;
-  --color-space-800: #f1f5f9;
-  --color-space-700: #000000;
-  --color-space-600: #000000;
-  --color-space-500: #000000;
-  --color-space-400: #000000;
-  --color-space-300: #000000;
-  --color-space-200: #000000;
-  --color-glass: rgba(248, 250, 252, 0.9);
-  --color-glass-border: rgba(2, 6, 23, 0.1);
+.animate-pulse-glow-alert {
+  animation: pulse-glow-alert 2s ease-in-out infinite;
 }
 
-html.light body {
-  background: var(--color-space-black);
-  color: #000000;
+/* Mobiglas typography - uppercase labels, expanded tracking */
+.mobiglas-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
 }
 
-/* Force text utilities to black in light mode (Tailwind may emit literal values) */
-html.light .text-space-200,
-html.light .text-space-300,
-html.light .text-space-400,
-html.light .text-space-500,
-html.light .text-space-600,
-html.light .text-space-700 {
-  color: #000000 !important;
+.mobiglas-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-display);
 }
 
-html.light .glass-card {
-  background: var(--color-glass);
-  border-color: var(--color-glass-border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+/* Tabular numerals for live data */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
-html.light .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Improve sub text legibility on transparent/varied backgrounds */
+.text-space-500,
+.text-space-600 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-html.light .hud-line {
-  background: linear-gradient(90deg, transparent, var(--color-holo), transparent);
-  opacity: 0.6;
+/* Scanlines overlay - behind content so they don't dim text */
+.scan-line-bg::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
-html.light input,
-html.light textarea,
-html.light select {
-  color: #020617 !important;
-}
-
-html.light input::placeholder,
-html.light textarea::placeholder {
-  color: #475569 !important;
-}
-
-html.light * {
-  scrollbar-color: #64748b transparent;
+.scan-line-bg::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(92, 225, 230, 0.15), transparent);
+  animation: scan-line 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
 @keyframes scan-line {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
+}
+
+/* Chromatic aberration at edges (subtle) */
+.chromatic-edge {
+  box-shadow:
+    -1px 0 0 rgba(255, 75, 106, 0.05),
+    1px 0 0 rgba(92, 225, 230, 0.05);
+}
+
+/* ─── Light mode: same Mobiglas aesthetic, cooler blue-tinted palette ─── */
+html.light {
+  /* Backgrounds: cool blue-tinted light (matches dark mode’s space feel) */
+  --color-space-black: #e8eef6;
+  --color-space-900: #dce4f0;
+  --color-space-800: #c5d4e8;
+  --color-space-700: #94a8c4;
+  /* Text: dark blues (same hue family as dark mode) */
+  --color-space-600: #5c6b82;
+  --color-space-500: #3d4d66;
+  --color-space-400: #2d3a50;
+  --color-space-300: #1a2438;
+  --color-space-200: #0f1628;
+  /* Glass & borders: keep holo cyan tint for same Mobiglas feel */
+  --color-glass: rgba(220, 228, 240, 0.6);
+  --color-glass-border: rgba(92, 225, 230, 0.25);
+}
+
+html.light body {
+  background: var(--color-space-black);
+  color: var(--color-space-300);
+}
+
+html.light body.has-custom-bg::before {
+  background: linear-gradient(180deg, rgba(232, 238, 246, 0.88) 0%, rgba(232, 238, 246, 0.78) 50%, rgba(232, 238, 246, 0.88) 100%);
+}
+
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(92, 225, 230, 0.2);
+  box-shadow: 0 0 8px rgba(92, 225, 230, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+html.light .glass-card:hover {
+  border-color: rgba(92, 225, 230, 0.4);
+  box-shadow: 0 0 12px rgba(92, 225, 230, 0.18), 0 0 24px rgba(92, 225, 230, 0.08), inset 0 0 24px rgba(255, 255, 255, 0.5);
+}
+
+html.light .mobiglas-canvas {
+  background: linear-gradient(180deg, rgba(92, 225, 230, 0.04) 0%, transparent 25%, transparent 75%, rgba(92, 225, 230, 0.03) 100%);
+}
+
+html.light .mobiglas-canvas::before {
+  border: 1px solid rgba(92, 225, 230, 0.12);
+  box-shadow: inset 0 0 60px rgba(92, 225, 230, 0.04), 0 0 24px rgba(92, 225, 230, 0.06);
+}
+
+/* Sub text: no dark shadow in light mode */
+html.light .text-space-500,
+html.light .text-space-600 {
+  text-shadow: none;
+}
+
+/* Scanlines: softer, blue-tinted in light mode */
+html.light .scan-line-bg::before {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(15, 23, 42, 0.015) 2px,
+    rgba(15, 23, 42, 0.015) 4px
+  );
+}
+
+/* Scrollbar in light mode */
+html.light {
+  scrollbar-color: var(--color-space-600) transparent;
+}
+
+/* Header & dock: theme-aware background */
+.mobiglas-header-bg {
+  background: rgba(15, 31, 58, 0.35);
+}
+html.light .mobiglas-header-bg {
+  background: rgba(220, 228, 240, 0.9);
+  box-shadow: 0 1px 0 rgba(92, 225, 230, 0.12);
 }
 
 /* Tiptap rich text editor */
@@ -144,18 +348,5 @@ html.light * {
 .ProseMirror li { margin: 0.25em 0; }
 .ProseMirror h1 { font-size: 1.5rem; font-weight: 700; margin: 1em 0 0.5em; }
 .ProseMirror h2 { font-size: 1.25rem; font-weight: 700; margin: 1em 0 0.5em; }
-.ProseMirror blockquote { border-left: 4px solid var(--color-holo); padding-left: 1rem; margin: 0.5em 0; font-style: italic; opacity: 0.9; }
+.ProseMirror blockquote { border-left: 2px solid var(--color-holo); padding-left: 1rem; margin: 0.5em 0; font-style: italic; opacity: 0.9; }
 .ProseMirror hr { border: none; border-top: 1px solid var(--color-glass-border); margin: 1em 0; }
-
-.scan-line-bg::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
-  animation: scan-line 8s linear infinite;
-  pointer-events: none;
-  z-index: 50;
-}

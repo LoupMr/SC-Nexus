@@ -5,7 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import DOMPurify from "dompurify";
 import { BookOpen, Loader2, User, Clock, ArrowLeft, Pencil, Check, X, Trash2 } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
+import Portal from "@/components/Portal";
 
 function isHtml(content: string): boolean {
   const trimmed = content.trim();
@@ -180,7 +181,8 @@ export default function GuideDetailPage() {
       </article>
 
       {deleteConfirm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-sm border border-danger/20">
             <h3 className="text-lg font-semibold text-space-200 mb-2">Delete guide?</h3>
             <p className="text-sm text-space-500 mb-4">This cannot be undone.</p>
@@ -201,6 +203,7 @@ export default function GuideDetailPage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
     </>
   );

@@ -168,6 +168,7 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE operations ADD COLUMN merit_tag TEXT NOT NULL DEFAULT ''"); } catch {}
   try { db.exec("ALTER TABLE users ADD COLUMN rank TEXT NOT NULL DEFAULT 'operator'"); } catch {}
   try { db.exec("ALTER TABLE users ADD COLUMN avatar_url TEXT"); } catch {}
+  try { db.exec("ALTER TABLE users ADD COLUMN background_url TEXT"); } catch {}
   try { db.exec("ALTER TABLE hangar_requests ADD COLUMN merit_id INTEGER"); } catch {}
   try { db.exec("ALTER TABLE hangar_assets ADD COLUMN category_id TEXT"); } catch {}
   try { db.exec("ALTER TABLE hangar_assets ADD COLUMN requirement_count INTEGER NOT NULL DEFAULT 2"); } catch {}
@@ -245,6 +246,12 @@ function initSchema(db: Database.Database) {
   const adminExists = db.prepare("SELECT id FROM users WHERE username = ?").get("admin");
   if (!adminExists) {
     const adminPassword = process.env.ADMIN_INITIAL_PASSWORD || "ChangeMe123!";
+    if (process.env.NODE_ENV === "production" && (!process.env.ADMIN_INITIAL_PASSWORD || adminPassword === "ChangeMe123!")) {
+      throw new Error(
+        "In production, ADMIN_INITIAL_PASSWORD must be set to a secure value before first run. " +
+        "Do not use the default 'ChangeMe123!'."
+      );
+    }
     const hash = bcrypt.hashSync(adminPassword, 10);
     db.prepare("INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)").run("admin", hash, "admin");
   }
@@ -425,6 +432,11 @@ export function updateUserAvatar(username: string, avatarUrl: string | null): bo
   return result.changes > 0;
 }
 
+export function updateUserBackground(username: string, backgroundUrl: string | null): boolean {
+  const result = getDb().prepare("UPDATE users SET background_url = ? WHERE LOWER(username) = LOWER(?)").run(backgroundUrl ?? null, username);
+  return result.changes > 0;
+}
+
 export function deleteUser(username: string) {
   const user = findUserByUsername(username);
   if (user) {
@@ -441,15 +453,15 @@ export function createSession(userId: number): string {
   return token;
 }
 
-export function getUserBySession(token: string): { id: number; username: string; role: string; roles: string[]; avatarUrl: string | null } | undefined {
+export function getUserBySession(token: string): { id: number; username: string; role: string; roles: string[]; rank: string; avatarUrl: string | null; backgroundUrl: string | null } | undefined {
   const row = getDb().prepare(`
-    SELECT u.id, u.username, u.role, u.avatar_url FROM sessions s
+    SELECT u.id, u.username, u.role, COALESCE(u.rank, 'operator') as rank, u.avatar_url, u.background_url FROM sessions s
     JOIN users u ON s.user_id = u.id
     WHERE s.token = ?
-  `).get(token) as { id: number; username: string; role: string; avatar_url: string | null } | undefined;
+  `).get(token) as { id: number; username: string; role: string; rank: string; avatar_url: string | null; background_url: string | null } | undefined;
   if (!row) return undefined;
   const roles = (row.role || "viewer").split(",").map((s) => s.trim()).filter(Boolean);
-  return { ...row, avatarUrl: row.avatar_url ?? null, roles: roles.length ? roles : ["viewer"] };
+  return { ...row, avatarUrl: row.avatar_url ?? null, backgroundUrl: row.background_url ?? null, roles: roles.length ? roles : ["viewer"] };
 }
 
 export function deleteSession(token: string) {

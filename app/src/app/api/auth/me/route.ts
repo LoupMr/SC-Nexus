@@ -8,6 +8,8 @@ export async function GET() {
     username: user.username,
     role: user.role,
     roles: user.roles ?? [user.role || "viewer"],
+    rank: user.rank ?? "operator",
     avatarUrl: user.avatarUrl ?? null,
+    backgroundUrl: user.backgroundUrl ?? null,
   });
 }

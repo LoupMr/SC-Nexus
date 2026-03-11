@@ -1,16 +1,16 @@
 "use client";
 
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
 import { useEffect } from "react";
-import Sidebar from "@/components/Sidebar";
+import MobiglasHeader from "@/components/MobiglasHeader";
+import MobiglasDock from "@/components/MobiglasDock";
 
 const PUBLIC_ROUTES = ["/", "/login"];
 const isGuideRoute = (path: string) => path === "/guide" || path.startsWith("/guide/");
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
-  const { user } = useAuth();
+  const { user, isAdmin, logout } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
   const isPublicRoute = PUBLIC_ROUTES.includes(pathname) || isGuideRoute(pathname);
@@ -27,42 +27,21 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     }
   }, [user, pathname, router, isPublicRoute]);
 
-  if (pathname === "/login") {
-    return <>{children}</>;
-  }
-
-  if (pathname === "/") {
-    return <>{children}</>;
-  }
-
-  if (!user && isGuideRoute(pathname)) {
-    return (
-      <>
-        <header className="fixed top-0 left-0 right-0 z-30 h-14 border-b border-glass-border bg-space-900/90 backdrop-blur-xl flex items-center justify-between px-4">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-sm text-space-400 hover:text-holo transition-colors">← Home</Link>
-            <Link href="/guide" className="text-sm font-bold text-holo">SC-NEXUS Guides</Link>
-          </div>
-          <Link href="/login" className="text-sm text-space-400 hover:text-holo transition-colors">Log in</Link>
-        </header>
-        <main className="pt-14 min-h-screen">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
-            {children}
-          </div>
-        </main>
-      </>
-    );
-  }
-
-  if (!user) {
+  if (!user && !isPublicRoute) {
     return null;
   }
 
+  const isPublicPage = pathname === "/" || pathname === "/login" || isGuideRoute(pathname);
+  const maxWidth = isPublicPage ? "max-w-4xl" : "max-w-7xl";
+  const mainClass = isPublicPage ? "public-content pt-14 pb-20 md:pb-24 min-h-screen" : "pt-14 pb-20 md:pb-24 min-h-screen";
+  const padding = isPublicPage ? "px-4 sm:px-6 py-8" : "px-4 sm:px-6 lg:px-8 py-6";
+
   return (
     <>
-      <Sidebar />
-      <main className="pl-16 lg:pl-[72px] xl:pl-64 min-h-screen transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <MobiglasHeader />
+      <MobiglasDock isAdmin={isAdmin} onLogout={logout} />
+      <main className={`${mainClass} transition-all duration-300 mobiglas-canvas`}>
+        <div className={`${maxWidth} mx-auto ${padding} relative z-10`}>
           {children}
         </div>
       </main>

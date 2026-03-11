@@ -3,12 +3,13 @@
 import Image from "next/image";
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { BookOpen, Plus, Minus, Trash2, MapPin, User, Package, History, X, ChevronDown, ChevronUp, Loader2, Info, UserCircle, Globe, Lock, Search, Filter, Download, LayoutList, LayoutGrid, Square, ClipboardList, Check, XCircle } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import PageHeader from "@/components/PageHeader";
 import Combobox, { ComboboxOption } from "@/components/Combobox";
 import { getAllItems, getItemStats, subcategories, categories, DatabaseItem, getSubcategoryLabel } from "@/lib/database";
 import locationsData from "@/data/Locations/LOCATIONS.json";
 import clsx from "clsx";
+import Portal from "@/components/Portal";
 import { inputClass } from "@/lib/styles";
 
 interface HistoryEntry {
@@ -555,7 +556,7 @@ export default function LedgerPage() {
                       <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-space-500">
                         <span className="flex items-center gap-1.5">
                           {entry.ownerAvatarUrl ? (
-                            <Image src={entry.ownerAvatarUrl} alt="" width={20} height={20} className="w-5 h-5 rounded-full object-cover flex-shrink-0" unoptimized />
+                            <Image src={entry.ownerAvatarUrl} alt="Owner avatar" width={20} height={20} className="w-5 h-5 rounded-full object-cover flex-shrink-0" unoptimized />
                           ) : (
                             <User className="w-3.5 h-3.5 text-space-600" />
                           )}
@@ -668,7 +669,7 @@ export default function LedgerPage() {
                     </h3>
                     <span className={clsx("text-space-500 truncate block flex items-center gap-1", layoutMode === "compact" ? "text-[10px]" : "text-xs")}>
                       {entry.ownerAvatarUrl ? (
-                        <Image src={entry.ownerAvatarUrl} alt="" width={14} height={14} className="w-3.5 h-3.5 rounded-full object-cover flex-shrink-0" unoptimized />
+                        <Image src={entry.ownerAvatarUrl} alt="Owner avatar" width={14} height={14} className="w-3.5 h-3.5 rounded-full object-cover flex-shrink-0" unoptimized />
                       ) : null}
                       {entry.owner} · {entry.location}
                     </span>
@@ -769,7 +770,8 @@ export default function LedgerPage() {
 
       {/* Add Stock Modal */}
       {modalMode === "add" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-md border border-holo/20 shadow-xl">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
@@ -845,11 +847,13 @@ export default function LedgerPage() {
             </button>
           </div>
         </div>
+        </Portal>
       )}
 
       {/* Request to Take Modal */}
       {modalMode === "take" && targetEntry && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-sm border border-industrial/20 shadow-xl">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
@@ -902,11 +906,13 @@ export default function LedgerPage() {
             </button>
           </div>
         </div>
+        </Portal>
       )}
 
       {/* Delete Entry Modal */}
       {modalMode === "delete" && targetEntry && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-sm border border-danger/20 shadow-xl">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
@@ -945,11 +951,13 @@ export default function LedgerPage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
 
       {/* Requests Modal */}
       {requestsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col border border-glass-border shadow-xl">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
@@ -1083,11 +1091,13 @@ export default function LedgerPage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
 
       {/* Item Info Modal */}
       {modalMode === "info" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-md border border-holo/20 shadow-xl">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
@@ -1129,6 +1139,7 @@ export default function LedgerPage() {
             )}
           </div>
         </div>
+        </Portal>
       )}
     </>
   );

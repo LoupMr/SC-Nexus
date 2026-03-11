@@ -6,8 +6,9 @@ import {
   ChevronDown, ChevronUp, Key, Map as MapIcon, X,
   Plus, Pencil, Trash2, Loader2, GripVertical,
 } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import PageHeader from "@/components/PageHeader";
+import Portal from "@/components/Portal";
 import clsx from "clsx";
 import { inputClass } from "@/lib/styles";
 
@@ -340,7 +341,8 @@ export default function OperationGuidePage() {
 
       {/* Map Lightbox */}
       {openMap && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setOpenMap(null)}>
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setOpenMap(null)}>
           <div className="relative w-full max-w-3xl mx-4" onClick={(e) => e.stopPropagation()}>
             <button onClick={() => setOpenMap(null)} className="absolute -top-10 right-0 text-space-400 hover:text-space-200 transition-colors"><X className="w-6 h-6" /></button>
             <div className="glass-card rounded-xl overflow-hidden border border-glass-border">
@@ -348,11 +350,13 @@ export default function OperationGuidePage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
 
       {/* Create / Edit Modal */}
       {(modalMode === "create" || modalMode === "edit") && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/60 backdrop-blur-sm overflow-y-auto py-8">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/60 backdrop-blur-sm overflow-y-auto py-8">
           <div className="glass-card rounded-2xl p-6 w-full max-w-2xl mx-4 border border-holo/20">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-lg font-bold text-space-200 flex items-center gap-2">
@@ -432,11 +436,13 @@ export default function OperationGuidePage() {
             </button>
           </div>
         </div>
+        </Portal>
       )}
 
       {/* Delete Modal */}
       {modalMode === "delete" && editingOp && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-sm mx-4 border border-danger/20">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-lg font-bold text-space-200 flex items-center gap-2">
@@ -457,6 +463,7 @@ export default function OperationGuidePage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
     </>
   );

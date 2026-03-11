@@ -5,8 +5,9 @@ import {
   Medal, Plus, Trash2, Loader2, X, CheckCircle2, Lock, ChevronDown,
   Warehouse, CheckCheck, Pencil, Check, Tag, Gift, Sparkles, ChevronUp, Users, Download,
 } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import PageHeader from "@/components/PageHeader";
+import Portal from "@/components/Portal";
 import { inputClass } from "@/lib/styles";
 
 // --- Types ---
@@ -719,7 +720,8 @@ export default function MeritsPage() {
 
           {/* Add Category Modal */}
           {showAddCategory && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setShowAddCategory(false)}>
+            <Portal>
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setShowAddCategory(false)}>
               <div className="glass-card rounded-xl p-6 w-full max-w-md border border-glass-border" onClick={(e) => e.stopPropagation()}>
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="text-lg font-semibold text-space-200">Add Category</h3>
@@ -742,11 +744,13 @@ export default function MeritsPage() {
                 </div>
               </div>
             </div>
+            </Portal>
           )}
 
           {/* Edit Asset Modal */}
           {editingAsset && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setEditingAsset(null)}>
+            <Portal>
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setEditingAsset(null)}>
               <div className="glass-card rounded-xl p-6 w-full max-w-md border border-glass-border" onClick={(e) => e.stopPropagation()}>
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="text-lg font-semibold text-space-200">Edit Hangar Asset</h3>
@@ -786,11 +790,13 @@ export default function MeritsPage() {
                 </div>
               </div>
             </div>
+            </Portal>
           )}
 
           {/* Add Asset Modal */}
           {showAddAsset && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setShowAddAsset(false)}>
+            <Portal>
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setShowAddAsset(false)}>
               <div className="glass-card rounded-xl p-6 w-full max-w-md border border-glass-border" onClick={(e) => e.stopPropagation()}>
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="text-lg font-semibold text-space-200">Add Hangar Asset</h3>
@@ -838,6 +844,7 @@ export default function MeritsPage() {
                 </div>
               </div>
             </div>
+            </Portal>
           )}
         </div>
       )}
@@ -1093,7 +1100,8 @@ export default function MeritsPage() {
 
       {/* Edit Raffle Modal */}
       {raffleEditId && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setRaffleEditId(null)}>
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setRaffleEditId(null)}>
           <div className="glass-card rounded-xl p-6 w-full max-w-md border border-glass-border" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-5">
               <h3 className="text-lg font-semibold text-space-200">Edit Raffle</h3>
@@ -1153,6 +1161,7 @@ export default function MeritsPage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
     </>
   );

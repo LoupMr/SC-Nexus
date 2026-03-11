@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { Users, Trash2, X, AlertCircle, Loader2, ScrollText } from "lucide-react";
-import { useAuth, UserRole } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
+import type { UserRole } from "@/context/AuthContext";
 import PageHeader from "@/components/PageHeader";
+import Portal from "@/components/Portal";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 
@@ -138,7 +140,7 @@ export default function MembersPage() {
               >
                 <div className="flex items-center gap-3 min-w-0">
                   {member.avatarUrl ? (
-                    <Image src={member.avatarUrl} alt="" width={32} height={32} className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-glass-border" unoptimized />
+                    <Image src={member.avatarUrl} alt="Member avatar" width={32} height={32} className="w-8 h-8 rounded-lg object-cover flex-shrink-0 border border-glass-border" unoptimized />
                   ) : (
                     <div className={clsx(
                       "w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold border flex-shrink-0",
@@ -255,7 +257,8 @@ export default function MembersPage() {
       </div>
 
       {deleteTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <Portal>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div className="glass-card rounded-2xl p-6 w-full max-w-sm mx-4 border border-danger/20">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-lg font-bold text-space-200 flex items-center gap-2">
@@ -286,6 +289,7 @@ export default function MembersPage() {
             </div>
           </div>
         </div>
+        </Portal>
       )}
     </>
   );

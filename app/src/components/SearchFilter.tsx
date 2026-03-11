@@ -51,10 +51,10 @@ export default function SearchFilter({
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-space-500" />
           <input
             type="text"
-            placeholder="Search items..."
+            placeholder="SEARCH ITEMS..."
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-10 pr-10 py-2.5 bg-space-900/60 border border-glass-border rounded-lg text-sm text-space-200 placeholder:text-space-600 focus:outline-none focus:border-holo/40 focus:ring-1 focus:ring-holo/20 transition-all"
+            className="w-full pl-10 pr-10 py-2.5 chamfer-sm bg-space-900/60 border border-glass-border text-sm text-space-200 placeholder:text-space-600 focus:outline-none focus:border-holo/40 focus:ring-1 focus:ring-holo/20 focus:shadow-[0_0_8px_rgba(92,225,230,0.2)] transition-all mobiglas-label"
           />
           {search && (
             <button
@@ -70,14 +70,14 @@ export default function SearchFilter({
           type="button"
           onClick={() => setFilterVisible(!filterVisible)}
           className={clsx(
-            "flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-medium border transition-all flex-shrink-0",
+            "flex items-center gap-2 px-3 py-2.5 chamfer-sm text-xs font-medium border transition-all flex-shrink-0 mobiglas-label",
             filterVisible
-              ? "bg-holo/10 border-holo/30 text-holo"
-              : "bg-space-900/40 border-space-700/30 text-space-500 hover:text-space-300"
+              ? "bg-holo/10 border-holo/30 text-holo shadow-[0_0_8px_rgba(92,225,230,0.25)]"
+              : "bg-space-900/40 border-space-700/30 text-space-500 hover:text-space-300 hover:border-glass-border"
           )}
         >
           <SlidersHorizontal className="w-4 h-4" />
-          Filter
+          FILTER
         </button>
 
         <div className="flex items-center gap-2 text-xs text-space-500 flex-shrink-0">
@@ -98,9 +98,9 @@ export default function SearchFilter({
               onSubcategoryChange("all");
             }}
             className={clsx(
-              "px-3 py-1.5 rounded-lg text-xs font-medium border transition-all",
+              "px-3 py-1.5 chamfer-sm text-xs font-medium border transition-all mobiglas-label",
               selectedCategory === cat.id
-                ? "bg-holo/10 border-holo/30 text-holo"
+                ? "bg-holo/10 border-holo/30 text-holo shadow-[0_0_6px_rgba(92,225,230,0.2)]"
                 : "bg-space-900/40 border-space-700/30 text-space-400 hover:border-space-600 hover:text-space-300"
             )}
           >
@@ -114,20 +114,20 @@ export default function SearchFilter({
           <button
             onClick={() => onSubcategoryChange("all")}
             className={clsx(
-              "px-2.5 py-1 rounded text-[11px] font-medium border transition-all",
+              "px-2.5 py-1 chamfer-sm text-[11px] font-medium border transition-all mobiglas-label",
               selectedSubcategory === "all"
                 ? "bg-industrial/10 border-industrial/30 text-industrial"
                 : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
             )}
           >
-            All
+            ALL
           </button>
           {relevantSubs.map((sub) => (
             <button
               key={sub.id}
               onClick={() => onSubcategoryChange(sub.id)}
               className={clsx(
-                "px-2.5 py-1 rounded text-[11px] font-medium border transition-all",
+                "px-2.5 py-1 chamfer-sm text-[11px] font-medium border transition-all mobiglas-label",
                 selectedSubcategory === sub.id
                   ? "bg-industrial/10 border-industrial/30 text-industrial"
                   : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
@@ -147,22 +147,22 @@ export default function SearchFilter({
               <button
                 onClick={() => onSizeChange("all")}
                 className={clsx(
-                  "px-2 py-0.5 rounded text-[11px] font-medium border transition-all",
+                  "px-2 py-0.5 chamfer-sm text-[11px] font-medium border transition-all mobiglas-label tabular-nums",
                   selectedSize === "all"
-                    ? "bg-danger/10 border-danger/30 text-danger"
+                    ? "bg-alert/10 border-alert/30 text-alert"
                     : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
                 )}
               >
-                All
+                ALL
               </button>
               {[...availableSizes].sort((a, b) => a - b).map((s) => (
                 <button
                   key={s}
                   onClick={() => onSizeChange(String(s))}
                   className={clsx(
-                    "px-2 py-0.5 rounded text-[11px] font-medium border transition-all min-w-[1.5rem]",
+                    "px-2 py-0.5 chamfer-sm text-[11px] font-medium border transition-all min-w-[1.5rem] tabular-nums mobiglas-label",
                     selectedSize === String(s)
-                      ? "bg-danger/10 border-danger/30 text-danger"
+                      ? "bg-alert/10 border-alert/30 text-alert"
                       : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
                   )}
                 >
@@ -177,22 +177,22 @@ export default function SearchFilter({
               <button
                 onClick={() => onGradeChange("all")}
                 className={clsx(
-                  "px-2 py-0.5 rounded text-[11px] font-medium border transition-all",
+                  "px-2 py-0.5 chamfer-sm text-[11px] font-medium border transition-all mobiglas-label",
                   selectedGrade === "all"
-                    ? "bg-danger/10 border-danger/30 text-danger"
+                    ? "bg-alert/10 border-alert/30 text-alert"
                     : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
                 )}
               >
-                All
+                ALL
               </button>
               {[...availableGrades].sort().map((g) => (
                 <button
                   key={g}
                   onClick={() => onGradeChange(g)}
                   className={clsx(
-                    "px-2 py-0.5 rounded text-[11px] font-medium border transition-all min-w-[1.5rem]",
+                    "px-2 py-0.5 chamfer-sm text-[11px] font-medium border transition-all min-w-[1.5rem] mobiglas-label",
                     selectedGrade === g
-                      ? "bg-danger/10 border-danger/30 text-danger"
+                      ? "bg-alert/10 border-alert/30 text-alert"
                       : "bg-space-900/30 border-space-700/20 text-space-500 hover:text-space-400"
                   )}
                 >

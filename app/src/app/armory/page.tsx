@@ -1,15 +1,31 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Crosshair } from "lucide-react";
-import { getAllItems } from "@/lib/database";
+import { getAllItems, DatabaseItem } from "@/lib/database";
 import ItemCard from "@/components/ItemCard";
+import ItemDetailModal from "@/components/ItemDetailModal";
 import SearchFilter from "@/components/SearchFilter";
 import PageHeader from "@/components/PageHeader";
+import { useAuth } from "@/context/useAuth";
+
+interface LedgerEntry {
+  id: string;
+  itemName: string;
+  subcategory: string;
+  owner: string;
+  quantity: number;
+  location: string;
+  status: string;
+  sharedWithOrg: boolean;
+}
 
 export default function ArmoryPage() {
+  const { user } = useAuth();
   const allItems = useMemo(() => getAllItems(), []);
   const [search, setSearch] = useState("");
+  const [selectedItem, setSelectedItem] = useState<DatabaseItem | null>(null);
+  const [ledgerEntries, setLedgerEntries] = useState<LedgerEntry[]>([]);
   const [category, setCategory] = useState("all");
   const [subcategory, setSubcategory] = useState("all");
   const [size, setSize] = useState("all");
@@ -65,6 +81,26 @@ export default function ArmoryPage() {
     });
   }, [allItems, search, category, subcategory, size, grade]);
 
+  useEffect(() => {
+    if (!user) {
+      setLedgerEntries([]);
+      return;
+    }
+    fetch("/api/ledger?view=org")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((entries: LedgerEntry[]) => setLedgerEntries(entries))
+      .catch(() => setLedgerEntries([]));
+  }, [user]);
+
+  const ledgerForItem = useMemo(() => {
+    if (!selectedItem) return [];
+    const nameLower = selectedItem.Name.toLowerCase();
+    const sub = selectedItem.subcategory;
+    return ledgerEntries.filter(
+      (e) => e.itemName.toLowerCase() === nameLower && e.subcategory === sub
+    );
+  }, [selectedItem, ledgerEntries]);
+
   return (
     <>
       <PageHeader
@@ -99,9 +135,22 @@ export default function ArmoryPage() {
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {filtered.map((item, i) => (
-          <ItemCard key={`${item.Name}-${item.subcategory}-${i}`} item={item} />
+          <ItemCard
+            key={`${item.Name}-${item.subcategory}-${i}`}
+            item={item}
+            onClick={() => setSelectedItem(item)}
+          />
         ))}
       </div>
+
+      {selectedItem && (
+        <ItemDetailModal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}
+          ledgerEntries={ledgerForItem}
+          isLoggedIn={!!user}
+        />
+      )}
 
       {filtered.length === 0 && (
         <div className="text-center py-20">

@@ -34,7 +34,9 @@ export async function POST(req: NextRequest) {
   const user = await getSessionUser();
   if (!user) return api401();
 
-  const parsed = ledgerRequestSchema.safeParse(await req.json());
+  const jsonResult = await safeParseJson(req);
+  if ("error" in jsonResult) return jsonResult.error;
+  const parsed = ledgerRequestSchema.safeParse(jsonResult.data);
   if (!parsed.success) {
     const msg = parsed.error.issues[0]?.message || "Invalid request";
     return api400(msg);

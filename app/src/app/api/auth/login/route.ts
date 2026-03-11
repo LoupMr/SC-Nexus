@@ -21,7 +21,8 @@ export async function POST(req: NextRequest) {
 
   const token = createSession(user.id);
   const roles = (user.role || "viewer").split(",").map((s) => s.trim()).filter(Boolean);
-  const res = NextResponse.json({ username: user.username, role: user.role, roles: roles.length ? roles : ["viewer"], avatarUrl: user.avatar_url ?? null });
+  const rank = (user as { rank?: string }).rank ?? "operator";
+  const res = NextResponse.json({ username: user.username, role: user.role, roles: roles.length ? roles : ["viewer"], rank, avatarUrl: user.avatar_url ?? null, backgroundUrl: (user as { background_url?: string | null }).background_url ?? null });
   const isProd = process.env.NODE_ENV === "production";
   res.cookies.set(COOKIE_NAME, token, {
     httpOnly: true,

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+import { createContext, useState, useEffect, useCallback, ReactNode } from "react";
 
 export type UserRole = "viewer" | "admin" | "logistics" | "ops" | "raffle" | "guide";
 
@@ -8,7 +8,9 @@ export interface AppUser {
   username: string;
   role: UserRole;
   roles: string[];
+  rank?: string;
   avatarUrl?: string | null;
+  backgroundUrl?: string | null;
 }
 
 interface AuthContextType {
@@ -28,7 +30,7 @@ interface AuthContextType {
   regeneratePasskey: () => Promise<void>;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AppUser | null>(null);
@@ -36,15 +38,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const refreshUser = useCallback(async () => {
-    const r = await fetch("/api/auth/me");
-    const data = await r.json();
-    if (data?.username) {
-      setUser({
-        username: data.username,
-        role: data.role,
-        roles: data.roles ?? [data.role ?? "viewer"],
-        avatarUrl: data.avatarUrl ?? null,
-      });
+    try {
+      const r = await fetch("/api/auth/me");
+      const data = await r.json().catch(() => null);
+      if (data?.username) {
+        setUser({
+          username: data.username,
+          role: data.role,
+          roles: data.roles ?? [data.role ?? "viewer"],
+          rank: data.rank ?? "operator",
+          avatarUrl: data.avatarUrl ?? null,
+          backgroundUrl: data.backgroundUrl ?? null,
+        });
+      }
+    } catch {
+      // Ignore network/parse errors
     }
   }, []);
 
@@ -57,7 +65,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             username: data.username,
             role: data.role,
             roles: data.roles ?? [data.role ?? "viewer"],
+            rank: data.rank ?? "operator",
             avatarUrl: data.avatarUrl ?? null,
+            backgroundUrl: data.backgroundUrl ?? null,
           });
         }
       })
@@ -73,7 +83,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const data = await res.json();
     if (!res.ok) return data.error || "Login failed";
-    setUser({ username: data.username, role: data.role, roles: data.roles ?? [data.role ?? "viewer"], avatarUrl: data.avatarUrl ?? null });
+    setUser({ username: data.username, role: data.role, roles: data.roles ?? [data.role ?? "viewer"], rank: data.rank ?? "operator", avatarUrl: data.avatarUrl ?? null, backgroundUrl: data.backgroundUrl ?? null });
     return null;
   }, []);
 
@@ -85,7 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const data = await res.json();
     if (!res.ok) return data.error || "Signup failed";
-    setUser({ username: data.username, role: data.role, roles: data.roles ?? [data.role ?? "viewer"], avatarUrl: data.avatarUrl ?? null });
+    setUser({ username: data.username, role: data.role, roles: data.roles ?? [data.role ?? "viewer"], rank: data.rank ?? "operator", avatarUrl: data.avatarUrl ?? null, backgroundUrl: data.backgroundUrl ?? null });
     return null;
   }, []);
 
@@ -122,8 +132,3 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) throw new Error("useAuth must be used within an AuthProvider");
-  return context;
-}

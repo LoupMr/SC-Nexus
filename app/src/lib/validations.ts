@@ -158,6 +158,18 @@ export const avatarSchema = z.object({
   avatar: z.string().min(1, "Avatar data required").refine((s) => s.startsWith("data:image/"), "Invalid image format"),
 });
 
+// Profile background: base64 data URL, same-origin path, or http(s) URL (max 500 chars to limit abuse)
+export const backgroundSchema = z.object({
+  background: z.string().min(1, "Background required").max(500, "URL too long").refine(
+    (s) =>
+      s.startsWith("data:image/") ||
+      (s.startsWith("/") && !s.includes("//")) ||
+      s.startsWith("http://") ||
+      s.startsWith("https://"),
+    "Must be image data URL, same-origin path, or http(s) URL"
+  ),
+});
+
 // Hangar selections
 export const hangarSelectionSchema = z.object({
   assetId: z.string().min(1, "Asset ID required"),

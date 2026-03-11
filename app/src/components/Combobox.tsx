@@ -61,7 +61,7 @@ export default function Combobox({ options, value, onChange, placeholder = "Sear
       <button
         type="button"
         onClick={() => { setOpen(!open); setTimeout(() => inputRef.current?.focus(), 50); }}
-        className="w-full flex items-center gap-2 px-3 py-2 bg-space-900/60 border border-glass-border rounded-lg text-sm text-left focus:outline-none focus:border-holo/40 transition-all"
+        className="w-full flex items-center gap-2 px-3 py-2 chamfer-sm bg-space-900/60 border border-glass-border text-sm text-left focus:outline-none focus:border-holo/40 focus:shadow-[0_0_8px_rgba(92,225,230,0.2)] transition-all mobiglas-label"
       >
         <span className={clsx("flex-1 truncate", value ? "text-space-200" : "text-space-600")}>
           {selectedLabel || placeholder}
@@ -74,7 +74,7 @@ export default function Combobox({ options, value, onChange, placeholder = "Sear
       </button>
 
       {open && (
-        <div className="absolute z-50 mt-1 w-full bg-space-900 border border-glass-border rounded-lg shadow-xl overflow-hidden">
+        <div className="absolute z-50 mt-1 w-full chamfer-md bg-[rgba(0,15,30,0.95)] backdrop-blur-xl border border-glass-border shadow-[0_0_12px_rgba(92,225,230,0.15)] overflow-hidden">
           <div className="flex items-center gap-2 px-3 py-2 border-b border-glass-border">
             <Search className="w-3.5 h-3.5 text-space-500 flex-shrink-0" />
             <input
@@ -98,7 +98,7 @@ export default function Combobox({ options, value, onChange, placeholder = "Sear
                 type="button"
                 onClick={() => handleSelect(opt)}
                 className={clsx(
-                  "w-full text-left px-3 py-2 text-sm transition-colors",
+                  "w-full text-left px-3 py-2 text-sm transition-colors mobiglas-label",
                   opt.value === value
                     ? "bg-holo/10 text-holo"
                     : "text-space-300 hover:bg-space-800/60 hover:text-space-200"
@@ -110,7 +110,7 @@ export default function Combobox({ options, value, onChange, placeholder = "Sear
 
             {groups.map((group) => (
               <div key={group}>
-                <div className="px-3 py-1.5 text-[10px] font-medium text-space-500 uppercase tracking-wider bg-space-900/80 sticky top-0">
+                <div className="px-3 py-1.5 text-[10px] font-medium text-space-500 mobiglas-label bg-space-900/80 sticky top-0">
                   {group}
                 </div>
                 {filtered.filter((o) => o.group === group).map((opt) => (
@@ -119,7 +119,7 @@ export default function Combobox({ options, value, onChange, placeholder = "Sear
                     type="button"
                     onClick={() => handleSelect(opt)}
                     className={clsx(
-                      "w-full text-left px-3 py-2 text-sm transition-colors",
+                      "w-full text-left px-3 py-2 text-sm transition-colors mobiglas-label",
                       opt.value === value
                         ? "bg-holo/10 text-holo"
                         : "text-space-300 hover:bg-space-800/60 hover:text-space-200"

@@ -80,5 +80,14 @@
       "Pyro V Outpost",
       "Pyro VI Outpost"
     ]
+  },
+  {
+    "system": "Nyx",
+    "locations": [
+      "Nyx",
+      "Stanton Gateway Station",
+      "Pyro Gateway Station",
+      "Levski Station"
+    ]
   }
 ]

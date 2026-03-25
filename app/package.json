@@ -10,7 +10,10 @@
     "start": "next start",
     "lint": "eslint",
     "fetch-scwiki": "node scripts/fetch-scwiki-database.mjs",
-    "fetch-scwiki:dry": "node scripts/fetch-scwiki-database.mjs --dry-run"
+    "fetch-scwiki:dry": "node scripts/fetch-scwiki-database.mjs --dry-run",
+    "fetch-missions": "node scripts/fetch-scmdb-missions.mjs",
+    "fetch-missions:ptu": "node scripts/fetch-scmdb-missions.mjs --ptu",
+    "fetch-missions:live-only": "node scripts/fetch-scmdb-missions.mjs --no-ptu-blueprints"
   },
   "dependencies": {
     "@tiptap/extension-underline": "^3.20.1",

@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Shield, Crosshair, BookMarked, BookOpen, Medal, UserCheck, Link2, Users, Home, LogOut, LogIn, Rocket, ScrollText } from "lucide-react";
+import { Shield, Crosshair, BookMarked, BookOpen, Medal, UserCheck, Link2, Users, Home, LogOut, LogIn, Rocket, ScrollText, ClipboardList } from "lucide-react";
 import clsx from "clsx";
 import { useAuth } from "@/context/useAuth";
 
 const dockItems = [
   { href: "/dashboard", label: "Home", icon: Home, adminOnly: false },
   { href: "/armory", label: "Armory", icon: Crosshair, adminOnly: false },
+  { href: "/missions", label: "Missions", icon: ClipboardList, adminOnly: false },
   { href: "/ships", label: "Ships", icon: Rocket, adminOnly: false },
   { href: "/guide", label: "Guides", icon: BookMarked, adminOnly: false },
   { href: "/ledger", label: "Ledger", icon: BookOpen, adminOnly: false },

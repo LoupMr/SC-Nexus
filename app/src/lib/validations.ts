@@ -95,6 +95,12 @@ export const operationMeritTagSchema = z.object({
   meritTag: z.string().optional().default(""),
 });
 
+// Blueprints
+export const blueprintUnlockSchema = z.object({
+  blueprintId: z.string().min(1, "Blueprint id required"),
+  unlocked: z.boolean(),
+});
+
 // Guides
 export const guideCreateSchema = z.object({
   title: z.string().min(1, "Title required").transform((s) => s.trim()),

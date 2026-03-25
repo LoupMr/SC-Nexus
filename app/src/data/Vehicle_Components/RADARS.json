@@ -1,0 +1,322 @@
+[
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 740,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 63,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 220,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 620,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 3,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 1700,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 82,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 82,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.ShortRangeRadar",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Capston",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 220,
+        "Volume": 1
+    },
+    {
+        "Name": "Chernykh",
+        "Type": "Radar",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 620,
+        "Volume": 1
+    },
+    {
+        "Name": "Denning",
+        "Type": "Radar",
+        "Size": 0,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 82,
+        "Volume": 1
+    },
+    {
+        "Name": "Ecouter",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 280,
+        "Volume": 1
+    },
+    {
+        "Name": "Ecouter",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 280,
+        "Volume": 1
+    },
+    {
+        "Name": "Epier",
+        "Type": "Radar",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 760,
+        "Volume": 1
+    },
+    {
+        "Name": "Fleming",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 220,
+        "Volume": 1
+    },
+    {
+        "Name": "Hunter",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Stealth",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 190,
+        "Volume": 1
+    },
+    {
+        "Name": "Observer-Lite",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 270,
+        "Volume": 1
+    },
+    {
+        "Name": "Pelerous",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Stealth",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 190,
+        "Volume": 1
+    },
+    {
+        "Name": "Prevenir",
+        "Type": "Radar",
+        "Size": 0,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 100,
+        "Volume": 1
+    },
+    {
+        "Name": "Radar",
+        "Type": "Radar",
+        "Size": 3,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 1700,
+        "Volume": 1
+    },
+    {
+        "Name": "Radar",
+        "Type": "Radar",
+        "Size": 3,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 2100,
+        "Volume": 1
+    },
+    {
+        "Name": "Radar",
+        "Type": "Radar",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 18000,
+        "Volume": 1
+    },
+    {
+        "Name": "Radar",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 220,
+        "Volume": 1
+    },
+    {
+        "Name": "Radar",
+        "Type": "Radar",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 470,
+        "Volume": 1
+    },
+    {
+        "Name": "Sens",
+        "Type": "Radar",
+        "Size": 0,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 100,
+        "Volume": 1
+    },
+    {
+        "Name": "SNS-R6",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Competition",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 140,
+        "Volume": 1
+    },
+    {
+        "Name": "Surveyor",
+        "Type": "Radar",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 740,
+        "Volume": 1
+    },
+    {
+        "Name": "Surveyor-Go",
+        "Type": "Radar",
+        "Size": 0,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 75,
+        "Volume": 1
+    },
+    {
+        "Name": "Surveyor-Lite",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 270,
+        "Volume": 1
+    },
+    {
+        "Name": "Voir",
+        "Type": "Radar",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.Radar.MidRangeRadar",
+        "Durability": 280,
+        "Volume": 1
+    }
+]

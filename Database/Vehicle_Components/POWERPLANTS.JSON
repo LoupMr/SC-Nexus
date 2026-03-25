@@ -1,762 +1,872 @@
 [
     {
-      "Name": "Bolide",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 860,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Breton",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Industrial",
-      "Durability": 300,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Celestial",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 1500,
-      "PowerGeneration": 22,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "Centurion",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 2100,
-      "PowerGeneration": 24,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "Charger",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 240,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Cirrus",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Stealth",
-      "Durability": 460,
-      "PowerGeneration": 17,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "DayBreak",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 470,
-      "PowerGeneration": 18,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Defiant",
-      "Size": 0,
-      "Grade": "B",
-      "Class": "Industrial",
-      "Durability": 98,
-      "PowerGeneration": 11,
-      "CoolantDraw": 0,
-      "Volume": 44000
-    },
-    {
-      "Name": "DeltaMax",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Stealth",
-      "Durability": 190,
-      "PowerGeneration": 13,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Diligence",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Industrial",
-      "Durability": 640,
-      "PowerGeneration": 19,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Drassik",
-      "Size": 3,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 1800,
-      "PowerGeneration": 24,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "DuraJet",
-      "Size": 0,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 62,
-      "PowerGeneration": 10,
-      "CoolantDraw": 0,
-      "Volume": 44000
-    },
-    {
-      "Name": "Durango",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Industrial",
-      "Durability": 2300,
-      "PowerGeneration": 24,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "DynaFlux",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 310,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Eclipse",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Stealth",
-      "Durability": 590,
-      "PowerGeneration": 18,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Endurance",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Industrial",
-      "Durability": 270,
-      "PowerGeneration": 15,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "ExoGen",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 650,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Fierell Cascade",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 310,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Fortitude",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Industrial",
-      "Durability": 230,
-      "PowerGeneration": 15,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Fulgur",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 2400,
-      "PowerGeneration": 24,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "FullForce",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 540,
-      "PowerGeneration": 18,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "FullForce Pro",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 1500,
-      "PowerGeneration": 22,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "GammaMax",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Stealth",
-      "Durability": 520,
-      "PowerGeneration": 17,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Genoa",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Industrial",
-      "Durability": 840,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Ginzel",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Industrial",
-      "Durability": 1800,
-      "PowerGeneration": 23,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "HyperGen",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 240,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "IonBurst",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 220,
-      "PowerGeneration": 14,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "IonSurge",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 620,
-      "PowerGeneration": 18,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "IonSurge Pro",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 1700,
-      "PowerGeneration": 22,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "IonWave",
-      "Size": 0,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 82,
-      "PowerGeneration": 10,
-      "CoolantDraw": 0,
-      "Volume": 44000
-    },
-    {
-      "Name": "Jennet",
-      "Size": 0,
-      "Grade": "D",
-      "Class": "Industrial",
-      "Durability": 74,
-      "PowerGeneration": 11,
-      "CoolantDraw": 0,
-      "Volume": 44000
-    },
-    {
-      "Name": "JS-300",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 350,
-      "PowerGeneration": 17,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "JS-400",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 980,
-      "PowerGeneration": 21,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "JS-500",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 2700,
-      "PowerGeneration": 25,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "LightBlossom",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 170,
-      "PowerGeneration": 14,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Lotus",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 620,
-      "PowerGeneration": 19,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "LumaCore",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Competition",
-      "Durability": 140,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "LuxCore",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Competition",
-      "Durability": 380,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Maelstrom",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 750,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "MagnaBloom",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 200,
-      "PowerGeneration": 14,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Main Powerplant (Bengal)",
-      "Size": 4,
-      "Grade": "A",
-      "Class": null,
-      "Durability": 420000,
-      "PowerGeneration": 29,
-      "CoolantDraw": 0,
-      "Volume": 2100000
-    },
-    {
-      "Name": "Main Powerplant (Idris)",
-      "Size": 4,
-      "Grade": "A",
-      "Class": null,
-      "Durability": 56000,
-      "PowerGeneration": 29,
-      "CoolantDraw": 0,
-      "Volume": 2100000
-    },
-    {
-      "Name": "Main Powerplant (Reclaimer)",
-      "Size": 4,
-      "Grade": "A",
-      "Class": null,
-      "Durability": 6300,
-      "PowerGeneration": 28,
-      "CoolantDraw": 0,
-      "Volume": 2100000
-    },
-    {
-      "Name": "MegaFlux",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 2400,
-      "PowerGeneration": 24,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "NewDawn",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 1300,
-      "PowerGeneration": 22,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "OverDrive",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 270,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "PowerBolt",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 200,
-      "PowerGeneration": 14,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "QuadraCell",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 350,
-      "PowerGeneration": 17,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "QuadraCell MT",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 980,
-      "PowerGeneration": 21,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "QuadraCell MX",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 2700,
-      "PowerGeneration": 25,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "Radiance",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 540,
-      "PowerGeneration": 18,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Radix",
-      "Size": 0,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 71,
-      "PowerGeneration": 10,
-      "CoolantDraw": 0,
-      "Volume": 44000
-    },
-    {
-      "Name": "Regulus",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 270,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Reliance",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Industrial",
-      "Durability": 2000,
-      "PowerGeneration": 23,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "Roughneck",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Industrial",
-      "Durability": 200,
-      "PowerGeneration": 15,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Sedulity",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Industrial",
-      "Durability": 740,
-      "PowerGeneration": 19,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Slipstream",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Stealth",
-      "Durability": 220,
-      "PowerGeneration": 14,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "SmartGen",
-      "Size": 3,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 1800,
-      "PowerGeneration": 24,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "SolarFlare",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Competition",
-      "Durability": 290,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "SonicLite",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Stealth",
-      "Durability": 170,
-      "PowerGeneration": 13,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "SparkJet",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 470,
-      "PowerGeneration": 18,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "SparkJet Pro",
-      "Size": 3,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 1300,
-      "PowerGeneration": 22,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "StarBurn",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Competition",
-      "Durability": 330,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "StarHeart",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Competition",
-      "Durability": 120,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "Steadfast",
-      "Size": 0,
-      "Grade": "C",
-      "Class": "Industrial",
-      "Durability": 85,
-      "PowerGeneration": 11,
-      "CoolantDraw": 0,
-      "Volume": 44000
-    },
-    {
-      "Name": "Stellate (890J)",
-      "Size": 4,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 13000,
-      "PowerGeneration": 27,
-      "CoolantDraw": 0,
-      "Volume": 2100000
-    },
-    {
-      "Name": "Stellate (Polaris)",
-      "Size": 4,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 14000,
-      "PowerGeneration": 27,
-      "CoolantDraw": 0,
-      "Volume": 2100000
-    },
-    {
-      "Name": "SunFlare",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Competition",
-      "Durability": 110,
-      "PowerGeneration": 16,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "SuperDrive",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 2100,
-      "PowerGeneration": 24,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "TigerLilly",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 1700,
-      "PowerGeneration": 23,
-      "CoolantDraw": 0,
-      "Volume": 756000
-    },
-    {
-      "Name": "Trommel",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Industrial",
-      "Durability": 560,
-      "PowerGeneration": 19,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "TurboDrive",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 750,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "UltraFlux",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 860,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "Vortex",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 650,
-      "PowerGeneration": 20,
-      "CoolantDraw": 0,
-      "Volume": 252000
-    },
-    {
-      "Name": "WhiteRose",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 220,
-      "PowerGeneration": 15,
-      "CoolantDraw": 0,
-      "Volume": 84000
-    },
-    {
-      "Name": "ZapJet",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 170,
-      "PowerGeneration": 14,
-      "CoolantDraw": 0,
-      "Volume": 84000
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 92,
+        "PowerGeneration": 10000,
+        "CoolantDraw": 0,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 1,
+        "PowerGeneration": null,
+        "CoolantDraw": 0,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 1,
+        "PowerGeneration": null,
+        "CoolantDraw": 0,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 5300,
+        "PowerGeneration": 27,
+        "CoolantDraw": 0,
+        "Volume": 2100000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 3,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 1900,
+        "PowerGeneration": 23,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 700,
+        "PowerGeneration": 19,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 250,
+        "PowerGeneration": 15,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 1,
+        "PowerGeneration": null,
+        "CoolantDraw": 0,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": null,
+        "PowerGeneration": null,
+        "CoolantDraw": 0,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 1,
+        "PowerGeneration": null,
+        "CoolantDraw": 0,
+        "Volume": 1
+    },
+    {
+        "Name": "Bolide",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 860,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Breton",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Durability": 300,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Celestial",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 1500,
+        "PowerGeneration": 22,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "Centurion",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 2100,
+        "PowerGeneration": 24,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "Charger",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 240,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Cirrus",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Stealth",
+        "Durability": 460,
+        "PowerGeneration": 17,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "DayBreak",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 470,
+        "PowerGeneration": 18,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Defiant",
+        "Size": 0,
+        "Grade": "B",
+        "Class": "Industrial",
+        "Durability": 98,
+        "PowerGeneration": 11,
+        "CoolantDraw": 0,
+        "Volume": 44000
+    },
+    {
+        "Name": "DeltaMax",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Stealth",
+        "Durability": 190,
+        "PowerGeneration": 13,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Diligence",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Durability": 640,
+        "PowerGeneration": 19,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Drassik",
+        "Size": 3,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 1800,
+        "PowerGeneration": 24,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "DuraJet",
+        "Size": 0,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 62,
+        "PowerGeneration": 10,
+        "CoolantDraw": 0,
+        "Volume": 44000
+    },
+    {
+        "Name": "Durango",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Durability": 2300,
+        "PowerGeneration": 24,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "DynaFlux",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 310,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Eclipse",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Stealth",
+        "Durability": 590,
+        "PowerGeneration": 18,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Endurance",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Industrial",
+        "Durability": 270,
+        "PowerGeneration": 15,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "ExoGen",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 650,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Fierell Cascade",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 310,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Fortitude",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Durability": 230,
+        "PowerGeneration": 15,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Fulgur",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 2400,
+        "PowerGeneration": 24,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "FullForce",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 540,
+        "PowerGeneration": 18,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "FullForce Pro",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 1500,
+        "PowerGeneration": 22,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "GammaMax",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Stealth",
+        "Durability": 520,
+        "PowerGeneration": 17,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Genoa",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Durability": 840,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Ginzel",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Durability": 1800,
+        "PowerGeneration": 23,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "HyperGen",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 240,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "IonBurst",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 220,
+        "PowerGeneration": 14,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "IonSurge",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 620,
+        "PowerGeneration": 18,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "IonSurge Pro",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 1700,
+        "PowerGeneration": 22,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "IonWave",
+        "Size": 0,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 82,
+        "PowerGeneration": 10,
+        "CoolantDraw": 0,
+        "Volume": 44000
+    },
+    {
+        "Name": "Jennet",
+        "Size": 0,
+        "Grade": "D",
+        "Class": "Industrial",
+        "Durability": 74,
+        "PowerGeneration": 11,
+        "CoolantDraw": 0,
+        "Volume": 44000
+    },
+    {
+        "Name": "JS-300",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 350,
+        "PowerGeneration": 17,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "JS-400",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 980,
+        "PowerGeneration": 21,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "JS-500",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 2700,
+        "PowerGeneration": 25,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "LightBlossom",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 170,
+        "PowerGeneration": 14,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Lotus",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 620,
+        "PowerGeneration": 19,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "LumaCore",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Competition",
+        "Durability": 140,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "LuxCore",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Competition",
+        "Durability": 380,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Maelstrom",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 750,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "MagnaBloom",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 200,
+        "PowerGeneration": 14,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Main Powerplant",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 6300,
+        "PowerGeneration": 28,
+        "CoolantDraw": 0,
+        "Volume": 2100000
+    },
+    {
+        "Name": "Main Powerplant",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 56000,
+        "PowerGeneration": 29,
+        "CoolantDraw": 0,
+        "Volume": 2100000
+    },
+    {
+        "Name": "Main Powerplant",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 420000,
+        "PowerGeneration": 29,
+        "CoolantDraw": 0,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MegaFlux",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 2400,
+        "PowerGeneration": 24,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "NewDawn",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 1300,
+        "PowerGeneration": 22,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "OverDrive",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 270,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "PowerBolt",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 200,
+        "PowerGeneration": 14,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "QuadraCell",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 350,
+        "PowerGeneration": 17,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "QuadraCell MT",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 980,
+        "PowerGeneration": 21,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "QuadraCell MX",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 2700,
+        "PowerGeneration": 25,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "Radiance",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 540,
+        "PowerGeneration": 18,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Radix",
+        "Size": 0,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 71,
+        "PowerGeneration": 10,
+        "CoolantDraw": 0,
+        "Volume": 44000
+    },
+    {
+        "Name": "Radix",
+        "Size": 0,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 71,
+        "PowerGeneration": 10,
+        "CoolantDraw": 0,
+        "Volume": 44000
+    },
+    {
+        "Name": "Regulus",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 270,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Reliance",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Industrial",
+        "Durability": 2000,
+        "PowerGeneration": 23,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "Roughneck",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Industrial",
+        "Durability": 200,
+        "PowerGeneration": 15,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Sedulity",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Industrial",
+        "Durability": 740,
+        "PowerGeneration": 19,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Slipstream",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Stealth",
+        "Durability": 220,
+        "PowerGeneration": 14,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "SmartGen",
+        "Size": 3,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 1800,
+        "PowerGeneration": 24,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "SolarFlare",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Competition",
+        "Durability": 290,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "SonicLite",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Stealth",
+        "Durability": 170,
+        "PowerGeneration": 13,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "SparkJet",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 470,
+        "PowerGeneration": 18,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "SparkJet Pro",
+        "Size": 3,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 1300,
+        "PowerGeneration": 22,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "StarBurn",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Competition",
+        "Durability": 330,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "StarHeart",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Competition",
+        "Durability": 120,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "Steadfast",
+        "Size": 0,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Durability": 85,
+        "PowerGeneration": 11,
+        "CoolantDraw": 0,
+        "Volume": 44000
+    },
+    {
+        "Name": "Stellate",
+        "Size": 4,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 14000,
+        "PowerGeneration": 27,
+        "CoolantDraw": 0,
+        "Volume": 2100000
+    },
+    {
+        "Name": "Stellate",
+        "Size": 4,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 13000,
+        "PowerGeneration": 27,
+        "CoolantDraw": 0,
+        "Volume": 2100000
+    },
+    {
+        "Name": "SunFlare",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Competition",
+        "Durability": 110,
+        "PowerGeneration": 16,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "SuperDrive",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 2100,
+        "PowerGeneration": 24,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "TigerLilly",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 1700,
+        "PowerGeneration": 23,
+        "CoolantDraw": 0,
+        "Volume": 756000
+    },
+    {
+        "Name": "Trommel",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Industrial",
+        "Durability": 560,
+        "PowerGeneration": 19,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "TurboDrive",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 750,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "UltraFlux",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 860,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "Vortex",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 650,
+        "PowerGeneration": 20,
+        "CoolantDraw": 0,
+        "Volume": 252000
+    },
+    {
+        "Name": "WhiteRose",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 220,
+        "PowerGeneration": 15,
+        "CoolantDraw": 0,
+        "Volume": 84000
+    },
+    {
+        "Name": "ZapJet",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 170,
+        "PowerGeneration": 14,
+        "CoolantDraw": 0,
+        "Volume": 84000
     }
-  ]
+]

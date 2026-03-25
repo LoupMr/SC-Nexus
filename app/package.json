@@ -5,10 +5,12 @@
   "license": "UNLICENSED",
   "author": "LoupMr",
   "scripts": {
-    "dev": "node scripts/generate-database.mjs && next dev",
-    "build": "node scripts/generate-database.mjs && next build",
+    "dev": "node scripts/generate-database.mjs && node scripts/generate-ships.mjs && next dev",
+    "build": "node scripts/generate-database.mjs && node scripts/generate-ships.mjs && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "fetch-scwiki": "node scripts/fetch-scwiki-database.mjs",
+    "fetch-scwiki:dry": "node scripts/fetch-scwiki-database.mjs --dry-run"
   },
   "dependencies": {
     "@tiptap/extension-underline": "^3.20.1",

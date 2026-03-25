@@ -1,0 +1,72 @@
+[
+    {
+        "Name": "Magstrand EMP Generator",
+        "Type": "EMP",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.EMP",
+        "Durability": 150,
+        "Volume": 84000
+    },
+    {
+        "Name": "REP-8 EMP Generator",
+        "Type": "EMP",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.EMP",
+        "Durability": 150,
+        "Volume": 2100000
+    },
+    {
+        "Name": "REP-VS EMP Generator",
+        "Type": "EMP",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.EMP",
+        "Durability": 150,
+        "Volume": 2100000
+    },
+    {
+        "Name": "TroMag Burst Generator",
+        "Type": "EMP",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.EMP",
+        "Durability": 150,
+        "Volume": 84000
+    },
+    {
+        "Name": "TroMag Burst Generator",
+        "Type": "EMP",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.EMP",
+        "Durability": 150,
+        "Volume": 252000
+    },
+    {
+        "Name": "TroMag Burst Generator",
+        "Type": "EMP",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.EMP",
+        "Durability": 150,
+        "Volume": 252000
+    },
+    {
+        "Name": "TroMag Burst Generator",
+        "Type": "EMP",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.EMP",
+        "Durability": 150,
+        "Volume": 1
+    }
+]

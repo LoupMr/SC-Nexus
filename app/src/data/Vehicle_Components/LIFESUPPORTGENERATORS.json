@@ -1,44 +1,74 @@
 [
     {
-      "Name": "ComfortAir",
-      "Size": 1,
-      "LifeSupportGeneration": 0.5,
-      "Volume": 0.001
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 4,
+        "LifeSupportGeneration": 1.69,
+        "Volume": 1
     },
     {
-      "Name": "ComfortAir Lite",
-      "Size": 0,
-      "LifeSupportGeneration": 0.333,
-      "Volume": 0.001
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 0,
+        "LifeSupportGeneration": 0.333,
+        "Volume": 1
     },
     {
-      "Name": "ComfortAir Max",
-      "Size": 3,
-      "LifeSupportGeneration": 1.13,
-      "Volume": 0.001
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "LifeSupportGeneration": 0.5,
+        "Volume": 1
     },
     {
-      "Name": "ComfortAir Plus",
-      "Size": 2,
-      "LifeSupportGeneration": 0.75,
-      "Volume": 0.001
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 2,
+        "LifeSupportGeneration": 0.75,
+        "Volume": 1
     },
     {
-      "Name": "Safehab (890J)",
-      "Size": 4,
-      "LifeSupportGeneration": 4.08,
-      "Volume": 0.001
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 3,
+        "LifeSupportGeneration": 1.13,
+        "Volume": 1
     },
     {
-      "Name": "Safehab (Idris)",
-      "Size": 4,
-      "LifeSupportGeneration": 9.42,
-      "Volume": 0.001
+        "Name": "ComfortAir",
+        "Size": 1,
+        "LifeSupportGeneration": 0.5,
+        "Volume": 1
     },
     {
-      "Name": "Safehab (Polaris)",
-      "Size": 4,
-      "LifeSupportGeneration": 5.71,
-      "Volume": 0.001
+        "Name": "ComfortAir Lite",
+        "Size": 0,
+        "LifeSupportGeneration": 0.333,
+        "Volume": 1
+    },
+    {
+        "Name": "ComfortAir Max",
+        "Size": 3,
+        "LifeSupportGeneration": 1.13,
+        "Volume": 1
+    },
+    {
+        "Name": "ComfortAir Plus",
+        "Size": 2,
+        "LifeSupportGeneration": 0.75,
+        "Volume": 1
+    },
+    {
+        "Name": "Safehab",
+        "Size": 4,
+        "LifeSupportGeneration": 4.08,
+        "Volume": 1
+    },
+    {
+        "Name": "Safehab",
+        "Size": 4,
+        "LifeSupportGeneration": 9.42,
+        "Volume": 1
+    },
+    {
+        "Name": "Safehab",
+        "Size": 4,
+        "LifeSupportGeneration": 5.71,
+        "Volume": 1
     }
-  ]
+]

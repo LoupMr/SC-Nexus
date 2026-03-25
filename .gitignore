@@ -1,3 +1,6 @@
 # Local deployment secrets
 .env
 .env.local
+
+# Root workspace install (npm workspaces hoists deps here)
+/node_modules

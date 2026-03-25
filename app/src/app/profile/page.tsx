@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { User, Camera, Trash2, ImageIcon, Sun, Moon, KeyRound, Copy, RefreshCw } from "lucide-react";
+import Link from "next/link";
+import { User, Camera, Trash2, ImageIcon, Sun, Moon, KeyRound, Copy, RefreshCw, ScrollText } from "lucide-react";
 import { useAuth } from "@/context/useAuth";
 import { useBackground } from "@/context/useBackground";
 import { useTheme } from "@/context/ThemeContext";
@@ -102,12 +103,38 @@ export default function ProfilePage() {
   const [bgUrlInput, setBgUrlInput] = useState("");
   const [showPasskey, setShowPasskey] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [myBlueprintIds, setMyBlueprintIds] = useState<string[]>([]);
+  const [blueprintLabels, setBlueprintLabels] = useState<Record<string, string>>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
   const bgInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (isAdmin && !passkey) fetchPasskey();
   }, [isAdmin, passkey, fetchPasskey]);
+
+  useEffect(() => {
+    if (!user) return;
+    (async () => {
+      try {
+        const [mRes, cRes] = await Promise.all([
+          fetch("/api/blueprints/mine"),
+          fetch("/api/blueprints/catalog"),
+        ]);
+        if (mRes.ok) {
+          const m = (await mRes.json()) as { blueprintIds: string[] };
+          setMyBlueprintIds(m.blueprintIds ?? []);
+        }
+        if (cRes.ok) {
+          const c = (await cRes.json()) as { id: string; name: string }[];
+          const map: Record<string, string> = {};
+          for (const row of c) map[row.id] = row.name;
+          setBlueprintLabels(map);
+        }
+      } catch {
+        /* ignore */
+      }
+    })();
+  }, [user]);
 
   useEffect(() => {
     if (backgroundUrl?.startsWith("http")) setBgUrlInput(backgroundUrl);
@@ -243,6 +270,32 @@ export default function ProfilePage() {
           <p className="mt-4 text-xs text-space-500">
             Recommended: square image, max 256×256. Images are compressed to stay under 150KB.
           </p>
+        </div>
+
+        {/* Blueprints summary */}
+        <div className="glass-card chamfer-md p-6 border border-glass-border mt-6">
+          <h3 className="text-sm font-semibold text-space-200 flex items-center gap-2 mb-2 mobiglas-label">
+            <ScrollText className="w-4 h-4 text-holo" />
+            My blueprints
+          </h3>
+          <p className="text-xs text-space-500 mb-3">
+            List what you hold for 4.7 crafting so logistics can find you on the roster.
+          </p>
+          {myBlueprintIds.length === 0 ? (
+            <p className="text-xs text-space-600">None recorded yet.</p>
+          ) : (
+            <ul className="text-xs text-space-300 space-y-1 mb-3">
+              {myBlueprintIds.map((id) => (
+                <li key={id}>• {blueprintLabels[id] || id}</li>
+              ))}
+            </ul>
+          )}
+          <Link
+            href="/blueprints"
+            className="inline-flex text-xs font-medium text-holo hover:underline mobiglas-label"
+          >
+            Open Blueprints Hub →
+          </Link>
         </div>
 
         {/* Theme toggle */}

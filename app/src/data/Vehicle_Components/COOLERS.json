@@ -1,659 +1,722 @@
 [
     {
-      "Name": "AbsoluteZero",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Competition",
-      "Durability": 210,
-      "CoolingRate": 46,
-      "Volume": 252000
-    },
-    {
-      "Name": "Algid",
-      "Size": 4,
-      "Grade": "A",
-      "Class": "Industrial",
-      "Durability": 4100,
-      "CoolingRate": 69,
-      "Volume": 2100000
-    },
-    {
-      "Name": "Arctic",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 490,
-      "CoolingRate": 46,
-      "Volume": 252000
-    },
-    {
-      "Name": "ArcticStorm",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 130,
-      "CoolingRate": 26,
-      "Volume": 84000
-    },
-    {
-      "Name": "Aufeis",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 460,
-      "CoolingRate": 39,
-      "Volume": 252000
-    },
-    {
-      "Name": "Avalanche",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 640,
-      "CoolingRate": 50,
-      "Volume": 252000
-    },
-    {
-      "Name": "Berian",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 130,
-      "CoolingRate": 26,
-      "Volume": 84000
-    },
-    {
-      "Name": "BlastChill",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 110,
-      "CoolingRate": 23,
-      "Volume": 84000
-    },
-    {
-      "Name": "Blizzard",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 1800,
-      "CoolingRate": 60,
-      "Volume": 756000
-    },
-    {
-      "Name": "Boreal",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 430,
-      "CoolingRate": 41,
-      "Volume": 252000
-    },
-    {
-      "Name": "Bracer",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 180,
-      "CoolingRate": 34,
-      "Volume": 84000
-    },
-    {
-      "Name": "Chill-Max",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Industrial",
-      "Durability": 1500,
-      "CoolingRate": 58,
-      "Volume": 756000
-    },
-    {
-      "Name": "ColdSnap",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 350,
-      "CoolingRate": 34,
-      "Volume": 252000
-    },
-    {
-      "Name": "ColdSurge",
-      "Size": 3,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 840,
-      "CoolingRate": 41,
-      "Volume": 756000
-    },
-    {
-      "Name": "CoolCore",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Industrial",
-      "Durability": 420,
-      "CoolingRate": 41,
-      "Volume": 252000
-    },
-    {
-      "Name": "Cryo-Star",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 150,
-      "CoolingRate": 26,
-      "Volume": 84000
-    },
-    {
-      "Name": "Cryo-Star EX",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 400,
-      "CoolingRate": 34,
-      "Volume": 252000
-    },
-    {
-      "Name": "Cryo-Star SL",
-      "Size": 0,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 53,
-      "CoolingRate": 16,
-      "Volume": 21000
-    },
-    {
-      "Name": "Cryo-Star XL",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 1100,
-      "CoolingRate": 45,
-      "Volume": 756000
-    },
-    {
-      "Name": "Draug",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 1300,
-      "CoolingRate": 49,
-      "Volume": 756000
-    },
-    {
-      "Name": "Eco-Flow",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Industrial",
-      "Durability": 180,
-      "CoolingRate": 32,
-      "Volume": 84000
-    },
-    {
-      "Name": "Elsen",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 1300,
-      "CoolingRate": 49,
-      "Volume": 756000
-    },
-    {
-      "Name": "Endo",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 150,
-      "CoolingRate": 26,
-      "Volume": 84000
-    },
-    {
-      "Name": "Exotherm",
-      "Size": 4,
-      "Grade": "A",
-      "Class": null,
-      "Durability": 36000,
-      "CoolingRate": 10,
-      "Volume": 22100000
-    },
-    {
-      "Name": "FlashFreeze",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 150,
-      "CoolingRate": 26,
-      "Volume": 84000
-    },
-    {
-      "Name": "Fridan",
-      "Size": 0,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 46,
-      "CoolingRate": 16,
-      "Volume": 21000
-    },
-    {
-      "Name": "Frost-Star",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 130,
-      "CoolingRate": 26,
-      "Volume": 84000
-    },
-    {
-      "Name": "Frost-Star EX",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 350,
-      "CoolingRate": 34,
-      "Volume": 252000
-    },
-    {
-      "Name": "Frost-Star SL",
-      "Size": 0,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 46,
-      "CoolingRate": 16,
-      "Volume": 21000
-    },
-    {
-      "Name": "Frost-Star XL",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 960,
-      "CoolingRate": 45,
-      "Volume": 756000
-    },
-    {
-      "Name": "FrostBite",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 1100,
-      "CoolingRate": 45,
-      "Volume": 756000
-    },
-    {
-      "Name": "FrostBurn",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 960,
-      "CoolingRate": 45,
-      "Volume": 756000
-    },
-    {
-      "Name": "FullFrost",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 400,
-      "CoolingRate": 34,
-      "Volume": 252000
-    },
-    {
-      "Name": "Galinstan",
-      "Size": 3,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 1200,
-      "CoolingRate": 50,
-      "Volume": 756000
-    },
-    {
-      "Name": "Gelid",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 170,
-      "CoolingRate": 29,
-      "Volume": 84000
-    },
-    {
-      "Name": "Glacier",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Military",
-      "Durability": 230,
-      "CoolingRate": 38,
-      "Volume": 84000
-    },
-    {
-      "Name": "Graupel",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Civilian",
-      "Durability": 350,
-      "CoolingRate": 34,
-      "Volume": 252000
-    },
-    {
-      "Name": "HeatSafe",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Stealth",
-      "Durability": 110,
-      "CoolingRate": 22,
-      "Volume": 84000
-    },
-    {
-      "Name": "HeatSink",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Stealth",
-      "Durability": 300,
-      "CoolingRate": 32,
-      "Volume": 252000
-    },
-    {
-      "Name": "Hydrocel",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Industrial",
-      "Durability": 130,
-      "CoolingRate": 29,
-      "Volume": 84000
-    },
-    {
-      "Name": "HydroJet",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Industrial",
-      "Durability": 370,
-      "CoolingRate": 38,
-      "Volume": 252000
-    },
-    {
-      "Name": "Hydropulse",
-      "Size": 3,
-      "Grade": "D",
-      "Class": "Industrial",
-      "Durability": 1000,
-      "CoolingRate": 48,
-      "Volume": 756000
-    },
-    {
-      "Name": "Ice-Flush",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Industrial",
-      "Durability": 1300,
-      "CoolingRate": 52,
-      "Volume": 756000
-    },
-    {
-      "Name": "IceBox",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Stealth",
-      "Durability": 340,
-      "CoolingRate": 32,
-      "Volume": 252000
-    },
-    {
-      "Name": "IceDive",
-      "Size": 2,
-      "Grade": "C",
-      "Class": "Competition",
-      "Durability": 190,
-      "CoolingRate": 46,
-      "Volume": 252000
-    },
-    {
-      "Name": "IcePlunge",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Competition",
-      "Durability": 69,
-      "CoolingRate": 34,
-      "Volume": 84000
-    },
-    {
-      "Name": "Kelvid",
-      "Size": 0,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 53,
-      "CoolingRate": 16,
-      "Volume": 21000
-    },
-    {
-      "Name": "Kragen",
-      "Size": 3,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 1300,
-      "CoolingRate": 49,
-      "Volume": 756000
-    },
-    {
-      "Name": "Mercury",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Military",
-      "Durability": 1300,
-      "CoolingRate": 56,
-      "Volume": 756000
-    },
-    {
-      "Name": "NightFall",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Stealth",
-      "Durability": 390,
-      "CoolingRate": 34,
-      "Volume": 252000
-    },
-    {
-      "Name": "Permafrost",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 560,
-      "CoolingRate": 46,
-      "Volume": 252000
-    },
-    {
-      "Name": "Polar",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 210,
-      "CoolingRate": 34,
-      "Volume": 84000
-    },
-    {
-      "Name": "QuikCool",
-      "Size": 1,
-      "Grade": "D",
-      "Class": null,
-      "Durability": 62,
-      "CoolingRate": 32,
-      "Volume": 84000
-    },
-    {
-      "Name": "RapidCool",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Competition",
-      "Durability": 170,
-      "CoolingRate": 43,
-      "Volume": 252000
-    },
-    {
-      "Name": "Serac (890J)",
-      "Size": 4,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 8400,
-      "CoolingRate": 65,
-      "Volume": 2100000
-    },
-    {
-      "Name": "Serac (Polaris)",
-      "Size": 4,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 9500,
-      "CoolingRate": 65,
-      "Volume": 2100000
-    },
-    {
-      "Name": "SnowBlind",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Stealth",
-      "Durability": 140,
-      "CoolingRate": 24,
-      "Volume": 84000
-    },
-    {
-      "Name": "Snowfall",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Industrial",
-      "Durability": 480,
-      "CoolingRate": 41,
-      "Volume": 252000
-    },
-    {
-      "Name": "Snowpack",
-      "Size": 2,
-      "Grade": "A",
-      "Class": "Industrial",
-      "Durability": 550,
-      "CoolingRate": 46,
-      "Volume": 252000
-    },
-    {
-      "Name": "Taiga",
-      "Size": 2,
-      "Grade": "B",
-      "Class": "Civilian",
-      "Durability": 400,
-      "CoolingRate": 34,
-      "Volume": 252000
-    },
-    {
-      "Name": "Tempest",
-      "Size": 3,
-      "Grade": "B",
-      "Class": "Military",
-      "Durability": 1600,
-      "CoolingRate": 56,
-      "Volume": 756000
-    },
-    {
-      "Name": "Tepilo",
-      "Size": 0,
-      "Grade": "A",
-      "Class": "Civilian",
-      "Durability": 60,
-      "CoolingRate": 17,
-      "Volume": 21000
-    },
-    {
-      "Name": "ThermalCore",
-      "Size": 3,
-      "Grade": "C",
-      "Class": "Industrial",
-      "Durability": 1200,
-      "CoolingRate": 52,
-      "Volume": 756000
-    },
-    {
-      "Name": "Thermax",
-      "Size": 1,
-      "Grade": "C",
-      "Class": "Industrial",
-      "Durability": 150,
-      "CoolingRate": 32,
-      "Volume": 84000
-    },
-    {
-      "Name": "Tundra",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Military",
-      "Durability": 160,
-      "CoolingRate": 32,
-      "Volume": 84000
-    },
-    {
-      "Name": "Ultra-Flow",
-      "Size": 1,
-      "Grade": "A",
-      "Class": "Industrial",
-      "Durability": 200,
-      "CoolingRate": 34,
-      "Volume": 84000
-    },
-    {
-      "Name": "VaporBlock",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Stealth",
-      "Durability": 120,
-      "CoolingRate": 22,
-      "Volume": 84000
-    },
-    {
-      "Name": "WhiteOut",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 300,
-      "CoolingRate": 32,
-      "Volume": 252000
-    },
-    {
-      "Name": "Winter-Star",
-      "Size": 1,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 110,
-      "CoolingRate": 23,
-      "Volume": 84000
-    },
-    {
-      "Name": "Winter-Star EX",
-      "Size": 2,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 300,
-      "CoolingRate": 32,
-      "Volume": 252000
-    },
-    {
-      "Name": "Winter-Star SL",
-      "Size": 0,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 40,
-      "CoolingRate": 14,
-      "Volume": 21000
-    },
-    {
-      "Name": "Winter-Star XL",
-      "Size": 3,
-      "Grade": "D",
-      "Class": "Civilian",
-      "Durability": 840,
-      "CoolingRate": 41,
-      "Volume": 756000
-    },
-    {
-      "Name": "ZeroRush",
-      "Size": 1,
-      "Grade": "B",
-      "Class": "Competition",
-      "Durability": 78,
-      "CoolingRate": 34,
-      "Volume": 84000
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 170,
+        "CoolingRate": 27,
+        "Volume": 84000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 100000,
+        "CoolingRate": 74,
+        "Volume": 2100000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 3,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 1300,
+        "CoolingRate": 49,
+        "Volume": 756000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 460,
+        "CoolingRate": 39,
+        "Volume": 252000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 280000,
+        "CoolingRate": 72,
+        "Volume": 2100000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 170,
+        "CoolingRate": 17.6,
+        "Volume": 84000
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 3400,
+        "CoolingRate": 60,
+        "Volume": 2100000
+    },
+    {
+        "Name": "AbsoluteZero",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Competition",
+        "Durability": 210,
+        "CoolingRate": 46,
+        "Volume": 252000
+    },
+    {
+        "Name": "Algid",
+        "Size": 4,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Durability": 4100,
+        "CoolingRate": 69,
+        "Volume": 2100000
+    },
+    {
+        "Name": "Arctic",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 490,
+        "CoolingRate": 46,
+        "Volume": 252000
+    },
+    {
+        "Name": "ArcticStorm",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 130,
+        "CoolingRate": 26,
+        "Volume": 84000
+    },
+    {
+        "Name": "Aufeis",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 460,
+        "CoolingRate": 39,
+        "Volume": 252000
+    },
+    {
+        "Name": "Avalanche",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 640,
+        "CoolingRate": 50,
+        "Volume": 252000
+    },
+    {
+        "Name": "Berian",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 130,
+        "CoolingRate": 26,
+        "Volume": 84000
+    },
+    {
+        "Name": "BlastChill",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 110,
+        "CoolingRate": 23,
+        "Volume": 84000
+    },
+    {
+        "Name": "Blizzard",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 1800,
+        "CoolingRate": 60,
+        "Volume": 756000
+    },
+    {
+        "Name": "Boreal",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 430,
+        "CoolingRate": 41,
+        "Volume": 252000
+    },
+    {
+        "Name": "Bracer",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 180,
+        "CoolingRate": 34,
+        "Volume": 84000
+    },
+    {
+        "Name": "Chill-Max",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Durability": 1500,
+        "CoolingRate": 58,
+        "Volume": 756000
+    },
+    {
+        "Name": "ColdSnap",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 350,
+        "CoolingRate": 34,
+        "Volume": 252000
+    },
+    {
+        "Name": "ColdSurge",
+        "Size": 3,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 840,
+        "CoolingRate": 41,
+        "Volume": 756000
+    },
+    {
+        "Name": "CoolCore",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Durability": 420,
+        "CoolingRate": 41,
+        "Volume": 252000
+    },
+    {
+        "Name": "Cryo-Star",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 150,
+        "CoolingRate": 26,
+        "Volume": 84000
+    },
+    {
+        "Name": "Cryo-Star EX",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 400,
+        "CoolingRate": 34,
+        "Volume": 252000
+    },
+    {
+        "Name": "Cryo-Star SL",
+        "Size": 0,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 53,
+        "CoolingRate": 16,
+        "Volume": 21000
+    },
+    {
+        "Name": "Cryo-Star XL",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 1100,
+        "CoolingRate": 45,
+        "Volume": 756000
+    },
+    {
+        "Name": "Draug",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 1300,
+        "CoolingRate": 49,
+        "Volume": 756000
+    },
+    {
+        "Name": "Eco-Flow",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Industrial",
+        "Durability": 180,
+        "CoolingRate": 32,
+        "Volume": 84000
+    },
+    {
+        "Name": "Elsen",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 1300,
+        "CoolingRate": 49,
+        "Volume": 756000
+    },
+    {
+        "Name": "Endo",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 150,
+        "CoolingRate": 26,
+        "Volume": 84000
+    },
+    {
+        "Name": "Exotherm",
+        "Size": 4,
+        "Grade": "A",
+        "Class": null,
+        "Durability": 36000,
+        "CoolingRate": 102,
+        "Volume": 2100000
+    },
+    {
+        "Name": "FlashFreeze",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 150,
+        "CoolingRate": 26,
+        "Volume": 84000
+    },
+    {
+        "Name": "Fridan",
+        "Size": 0,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 46,
+        "CoolingRate": 16,
+        "Volume": 21000
+    },
+    {
+        "Name": "Frost-Star",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 130,
+        "CoolingRate": 26,
+        "Volume": 84000
+    },
+    {
+        "Name": "Frost-Star EX",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 350,
+        "CoolingRate": 34,
+        "Volume": 252000
+    },
+    {
+        "Name": "Frost-Star SL",
+        "Size": 0,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 46,
+        "CoolingRate": 16,
+        "Volume": 21000
+    },
+    {
+        "Name": "Frost-Star XL",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 960,
+        "CoolingRate": 45,
+        "Volume": 756000
+    },
+    {
+        "Name": "FrostBite",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 1100,
+        "CoolingRate": 45,
+        "Volume": 756000
+    },
+    {
+        "Name": "FrostBurn",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 960,
+        "CoolingRate": 45,
+        "Volume": 756000
+    },
+    {
+        "Name": "FullFrost",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 400,
+        "CoolingRate": 34,
+        "Volume": 252000
+    },
+    {
+        "Name": "Galinstan",
+        "Size": 3,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 1200,
+        "CoolingRate": 50,
+        "Volume": 756000
+    },
+    {
+        "Name": "Gelid",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 170,
+        "CoolingRate": 29,
+        "Volume": 84000
+    },
+    {
+        "Name": "Glacier",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Durability": 230,
+        "CoolingRate": 38,
+        "Volume": 84000
+    },
+    {
+        "Name": "Graupel",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Civilian",
+        "Durability": 350,
+        "CoolingRate": 34,
+        "Volume": 252000
+    },
+    {
+        "Name": "HeatSafe",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Stealth",
+        "Durability": 110,
+        "CoolingRate": 22,
+        "Volume": 84000
+    },
+    {
+        "Name": "HeatSink",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Stealth",
+        "Durability": 300,
+        "CoolingRate": 32,
+        "Volume": 252000
+    },
+    {
+        "Name": "Hydrocel",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Industrial",
+        "Durability": 130,
+        "CoolingRate": 29,
+        "Volume": 84000
+    },
+    {
+        "Name": "HydroJet",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Industrial",
+        "Durability": 370,
+        "CoolingRate": 38,
+        "Volume": 252000
+    },
+    {
+        "Name": "Hydropulse",
+        "Size": 3,
+        "Grade": "D",
+        "Class": "Industrial",
+        "Durability": 1000,
+        "CoolingRate": 48,
+        "Volume": 756000
+    },
+    {
+        "Name": "Ice-Flush",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Industrial",
+        "Durability": 1300,
+        "CoolingRate": 52,
+        "Volume": 756000
+    },
+    {
+        "Name": "IceBox",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Stealth",
+        "Durability": 340,
+        "CoolingRate": 32,
+        "Volume": 252000
+    },
+    {
+        "Name": "IceDive",
+        "Size": 2,
+        "Grade": "C",
+        "Class": "Competition",
+        "Durability": 190,
+        "CoolingRate": 46,
+        "Volume": 252000
+    },
+    {
+        "Name": "IcePlunge",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Competition",
+        "Durability": 69,
+        "CoolingRate": 34,
+        "Volume": 84000
+    },
+    {
+        "Name": "Kelvid",
+        "Size": 0,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 53,
+        "CoolingRate": 16,
+        "Volume": 21000
+    },
+    {
+        "Name": "Kragen",
+        "Size": 3,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 1300,
+        "CoolingRate": 49,
+        "Volume": 756000
+    },
+    {
+        "Name": "Mercury",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Military",
+        "Durability": 1300,
+        "CoolingRate": 56,
+        "Volume": 756000
+    },
+    {
+        "Name": "NightFall",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Stealth",
+        "Durability": 390,
+        "CoolingRate": 34,
+        "Volume": 252000
+    },
+    {
+        "Name": "Permafrost",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 560,
+        "CoolingRate": 46,
+        "Volume": 252000
+    },
+    {
+        "Name": "Polar",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 210,
+        "CoolingRate": 34,
+        "Volume": 84000
+    },
+    {
+        "Name": "QuikCool",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Competition",
+        "Durability": 62,
+        "CoolingRate": 32,
+        "Volume": 84000
+    },
+    {
+        "Name": "RapidCool",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Competition",
+        "Durability": 170,
+        "CoolingRate": 43,
+        "Volume": 252000
+    },
+    {
+        "Name": "Serac",
+        "Size": 4,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 8400,
+        "CoolingRate": 65,
+        "Volume": 2100000
+    },
+    {
+        "Name": "Serac",
+        "Size": 4,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 9500,
+        "CoolingRate": 65,
+        "Volume": 2100000
+    },
+    {
+        "Name": "SnowBlind",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Stealth",
+        "Durability": 140,
+        "CoolingRate": 24,
+        "Volume": 84000
+    },
+    {
+        "Name": "Snowfall",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Industrial",
+        "Durability": 480,
+        "CoolingRate": 41,
+        "Volume": 252000
+    },
+    {
+        "Name": "Snowpack",
+        "Size": 2,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Durability": 550,
+        "CoolingRate": 46,
+        "Volume": 252000
+    },
+    {
+        "Name": "Taiga",
+        "Size": 2,
+        "Grade": "B",
+        "Class": "Civilian",
+        "Durability": 400,
+        "CoolingRate": 34,
+        "Volume": 252000
+    },
+    {
+        "Name": "Tempest",
+        "Size": 3,
+        "Grade": "B",
+        "Class": "Military",
+        "Durability": 1600,
+        "CoolingRate": 56,
+        "Volume": 756000
+    },
+    {
+        "Name": "Tepilo",
+        "Size": 0,
+        "Grade": "A",
+        "Class": "Civilian",
+        "Durability": 60,
+        "CoolingRate": 17,
+        "Volume": 21000
+    },
+    {
+        "Name": "ThermalCore",
+        "Size": 3,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Durability": 1200,
+        "CoolingRate": 52,
+        "Volume": 756000
+    },
+    {
+        "Name": "Thermax",
+        "Size": 1,
+        "Grade": "C",
+        "Class": "Industrial",
+        "Durability": 150,
+        "CoolingRate": 32,
+        "Volume": 84000
+    },
+    {
+        "Name": "Tundra",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Military",
+        "Durability": 160,
+        "CoolingRate": 32,
+        "Volume": 84000
+    },
+    {
+        "Name": "Ultra-Flow",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Industrial",
+        "Durability": 200,
+        "CoolingRate": 34,
+        "Volume": 84000
+    },
+    {
+        "Name": "VaporBlock",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Stealth",
+        "Durability": 120,
+        "CoolingRate": 22,
+        "Volume": 84000
+    },
+    {
+        "Name": "WhiteOut",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 300,
+        "CoolingRate": 32,
+        "Volume": 252000
+    },
+    {
+        "Name": "Winter-Star",
+        "Size": 1,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 110,
+        "CoolingRate": 23,
+        "Volume": 84000
+    },
+    {
+        "Name": "Winter-Star EX",
+        "Size": 2,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 300,
+        "CoolingRate": 32,
+        "Volume": 252000
+    },
+    {
+        "Name": "Winter-Star SL",
+        "Size": 0,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 40,
+        "CoolingRate": 14,
+        "Volume": 21000
+    },
+    {
+        "Name": "Winter-Star XL",
+        "Size": 3,
+        "Grade": "D",
+        "Class": "Civilian",
+        "Durability": 840,
+        "CoolingRate": 41,
+        "Volume": 756000
+    },
+    {
+        "Name": "ZeroRush",
+        "Size": 1,
+        "Grade": "B",
+        "Class": "Competition",
+        "Durability": 78,
+        "CoolingRate": 34,
+        "Volume": 84000
     }
-  ]
+]

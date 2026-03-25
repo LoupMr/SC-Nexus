@@ -1,0 +1,4394 @@
+[
+    {
+        "Name": "@item_Nameglsn_shotgun_ballistic_01_mag",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0b501ac3-57ff-4fe1-be90-faed3467c4b8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 7,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/08efc343-b3c6-4baa-bc55-13f01ecc9dbc"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/318457f6-8e03-4fd8-af22-2eff4a63f501"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 7,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b3899836-534d-44aa-966c-ce38758485d7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e07e5a82-0664-4f91-97a9-38ce558b3d4b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c765f8cd-ac40-4b77-851f-0f68876428e0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8a53e3a5-6bf1-4bff-938d-6814aa6da332"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 7,
+        "Grade": 7,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6418c288-bbb5-4688-bb91-d6764c8c55ef"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/17340e60-6b59-441a-af6b-3abb3692c610"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/16b6586e-110c-4ffd-b35e-d959af1320c5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/150071d1-da8b-4262-be53-e77a3629cead"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e1f8b67e-9f79-4133-b5c6-568a4465bd33"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4e8e5fe3-5fad-4ab9-a583-c37aaa4e5693"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9bab7a48-b6fc-4b3b-b6b8-eee42f3249d7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4f963d23-b8bd-4fa0-b1d3-0358cb4d1919"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 7,
+        "Grade": 7,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7973ac14-c707-485a-abdc-5178ec9cf798"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1f61bf1c-7a75-474b-9cfb-bca7be7202c9"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cd2db9e3-5c58-462f-9c92-33d4715e3714"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8cca33e2-1618-4335-ad7a-012db8c9dfa5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5a6a892f-14c8-4359-88a0-55d1070595f3"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/993c1343-d1ad-4c91-bfdc-2093c8a7fc1e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7f31d915-b0f2-4237-b2bd-13091b0fbf23"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e758aeb5-3ecc-42f4-8f21-d87e476f97a5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/46481c5e-1b4c-46cc-9fc0-995092216993"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/72326367-0f76-4d8b-bad9-f722892553d7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5b36c810-176a-4a2d-80bf-5d452242c1b6"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a961e622-2317-4efa-98b3-fa94a1ffad74"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5bccf5df-dd6d-496b-8845-452782ef2dd7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/41581324-24e9-4e90-8e1b-3d2d71c26b7f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/19125eae-289f-4012-97fa-c3176faea148"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8997459c-de3b-43e2-bf24-5808888d1b0d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/18908398-4f9d-44c6-90f4-243a3e636fe9"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9a0f26d5-f4c5-4c69-8b21-44334469a481"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 9,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4538b32c-6ad3-48e5-98b4-85688870e9a0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/66e05cc5-64e5-412b-8620-607f27ba4e5a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/aca75369-d3d4-439e-a34e-a2ab6936e637"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6c83f7b9-d504-435a-8931-c689c7a2f59e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/588c7aa5-068d-4205-8007-b183cf78da62"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b84d5dc9-308b-431d-a0b2-a5755b28c7f4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b559abe7-6a46-45d3-950e-4439ebaf3892"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/94b0417e-c295-4478-93cd-0634210d2aa2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/742ec6a4-226e-4d3a-a9ab-ea92e6908e03"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/97c3b5cd-4056-4ffe-97f7-05178b45c7fa"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d832c9b2-1040-410c-80bd-e8049f9d462a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4da47d9a-05cc-4108-9bfa-91fb40d90304"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0df46d87-1877-448d-b58f-67690aa31097"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 7,
+        "Grade": 7,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0004adde-8c6e-41b6-b053-49f7be705a81"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1da7ba1c-941e-4072-ad2f-ab2ac47b4655"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/bda5e109-4463-4c5f-90fd-f953ab97550e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fa13abfe-b343-48a8-8497-9c96c18974e7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e202dafe-98be-40af-97ac-0ade132cd45e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2e01f175-c721-46b5-989d-cf4c1e64b3ee"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 5,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e690c340-e63a-41e9-907d-21a9d8027c9d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/110bb508-2042-4290-85f0-f045d999c448"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/50b0b689-b94f-43f8-a76d-80451d548dd4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 7,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e6beaa69-902c-4ffb-bed8-3e0ef5a0271d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 6,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9f29019f-3ecf-4867-ad32-c1886973b4a7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 5,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9f11f7a8-493f-4ebb-b283-e5ad7c3b6766"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 7,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e13cb553-bf8f-4570-bf91-d8a3991e26c2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 5,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0b496168-435a-4d78-a1e2-3028c3339416"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b78037d8-b7c3-4434-acee-186110eba41b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fd055ecf-d21d-4486-aab3-76a915942f7a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e0cbd450-99de-4f5b-ae84-5215035dde1e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 7,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d38823dd-9f28-40a1-a40b-9d10e9aec835"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c69ad780-94d8-49ba-9cc6-68e307c539a8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8c862c60-1f8d-462a-a939-d58687036116"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b7c26fcc-a70c-4a95-ae4c-578fb2614f20"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 0,
+        "Grade": null,
+        "Volume": 1114,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/38dc4dac-d7c2-4c1e-b142-07f987d77fb0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/25bb3dd1-1455-4e05-a2d8-628ecfff21dd"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d4174667-0469-45eb-be45-da6a1069854f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8766cd54-08e9-42a3-b2b0-d85cf1790913"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 5,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f60327a2-8069-4869-88ec-73f302b5e451"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 6,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8e760f65-9e60-47b5-b760-2d006083d4c0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0736ce29-2427-4584-89bb-7abee8d42908"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4f98ccec-5f24-4ef8-b76a-dbf7eba9b687"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/83869905-fe6a-4685-935f-9ad871f10dd2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 6,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c482ad77-f1da-4e74-938f-43f796bd6426"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/72271b9a-f9cd-42b5-a2c3-5bbd96efd427"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0bd7b53e-3519-4799-84fe-d8ae3a04d46c"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/678e23e3-b06f-40a1-9e20-c3664ffc0ab1"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b434af83-1dbe-4466-b9a5-e7dbc5a18db7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/06391919-f026-4e93-9acd-31dc6d7b72a8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2a6c769f-c625-458c-b4ab-f24cf03d32cf"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 2,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f3ad2d5a-6601-4aa7-b56e-3ccf97909eb2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 6,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3260477b-ff8a-43a4-81bd-7f60323cc6c0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 7,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9c845c8e-b1c7-40a7-ba3b-d1a5f916fdd6"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5d94d9c1-d7ee-4864-8996-34293249773e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/91eb90b3-23dc-4215-aa33-6140aa438df6"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/86ca9f40-5bcf-4f17-8834-2760ef15dd56"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3085212a-53da-485a-98e6-8c207ab9705a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6ad18354-8c76-4578-b060-a1b2d3eaf3ee"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 2,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4cef2875-72fe-4f35-83f4-5fa023effb39"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/94483882-6057-44e5-b640-c8d15b607926"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1a2f0d27-21f1-4214-b37d-00a2f8344e52"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/95d58b14-28f5-4069-a93b-c4c416386377"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/92d32493-a96f-4e95-a30b-d026fa37021f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ff2f2625-29ee-407c-aa28-1bb9550f6df2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/97e19cf8-a554-4a1c-b3e1-73d66a593f6a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/17974c89-fc2d-4eae-bd8d-70c2509e80e8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8f3fe3ad-f671-415d-a97c-7d43f733e805"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f745dc02-c36d-419a-99ff-966852c596b5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 4,
+        "Grade": "D",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d95cb1eb-f16d-47da-8c00-92f037f9dbc3"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 5,
+        "Grade": 5,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f345bdce-1969-4da9-8178-bd83094d14eb"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 6,
+        "Grade": 6,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c5e790dc-5e06-4194-bdf2-4ed42033793f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fe5d8493-efe6-4b99-a196-bbf41195dd19"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d8a9ff5f-555f-4245-b08a-2e8597d3c396"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/aba67d74-1e55-4248-9c7a-6c3cb960b85e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 4,
+        "Grade": "D",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/55549ef4-eee3-4eda-bbe6-6add36cf77b2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 5,
+        "Grade": 5,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2a558e7b-8756-419c-a2e5-c0f9bc72ded4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 6,
+        "Grade": 6,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1b332148-8030-480b-9a9b-a1f1dc74b47d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/03b1b646-26ef-4fd5-98b8-7dec31b29d28"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9783dad7-ff59-4a41-8d7f-9ed580b514eb"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e5f181c5-8170-4062-872a-02b82c9a0d22"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 4,
+        "Grade": "D",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1a5e2687-5c3d-4dc8-bb5f-f54312a9eec3"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 5,
+        "Grade": 5,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6594c807-395c-4930-9aa5-9bbc912e7946"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 6,
+        "Grade": 6,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/bdc87185-924f-4e38-bf40-4947c02c77b5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0730a450-e731-49de-9b17-ae44da130d55"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/93b822ea-20a1-43a2-bd81-b09c080a006f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/54fc7663-64ca-4fd3-98ce-86bfb266b274"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 4,
+        "Grade": "D",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2918d41c-ae45-40ed-adf8-b50461e38532"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 5,
+        "Grade": 5,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1e698927-5846-4ca4-adb5-812e89f660d2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 6,
+        "Grade": 6,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/66615a7c-906a-45d4-bcb2-a4e7de148ce9"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/efd33f90-38b7-47a9-a2da-4e47572e26d0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/461705a6-0835-4f9f-beae-443ab67b0d98"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c02dc0cb-4952-412e-b478-b569bdc6f9fd"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 4,
+        "Grade": "D",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9dafee72-fb27-421a-8cb6-60629dd72e4c"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 5,
+        "Grade": 5,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/92343f59-c339-4ec1-adec-bbb0e8ec8fbc"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 6,
+        "Grade": 6,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/380fe67f-4979-488c-a46f-79846b638c07"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b5a019a4-9ca3-48bc-9fd3-fa334871938a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/746e0f02-6956-4994-a425-1b62e39d3c6a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6b93dcc6-fa5d-49a4-95e5-2117907e5ca0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 4,
+        "Grade": "D",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4429224f-35f4-497b-b23a-c7861285ea68"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 5,
+        "Grade": 5,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d6403262-e404-4ca0-bc65-233d0e3b8bf6"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 6,
+        "Grade": 6,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ec2c660c-74d1-41f5-b169-c2b9bdd478e2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/68cf8143-53cf-4e5c-98d7-c97b3fdf88c5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/39583983-c209-4677-bb16-68fcd04350f4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9622a76d-b284-48f5-bf96-aad10b03039b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 4,
+        "Grade": "D",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b715c859-aaec-47d6-b6e1-0db1147ef958"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 5,
+        "Grade": 5,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/de755665-7c6b-4fd6-b9df-999b58e4d53d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 6,
+        "Grade": 6,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1c9551fa-7f87-4fbc-9771-4a7971d23831"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5d42fb2a-f1dd-4e84-ad56-cb5259f35420"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a2dac8c7-296b-4960-ac91-b0431bc9f824"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5bcd7b38-3d29-40f5-be4f-9d1bf81514ea"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a581bbbb-0b5a-4435-ad0a-96fb3d8c48e1"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4a9f9853-49b5-4b00-96e7-86ae9291b6c8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/53933f98-7685-47f5-a7d7-e57a2ef794e0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/672d036b-ffbd-4dab-8a64-7bd7f0595f0b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2c1502e1-138c-443c-85d2-2ad0a326ba28"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/492010f1-32cb-4832-93b8-bbf1bd4849f4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f5404669-315e-4650-862a-8f9ec3b59c5d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a736f0bf-155b-4c7f-988d-902a51096759"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e75799ef-d278-47b1-b667-9bf7528b23d4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c10d8c2d-44f5-4733-98d4-11fa1742f08b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8eb90cbc-056b-47df-8150-3f2fadc06d00"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3d2c189e-46a7-4e02-940a-08dd874c0e1f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/dcf98f50-c2f0-471c-8afd-1e037262af4a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/85d5d735-373d-46eb-9ade-531221c20cef"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ba55cc3d-336c-42ee-a5cf-f691fc75062a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": null,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3d478cf8-b28f-4c19-99fc-3f270108ce01"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": null,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/97f48d42-0642-4183-81f0-78eeb6bdc2d5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d1035606-ed3b-415d-9a67-081b8810f87d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f2479c83-b1bf-44fc-9a13-4ff4b9f5c057"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/22da60a6-5f4f-4ba2-84da-c96f9f47d273"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/05693c87-2b44-4792-8b37-c3b68bfc71b6"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/caa703b5-265e-4b88-b3c7-b8473cd3bf8e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e4f958c0-f276-4afe-989d-4b9f1fcf19ef"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5b1dc45f-10fb-4cb4-ad33-d4a416cf90a0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ac8c15b2-4e46-4523-8671-cee943031741"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6026f8f4-32df-4f26-8ff2-0b4659a73f08"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Utility",
+        "Position": null,
+        "Size": 0,
+        "Grade": null,
+        "Volume": 340,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/753e218d-6368-4005-aee9-60f821aeebaa"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7572f62b-9035-47af-a636-ef841ba1656b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cc96be3a-eafc-4548-b158-6be512189b22"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/513e9543-b729-413e-9a14-0e1e8a199075"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/69455dfa-4b6d-4130-b413-65bda418a93c"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e090007e-3c41-4429-8b32-76794da6e246"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6768613e-5c87-4505-940e-5b4a96e3038b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/465e16ab-d149-4b68-80e1-e5d557e79860"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f4bdaf29-0ffd-4ace-a45a-cbeea4fb1039"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9cff922f-cc03-40c6-809f-0e629dd1ab89"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/16aa0c4c-cca0-4b62-a7c1-3cf2ff08e9af"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cd67ef2c-8124-4bca-8a43-1197c36c33cc"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f053a264-c6c8-4383-8140-d8dc980583ea"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b127e84c-5805-4404-a1c4-c975476964bd"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/17800bc8-fa08-47ec-ba0d-eba6d589e12c"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/eb00eacc-04c3-415a-afe8-4cc0872f23ed"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/43ec8f75-3a3f-413b-972c-eb5a5700cb2f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/68682fd8-dbf2-463d-883e-95575dd88331"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a0c5c42a-4aa2-4784-83d3-f06d1adfaa12"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c2586394-394a-41e5-b63a-acfbf9af08c0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/611080f1-bba5-4574-9b3a-25503efd2c85"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ee533664-b2fa-4fa3-a2bd-132026259d81"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f9762ed1-0ea9-4fbf-a51d-f8b2129f1acb"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c60c218a-685c-4768-8ada-190b8e29ddb1"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/06bf9021-aae5-4ecc-b066-c83538bc20dd"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/934ee15e-58e4-4c50-bffa-e185f4ac7e67"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 9,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4538b32c-6ad3-48e5-98b4-85688870e9a0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/110bb508-2042-4290-85f0-f045d999c448"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fd055ecf-d21d-4486-aab3-76a915942f7a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b84d5dc9-308b-431d-a0b2-a5755b28c7f4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/16b6586e-110c-4ffd-b35e-d959af1320c5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fadfa113-d0c5-4444-8848-dd8490f5878b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5b58db79-ce3f-406f-95e0-2b69d624b45d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/34f81bdf-0386-46f7-99c3-6c33dca020e4"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2e01f175-c721-46b5-989d-cf4c1e64b3ee"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b559abe7-6a46-45d3-950e-4439ebaf3892"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/19125eae-289f-4012-97fa-c3176faea148"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e1f8b67e-9f79-4133-b5c6-568a4465bd33"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c765f8cd-ac40-4b77-851f-0f68876428e0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8b379d0a-f93f-4120-8870-9d971b89853d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ba941e80-4803-45c3-8831-9725a5fa4ef1"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/45fe2f96-7fbe-457f-a13c-521dd72dcad2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/851c418c-daef-4a75-8075-355dc5ec102a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/84c58f49-9b32-4d58-a1fe-d25a23ffcb48"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/72271b9a-f9cd-42b5-a2c3-5bbd96efd427"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b78037d8-b7c3-4434-acee-186110eba41b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fa13abfe-b343-48a8-8497-9c96c18974e7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d832c9b2-1040-410c-80bd-e8049f9d462a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6c83f7b9-d504-435a-8931-c689c7a2f59e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/41581324-24e9-4e90-8e1b-3d2d71c26b7f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cd2db9e3-5c58-462f-9c92-33d4715e3714"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/150071d1-da8b-4262-be53-e77a3629cead"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/17340e60-6b59-441a-af6b-3abb3692c610"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e07e5a82-0664-4f91-97a9-38ce558b3d4b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a961e622-2317-4efa-98b3-fa94a1ffad74"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c8cbdd9b-10e7-4e7d-8ce7-aa1041955666"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/bf863df2-430f-4eb5-addd-25afc9ad7ebc"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f48031f5-172a-4049-a4ee-00c2904d054e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a2b739ea-0a14-48ea-8174-515d0f1fb169"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5ee2438a-3d18-4e23-a847-b8d848ce918a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d3edf817-cfe5-45bb-8c9c-4c7c02389970"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b4e6b18a-c1e4-4d69-bb4b-c90ae7a4717d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/22df0629-c164-444a-bd5b-9413f5d3380e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/72981786-7fe8-4b78-9676-f61a2d74cd89"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1a2f0d27-21f1-4214-b37d-00a2f8344e52"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/83869905-fe6a-4685-935f-9ad871f10dd2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8c862c60-1f8d-462a-a939-d58687036116"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 7,
+        "Grade": 7,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7973ac14-c707-485a-abdc-5178ec9cf798"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 7,
+        "Grade": 7,
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6418c288-bbb5-4688-bb91-d6764c8c55ef"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7f31d915-b0f2-4237-b2bd-13091b0fbf23"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/318457f6-8e03-4fd8-af22-2eff4a63f501"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5b36c810-176a-4a2d-80bf-5d452242c1b6"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/08ee6c17-ad99-43f4-ba80-4089f40601ca"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9b89f35a-b643-4f36-a182-27d058646f8b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/62494280-cf60-46f4-819e-eb2fc76a6c60"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/59f24a20-d9cf-4615-b0d2-2cb9c26fe08b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f73942ed-d8b7-4d11-9e35-68e1afd70438"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/97b4db56-1622-4292-91ed-914371b1d7e8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6c06d2b8-58e1-49b2-8a99-59a37f4fbb15"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8648f277-ce62-43fb-bac2-ef5c0aff18cb"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b04f098f-4c92-48f8-8091-c2ebec18ecc3"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f1af3301-9a3c-4f9b-9a12-a1046b5dc944"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/25335c83-3aab-4aa3-80dd-b1fe87180b29"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9771e843-52f7-45df-8911-152d0513a8ed"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5fb45e1a-4417-4fb3-871b-073ca128f3bb"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/84a917b6-ac68-4314-a402-8a185cc5bfbc"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/eb5e4b66-2b7f-4d7d-a4ab-d3298a34c09d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f745dc02-c36d-419a-99ff-966852c596b5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 2,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4cef2875-72fe-4f35-83f4-5fa023effb39"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/06391919-f026-4e93-9acd-31dc6d7b72a8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0736ce29-2427-4584-89bb-7abee8d42908"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/25bb3dd1-1455-4e05-a2d8-628ecfff21dd"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c69ad780-94d8-49ba-9cc6-68e307c539a8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/aca75369-d3d4-439e-a34e-a2ab6936e637"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/66e05cc5-64e5-412b-8620-607f27ba4e5a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9a0f26d5-f4c5-4c69-8b21-44334469a481"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/18908398-4f9d-44c6-90f4-243a3e636fe9"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5bccf5df-dd6d-496b-8845-452782ef2dd7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/72326367-0f76-4d8b-bad9-f722892553d7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/46481c5e-1b4c-46cc-9fc0-995092216993"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e758aeb5-3ecc-42f4-8f21-d87e476f97a5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5a6a892f-14c8-4359-88a0-55d1070595f3"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8cca33e2-1618-4335-ad7a-012db8c9dfa5"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1f61bf1c-7a75-474b-9cfb-bca7be7202c9"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4f963d23-b8bd-4fa0-b1d3-0358cb4d1919"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/da467c09-db68-4e11-be84-7be6501d479a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/748bba37-0b33-4d68-a7d9-5c39bc87ffd1"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/91d276a5-a79c-43ec-8275-9d5eca8e75ac"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/62b2c856-bc5e-4123-8896-5d2b0b64a7bd"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8e0a1b4f-5bca-4a81-8b2f-c6ae7dd2ef0b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c5fe3707-d93e-42b7-8c6f-7e9c8ce695fc"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c8a3bfbd-b17d-4f90-b094-935c003a70df"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1ca2ffb7-915a-43e4-ab8e-0d84a15a92ac"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/05223102-5a98-4a4a-b5f4-aad50ada7f9d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1c4acda3-bf69-40a9-bf9e-5b302485888f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a007f0bf-ab4b-43dc-9fc7-aae884a32c9c"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/82a84a29-8815-4b4a-b201-02df84b24f8e"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/04b22419-d6f5-4664-8154-cf9fa70f69ea"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d10235c3-9889-4a1e-863d-bff6dad93354"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2da7c4b6-21ab-4f4b-bd9d-e73e04306510"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6cc8457a-d30f-442d-9755-087d82985de9"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8f3fe3ad-f671-415d-a97c-7d43f733e805"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 3,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/17974c89-fc2d-4eae-bd8d-70c2509e80e8"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3085212a-53da-485a-98e6-8c207ab9705a"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 2,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f3ad2d5a-6601-4aa7-b56e-3ccf97909eb2"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "IronSight",
+        "Position": null,
+        "Size": 0,
+        "Grade": null,
+        "Volume": 1114,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cf29c82b-f4a2-4749-a368-6e3bae4434ac"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cb57e9b0-683c-4f93-a56a-ac66535f2516"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/57dfbdf1-e62d-470b-a89f-5aa2f8dda06d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/89342b97-ae4e-4cf8-97ab-4d81412056dd"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f304062f-21d5-454c-ad08-5d79c3c77b4b"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/03cc2a73-1401-44b5-a751-a519b8d42496"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7b603122-7c41-4053-921f-5fbcfb263877"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6f39210f-f5c9-4cd7-bafe-bebb8c27d3fa"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b4a260ff-114d-4d60-8112-1c8e3d5cb501"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "BottomAttachment",
+        "Position": null,
+        "Size": 0,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fe5a7a59-7748-435b-9889-985127353223"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ce49413f-8de3-4025-94d7-be5fd245c8d7"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/79b7ca4a-27b1-45f2-b62c-631d47a46a9d"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1d18bc82-495c-4fb7-8f65-a5e67dcdbc60"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/37015725-0548-431e-a591-d6b8c48cae86"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/37b1d2de-4d15-4dba-96b8-d6c9269992c6"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 2,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/55ac180d-4478-4056-b5fc-6667e6a30416"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 4,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b255d03d-58e9-49e3-b3db-1d135d3fef69"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/87abe80a-1bd4-4acd-b20e-d091e2841bad"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3b535173-3bd7-42eb-96e0-fc312ad52bfe"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c99fc2d3-04c0-4ca6-8870-3ff3456fda9f"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 3,
+        "Grade": "C",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0c9a2781-2556-40e6-99d4-9ac3ce0f59d0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4a2f0a57-7ada-47dc-ac6d-758d969b2b4c"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/82047fbb-1214-4738-8854-020b616a38f1"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fb1addb5-8e2c-4e62-8c3b-fc70e47c0948"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/12f41862-b61b-490f-91a4-e1455835f6fe"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/55276fc0-4c56-4e7f-8aaf-a40ab7dfa110"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c2ba6e1a-49f6-41c2-b755-9178bfcf0993"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/744ba4e2-4c45-404a-8455-4fbb2643baae"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Barrel",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/414bae42-243a-4a8f-8668-98502f5fa5ad"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "FiringMechanism",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5c50e860-e038-4f50-9d27-f8553c0071f0"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "PowerArray",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/48d567ea-e135-468a-9fa8-c3953bc87d76"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/001f561e-8414-49ef-8d3f-ade7c04df3c3"
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "AttachmentType": "Ventilation",
+        "Position": null,
+        "Size": 1,
+        "Grade": "A",
+        "Volume": 1,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f8d2a6ca-0268-4129-9356-bdc055fb309b"
+    },
+    {
+        "Name": "250-E Laser Pointer",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6bbaa189-c154-4524-b2c1-6df305bb9533"
+    },
+    {
+        "Name": "A03 Sniper Rifle Magazine (15 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c12a76b1-80b2-4db5-9648-20a1cd0f4d67"
+    },
+    {
+        "Name": "Animus Missile",
+        "AttachmentType": "Missile",
+        "Position": "Missile",
+        "Size": 1,
+        "Grade": null,
+        "Volume": null,
+        "ScWikiUrl": null
+    },
+    {
+        "Name": "Animus Missile Launcher Magazine (3 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 530,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2308fcbc-cc02-41c1-9a5e-3a14507fc4f4"
+    },
+    {
+        "Name": "APX Fire Extinguisher Canister",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 0,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a205d0b4-7157-4e5a-9e40-57bb6b4fbb55"
+    },
+    {
+        "Name": "Arclight Pistol Battery (30 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 90,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e15e874d-a0c1-4f91-939b-b04bf7a9e839"
+    },
+    {
+        "Name": "Arrowhead Sniper Rifle Battery (16 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/66f0410b-bcd9-4be5-96ed-aab6f65f3420"
+    },
+    {
+        "Name": "Atzkav Sniper Rifle Battery (8 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8177489f-ed83-44ac-afd4-2b32a80fa0a6"
+    },
+    {
+        "Name": "Black Prism (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/71aac893-8957-42e2-8956-61985ab2c4a5"
+    },
+    {
+        "Name": "Boomtube Rocket",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 530,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2f4ed822-21bb-4b47-8d9b-ef75114222f6"
+    },
+    {
+        "Name": "BR-2 Shotgun Magazine (12 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 2400,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ab85897c-940f-426e-962b-b3a2d459036c"
+    },
+    {
+        "Name": "BR-2 Shotgun Magazine (12 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 2400,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/38555f2d-975f-4e3c-8d04-8196b59b17c6"
+    },
+    {
+        "Name": "BR-2 Shotgun Magazine (12 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 2400,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8ff2bb56-65e6-43b6-8516-c172efbe14bc"
+    },
+    {
+        "Name": "BR-2 Shotgun Magazine (12 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 2400,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/85172716-2759-4dba-9c99-a9c64dd06143"
+    },
+    {
+        "Name": "Brightspot Flashlight Purple",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9f4969d2-074c-448b-ae6b-0697c49cff81"
+    },
+    {
+        "Name": "C54 SMG Magazine (50 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3f4a69ef-0bcf-4cd6-a272-782f6641c242"
+    },
+    {
+        "Name": "Cambio SRT Canister",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 1200,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/891a1422-3980-4756-84b2-04dd07ad7177"
+    },
+    {
+        "Name": "Cambio SRT Canister",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 1200,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/100037d0-d9c1-400d-a29a-c2ea3b621753"
+    },
+    {
+        "Name": "Cambio-Lite SRT Attachment",
+        "AttachmentType": "Utility",
+        "Position": "Utility",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 340,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/99379aa0-7240-4014-813a-0ab460f885f5"
+    },
+    {
+        "Name": "Cambio-Lite SRT Canister",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 300,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5ea0d020-8e9c-4a33-8fad-757651e1088d"
+    },
+    {
+        "Name": "Cambio-Lite SRT Canister",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 300,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c1de56e1-e20f-4c8c-bbb8-c0584e38725d"
+    },
+    {
+        "Name": "Cambrio SRT Battery",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 280,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/680e69e1-4bf5-4647-92bc-989d1e4a5faa"
+    },
+    {
+        "Name": "Coda Pistol Magazine (6 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 220,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/90b873da-1d15-48ba-86f5-f5633e958c33"
+    },
+    {
+        "Name": "Custodian SMG Magazine (60 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/31b73bfe-da55-4cb0-a19d-1c6543ca1fb9"
+    },
+    {
+        "Name": "Deadrig Shotgun Magazine (8 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1b00b884-79eb-4b3b-916f-1b3ebe4c7c76"
+    },
+    {
+        "Name": "Delta \"Scorched\" (1x Reflex)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d4d27d5f-3c80-4b31-bc34-2de8357b79d7"
+    },
+    {
+        "Name": "Delta (1x Reflex)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/28fa64a1-2a7b-4bcc-9581-9b86c6ccae16"
+    },
+    {
+        "Name": "Delta LL (1x Reflex)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/495e07f0-3b09-49a7-857b-dccefca9f5d1"
+    },
+    {
+        "Name": "Demeco LMG Battery (100 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b62224ba-5c56-4306-857a-70de7d570767"
+    },
+    {
+        "Name": "Devastator Shotgun Battery (12 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/86eec5f7-3dd0-40f2-a433-3dc143c0d231"
+    },
+    {
+        "Name": "EE04 (4x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 700,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a392c30b-5798-4b35-a70c-01264c6a083e"
+    },
+    {
+        "Name": "EE08 (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0dabf62d-9b3e-4968-a371-ae0cb44057a1"
+    },
+    {
+        "Name": "EE16 (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/77521326-082c-44f9-a5b2-09dfb87f3f14"
+    },
+    {
+        "Name": "EE16 (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7b3e9ad7-45f2-4ee5-b17a-8b8b8bb0112c"
+    },
+    {
+        "Name": "EE16 (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/49d638ae-c9ca-4391-b0c7-2043d9ab4f42"
+    },
+    {
+        "Name": "Emod \"Scorched\" Stabilizer1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 50,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6086430f-6a76-4768-8baa-6e09bc56140e"
+    },
+    {
+        "Name": "Emod \"Tweaker\" Stabilizer2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/bf838dcb-31d5-4c8d-8550-90f09a581619"
+    },
+    {
+        "Name": "Emod Stabilizer1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 50,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0ff25cf5-6f7b-47e8-8842-f12d8abfe68b"
+    },
+    {
+        "Name": "Emod Stabilizer2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ecbc4c11-95f3-4bd3-9fad-49bba798a942"
+    },
+    {
+        "Name": "Emod Stabilizer3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 260,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/dc7a1310-5e36-445c-90a9-4acf61194d0c"
+    },
+    {
+        "Name": "Escalate Stabilizer1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 50,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4834c09b-1e6b-486f-a05e-68859be4e229"
+    },
+    {
+        "Name": "Escalate Stabilizer2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9691ce72-fcb8-4e1c-a99f-09bde8bf3ca0"
+    },
+    {
+        "Name": "Escalate Stabilizer3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 260,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5da14fc0-f1df-4f42-a510-1b6d1a54d8ad"
+    },
+    {
+        "Name": "F55 LMG Magazine (150 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/daa0fe47-d6f7-44eb-a3d6-e3e13724a6ba"
+    },
+    {
+        "Name": "FarSight \"Darkwave\" (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ec7eb40a-d88c-44f8-8f3b-0f20025adbd2"
+    },
+    {
+        "Name": "FarSight \"Golden Blossom\" (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/201f58e3-7c17-4217-8edf-6f6a097e5ff8"
+    },
+    {
+        "Name": "FarSight \"Landslide\" (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/32eba44b-1373-4843-b797-d19f4d28b539"
+    },
+    {
+        "Name": "FarSight \"Snow Camo\" (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/6645ee2e-5a58-4db0-a3d7-5cdad7bf8d8a"
+    },
+    {
+        "Name": "FarSight \"Thunderstrike\" (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4df44fd1-acd3-4bb4-bc56-eee0cccc4834"
+    },
+    {
+        "Name": "FarSight (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/7b02ea9f-ba9a-48a9-89c4-e557155bd471"
+    },
+    {
+        "Name": "FieldLite \"Scorched\" Flashlight",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ba30701c-bec0-4345-b5d9-ae869f34c126"
+    },
+    {
+        "Name": "FieldLite Flashlight",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/60fab7a8-617c-4962-8391-69221ed761d6"
+    },
+    {
+        "Name": "FieldLite Flashlight Blue",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/30c2a2e9-fba9-40b5-830c-0f9ad43b18ad"
+    },
+    {
+        "Name": "FieldLite Flashlight Red",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d7d93249-f0ef-4b50-803b-781a904a2cef"
+    },
+    {
+        "Name": "FieldLite Flashlight Yellow",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1d6b428a-33a8-4074-bd41-fbc6a16c72d1"
+    },
+    {
+        "Name": "FocalWave-10 (1x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fadb8d2f-ae39-4ca1-8d64-3fc7423d2154"
+    },
+    {
+        "Name": "FocalWave-20 (2x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/bfa300f0-cd7c-4ba4-b786-b3da26932622"
+    },
+    {
+        "Name": "FocalWave-30 (3x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1f799599-a91a-410f-848e-eca2bd41ae5d"
+    },
+    {
+        "Name": "Fresnel Energy LMG Battery (165 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/923fcb3c-ad02-4a9a-96c2-1fb61fb6c794"
+    },
+    {
+        "Name": "FS-9 Magazine (75 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b5f37920-ba9a-4a07-85e9-4d09f8e2f5ad"
+    },
+    {
+        "Name": "Gallant Rifle Battery (45 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/0988e9ce-5f5d-4eb8-83a7-dc70f187579d"
+    },
+    {
+        "Name": "Gamma \"Black Op\" (1x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a81a2546-385a-409b-92bf-38749702b50f"
+    },
+    {
+        "Name": "Gamma (1x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e812e76a-4068-4e91-8511-45a26039aa12"
+    },
+    {
+        "Name": "Gamma (1x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 4,
+        "Grade": null,
+        "Volume": 1447,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/048facd2-32e2-419a-81e9-e9f7a6e971f7"
+    },
+    {
+        "Name": "Gamma Duo (2x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a9d588a7-1023-410e-a001-73a973700faa"
+    },
+    {
+        "Name": "Gamma Duo LL (2x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c1d28932-267f-4867-9d29-2d6f0aa50dd2"
+    },
+    {
+        "Name": "Gamma LL (1x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d5da6ad7-8013-4db0-a75e-3060f7d987db"
+    },
+    {
+        "Name": "Gamma Plus \"Lumen\" (3x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b6f797fe-9c44-4eb1-b719-9271d7c69de8"
+    },
+    {
+        "Name": "Gamma Plus (3x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fd9d06a9-5cf8-4325-9149-538d576e5146"
+    },
+    {
+        "Name": "Gamma Plus LL (3x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/009b533f-e818-4dc8-a81c-fafd40bb21ba"
+    },
+    {
+        "Name": "GP-33 MOD Grenade Launcher Magazine (6 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 2400,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/aff2521e-2e7a-40d5-98a1-9a6a379a2f01"
+    },
+    {
+        "Name": "HG-15 Jaeger (1.5x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/73e2eda1-b0a5-46ba-ab12-cb170b3d0b84"
+    },
+    {
+        "Name": "HG-2 Jaeger (2x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/484cc311-5ef6-4d07-ab75-a75452e7d244"
+    },
+    {
+        "Name": "HG-3 Jaeger (3x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f6254ea2-d108-430d-8a9e-eb0135bfd521"
+    },
+    {
+        "Name": "Karna Rifle Battery (35 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/91cfb7dc-660b-4505-b86a-6028c9a3f54d"
+    },
+    {
+        "Name": "Killshot Rifle Magazine (45 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c40b7e8e-0f04-43d7-ac3a-7ffb8df071d8"
+    },
+    {
+        "Name": "LH86 Pistol Magazine (25 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 90,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/068c28b8-3ea3-409a-b08d-1d53ae1e3303"
+    },
+    {
+        "Name": "LifeGuard Medical Attachment",
+        "AttachmentType": "Utility",
+        "Position": "Utility",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 340,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5c19c75e-fe9c-438b-862a-3639cf187763"
+    },
+    {
+        "Name": "LifeGuard Refill",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 180,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/03fc4136-a491-4713-b278-ef7e4333431d"
+    },
+    {
+        "Name": "Lumin V SMG Battery (45 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1d1e4e17-9258-4ee8-8461-fc866b6d332f"
+    },
+    {
+        "Name": "Lux Flashlight",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/01ad699f-cf07-4775-b363-75b915094740"
+    },
+    {
+        "Name": "MaxLift Tractor Beam Battery",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 280,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c3ba088f-3a92-412b-90a8-de468d76ec2c"
+    },
+    {
+        "Name": "Omarof (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/60cf7fd7-9e89-4e00-be45-74afc00890a2"
+    },
+    {
+        "Name": "Omarof (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/713a8022-1cf8-4c21-a216-d536df291e99"
+    },
+    {
+        "Name": "Omarof (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ab80732a-c829-45e7-92c0-2f4893a8f1f8"
+    },
+    {
+        "Name": "Omarof (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/aa2f5010-7252-47d8-84aa-b3be259149fa"
+    },
+    {
+        "Name": "Omarof (16x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1ba4ebda-fa61-45e7-928f-a543161c9276"
+    },
+    {
+        "Name": "OreBit Mining Attachment",
+        "AttachmentType": "Utility",
+        "Position": "Utility",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 340,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/da55ce5e-25dd-4160-9f04-fee8796c0b43"
+    },
+    {
+        "Name": "OT4-RF \"Scorched\" (4x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 700,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/bbea3063-5ca5-4d78-9327-95cceb638eb9"
+    },
+    {
+        "Name": "OT4-RF (4x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 700,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/718aca95-c774-4266-a0e2-50ba2a56088e"
+    },
+    {
+        "Name": "OT8-RF \"Scorched\" (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/70a1857b-69b1-4456-b29e-36c505f09eca"
+    },
+    {
+        "Name": "OT8-RF (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/278fafef-c4e3-44d5-9b85-a225f6e97cb2"
+    },
+    {
+        "Name": "OxyTorch Cutter Attachment",
+        "AttachmentType": "Utility",
+        "Position": "Utility",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 340,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/81d120b2-d7a4-413a-8f9e-a1ebbb8ae1e2"
+    },
+    {
+        "Name": "P4-AR Magazine (40 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1f8845fb-22de-4c73-b6e6-ed1d1b066808"
+    },
+    {
+        "Name": "P6-LR Magazine (8 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b038fea7-2e2f-4b47-b90d-4bb39bde3229"
+    },
+    {
+        "Name": "P8-AR Rifle Magazine (15 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/dd21edb8-a0ba-42ab-a02a-bec325e96c87"
+    },
+    {
+        "Name": "P8-SC SMG Magazine (45 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/90adb28a-049e-4357-8000-a4bb75bb7f6f"
+    },
+    {
+        "Name": "Parallax Rifle Battery (80 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3efb1be1-8935-4124-8bf0-aec410297785"
+    },
+    {
+        "Name": "ParaMed Refill",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 180,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f10cba0e-bb94-4438-a628-5128913bb995"
+    },
+    {
+        "Name": "Prism Laser Shotgun Battery (20 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/14e12fed-37fd-4c75-b61e-1b21d1bbade7"
+    },
+    {
+        "Name": "PT1 (1x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4505b54f-0e2b-4dfa-8c15-3c9073561f93"
+    },
+    {
+        "Name": "PT2 (2x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/208281d5-412b-46c3-b0b3-bea4c33bb17c"
+    },
+    {
+        "Name": "PT3 \"Deadfall\" (3x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/01828239-6f9b-40a0-80ff-a3dc6370c526"
+    },
+    {
+        "Name": "PT3 (3x Holographic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cafb725f-9ccf-4ec3-959d-1a94ac0512b6"
+    },
+    {
+        "Name": "Pulse Laser Pistol Battery (60 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 180,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b76f9795-28fe-40a3-9a60-ffdbc4e8c713"
+    },
+    {
+        "Name": "Pulverizer LMG Magazine (120 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b4df80a2-7aa6-412c-b1ff-67467bcf43ec"
+    },
+    {
+        "Name": "Pyro RYT Multi-Tool Battery",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 0,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f1073c2c-900c-4c62-a866-46aa402ee1b2"
+    },
+    {
+        "Name": "Quartz Energy SMG Battery (45 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/83ac5196-05d0-45a1-8982-aa549650f9d9"
+    },
+    {
+        "Name": "Quell Suppressor1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 120,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/64922909-1036-4fbf-a55f-2388fe03e865"
+    },
+    {
+        "Name": "Quell Suppressor2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 180,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/121af95d-f791-42f8-bf26-c4ec73d65db4"
+    },
+    {
+        "Name": "Quell Suppressor3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 450,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/66cba05f-9d37-4725-add1-d77f4ae36c87"
+    },
+    {
+        "Name": "R97 Shotgun Magazine (18 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b4ef17b2-60b9-4617-a6a4-60dd053a9e73"
+    },
+    {
+        "Name": "Ravager-212 Twin Shotgun Magazine (16 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3326f182-d089-45d5-b090-f438d6f65f17"
+    },
+    {
+        "Name": "RD-1 Jaeger (1x Red Dot)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b886d522-04ca-493e-9373-daa8a4f8066e"
+    },
+    {
+        "Name": "RF1 (1x Reflex)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/46e37a2b-36d3-48d9-9a77-f51ef4689943"
+    },
+    {
+        "Name": "Ripper SMG Battery (60 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/3468f853-8bcc-450c-a4fe-f70f6e391301"
+    },
+    {
+        "Name": "S-38 Magazine (20 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 90,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/8ec810e2-2d9e-4bbf-9b64-c603aaef01db"
+    },
+    {
+        "Name": "S71 Rifle Magazine (30 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1fc5d1dc-1fbd-480b-9b1a-a5121963de78"
+    },
+    {
+        "Name": "Salvo Frag Pistol Magazine (8 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 90,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/aa9edf82-8a45-4088-b5de-14c646252f79"
+    },
+    {
+        "Name": "Scalpel Sniper Rifle Magazine (12 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 610,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d84a7601-c246-4384-88c3-b3be0fe10680"
+    },
+    {
+        "Name": "Scourge Railgun Magazine (5 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 530,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/92f958c7-71c5-4997-a575-d6ea3a6e304b"
+    },
+    {
+        "Name": "Sion \"Scorched\" Compensator2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 60,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/10831736-4bdf-4465-b517-94281261d317"
+    },
+    {
+        "Name": "Sion \"Tweaker\" Compensator1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ff8fbeaa-66d6-4ed0-8d9a-3a9394e6df79"
+    },
+    {
+        "Name": "Sion \"Tweaker\" Compensator2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 60,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c2a12467-36a7-4e10-8de5-39b59f8922c6"
+    },
+    {
+        "Name": "Sion Compensator1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2d559b31-cf5f-4963-b276-c687f49601de"
+    },
+    {
+        "Name": "Sion Compensator2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 60,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/5867f3cf-e248-405c-b2fb-6e1abe579c82"
+    },
+    {
+        "Name": "Sion Compensator3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 130,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/f739108f-7720-4a5e-b173-a65e07b314da"
+    },
+    {
+        "Name": "Stark Compensator1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/986d275f-f847-4b0a-86de-68ad47820ff8"
+    },
+    {
+        "Name": "Stark Compensator2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cabb860f-f1f0-4477-90f6-39268ad74812"
+    },
+    {
+        "Name": "Stark Compensator3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/b72f4a2e-6609-4ee3-80a1-1d6a02490c75"
+    },
+    {
+        "Name": "Stoic Suppressor1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 120,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/003db92d-65ad-496e-baa8-e061ab6f1392"
+    },
+    {
+        "Name": "Stoic Suppressor2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 180,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/4ef9f8dd-6229-4c86-bc8e-025c6cc87c2c"
+    },
+    {
+        "Name": "Stoic Suppressor3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 450,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a3d3ce39-37f1-41a7-827d-ae83aded1285"
+    },
+    {
+        "Name": "Tacit Suppressor1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 120,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/1217e61b-1a57-4d94-8aa4-16d5fcb59adf"
+    },
+    {
+        "Name": "Tacit Suppressor2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 180,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/dffa4527-2748-4f52-a7da-e57aae1c293c"
+    },
+    {
+        "Name": "Tacit Suppressor3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 450,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d292ae90-a9bb-4a37-8651-27dd81b67ead"
+    },
+    {
+        "Name": "Tau Plus \"Scorched\" (4x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 700,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/be792212-0662-4351-95cb-31b4d3fe9a0d"
+    },
+    {
+        "Name": "Tau Plus (4x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 700,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/845dc675-ab4c-4bd5-8b14-11e9c29f3399"
+    },
+    {
+        "Name": "Tau Plus LL (4x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 700,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/98dc4abb-8518-479e-a56d-f15d98e037df"
+    },
+    {
+        "Name": "Theta Pro (8x Telescopic) ",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fb88b0a1-b9f3-40cb-a683-509cf0e3641c"
+    },
+    {
+        "Name": "Theta Pro LL (8x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/89ed520d-5514-49a5-bd11-2620f725b509"
+    },
+    {
+        "Name": "Torrent Compensator1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c1cf140f-dcdc-41ec-9199-f7c8a5227b39"
+    },
+    {
+        "Name": "Torrent Compensator2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/88dcee19-a914-4624-8100-45a2ac913731"
+    },
+    {
+        "Name": "Torrent Compensator3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/ef61d89b-7471-4a26-a4f9-7b5f476b850c"
+    },
+    {
+        "Name": "Touchstone (8x Monitor)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1900,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/c75282e6-8b92-4398-ac27-bd6f56d627b2"
+    },
+    {
+        "Name": "Tracer Laser Pointer Green",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/14bc8a2c-10f2-4f6e-a45e-eec476367d45"
+    },
+    {
+        "Name": "Tracer Laser Pointer Orange",
+        "AttachmentType": "BottomAttachment",
+        "Position": "Underbarrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 110,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/cdf4adaa-de1e-42cf-8b50-0fd3ad138a10"
+    },
+    {
+        "Name": "Tripledown Pistol Magazine (12 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 90,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/02f5904f-62ef-48e7-b63c-4ea3d4a7385f"
+    },
+    {
+        "Name": "TruHold Tractor Beam Attachment",
+        "AttachmentType": "Utility",
+        "Position": "Utility",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 340,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/03b3db91-0063-4da2-99f7-16b20ede4209"
+    },
+    {
+        "Name": "TS-25 Basara (2.5x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/d2da6df5-7f4f-4ef3-ada2-92de87d7487a"
+    },
+    {
+        "Name": "TS-35 Basara (3.5x Telescopic)",
+        "AttachmentType": "IronSight",
+        "Position": "Optic",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/a157dbe5-2ae5-4206-a975-55af6ecd39a6"
+    },
+    {
+        "Name": "Veil Flash Hider1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 70,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/04f546d6-651a-47f4-b0ae-64ed2b37557b"
+    },
+    {
+        "Name": "Veil Flash Hider2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 100,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/156f6405-7fdc-40e4-a783-703e807d9f88"
+    },
+    {
+        "Name": "Veil Flash Hider3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 200,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/678aae5b-0d55-42fb-bfe2-ce9973715529"
+    },
+    {
+        "Name": "Vera Compensator1",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e3d211f4-3381-4ba1-9807-f96c446866de"
+    },
+    {
+        "Name": "Vera Compensator2",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 2,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9e8ce68b-7f29-48cb-87a0-5c5db4c72b91"
+    },
+    {
+        "Name": "Vera Compensator3",
+        "AttachmentType": "Barrel",
+        "Position": "Barrel",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 20,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/e52d18bc-740e-4057-9ae9-9a1c27d088eb"
+    },
+    {
+        "Name": "WowBlast Desperado Toy Pistol Magazine (10 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 90,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/2a509aec-7439-4416-881d-59d30568ff6c"
+    },
+    {
+        "Name": "WowBlast Desperado Toy Pistol Magazine (10 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 90,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/db3a7de3-3e4c-49f6-98fd-7541c963f380"
+    },
+    {
+        "Name": "Yubarev Pistol Battery (10 cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 180,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/9dc383ba-2686-46d0-abf9-1bc764aec0b6"
+    },
+    {
+        "Name": "Zenith Laser Sniper Rifle Battery (22 Cap)",
+        "AttachmentType": "Magazine",
+        "Position": "Magazine Well",
+        "Size": 1,
+        "Grade": null,
+        "Volume": 480,
+        "ScWikiUrl": "https://api.star-citizen.wiki/items/fa12a7a5-6fdd-4e7b-9237-1f2e131a43c4"
+    }
+]

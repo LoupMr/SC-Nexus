@@ -1,20 +1,20 @@
 [
     {
-      "Name": "Colossus Bomb",
-      "Size": 10,
-      "Grade": "A",
-      "Volume": 10000000
+        "Name": "Colossus Bomb",
+        "Size": 10,
+        "Grade": null,
+        "Volume": 10000000
     },
     {
-      "Name": "Stormburst Bomb",
-      "Size": 5,
-      "Grade": "A",
-      "Volume": 3000000
+        "Name": "Stormburst Bomb",
+        "Size": 5,
+        "Grade": null,
+        "Volume": 3000000
     },
     {
-      "Name": "Thunderball Bomb",
-      "Size": 3,
-      "Grade": "A",
-      "Volume": 3000000
+        "Name": "Thunderball Bomb",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 3000000
     }
-  ]
+]

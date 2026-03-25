@@ -38,9 +38,15 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-holo focus:text-space-black focus:chamfer-sm focus:text-sm focus:font-semibold"
+      >
+        Skip to content
+      </a>
       <MobiglasHeader />
       <MobiglasDock isAdmin={isAdmin} onLogout={logout} />
-      <main className={`${mainClass} transition-all duration-300 mobiglas-canvas`}>
+      <main id="main-content" className={`${mainClass} transition-all duration-300 mobiglas-canvas`}>
         <div className={`${maxWidth} mx-auto ${padding} relative z-10`}>
           {children}
         </div>

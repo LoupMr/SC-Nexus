@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { LogIn } from "lucide-react";
+import { LogIn, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
@@ -17,6 +15,26 @@ export default function Home() {
             Organizational Doctrine
           </h1>
           <p className="hero-subtitle font-semibold text-lg glow-text mobiglas-label">Precision. Intelligence. Dominance.</p>
+        </div>
+
+        <div className="mb-8 chamfer-lg border border-holo/30 bg-holo/5 px-4 py-4 sm:px-5 sm:py-4 shadow-[0_0_20px_rgba(92,225,230,0.12)]">
+          <div className="flex items-start gap-3">
+            <Sparkles className="w-5 h-5 text-holo flex-shrink-0 mt-0.5" />
+            <div className="text-left">
+              <p className="text-xs font-semibold text-holo mobiglas-label tracking-wide mb-1">Patch 4.7 readiness</p>
+              <p className="text-sm text-space-300 leading-relaxed">
+                Industry &amp; economy systems are in focus — review public{" "}
+                <Link href="/guide" className="text-holo hover:underline">
+                  guides
+                </Link>{" "}
+                for QV Breakers, Nyx PSS, and inventory doctrine. Members: use the portal after{" "}
+                <Link href="/login" className="text-holo hover:underline">
+                  login
+                </Link>{" "}
+                for blueprints, ship matrix, and loadout links.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Condensed doctrine */}

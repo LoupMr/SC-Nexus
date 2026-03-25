@@ -1,0 +1,302 @@
+[
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Brandt Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 5998
+    },
+    {
+        "Name": "FLTR Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 10387
+    },
+    {
+        "Name": "FLTR-L Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 10387
+    },
+    {
+        "Name": "FLTR-XL Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 13147
+    },
+    {
+        "Name": "Focus II Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 6984
+    },
+    {
+        "Name": "Focus III Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 6988
+    },
+    {
+        "Name": "Focus Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 6984
+    },
+    {
+        "Name": "Forel Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 5998
+    },
+    {
+        "Name": "Lifeline Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 5699
+    },
+    {
+        "Name": "Mining Modules",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 407
+    },
+    {
+        "Name": "Optimum Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 4785
+    },
+    {
+        "Name": "Rieger Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 7708
+    },
+    {
+        "Name": "Rieger-C2 Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 7708
+    },
+    {
+        "Name": "Rieger-C3 Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 7710
+    },
+    {
+        "Name": "Rime Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 5699
+    },
+    {
+        "Name": "ROC Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 10644
+    },
+    {
+        "Name": "Stampede Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 10644
+    },
+    {
+        "Name": "Surge Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 10644
+    },
+    {
+        "Name": "Torpid Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 5699
+    },
+    {
+        "Name": "Torrent II Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 9492
+    },
+    {
+        "Name": "Torrent III Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 10521
+    },
+    {
+        "Name": "Torrent Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 7892
+    },
+    {
+        "Name": "Vaux Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 4561
+    },
+    {
+        "Name": "Vaux-C2 Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 4918
+    },
+    {
+        "Name": "Vaux-C3 Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 7153
+    },
+    {
+        "Name": "XTR Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 5966
+    },
+    {
+        "Name": "XTR-L Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 6917
+    },
+    {
+        "Name": "XTR-XL Module",
+        "Type": "MiningModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": "Mining.Module",
+        "Durability": 200,
+        "Volume": 7559
+    }
+]

@@ -1,8 +1,32 @@
 [
     {
-      "Name": "CST-313 \"Castillo\"",
-      "Size": 3,
-      "Grade": "A",
-      "Volume": 1
+        "Name": "CST-313 \"Castillo\"",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1
+    },
+    {
+        "Name": "MSD-313 Missile Rack",
+        "Size": 3,
+        "Grade": null,
+        "Volume": 1
+    },
+    {
+        "Name": "MSD-313 Missile Rack",
+        "Size": 10,
+        "Grade": null,
+        "Volume": 1
+    },
+    {
+        "Name": "MSD-313 Missile Rack",
+        "Size": 10,
+        "Grade": null,
+        "Volume": 1
+    },
+    {
+        "Name": "MSD-313 Missile Rack",
+        "Size": 5,
+        "Grade": null,
+        "Volume": 1
     }
-  ]
+]

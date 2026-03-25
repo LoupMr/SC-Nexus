@@ -1,0 +1,62 @@
+[
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "QuantumInterdictionGenerator",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.QuantumInterdictionGenerator",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "QuantumInterdictionGenerator",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.QuantumInterdictionGenerator",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Burke QD",
+        "Type": "QuantumInterdictionGenerator",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.QuantumInterdictionGenerator",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Captor QD",
+        "Type": "QuantumInterdictionGenerator",
+        "Size": 3,
+        "Grade": "C",
+        "Class": null,
+        "Classification": "Ship.QuantumInterdictionGenerator",
+        "Durability": 1100,
+        "Volume": 1
+    },
+    {
+        "Name": "Reynie QED",
+        "Type": "QuantumInterdictionGenerator",
+        "Size": 1,
+        "Grade": "A",
+        "Class": "Military",
+        "Classification": "Ship.QuantumInterdictionGenerator",
+        "Durability": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Tidelock QD",
+        "Type": "QuantumInterdictionGenerator",
+        "Size": 3,
+        "Grade": "C",
+        "Class": null,
+        "Classification": "Ship.QuantumInterdictionGenerator",
+        "Durability": null,
+        "Volume": 1
+    }
+]

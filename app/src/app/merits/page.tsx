@@ -45,6 +45,7 @@ interface HangarAsset {
   sortOrder: number;
   categoryId: string;
   requirementCount?: number;
+  unlockCallout?: string | null;
 }
 
 interface HangarSelection {
@@ -645,6 +646,12 @@ export default function MeritsPage() {
                       </div>
                       <h3 className={`text-sm font-semibold mb-0.5 ${canSelect ? "text-space-200" : "text-space-500"}`}>{asset.name}</h3>
                       {asset.shipClass && <p className="text-[10px] text-space-600 mb-2">{asset.shipClass}</p>}
+                      {asset.unlockCallout ? (
+                        <div className="mb-2 inline-flex items-start gap-1.5 px-2 py-1 chamfer-sm border border-alert/35 bg-alert/10 text-[10px] text-alert mobiglas-label leading-snug max-w-full">
+                          <Lock className="w-3 h-3 flex-shrink-0 mt-0.5" />
+                          <span>{asset.unlockCallout}</span>
+                        </div>
+                      ) : null}
                       <p className="text-xs text-space-500 leading-relaxed mb-3">{asset.description}</p>
                       {asset.requirementTag && (
                         <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium border ${s.bg} ${s.border} ${s.text}`}>

@@ -18,10 +18,63 @@ function tagItems(items: Record<string, unknown>[], category: string, subcategor
 
 export { categories, subcategories };
 
+/** Ship/vehicle hulls — use /ships; excluded from armory browse pool and filters. */
+export const ARMORY_OMIT_CATEGORY_IDS: readonly string[] = ["Vehicles"];
+
+/** Wiki / game dump rows with no real name — hide from armory and pickers. */
+export function isPlaceholderItemName(name: string): boolean {
+  const t = name.trim();
+  if (!t) return true;
+  if (/^<=\s*PLACEHOLDER\s*=>$/i.test(t)) return true;
+  if (/<=\s*PLACEHOLDER\s*=>/i.test(t)) return true;
+  if (t.toUpperCase() === "PLACEHOLDER") return true;
+  return false;
+}
+
+function itemDedupeKey(item: DatabaseItem): string {
+  return `${item.category}\x00${item.subcategory}\x00${item.Name.trim().toLowerCase()}`;
+}
+
+function flattenEntries(
+  entries: readonly { category: string; subcategory: string; items: readonly Record<string, unknown>[] }[]
+): DatabaseItem[] {
+  const seen = new Set<string>();
+  const out: DatabaseItem[] = [];
+  for (const { category, subcategory, items } of entries) {
+    for (const raw of tagItems(items as unknown as Record<string, unknown>[], category, subcategory)) {
+      if (isPlaceholderItemName(raw.Name)) continue;
+      const k = itemDedupeKey(raw);
+      if (seen.has(k)) continue;
+      seen.add(k);
+      out.push(raw);
+    }
+  }
+  return out;
+}
+
+let _catalogCache: DatabaseItem[] | null = null;
+
+/** All armory JSON slices merged (placeholders dropped, light per-bucket dedupe). Cached after first call. */
+export function getCatalogItems(): DatabaseItem[] {
+  if (!_catalogCache) _catalogCache = flattenEntries(dataEntries);
+  return _catalogCache;
+}
+
 export function getAllItems(): DatabaseItem[] {
-  return dataEntries.flatMap(({ category, subcategory, items }) =>
-    tagItems(items as unknown as Record<string, unknown>[], category, subcategory)
-  );
+  return getCatalogItems();
+}
+
+/** Rows visible for the current category filter (subcategory applied in the client). */
+export function getArmoryItemPool(category: string): DatabaseItem[] {
+  const omit = new Set(ARMORY_OMIT_CATEGORY_IDS);
+  const catalog = getCatalogItems().filter((i) => !omit.has(i.category));
+  if (category === "all") {
+    return catalog;
+  }
+  if (omit.has(category)) {
+    return [];
+  }
+  return catalog.filter((i) => i.category === category);
 }
 
 const STAT_DISPLAY: Record<string, string> = {
@@ -61,9 +114,32 @@ const STAT_DISPLAY: Record<string, string> = {
   Volume: "Volume",
   DurationMultiplier: "Duration",
   ErrorChance: "Error Chance",
+  Classification: "Classification",
+  Manufacturer: "Manufacturer",
+  GameName: "Game Name",
+  Career: "Career",
+  Role: "Role",
+  IsSpaceship: "Spaceship",
+  IsGroundVehicle: "Ground Vehicle",
+  IsGravlev: "Gravlev",
+  CargoSCU: "Cargo (SCU)",
+  CrewMin: "Crew Min",
+  CrewMax: "Crew Max",
+  Health: "Health",
+  SCM: "SCM Speed",
+  MaxSpeed: "Max Speed",
+  MassTotal: "Mass",
+  ProductionStatus: "Production",
+  Slot: "Slot",
+  ArmorType: "Armor Type",
+  PhysicalResist: "Phys resist",
+  EnergyResist: "Energy resist",
+  DistortionResist: "Distort resist",
+  AttachmentType: "Attachment Type",
+  Position: "Position",
 };
 
-const SKIP_KEYS = new Set(["Name", "category", "subcategory"]);
+const SKIP_KEYS = new Set(["Name", "category", "subcategory", "ThumbUrl", "Description", "ScWikiUrl"]);
 
 export function getItemStats(item: DatabaseItem): { label: string; value: unknown }[] {
   return Object.entries(item)

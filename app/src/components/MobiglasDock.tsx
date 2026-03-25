@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Shield, Crosshair, BookMarked, BookOpen, Medal, UserCheck, Link2, Users, Home, LogOut, LogIn } from "lucide-react";
+import { Shield, Crosshair, BookMarked, BookOpen, Medal, UserCheck, Link2, Users, Home, LogOut, LogIn, Rocket, ScrollText } from "lucide-react";
 import clsx from "clsx";
 import { useAuth } from "@/context/useAuth";
 
 const dockItems = [
   { href: "/dashboard", label: "Home", icon: Home, adminOnly: false },
   { href: "/armory", label: "Armory", icon: Crosshair, adminOnly: false },
+  { href: "/ships", label: "Ships", icon: Rocket, adminOnly: false },
   { href: "/guide", label: "Guides", icon: BookMarked, adminOnly: false },
   { href: "/ledger", label: "Ledger", icon: BookOpen, adminOnly: false },
+  { href: "/blueprints", label: "Prints", icon: ScrollText, adminOnly: false },
   { href: "/conquest-ops", label: "Ops", icon: Shield, adminOnly: false },
   { href: "/merits", label: "Merits", icon: Medal, adminOnly: false },
   { href: "/roster", label: "Roster", icon: UserCheck, adminOnly: false },
@@ -34,7 +36,7 @@ export default function MobiglasDock({ isAdmin, onLogout }: { isAdmin: boolean; 
       className="fixed bottom-0 left-0 right-0 z-40 w-full px-4 md:px-6 py-3 border-t border-glass-border mobiglas-header-bg backdrop-blur-xl shadow-[0_0_16px_rgba(92,225,230,0.08)]"
       aria-label="App launcher"
     >
-      <div className="flex items-center w-full gap-1 md:gap-2 py-1">
+      <div className="flex items-center w-full gap-1 md:gap-2 py-1 overflow-x-auto scrollbar-hide">
         {items.map((item) => {
           const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href + "/"));
           return (
@@ -42,6 +44,8 @@ export default function MobiglasDock({ isAdmin, onLogout }: { isAdmin: boolean; 
               key={item.href}
               href={item.href}
               title={item.label}
+              aria-label={item.label}
+              aria-current={isActive ? "page" : undefined}
               className={clsx(
                 "flex flex-col items-center justify-center chamfer-sm flex-1 min-w-[2.5rem] h-12 md:h-14 border transition-all duration-200",
                 isActive
@@ -65,6 +69,7 @@ export default function MobiglasDock({ isAdmin, onLogout }: { isAdmin: boolean; 
           <button
             onClick={onLogout}
             title="Logout"
+            aria-label="Logout"
             className="flex flex-col items-center justify-center chamfer-sm flex-1 min-w-[2.5rem] h-12 md:h-14 border border-glass-border bg-space-900/40 text-space-400 hover:border-alert/30 hover:text-alert hover:shadow-[0_0_8px_rgba(255,75,106,0.2)] transition-all duration-200"
           >
             <LogOut className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />

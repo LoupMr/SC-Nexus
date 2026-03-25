@@ -1,135 +1,898 @@
 [
     {
-      "Name": "HMF-T12 \"Hammerfall\" Torpedo Launcher",
-      "Size": 10,
-      "MissileCount": 20,
-      "MissileSize": 12,
-      "Volume": 120000000
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 2,
+        "MissileCount": 32,
+        "MissileSize": 1,
+        "Volume": 252000
     },
     {
-      "Name": "MSD-111 Missile Rack",
-      "Size": 1,
-      "MissileCount": 1,
-      "MissileSize": 1,
-      "Volume": 252000
+        "Name": "<= PLACEHOLDER =>",
+        "Size": 2,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 252000
     },
     {
-      "Name": "MSD-212 Missile Rack",
-      "Size": 2,
-      "MissileCount": 1,
-      "MissileSize": 2,
-      "Volume": 252000
+        "Name": "Aegis Eclipse Torpedo Rack",
+        "Size": 9,
+        "MissileCount": 3,
+        "MissileSize": 9,
+        "Volume": 120000000
     },
     {
-      "Name": "MSD-221 Missile Rack",
-      "Size": 2,
-      "MissileCount": 2,
-      "MissileSize": 1,
-      "Volume": 252000
+        "Name": "Aegis Gemini Missile Launcher",
+        "Size": 6,
+        "MissileCount": 9,
+        "MissileSize": 3,
+        "Volume": 7560000
     },
     {
-      "Name": "MSD-313 Missile Rack",
-      "Size": 3,
-      "MissileCount": 1,
-      "MissileSize": 3,
-      "Volume": 756000
+        "Name": "Aegis Gemini Missile Launcher",
+        "Size": 6,
+        "MissileCount": 9,
+        "MissileSize": 3,
+        "Volume": 7560000
     },
     {
-      "Name": "MSD-322 Missile Rack",
-      "Size": 3,
-      "MissileCount": 2,
-      "MissileSize": 2,
-      "Volume": 756000
+        "Name": "Aegis Retaliator Torpedo Rack",
+        "Size": 9,
+        "MissileCount": 1,
+        "MissileSize": 12,
+        "Volume": 120000000
     },
     {
-      "Name": "MSD-341 Missile Rack",
-      "Size": 3,
-      "MissileCount": 4,
-      "MissileSize": 1,
-      "Volume": 756000
+        "Name": "Aegis Retaliator Torpedo Rack",
+        "Size": 9,
+        "MissileCount": 2,
+        "MissileSize": 9,
+        "Volume": 120000000
     },
     {
-      "Name": "MSD-414 Missile Rack",
-      "Size": 4,
-      "MissileCount": 1,
-      "MissileSize": 4,
-      "Volume": 2100000
+        "Name": "Aegis Retaliator Torpedo Rack",
+        "Size": 9,
+        "MissileCount": 4,
+        "MissileSize": 9,
+        "Volume": 120000000
     },
     {
-      "Name": "MSD-423 Missile Rack",
-      "Size": 4,
-      "MissileCount": 2,
-      "MissileSize": 3,
-      "Volume": 2100000
+        "Name": "Aegis Sabre Firebird 12xS3 Missile Rack",
+        "Size": 6,
+        "MissileCount": 24,
+        "MissileSize": 3,
+        "Volume": 120000000
     },
     {
-      "Name": "MSD-442 Missile Rack",
-      "Size": 4,
-      "MissileCount": 4,
-      "MissileSize": 2,
-      "Volume": 2100000
+        "Name": "Aegis Vanguard Torpedo Rack",
+        "Size": 5,
+        "MissileCount": 3,
+        "MissileSize": 5,
+        "Volume": 4200000
     },
     {
-      "Name": "MSD-481 Missile Rack",
-      "Size": 4,
-      "MissileCount": 8,
-      "MissileSize": 1,
-      "Volume": 2100000
+        "Name": "Anvil Ballista S05 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 5,
+        "Volume": 4200000
     },
     {
-      "Name": "MSD-515 Missile Rack",
-      "Size": 5,
-      "MissileCount": 1,
-      "MissileSize": 5,
-      "Volume": 4200000
+        "Name": "Anvil Ballista S07 Missile Rack",
+        "Size": 7,
+        "MissileCount": 1,
+        "MissileSize": 7,
+        "Volume": 14200000
     },
     {
-      "Name": "MSD-524 Missile Rack",
-      "Size": 5,
-      "MissileCount": 2,
-      "MissileSize": 4,
-      "Volume": 4200000
+        "Name": "Anvil F7C-M Mk II Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 1,
+        "Volume": 2100000
     },
     {
-      "Name": "MSD-543 Missile Rack",
-      "Size": 5,
-      "MissileCount": 4,
-      "MissileSize": 3,
-      "Volume": 4200000
+        "Name": "Anvil Gladiator Torpedo Rack",
+        "Size": 6,
+        "MissileCount": 2,
+        "MissileSize": 5,
+        "Volume": 7560000
     },
     {
-      "Name": "MSD-582 Missile Rack",
-      "Size": 5,
-      "MissileCount": 8,
-      "MissileSize": 2,
-      "Volume": 4200000
+        "Name": "Ares Star Fighter Missile Launcher",
+        "Size": 7,
+        "MissileCount": 12,
+        "MissileSize": 3,
+        "Volume": 14200000
     },
     {
-      "Name": "MSD-616 Missile Rack",
-      "Size": 6,
-      "MissileCount": 1,
-      "MissileSize": 6,
-      "Volume": 7560000
+        "Name": "Argo MOTH Missile Launcher",
+        "Size": 4,
+        "MissileCount": 16,
+        "MissileSize": 2,
+        "Volume": 7560000
     },
     {
-      "Name": "MSD-625 Missile Rack",
-      "Size": 6,
-      "MissileCount": 2,
-      "MissileSize": 5,
-      "Volume": 7560000
+        "Name": "Esperia Stinger Missile Rack",
+        "Size": 5,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 1
     },
     {
-      "Name": "MSD-644 Missile Rack",
-      "Size": 6,
-      "MissileCount": 4,
-      "MissileSize": 4,
-      "Volume": 7560000
+        "Name": "Esperia Stinger Missile Rack",
+        "Size": 5,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 1
     },
     {
-      "Name": "MSD-683 Missile Rack",
-      "Size": 6,
-      "MissileCount": 8,
-      "MissileSize": 3,
-      "Volume": 7560000
+        "Name": "Freelancer Stock Missile Rack",
+        "Size": 8,
+        "MissileCount": 0,
+        "MissileSize": null,
+        "Volume": 54600000
+    },
+    {
+        "Name": "Freelancer Stock Missile Rack",
+        "Size": 8,
+        "MissileCount": 9,
+        "MissileSize": 5,
+        "Volume": 54600000
+    },
+    {
+        "Name": "Freelancer Stock Missile Rack",
+        "Size": 8,
+        "MissileCount": 9,
+        "MissileSize": 5,
+        "Volume": 54600000
+    },
+    {
+        "Name": "Guardian MX Missile Rack",
+        "Size": 2,
+        "MissileCount": 12,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "Hermes Missile Rack",
+        "Size": 2,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "HMF-T12 \"Hammerfall\" Torpedo Launcher",
+        "Size": 10,
+        "MissileCount": 20,
+        "MissileSize": 12,
+        "Volume": 120000000
+    },
+    {
+        "Name": "IFR-532 Missile Rack",
+        "Size": 5,
+        "MissileCount": 16,
+        "MissileSize": 3,
+        "Volume": 120000000
+    },
+    {
+        "Name": "IFR-532 Missile Rack",
+        "Size": 5,
+        "MissileCount": 16,
+        "MissileSize": 3,
+        "Volume": 120000000
+    },
+    {
+        "Name": "IFR-810 Missile Rack",
+        "Size": 8,
+        "MissileCount": 10,
+        "MissileSize": 5,
+        "Volume": 54600000
+    },
+    {
+        "Name": "Mirai Fury 1xS2 Missile Rack",
+        "Size": 2,
+        "MissileCount": 1,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "Mirai Fury MX 2xS1 Missile Rack",
+        "Size": 2,
+        "MissileCount": 2,
+        "MissileSize": 1,
+        "Volume": 252000
+    },
+    {
+        "Name": "Mirai Fury MX 2xS2 Missile Rack",
+        "Size": 3,
+        "MissileCount": 2,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "MISC Freelancer MIS Missile Launcher",
+        "Size": 5,
+        "MissileCount": 1,
+        "MissileSize": 5,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MISC Freelancer MIS Missile Launcher",
+        "Size": 5,
+        "MissileCount": 10,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MISC Freelancer MIS Missile Launcher",
+        "Size": 5,
+        "MissileCount": 10,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MISC Freelancer MIS Missile Launcher",
+        "Size": 5,
+        "MissileCount": 1,
+        "MissileSize": 5,
+        "Volume": 4200000
+    },
+    {
+        "Name": "Missile Rack",
+        "Size": 1,
+        "MissileCount": 4,
+        "MissileSize": 1,
+        "Volume": 252000
+    },
+    {
+        "Name": "Missile Rack",
+        "Size": 1,
+        "MissileCount": 4,
+        "MissileSize": 1,
+        "Volume": 252000
+    },
+    {
+        "Name": "Missile Rack",
+        "Size": 2,
+        "MissileCount": 3,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "Missile Rack",
+        "Size": 2,
+        "MissileCount": 3,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "mrck_s02_orig_100i_dual_s02",
+        "Size": 2,
+        "MissileCount": 2,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "mrck_s02_orig_125a_quad_s02",
+        "Size": 2,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "MSD-111 Missile Rack",
+        "Size": 1,
+        "MissileCount": 1,
+        "MissileSize": 1,
+        "Volume": 252000
+    },
+    {
+        "Name": "MSD-212 Missile Rack",
+        "Size": 2,
+        "MissileCount": 1,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "MSD-212 Missile Rack",
+        "Size": 2,
+        "MissileCount": 1,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "MSD-212 Missile Rack",
+        "Size": 2,
+        "MissileCount": 1,
+        "MissileSize": 2,
+        "Volume": 252000
+    },
+    {
+        "Name": "MSD-221 Missile Rack",
+        "Size": 2,
+        "MissileCount": 2,
+        "MissileSize": 1,
+        "Volume": 252000
+    },
+    {
+        "Name": "MSD-313 Missile Rack",
+        "Size": 3,
+        "MissileCount": 1,
+        "MissileSize": 3,
+        "Volume": 756000
+    },
+    {
+        "Name": "MSD-322 Missile Rack",
+        "Size": 3,
+        "MissileCount": 2,
+        "MissileSize": 2,
+        "Volume": 756000
+    },
+    {
+        "Name": "MSD-322 Missile Rack",
+        "Size": 3,
+        "MissileCount": 2,
+        "MissileSize": 2,
+        "Volume": 756000
+    },
+    {
+        "Name": "MSD-322 Missile Rack",
+        "Size": 3,
+        "MissileCount": 2,
+        "MissileSize": 2,
+        "Volume": 756000
+    },
+    {
+        "Name": "MSD-322 Missile Rack",
+        "Size": 3,
+        "MissileCount": 2,
+        "MissileSize": 2,
+        "Volume": 756000
+    },
+    {
+        "Name": "MSD-341 Missile Rack",
+        "Size": 3,
+        "MissileCount": 4,
+        "MissileSize": 1,
+        "Volume": 756000
+    },
+    {
+        "Name": "MSD-414 Missile Rack",
+        "Size": 4,
+        "MissileCount": 1,
+        "MissileSize": 4,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-423 Missile Rack",
+        "Size": 4,
+        "MissileCount": 2,
+        "MissileSize": 3,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-442 Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-442 Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-442 Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-442 Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-442 Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-442 Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-442 Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-481 Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-481 Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 3,
+        "Volume": 756000
+    },
+    {
+        "Name": "MSD-481 Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 1,
+        "Volume": 1
+    },
+    {
+        "Name": "MSD-481 Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 1,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-515 Missile Rack",
+        "Size": 5,
+        "MissileCount": 1,
+        "MissileSize": 5,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-524 Missile Rack",
+        "Size": 5,
+        "MissileCount": 2,
+        "MissileSize": 4,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 1,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 252000
+    },
+    {
+        "Name": "MSD-543 Missile Rack",
+        "Size": 5,
+        "MissileCount": 4,
+        "MissileSize": 3,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-582 Missile Rack",
+        "Size": 5,
+        "MissileCount": 9,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-582 Missile Rack",
+        "Size": 5,
+        "MissileCount": 16,
+        "MissileSize": 1,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-582 Missile Rack",
+        "Size": 5,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-582 Missile Rack",
+        "Size": 5,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-582 Missile Rack",
+        "Size": 5,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "MSD-616 Missile Rack",
+        "Size": 6,
+        "MissileCount": 1,
+        "MissileSize": 6,
+        "Volume": 7560000
+    },
+    {
+        "Name": "MSD-616 Missile Rack",
+        "Size": 6,
+        "MissileCount": 18,
+        "MissileSize": 2,
+        "Volume": 7560000
+    },
+    {
+        "Name": "MSD-616 Missile Rack",
+        "Size": 4,
+        "MissileCount": 6,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-625 Missile Rack",
+        "Size": 6,
+        "MissileCount": 2,
+        "MissileSize": 5,
+        "Volume": 7560000
+    },
+    {
+        "Name": "MSD-644 Missile Rack",
+        "Size": 6,
+        "MissileCount": 4,
+        "MissileSize": 4,
+        "Volume": 7560000
+    },
+    {
+        "Name": "MSD-683 Missile Rack",
+        "Size": 7,
+        "MissileCount": 16,
+        "MissileSize": 3,
+        "Volume": 7560000
+    },
+    {
+        "Name": "MSD-683 Missile Rack",
+        "Size": 6,
+        "MissileCount": 8,
+        "MissileSize": 3,
+        "Volume": 7560000
+    },
+    {
+        "Name": "MSD-683 Missile Rack",
+        "Size": 4,
+        "MissileCount": 0,
+        "MissileSize": null,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-683 Missile Rack",
+        "Size": 4,
+        "MissileCount": 0,
+        "MissileSize": null,
+        "Volume": 2100000
+    },
+    {
+        "Name": "MSD-683 Missile Rack",
+        "Size": 4,
+        "MissileCount": 12,
+        "MissileSize": 3,
+        "Volume": 2100000
+    },
+    {
+        "Name": "Ramming Blade",
+        "Size": 1,
+        "MissileCount": 0,
+        "MissileSize": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Reliant Missile Launcher Cap",
+        "Size": 5,
+        "MissileCount": 0,
+        "MissileSize": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Reliant Missile Launcher Cap",
+        "Size": 5,
+        "MissileCount": 0,
+        "MissileSize": null,
+        "Volume": 1
+    },
+    {
+        "Name": "Reliant Tana Missile Launcher",
+        "Size": 5,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "Reliant Tana Missile Launcher",
+        "Size": 6,
+        "MissileCount": 12,
+        "MissileSize": 2,
+        "Volume": 7560000
+    },
+    {
+        "Name": "Reliant Tana Missile Launcher",
+        "Size": 5,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "RSI Apollo Medivac S02 Missile Rack",
+        "Size": 2,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Apollo S02 Missile Rack",
+        "Size": 2,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Constellation Side Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Constellation Side Missile Rack",
+        "Size": 4,
+        "MissileCount": 7,
+        "MissileSize": 1,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Constellation Side Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Constellation Side Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Constellation Side Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Constellation Top Missile Rack",
+        "Size": 5,
+        "MissileCount": 6,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "RSI Polaris Missile Rack",
+        "Size": 10,
+        "MissileCount": 8,
+        "MissileSize": 3,
+        "Volume": 1
+    },
+    {
+        "Name": "RSI Polaris Missile Rack",
+        "Size": 10,
+        "MissileCount": 8,
+        "MissileSize": 3,
+        "Volume": 1
+    },
+    {
+        "Name": "RSI Polaris Remote Turret Missile Rack",
+        "Size": 4,
+        "MissileCount": 12,
+        "MissileSize": 2,
+        "Volume": 1
+    },
+    {
+        "Name": "RSI Polaris Torpedo Rack",
+        "Size": 10,
+        "MissileCount": 8,
+        "MissileSize": 10,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Polaris Torpedo Rack",
+        "Size": 10,
+        "MissileCount": 8,
+        "MissileSize": 10,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Polaris Torpedo Rack",
+        "Size": 10,
+        "MissileCount": 8,
+        "MissileSize": 10,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Polaris Torpedo Rack",
+        "Size": 10,
+        "MissileCount": 8,
+        "MissileSize": 10,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Polaris Torpedo Rack",
+        "Size": 5,
+        "MissileCount": 1,
+        "MissileSize": 5,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Polaris Torpedo Rack",
+        "Size": 5,
+        "MissileCount": 10,
+        "MissileSize": 5,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Polaris Torpedo Rack",
+        "Size": 5,
+        "MissileCount": 10,
+        "MissileSize": 5,
+        "Volume": 2100000
+    },
+    {
+        "Name": "RSI Zeus Missile Launcher",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "RSI Zeus Missile Launcher",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 4200000
+    },
+    {
+        "Name": "San'tok.yāi Missile Rack",
+        "Size": 3,
+        "MissileCount": 2,
+        "MissileSize": 2,
+        "Volume": 756000
+    },
+    {
+        "Name": "ST-171 Missile Rack",
+        "Size": 2,
+        "MissileCount": 8,
+        "MissileSize": 1,
+        "Volume": 252000
+    },
+    {
+        "Name": "ST-171 Missile Rack",
+        "Size": 2,
+        "MissileCount": 8,
+        "MissileSize": 1,
+        "Volume": 252000
+    },
+    {
+        "Name": "ST-205 Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "ST-205 Missile Rack",
+        "Size": 10,
+        "MissileCount": 7,
+        "MissileSize": 10,
+        "Volume": 2100000
+    },
+    {
+        "Name": "ST-205 Missile Rack",
+        "Size": 10,
+        "MissileCount": 7,
+        "MissileSize": 10,
+        "Volume": 2100000
+    },
+    {
+        "Name": "ST-205 Missile Rack",
+        "Size": 10,
+        "MissileCount": 7,
+        "MissileSize": 10,
+        "Volume": 2100000
+    },
+    {
+        "Name": "ST-205 Missile Rack",
+        "Size": 4,
+        "MissileCount": 8,
+        "MissileSize": 2,
+        "Volume": 2100000
+    },
+    {
+        "Name": "Vanduul S3 Quad Missile Rack",
+        "Size": 3,
+        "MissileCount": 4,
+        "MissileSize": 1,
+        "Volume": 756000
+    },
+    {
+        "Name": "Vanduul S3 Quad Missile Rack",
+        "Size": 3,
+        "MissileCount": 4,
+        "MissileSize": 1,
+        "Volume": 756000
+    },
+    {
+        "Name": "Vanduul S4 Quad Missile Rack",
+        "Size": 4,
+        "MissileCount": 4,
+        "MissileSize": 2,
+        "Volume": 2100000
     }
-  ]
+]

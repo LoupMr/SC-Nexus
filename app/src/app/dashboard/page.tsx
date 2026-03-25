@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Shield, Crosshair, BookOpen, BookMarked, ArrowRight, Database, Users, Radar, Medal, UserCheck, Link2 } from "lucide-react";
+import { Shield, Crosshair, BookOpen, BookMarked, ArrowRight, Database, Users, Radar, Medal, UserCheck, Link2, Rocket, ScrollText, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { getAllItems } from "@/lib/database";
+import { getAllShips } from "@/lib/ships";
 
 const features = [
   {
@@ -13,6 +14,14 @@ const features = [
     description: "Browse the complete item database. Search and filter ship weapons, components, and miscellaneous gear.",
     accent: "holo",
     count: "items",
+  },
+  {
+    href: "/ships",
+    icon: Rocket,
+    title: "Ship Matrix",
+    description: "FleetYards-backed ship specs, hardpoints, and one-click links to Armory filters.",
+    accent: "holo",
+    count: "ships",
   },
   {
     href: "/guide",
@@ -29,6 +38,14 @@ const features = [
     description: "Track Org inventory with real-time stock levels. Manage who took what, when, and where.",
     accent: "industrial",
     count: "entries",
+  },
+  {
+    href: "/blueprints",
+    icon: ScrollText,
+    title: "Blueprints Hub",
+    description: "4.7 industry blueprints — where to farm, materials, and which members hold each print.",
+    accent: "industrial",
+    count: "prints",
   },
   {
     href: "/conquest-ops",
@@ -72,6 +89,7 @@ const accentMap: Record<string, { bg: string; border: string; text: string; glow
 
 export default function DashboardPage() {
   const allItems = getAllItems();
+  const allShips = getAllShips();
   const [memberCount, setMemberCount] = useState<number | null>(null);
   const [opsCount, setOpsCount] = useState<number | null>(null);
 
@@ -110,12 +128,40 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mb-10">
+      <div className="mb-8 chamfer-lg border border-holo/25 bg-holo/5 px-4 py-4 sm:px-6 sm:py-5">
+        <div className="flex items-start gap-3">
+          <Sparkles className="w-5 h-5 text-holo flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="text-xs font-semibold text-holo mobiglas-label tracking-wide mb-1">Alpha 4.7 — Industry &amp; Economy</p>
+            <p className="text-sm text-space-300 leading-relaxed mb-3">
+              Update your{" "}
+              <Link href="/profile" className="text-holo hover:underline">
+                profile
+              </Link>{" "}
+              with newly acquired blueprints, browse the{" "}
+              <Link href="/blueprints" className="text-holo hover:underline">
+                Blueprints Hub
+              </Link>
+              , and check{" "}
+              <Link href="/guide" className="text-holo hover:underline">
+                guides
+              </Link>{" "}
+              for Keeger, Nyx, and combat loadout notes. Use the{" "}
+              <Link href="/ships" className="text-holo hover:underline">
+                Ship Matrix
+              </Link>{" "}
+              for hardpoint → Armory links.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-10">
         {stats.map((stat) => (
-          <div key={stat.label} className="glass-card chamfer-md p-4 text-center">
-            <stat.icon className="w-5 h-5 text-holo mx-auto mb-2 drop-shadow-[0_0_6px_rgba(92,225,230,0.4)]" />
-            <div className="text-2xl font-bold text-space-200 font-mono tabular-nums">{stat.value}</div>
-            <div className="text-[11px] text-space-500 mobiglas-label">{stat.label}</div>
+          <div key={stat.label} className="glass-card chamfer-md p-3 sm:p-4 text-center">
+            <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-holo mx-auto mb-1.5 sm:mb-2 drop-shadow-[0_0_6px_rgba(92,225,230,0.4)]" />
+            <div className="text-xl sm:text-2xl font-bold text-space-200 font-mono tabular-nums">{stat.value}</div>
+            <div className="text-[10px] sm:text-[11px] text-space-500 mobiglas-label">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -123,6 +169,14 @@ export default function DashboardPage() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => {
           const colors = accentMap[feature.accent];
+          const countValue =
+            feature.count === "items"
+              ? allItems.length
+              : feature.count === "ships"
+                ? allShips.length
+                : feature.count === "prints"
+                  ? "—"
+                  : null;
           return (
             <Link
               key={feature.href}
@@ -134,7 +188,12 @@ export default function DashboardPage() {
                 <feature.icon className={`w-5 h-5 ${colors.text} drop-shadow-[0_0_4px_currentColor]`} />
               </div>
               <h3 className="text-lg font-semibold text-space-200 mb-1 mobiglas-heading">{feature.title}</h3>
-              <p className="text-xs text-space-500 mb-4 leading-relaxed">{feature.description}</p>
+              <p className="text-xs text-space-500 mb-2 leading-relaxed">{feature.description}</p>
+              {countValue !== null && (
+                <p className="text-[10px] font-mono text-space-600 mobiglas-label mb-2">
+                  {typeof countValue === "number" ? `${countValue.toLocaleString()} ${feature.count}` : countValue}
+                </p>
+              )}
               <div className={`flex items-center gap-1 text-xs font-medium ${colors.text} group-hover:gap-2 transition-all mobiglas-label`}>
                 ENTER <ArrowRight className="w-3 h-3" />
               </div>

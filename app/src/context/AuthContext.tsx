@@ -57,23 +57,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data?.username) {
-          setUser({
-            username: data.username,
-            role: data.role,
-            roles: data.roles ?? [data.role ?? "viewer"],
-            rank: data.rank ?? "operator",
-            avatarUrl: data.avatarUrl ?? null,
-            backgroundUrl: data.backgroundUrl ?? null,
-          });
-        }
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
+    refreshUser().finally(() => setLoading(false));
+  }, [refreshUser]);
 
   const login = useCallback(async (username: string, password: string): Promise<string | null> => {
     const res = await fetch("/api/auth/login", {

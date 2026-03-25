@@ -163,6 +163,23 @@ function initSchema(db: Database.Database) {
       created_at TEXT DEFAULT (datetime('now')),
       updated_at TEXT DEFAULT (datetime('now'))
     );
+
+    CREATE TABLE IF NOT EXISTS blueprint_catalog (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      contract_location TEXT NOT NULL DEFAULT '',
+      farm_notes TEXT NOT NULL DEFAULT '',
+      materials_json TEXT NOT NULL DEFAULT '[]',
+      usage_notes TEXT NOT NULL DEFAULT '',
+      sort_order INTEGER NOT NULL DEFAULT 0
+    );
+
+    CREATE TABLE IF NOT EXISTS org_blueprints (
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      blueprint_id TEXT NOT NULL REFERENCES blueprint_catalog(id) ON DELETE CASCADE,
+      unlocked_at TEXT DEFAULT (datetime('now')),
+      PRIMARY KEY (user_id, blueprint_id)
+    );
   `);
 
   try { db.exec("ALTER TABLE operations ADD COLUMN merit_tag TEXT NOT NULL DEFAULT ''"); } catch {}
@@ -172,6 +189,7 @@ function initSchema(db: Database.Database) {
   try { db.exec("ALTER TABLE hangar_requests ADD COLUMN merit_id INTEGER"); } catch {}
   try { db.exec("ALTER TABLE hangar_assets ADD COLUMN category_id TEXT"); } catch {}
   try { db.exec("ALTER TABLE hangar_assets ADD COLUMN requirement_count INTEGER NOT NULL DEFAULT 2"); } catch {}
+  try { db.exec("ALTER TABLE hangar_assets ADD COLUMN unlock_callout TEXT"); } catch {}
   try {
     db.exec("ALTER TABLE ledger ADD COLUMN shared_with_org INTEGER NOT NULL DEFAULT 0");
     db.exec("UPDATE ledger SET shared_with_org = 1 WHERE shared_with_org = 0"); // backfill: legacy entries visible in org
@@ -270,6 +288,26 @@ function initSchema(db: Database.Database) {
   if (!linksExist) {
     seedLinks(db);
   }
+
+  const blueprintRows = db.prepare("SELECT id FROM blueprint_catalog LIMIT 1").get();
+  if (!blueprintRows) {
+    seedBlueprintCatalog(db);
+  }
+
+  const apolloHangar = db.prepare("SELECT id FROM hangar_assets WHERE id = ?").get("hangar-apollo-triage");
+  if (!apolloHangar) {
+    seedApolloTriageHangar(db);
+  }
+
+  const g47 = db.prepare("SELECT id FROM guides WHERE id = ?").get("guide-alpha47-keeger");
+  if (!g47) {
+    seedGuidesAlpha47(db);
+  }
+
+  const op47 = db.prepare("SELECT id FROM operations WHERE id = ?").get("industry-47-qb");
+  if (!op47) {
+    seedIndustry47Operations(db);
+  }
 }
 
 function seedLinks(db: Database.Database) {
@@ -281,6 +319,159 @@ function seedLinks(db: Database.Database) {
   const insert = db.prepare("INSERT INTO links (id, title, description, url, sort_order) VALUES (?, ?, ?, ?, ?)");
   for (const l of defaults) {
     insert.run(l.id, l.title, l.description, l.url, l.order);
+  }
+}
+
+function seedBlueprintCatalog(db: Database.Database) {
+  const rows: {
+    id: string;
+    name: string;
+    contract_location: string;
+    farm_notes: string;
+    materials: string[];
+    usage_notes: string;
+    sort_order: number;
+  }[] = [
+    {
+      id: "bp-qv-breaker-industrial",
+      name: "QV Breaker — Industrial frame (example)",
+      contract_location: "Keeger Belt — QV Breaker contract board",
+      farm_notes: "Complete Exclusive or Shared mining-rights contracts; check SCMDB / in-game contract list for 4.7 rotation.",
+      materials: ["RMC-graded industrial alloys", "Contract tokens", "Refinery output per SCCrafter recipe"],
+      usage_notes: "Use at applicable industry fabricator; pair with org Ledger for output tracking.",
+      sort_order: 0,
+    },
+    {
+      id: "bp-nyx-pss-resupply",
+      name: "People's Service Station — resupply kit blueprint",
+      contract_location: "Nyx — People's Service Stations (verified safe haven)",
+      farm_notes: "Faction / service missions around PSS; cross-check MMOpixel patch notes for 4.7.",
+      materials: ["Medical supplies", "Fuel catalysts", "Light munitions crates"],
+      usage_notes: "Supports restock / rearm / refuel logistics runs documented in the Nyx guide.",
+      sort_order: 1,
+    },
+    {
+      id: "bp-inventory-rework-util",
+      name: "Marine logistics — stack & proximity loadout utility",
+      contract_location: "Stanton / Pyro — military supply contracts",
+      farm_notes: "Tied to Inventory Rework 4.7; monitor Reddit SC & CIG patch notes for live sources.",
+      materials: ["Personal armor components", "FPS weapon maintenance kits"],
+      usage_notes: "Reference combat protocol guide: proximity looting and stack-all change post-firefight SOP.",
+      sort_order: 2,
+    },
+  ];
+  const ins = db.prepare(
+    "INSERT INTO blueprint_catalog (id, name, contract_location, farm_notes, materials_json, usage_notes, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  );
+  for (const r of rows) {
+    ins.run(
+      r.id,
+      r.name,
+      r.contract_location,
+      r.farm_notes,
+      JSON.stringify(r.materials),
+      r.usage_notes,
+      r.sort_order
+    );
+  }
+}
+
+function seedApolloTriageHangar(db: Database.Database) {
+  const maxOrder = db.prepare("SELECT COALESCE(MAX(sort_order), -1) + 1 as next FROM hangar_assets").get() as { next: number };
+  db.prepare(
+    "INSERT INTO hangar_assets (id, name, description, ship_class, requirement_tag, requirement_count, sort_order, category_id, unlock_callout) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+  ).run(
+    "hangar-apollo-triage",
+    "RSI Apollo Triage",
+    "Medical variant of the Apollo platform. Fleet registry entry for org rewards and merit unlocks.",
+    "Medium",
+    "medical-ops",
+    2,
+    maxOrder.next,
+    "cat-executive",
+    "Unlock: complete Wikelo contract chain (see Useful Links — Wikelo sheet)."
+  );
+}
+
+function seedGuidesAlpha47(db: Database.Database) {
+  const now = new Date().toISOString();
+  const rows: { id: string; title: string; excerpt: string; content: string }[] = [
+    {
+      id: "guide-alpha47-keeger",
+      title: "Keeger Belt — QV Breaker stations",
+      excerpt: "Exclusive vs shared mining rights at QV Breakers; how contracts affect timelines.",
+      content: `<h2>Overview</h2><p>Keeger Belt operations revolve around <strong>QV Breaker</strong> stations and the contract boards that gate mining rights.</p><h2>Exclusive vs shared</h2><p><strong>Exclusive</strong> mining rights contracts give your org a dedicated window: fewer competing miners on the same node cadence, but higher contract cost and failure penalties.</p><p><strong>Shared</strong> rights mean multiple operators can legally extract in the same band; expect more traffic and faster node depletion — plan escort and QRF accordingly.</p><h2>Tactical notes</h2><ul><li>Pre-assign salvage and security roles before accepting high-value exclusive tickets.</li><li>Shared rights favour fast prospector cycles and mobile refinery cover.</li><li>Cross-check in-game contract text each patch — CIG adjusts payouts frequently.</li></ul>`,
+    },
+    {
+      id: "guide-alpha47-nyx",
+      title: "Nyx — People's Service Stations",
+      excerpt: "PSS as verified safe havens for restock, rearm, and refuel.",
+      content: `<h2>People's Service Stations</h2><p>People's Service Stations (PSS) in Nyx are documented <strong>safe havens</strong> for logistics: restock, rearm, and refuel between deep-space transits.</p><h2>Usage</h2><ul><li>Route tankers and cargo through PSS when Pyro or fringe ops leave you low on hydrogen or munitions.</li><li>Keep comms discipline — treat PSS as public hubs, not covert rally points.</li></ul><h2>Intel</h2><p>Verify pad availability and armistice rules each session; update this guide after major patches.</p>`,
+    },
+    {
+      id: "guide-alpha47-inventory",
+      title: "Combat protocol — Inventory rework (4.7)",
+      excerpt: "Proximity looting and stack-all: post-firefight timelines for marines.",
+      content: `<h2>Inventory rework</h2><p>Patch <strong>4.7</strong> changes how squads recover gear after CQC: <strong>proximity looting</strong> and <strong>stack all</strong> compress the loot phase but raise coordination requirements.</p><h2>Proximity looting</h2><p>Operators can pull from nearby casualties or stashes without full body interaction — <strong>shorten security perimeter time</strong> but increase friendly-fire risk on shared piles. Assign a single loot boss per room.</p><h2>Stack all</h2><p>Bulk consolidation speeds evac — use it <em>after</em> medevac and ID check. Doctrine: security sweep → medic clear → stack-all under overwatch.</p><h2>Timeline</h2><p>Expect <strong>30–60 seconds faster</strong> room clears versus legacy looting; adjust bounding overwatch and ship spool times accordingly.</p>`,
+    },
+  ];
+  const ins = db.prepare(
+    "INSERT INTO guides (id, title, content, excerpt, author_username, status, approved_by, approved_at, created_at, updated_at) VALUES (?, ?, ?, ?, 'admin', 'approved', 'admin', ?, ?, ?)"
+  );
+  for (const r of rows) {
+    ins.run(r.id, r.title, r.content, r.excerpt, now, now, now);
+  }
+}
+
+function seedIndustry47Operations(db: Database.Database) {
+  const opId = "industry-47-qb";
+  db.prepare("INSERT INTO operations (id, title, description, status, priority, merit_tag) VALUES (?, ?, ?, ?, ?, ?)").run(
+    opId,
+    "Industry 4.7 — QV Breakers & Nyx lines",
+    "Secure QV Breaker mining infrastructure and maintain jump-point control near People's Service Stations for org logistics.",
+    "active",
+    "high",
+    "industry-47"
+  );
+  const steps = [
+    {
+      order: 1,
+      station: "Keeger Belt",
+      target: "QV Breaker primary",
+      requirements: "Mining / security division",
+      description: "Establish presence at assigned QV Breaker. Validate contract type (exclusive vs shared) and set ROE for neutral miners.",
+      map: null as string | null,
+    },
+    {
+      order: 2,
+      station: "Keeger Belt",
+      target: "Breaker board control",
+      requirements: "Logistics uplink",
+      description: "Monitor contract rotation; relay exclusive-window timing to fleet C2.",
+      map: null,
+    },
+    {
+      order: 3,
+      station: "Nyx",
+      target: "PSS approach lanes",
+      requirements: "CAP / escort",
+      description: "Hold jump-point approaches to People's Service Stations; prioritize tanker and medevac traffic.",
+      map: null,
+    },
+    {
+      order: 4,
+      station: "Nyx",
+      target: "Restock integrity",
+      requirements: "Quartermaster",
+      description: "Confirm rearm / refuel stock at PSS before long pushes into lawless space.",
+      map: null,
+    },
+  ];
+  const insert = db.prepare(
+    "INSERT INTO operation_steps (operation_id, step_order, station, target, requirements, description, map_url) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  );
+  for (const s of steps) {
+    insert.run(opId, s.order, s.station, s.target, s.requirements, s.description, s.map);
   }
 }
 
@@ -1152,13 +1343,24 @@ export interface HangarAsset {
   requirementCount: number;
   sortOrder: number;
   categoryId: string;
+  unlockCallout: string | null;
 }
 
 export function getAllHangarAssets(): HangarAsset[] {
-  const rows = getDb().prepare("SELECT id, name, description, ship_class, requirement_tag, COALESCE(requirement_count, 2) as requirement_count, sort_order, COALESCE(category_id, 'cat-executive') as category_id FROM hangar_assets ORDER BY sort_order, id").all() as {
-    id: string; name: string; description: string; ship_class: string; requirement_tag: string; requirement_count: number; sort_order: number; category_id: string;
+  const rows = getDb().prepare("SELECT id, name, description, ship_class, requirement_tag, COALESCE(requirement_count, 2) as requirement_count, sort_order, COALESCE(category_id, 'cat-executive') as category_id, unlock_callout FROM hangar_assets ORDER BY sort_order, id").all() as {
+    id: string; name: string; description: string; ship_class: string; requirement_tag: string; requirement_count: number; sort_order: number; category_id: string; unlock_callout: string | null;
   }[];
-  return rows.map((r) => ({ id: r.id, name: r.name, description: r.description, shipClass: r.ship_class, requirementTag: r.requirement_tag, requirementCount: r.requirement_count, sortOrder: r.sort_order, categoryId: r.category_id }));
+  return rows.map((r) => ({
+    id: r.id,
+    name: r.name,
+    description: r.description,
+    shipClass: r.ship_class,
+    requirementTag: r.requirement_tag,
+    requirementCount: r.requirement_count,
+    sortOrder: r.sort_order,
+    categoryId: r.category_id,
+    unlockCallout: r.unlock_callout ?? null,
+  }));
 }
 
 export function addHangarAsset(name: string, description: string, shipClass: string, requirementTag: string, categoryId: string, requirementCount: number = 2): HangarAsset {
@@ -1487,4 +1689,97 @@ export function updateRaffle(id: string, meritTag?: string, assetIds?: string[])
 export function deleteRaffle(id: string): boolean {
   const result = getDb().prepare("DELETE FROM raffles WHERE id = ?").run(id);
   return result.changes > 0;
+}
+
+// --- Blueprint catalog & org unlocks ---
+
+export interface BlueprintCatalogEntry {
+  id: string;
+  name: string;
+  contractLocation: string;
+  farmNotes: string;
+  materials: string[];
+  usageNotes: string;
+  sortOrder: number;
+}
+
+export interface BlueprintHolder {
+  username: string;
+  unlockedAt: string;
+}
+
+export function getBlueprintCatalog(): BlueprintCatalogEntry[] {
+  const rows = getDb()
+    .prepare(
+      "SELECT id, name, contract_location, farm_notes, materials_json, usage_notes, sort_order FROM blueprint_catalog ORDER BY sort_order, name"
+    )
+    .all() as {
+      id: string;
+      name: string;
+      contract_location: string;
+      farm_notes: string;
+      materials_json: string;
+      usage_notes: string;
+      sort_order: number;
+    }[];
+  return rows.map((r) => ({
+    id: r.id,
+    name: r.name,
+    contractLocation: r.contract_location,
+    farmNotes: r.farm_notes,
+    materials: safeParseMaterials(r.materials_json),
+    usageNotes: r.usage_notes,
+    sortOrder: r.sort_order,
+  }));
+}
+
+function safeParseMaterials(json: string): string[] {
+  try {
+    const p = JSON.parse(json) as unknown;
+    return Array.isArray(p) ? p.filter((x): x is string => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+export function getBlueprintIdsForUser(userId: number): Set<string> {
+  const rows = getDb()
+    .prepare("SELECT blueprint_id FROM org_blueprints WHERE user_id = ?")
+    .all(userId) as { blueprint_id: string }[];
+  return new Set(rows.map((r) => r.blueprint_id));
+}
+
+export function setUserBlueprintUnlocked(userId: number, blueprintId: string, unlocked: boolean): boolean {
+  const db = getDb();
+  const cat = db.prepare("SELECT id FROM blueprint_catalog WHERE id = ?").get(blueprintId);
+  if (!cat) return false;
+  if (unlocked) {
+    db.prepare(
+      "INSERT INTO org_blueprints (user_id, blueprint_id, unlocked_at) VALUES (?, ?, datetime('now')) ON CONFLICT(user_id, blueprint_id) DO UPDATE SET unlocked_at = excluded.unlocked_at"
+    ).run(userId, blueprintId);
+  } else {
+    db.prepare("DELETE FROM org_blueprints WHERE user_id = ? AND blueprint_id = ?").run(userId, blueprintId);
+  }
+  return true;
+}
+
+export function getBlueprintRoster(): { blueprintId: string; holders: BlueprintHolder[] }[] {
+  const db = getDb();
+  const ids = db.prepare("SELECT id FROM blueprint_catalog ORDER BY sort_order, name").all() as { id: string }[];
+  const q = db.prepare(
+    `SELECT ob.blueprint_id, u.username, ob.unlocked_at
+     FROM org_blueprints ob
+     JOIN users u ON u.id = ob.user_id
+     ORDER BY ob.blueprint_id, LOWER(u.username)`
+  );
+  const rows = q.all() as { blueprint_id: string; username: string; unlocked_at: string }[];
+  const byBp = new Map<string, BlueprintHolder[]>();
+  for (const r of rows) {
+    if (!byBp.has(r.blueprint_id)) byBp.set(r.blueprint_id, []);
+    byBp.get(r.blueprint_id)!.push({ username: r.username, unlockedAt: r.unlocked_at });
+  }
+  return ids.map((i) => ({
+    blueprintId: i.id,
+    holders: byBp.get(i.id) ?? [],
+  }));
 }

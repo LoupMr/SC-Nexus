@@ -17,12 +17,18 @@ const OUT_FILE = path.join(APP_ROOT, "src", "lib", "database-data.generated.ts")
 
 const EXCLUDED = ["ledger.json", "Locations", "Ops"];
 const CATEGORY_LABELS = {
+  Vehicles: "Ships & Vehicles",
   Vehicle_Weaponry: "Ship Weapons",
   Vehicle_Components: "Ship Components",
   Fpsgadgets_Utilities: "FPS Gadgets & Utilities",
+  Personal_Armor: "Personal Armor",
+  Weapon_Attachments: "Weapon Attachments",
   Other: "Miscellaneous",
 };
 const FILENAME_TO_SUBCATEGORY = {
+  SHIPS_AND_VEHICLES: { id: "ShipsVehicles", label: "Ships & Vehicles" },
+  PERSONAL_ARMOR: { id: "PersonalArmor", label: "Personal Armor" },
+  WEAPON_ATTACHMENTS: { id: "WeaponAttachments", label: "Weapon Attachments" },
   WEAPONS: { id: "Weapons", label: "Weapons" },
   MISSILES: { id: "Missiles", label: "Missiles" },
   MISSILERACKS: { id: "MissileRacks", label: "Missile Racks" },
@@ -36,10 +42,24 @@ const FILENAME_TO_SUBCATEGORY = {
   JUMPDRIVES: { id: "JumpDrives", label: "Jump Drives" },
   FLIGHTBLADES: { id: "FlightBlades", label: "Flight Blades" },
   LIFESUPPORTGENERATORS: { id: "LifeSupport", label: "Life Support" },
+  RADARS: { id: "Radars", label: "Radars" },
+  TRACTORBEAMS: { id: "TractorBeams", label: "Tractor Beams" },
+  SELFDESTRUCTS: { id: "SelfDestructs", label: "Self Destructs" },
+  EMPS: { id: "ShipEMP", label: "Ship EMP" },
+  SALVAGEMODIFIERS: { id: "SalvageModifiers", label: "Salvage Modifiers" },
+  QUANTUMINTERDICTIONGENERATORS: {
+    id: "QuantumInterdictionGenerators",
+    label: "Quantum Interdiction",
+  },
+  WEAPONDEFENSIVE: { id: "WeaponDefensive", label: "Weapon Defensive" },
+  WEAPONMINING: { id: "WeaponMining", label: "Weapon Mining" },
+  MININGMODIFIERS: { id: "MiningModifiers", label: "Mining Modifiers" },
   TOOLS: { id: "Tools", label: "Tools" },
   TOOLATTACHMENTS: { id: "ToolAttachments", label: "Tool Attachments" },
   HACKINGCHIPS: { id: "HackingChips", label: "Hacking Chips" },
   MISCELLANOUS: { id: "Miscellaneous", label: "Miscellaneous" },
+  FPS_WEAPONS: { id: "FPSWeapons", label: "FPS Weapons" },
+  COMBAT_ARMOR: { id: "CombatArmor", label: "Combat Armor" },
 };
 
 function isExcluded(relPath) {
@@ -83,10 +103,19 @@ if (fs.existsSync(DATABASE_SOURCE)) {
     const destFolder = path.join(DATA_DIR, folder);
     if (fs.existsSync(srcFolder)) {
       fs.mkdirSync(destFolder, { recursive: true });
+      const expectedDestNames = new Set();
       for (const f of fs.readdirSync(srcFolder)) {
         if (f.endsWith(".json") || f.endsWith(".JSON")) {
           const destName = f.endsWith(".JSON") ? f.slice(0, -5) + ".json" : f;
+          expectedDestNames.add(destName);
           fs.copyFileSync(path.join(srcFolder, f), path.join(destFolder, destName));
+        }
+      }
+      if (fs.existsSync(destFolder)) {
+        for (const f of fs.readdirSync(destFolder)) {
+          if (f.endsWith(".json") && !expectedDestNames.has(f)) {
+            fs.unlinkSync(path.join(destFolder, f));
+          }
         }
       }
     }
@@ -121,7 +150,7 @@ entries.forEach((e, i) => {
 out += "\n";
 
 out += `export const categories = [
-  { id: "all", label: "All Items" },
+  { id: "all", label: "Everything" },
   ${categoryLabels.map((c) => `{ id: "${c.id}", label: "${c.label}" }`).join(",\n  ")}
 ] as const;
 

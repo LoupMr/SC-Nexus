@@ -1,0 +1,122 @@
+[
+    {
+        "Name": "Durus Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 84000
+    },
+    {
+        "Name": "SureGrip HV-S1 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 84000
+    },
+    {
+        "Name": "SureGrip HV-S2 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 2,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 252000
+    },
+    {
+        "Name": "SureGrip PR-S1 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 84000
+    },
+    {
+        "Name": "SureGrip PR-S2 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 2,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 252000
+    },
+    {
+        "Name": "SureGrip S1 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 84000
+    },
+    {
+        "Name": "SureGrip S2 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 2,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 252000
+    },
+    {
+        "Name": "SureGrip TH1 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 84000
+    },
+    {
+        "Name": "SureGrip TH2 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 2,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 252000
+    },
+    {
+        "Name": "SureGrip TH4 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 4,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 2100000
+    },
+    {
+        "Name": "ViseLock S1 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 84000
+    },
+    {
+        "Name": "ViseLock S2 Tractor Beam",
+        "Type": "TractorBeam",
+        "Size": 2,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": 1050,
+        "Volume": 252000
+    }
+]

@@ -1,0 +1,232 @@
+[
+    {
+        "Name": "Arbor MH1 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 1
+    },
+    {
+        "Name": "Arbor MH1 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Arbor MH1 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Arbor MH1 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Arbor MH2 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Arbor MHV Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Arbor MHV Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Helix I Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Helix II Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Hofstede-S1 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Hofstede-S2 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Impact I Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Impact II Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Impact II Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Impact II Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Klein-S1 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Klein-S2 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Lancet MH1 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Lancet MH2 Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 2,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 252000
+    },
+    {
+        "Name": "Lawson Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "Pitman Mining Laser",
+        "Type": "WeaponMining",
+        "Size": 1,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "S0 Helix",
+        "Type": "WeaponMining",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    },
+    {
+        "Name": "S00 Hofstede",
+        "Type": "WeaponMining",
+        "Size": 0,
+        "Grade": "A",
+        "Class": null,
+        "Classification": "Ship.Mining.Gun",
+        "Durability": 8000,
+        "Volume": 84000
+    }
+]

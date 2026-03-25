@@ -1,0 +1,92 @@
+[
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "<= PLACEHOLDER =>",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "Abrade Scraper Module",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "Cinch Scraper Module",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "Cinch Scraper Module",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "Cinch Scraper Module",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "ReadyGrip Tractor Module",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "Tractor Beam Module",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    },
+    {
+        "Name": "Trawler Scraper Module",
+        "Type": "SalvageModifier",
+        "Size": 1,
+        "Grade": null,
+        "Class": null,
+        "Classification": null,
+        "Durability": null,
+        "Volume": 340
+    }
+]

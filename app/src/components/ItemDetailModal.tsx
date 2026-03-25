@@ -1,8 +1,12 @@
 "use client";
 
-import { X, BookOpen, Package } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useMemo, useEffect, useRef } from "react";
+import { X, BookOpen, Package, Rocket } from "lucide-react";
 import Portal from "@/components/Portal";
 import { getItemStats, getSubcategoryLabel, getCategoryLabel, DatabaseItem } from "@/lib/database";
+import { getShipsCompatibleWithItem } from "@/lib/ship-item-compat";
 
 interface LedgerEntry {
   id: string;
@@ -33,26 +37,42 @@ interface ItemDetailModalProps {
 
 export default function ItemDetailModal({ item, onClose, ledgerEntries = [], isLoggedIn = false }: ItemDetailModalProps) {
   const stats = getItemStats(item);
+  const compatibleShips = useMemo(() => getShipsCompatibleWithItem(item), [item]);
+  const showShipCompat =
+    item.category === "Vehicle_Weaponry" || item.category === "Vehicle_Components";
   const totalInLedger = ledgerEntries.reduce((sum, e) => sum + e.quantity, 0);
   const inLedger = ledgerEntries.length > 0;
+  const thumb = typeof item.ThumbUrl === "string" ? item.ThumbUrl : null;
+  const desc = typeof item.Description === "string" ? item.Description : null;
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKey);
+    dialogRef.current?.focus();
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [onClose]);
 
   return (
     <Portal>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === "Escape" && onClose()}
-        aria-modal="true"
-        aria-label="Close modal"
       >
         <div
-          className="glass-card rounded-2xl p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto border border-holo/20 shadow-xl"
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="item-detail-title"
+          tabIndex={-1}
+          className="glass-card rounded-2xl p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto border border-holo/20 shadow-xl focus:outline-none"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-xl font-semibold text-space-200 flex items-center gap-2">
+            <h2 id="item-detail-title" className="text-xl font-semibold text-space-200 flex items-center gap-2">
               <Package className="w-5 h-5 text-holo" /> Item details
             </h2>
             <button
@@ -74,6 +94,19 @@ export default function ItemDetailModal({ item, onClose, ledgerEntries = [], isL
                 {getCategoryLabel(item.category)}
               </span>
             </div>
+            {thumb ? (
+              <div className="relative w-full h-40 mt-3 rounded-lg border border-glass-border bg-space-900/50 overflow-hidden">
+                <Image
+                  src={thumb}
+                  alt=""
+                  fill
+                  className="object-contain p-2"
+                  sizes="280px"
+                  unoptimized={thumb.startsWith("data:")}
+                />
+              </div>
+            ) : null}
+            {desc ? <p className="text-xs text-space-500 mt-3 leading-relaxed">{desc}</p> : null}
           </div>
 
           {/* Ledger status */}
@@ -106,6 +139,41 @@ export default function ItemDetailModal({ item, onClose, ledgerEntries = [], isL
               </p>
             )}
           </div>
+
+          {showShipCompat ? (
+            <div className="rounded-xl p-4 mb-4 border border-glass-border bg-space-900/40">
+              <div className="flex items-center gap-2 mb-2">
+                <Rocket className="w-4 h-4 text-holo shrink-0" />
+                <span className="text-sm font-medium text-space-300">Ship matrix compatibility</span>
+              </div>
+              {compatibleShips.length === 0 ? (
+                <p className="text-xs text-space-500 leading-relaxed">
+                  No ships list a matching hardpoint (same component type and size) in FleetYards data.
+                </p>
+              ) : (
+                <>
+                  <p className="text-xs text-space-600 mb-2">
+                    Ships with at least one slot that fits this item:
+                  </p>
+                  <ul className="max-h-44 overflow-y-auto space-y-1.5 pr-1 text-sm">
+                    {compatibleShips.map((s) => (
+                      <li key={s.slug} className="text-space-300">
+                        <Link
+                          href={`/ships?ship=${encodeURIComponent(s.slug)}`}
+                          className="text-holo hover:underline font-medium"
+                        >
+                          {s.name}
+                        </Link>
+                        {s.manufacturer ? (
+                          <span className="text-xs text-space-500 ml-1.5">· {s.manufacturer}</span>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          ) : null}
 
           {/* Full stats */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">

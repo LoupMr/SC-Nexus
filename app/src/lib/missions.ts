@@ -96,9 +96,64 @@ export type MissionTableRow = {
 
 export type ResolvedBlueprintPool = {
   poolLabel: string;
+  /** Original SCMDb id string when it differs from the readable title */
+  poolLabelRaw?: string;
   chance: number;
   itemNames: string[];
 };
+
+const BLUEPRINT_POOL_UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+/**
+ * Turn internal SCMDb pool ids (e.g. BP_MISSIONREWARD_HeadHunters_MercenaryFPS_…) into readable titles.
+ */
+export function humanizeBlueprintPoolName(raw: string): string {
+  if (!raw?.trim()) return "Reward pool";
+  const t = raw.trim();
+  if (BLUEPRINT_POOL_UUID_RE.test(t)) {
+    return `Reward pool (${t.slice(0, 8)}…)`;
+  }
+  let s = t
+    .replace(/^BP_MISSIONREWARD_/i, "")
+    .replace(/^MISSIONREWARD_/i, "")
+    .replace(/^BP_/i, "");
+  s = s.replace(/_/g, " ");
+  s = s.replace(/([a-z\d])([A-Z])/g, "$1 $2");
+  s = s.replace(/([A-Z]+)([A-Z][a-z])/g, "$1 $2");
+  s = s.replace(/\s+/g, " ").trim();
+  if (!s) return "Reward pool";
+  return titleCaseBlueprintPoolWords(s);
+}
+
+function titleCaseBlueprintPoolWords(s: string): string {
+  const upperWords = new Set([
+    "fps",
+    "lmg",
+    "smg",
+    "pvp",
+    "pve",
+    "uec",
+    "qt",
+    "cpu",
+    "all",
+  ]);
+  return s
+    .split(" ")
+    .filter(Boolean)
+    .map((w) => {
+      const low = w.toLowerCase();
+      if (upperWords.has(low)) return low.toUpperCase();
+      if (/^[a-z0-9]+$/i.test(w) && /[0-9]/.test(w)) return w.toUpperCase();
+      if (w.length <= 2 && /^[A-Z]+$/i.test(w)) return w.toUpperCase();
+      return low.charAt(0).toUpperCase() + low.slice(1);
+    })
+    .join(" ");
+}
+
+/** Shown where recipe data is not in SCMDb — crafting happens in-game at fabricators. */
+export const BLUEPRINT_INGAME_CRAFT_SUMMARY =
+  "Material recipes are not in this dataset. In-game: take the blueprint print to a compatible industry fabricator, select it from your inventory, and the fabricator UI lists required refined materials and quantities. After manufacturing, equip FPS items at a loadout manager; install ship components while docked.";
 
 export function resolveContractBlueprints(
   contract: ScmdbContract,
@@ -108,12 +163,15 @@ export function resolveContractBlueprints(
   const refs = contract.blueprintRewards ?? [];
   return refs.map((r) => {
     const pool = r.blueprintPool ? pools[r.blueprintPool] : undefined;
-    const poolLabel =
-      r.poolName || pool?.name || r.blueprintPool || "Unknown pool";
+    const rawLabel = String(
+      r.poolName || pool?.name || r.blueprintPool || "Unknown pool"
+    ).trim();
+    const poolLabel = humanizeBlueprintPoolName(rawLabel);
+    const poolLabelRaw = poolLabel === rawLabel ? undefined : rawLabel;
     const itemNames = (pool?.blueprints ?? [])
       .map((b) => b.name)
       .filter((n): n is string => typeof n === "string" && n.length > 0);
-    return { poolLabel, chance: r.chance ?? 1, itemNames };
+    return { poolLabel, poolLabelRaw, chance: r.chance ?? 1, itemNames };
   });
 }
 
@@ -281,6 +339,112 @@ export function payloadToTableRows(data: ScmdbMissionPayload): MissionTableRow[]
     if (r) rows.push(r);
   }
   return rows;
+}
+
+// ---------------------------------------------------------------------------
+// Blueprint catalog extraction — used by the /blueprints page
+// ---------------------------------------------------------------------------
+
+export type BlueprintDropSource = {
+  contractId: string;
+  contractTitle: string;
+  missionType: string;
+  faction: string;
+  system: string;
+  chance: number;
+  legal: boolean;
+};
+
+export type BlueprintCatalogItem = {
+  name: string;
+  weight: number;
+  poolId: string;
+  /** Readable pool title (humanized from BP_MISSIONREWARD_… ids) */
+  poolName: string;
+  /** Original pool name from JSON when different from poolName */
+  poolNameRaw?: string;
+  dropSources: BlueprintDropSource[];
+};
+
+export type BlueprintPoolView = {
+  poolId: string;
+  poolName: string;
+  poolNameRaw?: string;
+  items: Array<{ name: string; weight: number }>;
+  dropSources: BlueprintDropSource[];
+};
+
+export function extractBlueprintPools(data: ScmdbMissionPayload): BlueprintPoolView[] {
+  const pools = data.blueprintPools ?? {};
+  const factions = data.factions ?? {};
+  const locPools = data.locationPools ?? {};
+
+  const poolDrops = new Map<string, BlueprintDropSource[]>();
+  for (const c of [...(data.contracts ?? []), ...(data.legacyContracts ?? [])]) {
+    for (const ref of c.blueprintRewards ?? []) {
+      if (!ref.blueprintPool) continue;
+      const fGuid = c.factionGuid;
+      const systems = getSystems(c, locPools);
+      const src: BlueprintDropSource = {
+        contractId: c.id ?? "",
+        contractTitle: c.title ?? "—",
+        missionType: c.missionType ?? "—",
+        faction: (fGuid && factions[fGuid]?.name) || "—",
+        system: systems.length ? systems.join(", ") : "—",
+        chance: ref.chance ?? 1,
+        legal: !c.illegal,
+      };
+      if (!poolDrops.has(ref.blueprintPool)) poolDrops.set(ref.blueprintPool, []);
+      poolDrops.get(ref.blueprintPool)!.push(src);
+    }
+  }
+
+  return Object.entries(pools)
+    .map(([poolId, pool]) => {
+      const rawName = (pool.name ?? poolId).trim();
+      const poolName = humanizeBlueprintPoolName(rawName);
+      const poolNameRaw = poolName === rawName ? undefined : rawName;
+      return {
+        poolId,
+        poolName,
+        poolNameRaw,
+        items: (pool.blueprints ?? [])
+          .filter((b) => typeof b.name === "string" && b.name.length > 0)
+          .map((b) => ({ name: b.name!, weight: b.weight ?? 1 })),
+        dropSources: poolDrops.get(poolId) ?? [],
+      };
+    })
+    .sort((a, b) => a.poolName.localeCompare(b.poolName));
+}
+
+export function extractBlueprintItems(data: ScmdbMissionPayload): BlueprintCatalogItem[] {
+  const poolViews = extractBlueprintPools(data);
+  const items: BlueprintCatalogItem[] = [];
+  for (const pv of poolViews) {
+    if (pv.items.length === 0) {
+      items.push({
+        name: pv.poolName,
+        weight: 1,
+        poolId: pv.poolId,
+        poolName: pv.poolName,
+        poolNameRaw: pv.poolNameRaw,
+        dropSources: pv.dropSources,
+      });
+      continue;
+    }
+    for (const it of pv.items) {
+      items.push({
+        name: it.name,
+        weight: it.weight,
+        poolId: pv.poolId,
+        poolName: pv.poolName,
+        poolNameRaw: pv.poolNameRaw,
+        dropSources: pv.dropSources,
+      });
+    }
+  }
+  items.sort((a, b) => a.name.localeCompare(b.name));
+  return items;
 }
 
 /** Plain-text preview of description (strip SCMDb EM4 markers). */

@@ -159,3 +159,30 @@ export function getCategoryLabel(id: string): string {
   const cat = categories.find((c) => c.id === id);
   return cat?.label ?? id;
 }
+
+function normalizeCatalogItemName(name: string): string {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/\u201c|\u201d/g, '"')
+    .replace(/\u2018|\u2019/g, "'");
+}
+
+let _catalogByNormalizedName: Map<string, DatabaseItem> | null = null;
+
+function getCatalogByNormalizedName(): Map<string, DatabaseItem> {
+  if (!_catalogByNormalizedName) {
+    _catalogByNormalizedName = new Map();
+    for (const it of getCatalogItems()) {
+      _catalogByNormalizedName.set(normalizeCatalogItemName(it.Name), it);
+    }
+  }
+  return _catalogByNormalizedName;
+}
+
+/** Exact name match against the org Armory JSON catalog (FPS gear, components, etc.). */
+export function findCatalogItemByName(name: string): DatabaseItem | undefined {
+  const k = normalizeCatalogItemName(name);
+  if (!k) return undefined;
+  return getCatalogByNormalizedName().get(k);
+}

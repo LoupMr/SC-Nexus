@@ -1,0 +1,5 @@
+# Prevent host node_modules (Windows binaries) from overwriting container build
+**/node_modules
+**/.next
+.git
+*.md

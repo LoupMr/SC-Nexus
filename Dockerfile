@@ -1,13 +1,13 @@
 # Build from repo root so Database/ is available for generate-database.mjs
 # Use Debian slim (not Alpine) - better-sqlite3 native module has better compatibility
-FROM node:20-slim AS base
+FROM --platform=linux/amd64 node:20-slim AS base
 
 FROM base AS deps
 RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY app/package.json app/package-lock.json ./
-RUN npm ci
+RUN npm ci && npm rebuild better-sqlite3
 
 FROM base AS builder
 WORKDIR /app

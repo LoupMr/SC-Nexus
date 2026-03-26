@@ -7,13 +7,18 @@ import { X, ExternalLink } from "lucide-react";
 import Portal from "@/components/Portal";
 import type { ShipRecord } from "@/lib/ships";
 import { armoryPathForHardpoint } from "@/lib/ships";
+import type { ShipAcquisition } from "@/lib/ship-ownership";
 
 export default function ShipDetailModal({
   ship,
   onClose,
+  acquisition,
+  onAcquisitionChange,
 }: {
   ship: ShipRecord;
   onClose: () => void;
+  acquisition: ShipAcquisition | "";
+  onAcquisitionChange: (slug: string, value: ShipAcquisition | null) => void;
 }) {
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -68,6 +73,31 @@ export default function ShipDetailModal({
                 />
               ) : null}
             </div>
+            <div className="chamfer-md border border-glass-border bg-space-900/40 p-3 space-y-2">
+              <h3 className="text-[10px] font-semibold text-space-500 uppercase tracking-wider mobiglas-label">
+                My hangar
+              </h3>
+              <p className="text-[11px] text-space-600 leading-relaxed">
+                Mark whether you own this hull from a pledge or an in-game purchase. Stored only on this device.
+              </p>
+              <label htmlFor="ship-detail-hangar" className="sr-only">
+                Hangar status
+              </label>
+              <select
+                id="ship-detail-hangar"
+                value={acquisition}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  onAcquisitionChange(ship.slug, v === "" ? null : (v as ShipAcquisition));
+                }}
+                className="w-full chamfer-sm bg-space-900/80 border border-glass-border text-sm text-space-200 py-2.5 px-3 mobiglas-label focus:outline-none focus:border-holo/40 focus:ring-1 focus:ring-holo/20"
+              >
+                <option value="">Not in my hangar</option>
+                <option value="pledge">I own — pledged / gift / CCU</option>
+                <option value="ingame">I own — bought in-game (aUEC)</option>
+              </select>
+            </div>
+
             <div className="text-sm text-space-400 space-y-1">
               <p>
                 <span className="text-space-600">Manufacturer:</span> {ship.manufacturer || "—"}

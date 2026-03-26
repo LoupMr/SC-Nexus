@@ -101,6 +101,11 @@ export const blueprintUnlockSchema = z.object({
   unlocked: z.boolean(),
 });
 
+export const shipHangarPutSchema = z.object({
+  shipSlug: z.string().min(1, "Ship slug required"),
+  acquisition: z.enum(["pledge", "ingame"]).nullable(),
+});
+
 // Guides
 export const guideCreateSchema = z.object({
   title: z.string().min(1, "Title required").transform((s) => s.trim()),

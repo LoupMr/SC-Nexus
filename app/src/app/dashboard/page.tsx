@@ -146,7 +146,7 @@ export default function DashboardPage() {
               <Link href="/guide" className="text-holo hover:underline">
                 guides
               </Link>{" "}
-              for Keeger, Nyx, and combat loadout notes. Use the{" "}
+              for Nyx, and combat loadout notes. Use the{" "}
               <Link href="/ships" className="text-holo hover:underline">
                 Ship Matrix
               </Link>{" "}

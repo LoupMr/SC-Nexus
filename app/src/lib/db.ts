@@ -180,6 +180,14 @@ function initSchema(db: Database.Database) {
       unlocked_at TEXT DEFAULT (datetime('now')),
       PRIMARY KEY (user_id, blueprint_id)
     );
+
+    CREATE TABLE IF NOT EXISTS member_ship_hangar (
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      ship_slug TEXT NOT NULL,
+      acquisition TEXT NOT NULL CHECK (acquisition IN ('pledge','ingame')),
+      updated_at TEXT DEFAULT (datetime('now')),
+      PRIMARY KEY (user_id, ship_slug)
+    );
   `);
 
   try { db.exec("ALTER TABLE operations ADD COLUMN merit_tag TEXT NOT NULL DEFAULT ''"); } catch {}
@@ -1782,4 +1790,62 @@ export function getBlueprintRoster(): { blueprintId: string; holders: BlueprintH
     blueprintId: i.id,
     holders: byBp.get(i.id) ?? [],
   }));
+}
+
+// --- Member ship hangar (pledge vs in-game) — visible org-wide ---
+
+export type ShipHangarAcquisition = "pledge" | "ingame";
+
+export interface MemberShipHangarRow {
+  shipSlug: string;
+  acquisition: ShipHangarAcquisition;
+  updatedAt: string;
+}
+
+export function getMemberShipHangarForUser(userId: number): MemberShipHangarRow[] {
+  const rows = getDb()
+    .prepare(
+      "SELECT ship_slug as shipSlug, acquisition, updated_at as updatedAt FROM member_ship_hangar WHERE user_id = ? ORDER BY ship_slug"
+    )
+    .all(userId) as { shipSlug: string; acquisition: ShipHangarAcquisition; updatedAt: string }[];
+  return rows;
+}
+
+export function setMemberShipHangar(
+  userId: number,
+  shipSlug: string,
+  acquisition: ShipHangarAcquisition | null
+): void {
+  const db = getDb();
+  const slug = shipSlug.trim();
+  if (!slug) return;
+  if (acquisition === null) {
+    db.prepare("DELETE FROM member_ship_hangar WHERE user_id = ? AND ship_slug = ?").run(userId, slug);
+    return;
+  }
+  db.prepare(
+    `INSERT INTO member_ship_hangar (user_id, ship_slug, acquisition, updated_at)
+     VALUES (?, ?, ?, datetime('now'))
+     ON CONFLICT(user_id, ship_slug) DO UPDATE SET
+       acquisition = excluded.acquisition,
+       updated_at = excluded.updated_at`
+  ).run(userId, slug, acquisition);
+}
+
+export interface OrgFleetShipEntry {
+  username: string;
+  shipSlug: string;
+  acquisition: ShipHangarAcquisition;
+  updatedAt: string;
+}
+
+export function getOrgFleetShipHangar(): OrgFleetShipEntry[] {
+  return getDb()
+    .prepare(
+      `SELECT u.username as username, m.ship_slug as shipSlug, m.acquisition as acquisition, m.updated_at as updatedAt
+       FROM member_ship_hangar m
+       JOIN users u ON u.id = m.user_id
+       ORDER BY LOWER(u.username), m.ship_slug`
+    )
+    .all() as OrgFleetShipEntry[];
 }
